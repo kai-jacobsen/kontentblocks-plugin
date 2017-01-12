@@ -1,8 +1,0 @@
-{% extends Form.getLayout() %}
-{% block fieldmarkup %}
-    {% if (Field.getArg('callback', false) == false) %}
-        <p>No Callback specified</p>
-    {% else %}
-        {{ call_user_func( Field.getArg( 'callback' ), Field ) }}
-    {% endif %}
-{% endblock %}
