@@ -1,0 +1,20 @@
+{{ contexts.top.render() }}
+
+    {% if contexts.side.hasAreas() %}
+        <div class="kb-context-row grid">
+            {#<div data-kbcolname="Left" class="grid__col grid__col--4-of-12 kb-context-col">#}
+                {#{{ contexts.side2.render() }}#}
+            {#</div>#}
+            <div data-kbcolname="Normal" class="grid__col grid__col--6-of-12 kb-context-col">
+                {{ contexts.normal.render() }}
+            </div>
+            <div data-kbcolname="Side" class="grid__col grid__col--6-of-12 kb-context-col">
+                {{ contexts.side.render() }}
+            </div>
+        </div>
+    {% else %}
+        {{ contexts.normal.render() }}
+    {% endif %}
+
+
+{{ contexts.bottom.render() }}

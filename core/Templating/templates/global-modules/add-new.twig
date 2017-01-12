@@ -1,0 +1,41 @@
+<div class="postbox">
+    <h3>{{ strings.global.boxTitle }}</h3>
+
+    <div class="inside">
+        <div class="templates-add-new-form-wrapper">
+            <h3>{{ strings.global.headline }}</h3>
+
+            <p class="description">{{ strings.global.intro }}</p>
+
+            <div class="kb-menu-field-section">
+
+                <div class="kb-menu-field kb-menu-field-with-spinner">
+                    <label>{{ strings.global.moduleName }}</label>
+                    <input class="kb-change-observe"
+                           type="text"
+                           name="new-gmodule[name]"
+                           value="{{ data.name }}">
+                    <span class="spinner"></span>
+
+                </div>
+            </div>
+            <div class="kb-menu-field-section">
+                <div class="kb-menu-field-section_description">
+                    <p class="description">
+                        {{ strings.global.moduleType }}
+                    </p>
+                </div>
+                <div class="kb-menu-field-section_inputs">
+                    <div class="kb-menu-field">
+                        <select class="styled" name="new-gmodule[type]">
+                            {% for module in modules %}
+                                <option {{ module.selected }} value="{{ module.class }}">{{ module.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="_nonce" value="{{ nonce }}">
+        </div>
+    </div>
+</div>
