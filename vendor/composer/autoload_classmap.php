@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Detection\\MobileDetect' => $vendorDir . '/mobiledetect/mobiledetectlib/namespaced/Detection/MobileDetect.php',
+    'Kontentblocks\\Ajax\\AbstractAjaxAction' => $baseDir . '/core/Ajax/AbstractAjaxAction.php',
     'Kontentblocks\\Ajax\\AbstractAjaxResponse' => $baseDir . '/core/Ajax/AbstractAjaxResponse.php',
     'Kontentblocks\\Ajax\\Actions\\AfterAreaChange' => $baseDir . '/core/Ajax/Actions/AfterAreaChange.php',
     'Kontentblocks\\Ajax\\Actions\\BatchRemoveModules' => $baseDir . '/core/Ajax/Actions/BatchRemoveModules.php',

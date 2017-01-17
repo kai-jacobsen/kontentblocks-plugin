@@ -84,6 +84,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
 
     public static $classMap = array (
         'Detection\\MobileDetect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced/Detection/MobileDetect.php',
+        'Kontentblocks\\Ajax\\AbstractAjaxAction' => __DIR__ . '/../..' . '/core/Ajax/AbstractAjaxAction.php',
         'Kontentblocks\\Ajax\\AbstractAjaxResponse' => __DIR__ . '/../..' . '/core/Ajax/AbstractAjaxResponse.php',
         'Kontentblocks\\Ajax\\Actions\\AfterAreaChange' => __DIR__ . '/../..' . '/core/Ajax/Actions/AfterAreaChange.php',
         'Kontentblocks\\Ajax\\Actions\\BatchRemoveModules' => __DIR__ . '/../..' . '/core/Ajax/Actions/BatchRemoveModules.php',

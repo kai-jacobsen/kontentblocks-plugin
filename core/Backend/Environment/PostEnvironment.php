@@ -10,6 +10,7 @@ use Kontentblocks\Backend\Storage\ModuleStorage;
 use Kontentblocks\Backend\Environment\Save\SavePost;
 use Kontentblocks\Kontentblocks;
 use Kontentblocks\Modules\ModuleRepository;
+use Kontentblocks\Panels\PostPanel;
 use Kontentblocks\Panels\PostPanelRepository;
 
 
@@ -93,7 +94,7 @@ class PostEnvironment implements JsonSerializable
     /**
      * Class constructor
      *
-     * @param $storageId
+     * @param int $storageId
      * @param \WP_Post $postObj
      * @since 0.1.0
      */
@@ -153,7 +154,8 @@ class PostEnvironment implements JsonSerializable
         $areas = $this->findAreas();
         /** @var \Kontentblocks\Areas\AreaProperties $area */
         foreach ($areas as $area) {
-            $area->set('settings', new AreaSettingsModel($area, $this->postObj->ID, DataProviderService::getPostProvider($this->postObj->ID)));
+            $area->set('settings', new AreaSettingsModel($area,
+                DataProviderService::getPostProvider($this->postObj->ID)));
         }
         return $areas;
 
@@ -166,19 +168,14 @@ class PostEnvironment implements JsonSerializable
      */
     public function findAreas()
     {
+
+        if (is_array($this->areas)) {
+            return $this->areas;
+        }
+
         /** @var \Kontentblocks\Areas\AreaRegistry $areaRegistry */
         $areaRegistry = Kontentblocks::getService('registry.areas');
         return $areaRegistry->filterForPost($this);
-    }
-
-    /**
-     * returns the DataProvider instance
-     * @return DataProvider
-     * @since 0.1.0
-     */
-    public function getDataProvider()
-    {
-        return $this->storage->getDataProvider();
     }
 
     /**
@@ -193,10 +190,24 @@ class PostEnvironment implements JsonSerializable
         }
     }
 
-    public function getPanelObject($id)
+    /**
+     * returns the DataProvider instance
+     * @return DataProvider
+     * @since 0.1.0
+     */
+    public function getDataProvider()
     {
-        if (isset($this->panels[$id])) {
-            return $this->panels[$id];
+        return $this->storage->getDataProvider();
+    }
+
+    /**
+     * @param $panelId
+     * @return PostPanel|null
+     */
+    public function getPanelObject($panelId)
+    {
+        if (isset($this->panels[$panelId])) {
+            return $this->panels[$panelId];
         }
         return null;
     }
@@ -221,15 +232,6 @@ class PostEnvironment implements JsonSerializable
         return $this->postObj;
     }
 
-    /**
-     * Returns all modules set to this post
-     * @return array
-     * @since 0.1.0
-     */
-    public function getAllModules()
-    {
-        return $this->modules;
-    }
 
 
     /**
@@ -286,44 +288,6 @@ class PostEnvironment implements JsonSerializable
     }
 
     /**
-     * Get settings for given area
-     *
-     * @param string $id
-     *
-     * @return mixed
-     */
-    public function getAreaSettings($id)
-    {
-        $settings = $this->storage->getDataProvider()->get('kb_area_settings');
-        if (!empty($settings[$id])) {
-            return $settings[$id];
-        }
-        return false;
-    }
-
-    /**
-     * Wrapper to low level handler method
-     * returns instance data or an empty string
-     *
-     * @param string $id
-     *
-     * @return string
-     * @since 0.1.0
-     */
-    public function getModuleData($id)
-    {
-
-        $this->storage->reset();
-        $data = $this->storage->getModuleData($id);
-        if ($data !== null) {
-            return $data;
-        } else {
-            return array();
-        }
-
-    }
-
-    /**
      * Save callback handler
      * @return void
      * @since 0.1.0
@@ -332,6 +296,7 @@ class PostEnvironment implements JsonSerializable
     {
         $saveHandler = new SavePost($this);
         $saveHandler->save();
+
     }
 
     /**
@@ -363,7 +328,6 @@ class PostEnvironment implements JsonSerializable
     }
 
     /**
-     * @since 0.1.0
      */
     public function toJSON()
     {
