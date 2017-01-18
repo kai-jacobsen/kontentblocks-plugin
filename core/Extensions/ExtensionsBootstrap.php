@@ -9,15 +9,6 @@ if (current_theme_supports( 'kontentblocks:page-settings' )) {
     add_action( 'kb.init', array( '\Kontentblocks\Extensions\PageSettingsUI', 'init' ) );
 }
 
-if (current_theme_supports( 'kontentblocks:redirect-template' )) {
-    add_action(
-        'kb.init',
-        function () {
-            new TemplateRedirect();
-        }
-    );
-}
-
 if (current_theme_supports( 'kontentblocks:backups-ui' )) {
     add_action(
         'init',
@@ -32,15 +23,6 @@ if (current_theme_supports( 'kontentblocks:backups-ui' )) {
         }
     );
 }
-
-//if (current_theme_supports('kontentblocks:clipboard')) {
-//    add_action(
-//        'kb.init',
-//        function(){
-//            include_once ('Clipboard.php');
-//        }
-//    );
-//}
 
 
 if (current_theme_supports( 'kontentblocks.layouts' )) {
