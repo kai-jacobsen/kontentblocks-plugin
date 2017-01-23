@@ -2,17 +2,16 @@
 
 namespace Kontentblocks\Fields;
 
-use Kontentblocks\Panels\PostPanel;
+use Kontentblocks\Panels\TermPanel;
 
 /**
- * Class PostPanelFieldController
- * @package Kontentblocks\Fields
+ * Class TermPanelFieldController
  */
-class PostPanelFieldController extends StandardFieldController
+class TermPanelFieldController extends StandardFieldController
 {
 
     /**
-     * @var PostPanel
+     * @var TermPanel
      */
     public $entity;
 
@@ -21,14 +20,13 @@ class PostPanelFieldController extends StandardFieldController
      * or returns the section if exists
      * @param string $sectionId
      * @param array $args
-     * @param Kontentblocks\Modules\Module
      * @return object
      * @since 0.1.0
      */
     public function addSection($sectionId, $args = array())
     {
         if (!$this->idExists($sectionId)) {
-            $this->sections[$sectionId] = new PostPanelFieldSection(
+            $this->sections[$sectionId] = new TermPanelFieldSection(
                 $sectionId,
                 $args,
                 $this

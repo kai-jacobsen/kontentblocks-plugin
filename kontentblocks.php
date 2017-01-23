@@ -3,7 +3,7 @@
   Plugin Name: Kontentblocks
   Plugin URI: http://kontentblocks.de
   Description: Content modularization framework
-  Version: 0.8.13
+  Version: 0.8.14
   Author: Kai Jacobsen
   Author URI: https://github.com/kai-jacobsen/kontentblocks
   Text Domain: Kontentblocks
@@ -47,7 +47,7 @@ use Pimple;
 Class Kontentblocks
 {
 
-    const VERSION = '0.8.13';
+    const VERSION = '0.8.14';
     const DEVMODE = true;
     const TABLEVERSION = '1.0.13';
     const DEBUG = true;
@@ -276,7 +276,6 @@ Class Kontentblocks
             add_theme_support('kontentblocks');
             include_once(get_template_directory() . '/kontentblocks.php');
             _K::info('kontentblocks.php loaded from main theme');
-
         }
 
         if (is_child_theme() && file_exists(get_stylesheet_directory() . '/kontentblocks.php')) {
@@ -285,6 +284,7 @@ Class Kontentblocks
             _K::info('kontentblocks.php loaded from childtheme');
         }
 
+        do_action('kb.configphp.setup');
 
         if (current_theme_supports('kontentblocks')) {
             // Enqueues of front and backend scripts and styles is handled here
