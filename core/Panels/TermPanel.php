@@ -254,6 +254,9 @@ abstract class TermPanel extends AbstractPanel
         $this->save($postData);
     }
 
+    /**
+     * @return TermPanelContext
+     */
     public function getContext()
     {
         return $this->context;

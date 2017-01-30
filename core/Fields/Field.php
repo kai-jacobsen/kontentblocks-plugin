@@ -349,7 +349,7 @@ abstract class Field implements Exportable
         $state = 'frontend';
 
         if (defined('KB_MODULE_FORM') && KB_MODULE_FORM) {
-            $state = 'from';
+            $state = 'form';
         }
 
         if (is_null($this->uniqueId)) {
@@ -433,8 +433,6 @@ abstract class Field implements Exportable
      *
      * @param $baseId
      * @param string $subkey
-     *
-     * @since 0.1.0
      */
     public function setBaseId($baseId, $subkey = null)
     {
@@ -448,7 +446,6 @@ abstract class Field implements Exportable
     /**
      * get storage key
      * @return string
-     * @since 0.1.0
      */
     public function getKey()
     {
@@ -518,25 +515,21 @@ abstract class Field implements Exportable
     }
 
     /**
-     * @param $collection
+     * @param FieldExport $exporter
      */
-    public function export(&$collection)
+    public function export(FieldExport $exporter)
     {
-        $concatKey = ($this->getArg('arrayKey')) ? $this->getArg('arrayKey') . '.' . $this->getKey() : $this->getKey();
-
-        $notated = ($this->getArg('arrayKey')) ? '[' . $this->getArg('arrayKey') . '][' . $this->getKey() . ']' : $this->getKey();
-
-        $collection[$notated] = array(
+        $kpath = $this->createKPath();
+        $exporter->addField($kpath, array(
             'key' => $this->getKey(),
             'arrayKey' => $this->getArg('arrayKey'),
-            'arrayPath' => $concatKey,
-            'kpath' => $notated,
+            'kpath' => $kpath,
             'type' => $this->type,
             'std' => $this->getArg('std', ''),
             'args' => $this->cleanedArgs(),
             'section' => $this->section->sectionId,
             'data' => $this->getValue()
-        );
+        ));
     }
 
     /**
@@ -669,6 +662,11 @@ abstract class Field implements Exportable
         }
     }
 
+    /**
+     * @param $value
+     * @param $salt
+     * @return StandardFieldReturn
+     */
     protected function getStandardReturnObject($value, $salt)
     {
         return new StandardFieldReturn($value, $this, $salt);

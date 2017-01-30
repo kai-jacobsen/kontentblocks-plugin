@@ -216,6 +216,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Kontentblocks\\Fields\\Definitions\\Textarea' => __DIR__ . '/../..' . '/core/Fields/Definitions/Textarea.php',
         'Kontentblocks\\Fields\\Definitions\\TwigInclude' => __DIR__ . '/../..' . '/core/Fields/Definitions/TwigInclude.php',
         'Kontentblocks\\Fields\\Field' => __DIR__ . '/../..' . '/core/Fields/Field.php',
+        'Kontentblocks\\Fields\\FieldExport' => __DIR__ . '/../..' . '/core/Fields/FieldExport.php',
         'Kontentblocks\\Fields\\FieldFormRenderer' => __DIR__ . '/../..' . '/core/Fields/FieldFormRenderer.php',
         'Kontentblocks\\Fields\\FieldFormRendererPlain' => __DIR__ . '/../..' . '/core/Fields/FieldFormRendererPlain.php',
         'Kontentblocks\\Fields\\FieldFormRendererWP' => __DIR__ . '/../..' . '/core/Fields/FieldFormRendererWP.php',
