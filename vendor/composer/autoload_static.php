@@ -174,6 +174,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Kontentblocks\\Fields\\Definitions\\ChoseTaxonomy' => __DIR__ . '/../..' . '/core/Fields/Definitions/ChoseTaxonomy.php',
         'Kontentblocks\\Fields\\Definitions\\Color' => __DIR__ . '/../..' . '/core/Fields/Definitions/Color.php',
         'Kontentblocks\\Fields\\Definitions\\CropImage' => __DIR__ . '/../..' . '/core/Fields/Definitions/CropImage.php',
+        'Kontentblocks\\Fields\\Definitions\\DateMultiple' => __DIR__ . '/../..' . '/core/Fields/Definitions/DateMultiple.php',
         'Kontentblocks\\Fields\\Definitions\\DateTime' => __DIR__ . '/../..' . '/core/Fields/Definitions/DateTime.php',
         'Kontentblocks\\Fields\\Definitions\\Editor' => __DIR__ . '/../..' . '/core/Fields/Definitions/Editor.php',
         'Kontentblocks\\Fields\\Definitions\\File' => __DIR__ . '/../..' . '/core/Fields/Definitions/File.php',

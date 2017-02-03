@@ -97,6 +97,7 @@ return array(
     'Kontentblocks\\Fields\\Definitions\\ChoseTaxonomy' => $baseDir . '/core/Fields/Definitions/ChoseTaxonomy.php',
     'Kontentblocks\\Fields\\Definitions\\Color' => $baseDir . '/core/Fields/Definitions/Color.php',
     'Kontentblocks\\Fields\\Definitions\\CropImage' => $baseDir . '/core/Fields/Definitions/CropImage.php',
+    'Kontentblocks\\Fields\\Definitions\\DateMultiple' => $baseDir . '/core/Fields/Definitions/DateMultiple.php',
     'Kontentblocks\\Fields\\Definitions\\DateTime' => $baseDir . '/core/Fields/Definitions/DateTime.php',
     'Kontentblocks\\Fields\\Definitions\\Editor' => $baseDir . '/core/Fields/Definitions/Editor.php',
     'Kontentblocks\\Fields\\Definitions\\File' => $baseDir . '/core/Fields/Definitions/File.php',
