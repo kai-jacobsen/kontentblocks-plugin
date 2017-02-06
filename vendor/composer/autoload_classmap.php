@@ -195,6 +195,7 @@ return array(
     'Kontentblocks\\Modules\\ModuleViewFile' => $baseDir . '/core/Modules/ModuleViewFile.php',
     'Kontentblocks\\Modules\\ModuleViewFilesystem' => $baseDir . '/core/Modules/ModuleViewFilesystem.php',
     'Kontentblocks\\Modules\\ModuleViewLoader' => $baseDir . '/core/Modules/ModuleViewLoader.php',
+    'Kontentblocks\\Modules\\ModuleViewManager' => $baseDir . '/core/Modules/ModuleViewManager.php',
     'Kontentblocks\\Modules\\ModuleViewsMeta' => $baseDir . '/core/Modules/ModuleViewsMeta.php',
     'Kontentblocks\\Modules\\ModuleViewsRegistry' => $baseDir . '/core/Modules/ModuleViewsRegistry.php',
     'Kontentblocks\\Modules\\ModuleWorkshop' => $baseDir . '/core/Modules/ModuleWorkshop.php',

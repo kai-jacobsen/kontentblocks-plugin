@@ -272,6 +272,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Kontentblocks\\Modules\\ModuleViewFile' => __DIR__ . '/../..' . '/core/Modules/ModuleViewFile.php',
         'Kontentblocks\\Modules\\ModuleViewFilesystem' => __DIR__ . '/../..' . '/core/Modules/ModuleViewFilesystem.php',
         'Kontentblocks\\Modules\\ModuleViewLoader' => __DIR__ . '/../..' . '/core/Modules/ModuleViewLoader.php',
+        'Kontentblocks\\Modules\\ModuleViewManager' => __DIR__ . '/../..' . '/core/Modules/ModuleViewManager.php',
         'Kontentblocks\\Modules\\ModuleViewsMeta' => __DIR__ . '/../..' . '/core/Modules/ModuleViewsMeta.php',
         'Kontentblocks\\Modules\\ModuleViewsRegistry' => __DIR__ . '/../..' . '/core/Modules/ModuleViewsRegistry.php',
         'Kontentblocks\\Modules\\ModuleWorkshop' => __DIR__ . '/../..' . '/core/Modules/ModuleWorkshop.php',
