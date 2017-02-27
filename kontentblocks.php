@@ -3,7 +3,7 @@
   Plugin Name: Kontentblocks
   Plugin URI: https://github.com/kai-jacobsen/kontentblocks
   Description: Content modularization framework
-  Version: 0.8.34
+  Version: 0.8.35
   Author: Kai Jacobsen
   Author URI: https://github.com/kai-jacobsen/kontentblocks-plugin
   Text Domain: Kontentblocks
@@ -47,9 +47,9 @@ use Pimple;
 Class Kontentblocks
 {
 
-    const VERSION = '0.8.34';
+    const VERSION = '0.8.35';
     const DEVMODE = true;
-    const TABLEVERSION = '1.0.13';
+    const TABLEVERSION = '1.0.16';
     const DEBUG = true;
     const DEBUG_LOG = false;
     static $instance;
@@ -165,7 +165,7 @@ Class Kontentblocks
 
             $ajax = defined('DOING_AJAX') && DOING_AJAX;
             $logger = new Logger('kontentblocks');
-            if (Kontentblocks::DEBUG && is_user_logged_in() && apply_filters('kb.use.logger.console', true)) {
+            if (is_user_logged_in() && apply_filters('kb.use.logger.console', false)) {
                 if (!$ajax) {
                     $logger->pushHandler(new BrowserConsoleHandler());
                     $logger->addInfo(

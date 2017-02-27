@@ -151,6 +151,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Kontentblocks\\Backend\\Renderer\\AreaBackendRenderer' => __DIR__ . '/../..' . '/core/Backend/Renderer/AreaBackendRenderer.php',
         'Kontentblocks\\Backend\\Renderer\\DynamicAreaBackendRenderer' => __DIR__ . '/../..' . '/core/Backend/Renderer/DynamicAreaBackendRenderer.php',
         'Kontentblocks\\Backend\\Storage\\BackupDataStorage' => __DIR__ . '/../..' . '/core/Backend/Storage/BackupDataStorage.php',
+        'Kontentblocks\\Backend\\Storage\\BackupDataStorage2' => __DIR__ . '/../..' . '/core/Backend/Storage/BackupDataStorage2.php',
         'Kontentblocks\\Backend\\Storage\\ModuleStorage' => __DIR__ . '/../..' . '/core/Backend/Storage/ModuleStorage.php',
         'Kontentblocks\\Common\\Data\\EntityModel' => __DIR__ . '/../..' . '/core/Common/Data/EntityModel.php',
         'Kontentblocks\\Common\\Data\\ValueStorage' => __DIR__ . '/../..' . '/core/Common/Data/ValueStorage.php',

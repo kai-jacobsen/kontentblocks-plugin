@@ -74,6 +74,7 @@ return array(
     'Kontentblocks\\Backend\\Renderer\\AreaBackendRenderer' => $baseDir . '/core/Backend/Renderer/AreaBackendRenderer.php',
     'Kontentblocks\\Backend\\Renderer\\DynamicAreaBackendRenderer' => $baseDir . '/core/Backend/Renderer/DynamicAreaBackendRenderer.php',
     'Kontentblocks\\Backend\\Storage\\BackupDataStorage' => $baseDir . '/core/Backend/Storage/BackupDataStorage.php',
+    'Kontentblocks\\Backend\\Storage\\BackupDataStorage2' => $baseDir . '/core/Backend/Storage/BackupDataStorage2.php',
     'Kontentblocks\\Backend\\Storage\\ModuleStorage' => $baseDir . '/core/Backend/Storage/ModuleStorage.php',
     'Kontentblocks\\Common\\Data\\EntityModel' => $baseDir . '/core/Common/Data/EntityModel.php',
     'Kontentblocks\\Common\\Data\\ValueStorage' => $baseDir . '/core/Common/Data/ValueStorage.php',
