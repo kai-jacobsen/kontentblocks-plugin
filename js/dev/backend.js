@@ -1668,10 +1668,9 @@ module.exports = Backbone.View.extend({
           return state.text;
         }
         var desc = state.element.dataset.tpldesc;
-        var $state = jQuery(
+        return jQuery(
           '<span>' + state.text + '<br><span class="kb-tpl-desc">' + desc + '</span></span>'
         );
-        return $state;
       }
     });
   },
@@ -3002,6 +3001,7 @@ module.exports = Backbone.Model.extend({
     KB.FieldControls.remove(this);
   },
   rebind: function () {
+
     var that = this;
     _.defer(function () {
       if (_.isUndefined(that.getElement())) {
@@ -3467,7 +3467,7 @@ module.exports = BaseView.extend({
     this.$description.val(attachment.get('caption'));
     this.$title.val(attachment.get('title'));
     //KB.Events.trigger('modal.preview');
-    this.model.get('ModuleModel').trigger('data.updated');
+    this.model.get('ModuleModel').trigger('data.updated', {silent: true});
   },
   retrieveImage: function (args, id) {
     var that = this;
@@ -3717,6 +3717,8 @@ module.exports = BaseView.extend({
     this.FlexFieldsController.derender(); 
   },
   rerender: function () {
+    console.log('rerender',this);
+    console.trace();
     this.FlexFieldsController.derender();
     this.render();
   },
@@ -3810,6 +3812,9 @@ module.exports = Backbone.View.extend({
   },
   initialSetup: function () {
     var data;
+    console.log('initset');
+    console.trace();
+
     data = this.model.get('value'); // model equals FieldControlModel, value equals parent obj data for this field key
     if (!_.isEmpty(data)) {
       _.each(data, function (dataobj, index) {
@@ -4714,10 +4719,10 @@ module.exports = BaseView.extend({
       that.retrieveImage(args, id);
     }
     this.$saveId.val(attachment.get('id'));
-    this.$description.val(attachment.get('caption'));
-    this.$title.val(attachment.get('title'));
+    this.$description.val(value.caption);
+    this.$title.val(value.title);
     //KB.Events.trigger('modal.preview');
-    this.model.get('ModuleModel').trigger('data.updated');
+    this.model.get('ModuleModel').trigger('data.updated', {silent: true});
   },
   retrieveImage: function (args, id) {
     var that = this;
@@ -4742,12 +4747,12 @@ module.exports = BaseView.extend({
   prepareValue: function (attachment) {
     var newValue = {
       id: attachment.get('id'),
-      title: attachment.get('title'),
-      caption: attachment.get('caption'),
+      // title: attachment.get('title'),
+      // caption: attachment.get('caption'),
       alt: attachment.get('alt')
     };
     var oldValue = this.model.get('value');
-
+    console.log(oldValue, newValue);
     if (!_.isObject(oldValue)) {
       oldValue = {};
     }
