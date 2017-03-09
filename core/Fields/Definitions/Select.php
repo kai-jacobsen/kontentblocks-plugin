@@ -77,7 +77,7 @@ Class Select extends Field
             }
         }
 
-        if ($new) {
+        if (!$new) {
             return null;
         }
         return $new;
