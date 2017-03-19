@@ -3005,7 +3005,6 @@ module.exports = Backbone.Model.extend({
     KB.FieldControls.remove(this);
   },
   rebind: function () {
-
     var that = this;
     _.defer(function () {
       if (_.isUndefined(that.getElement())) {
@@ -4371,6 +4370,7 @@ module.exports = Backbone.View.extend({
     this.subviews = {}; // image items
     this.ids = [];
     Logger.Debug.log('Fields: Gallery instance created and initialized');
+
     this.renderElements();
     this.initialSetup();
 
@@ -4384,7 +4384,7 @@ module.exports = Backbone.View.extend({
   events: {
     'click .kb-gallery2--js-add-images': 'addImages'
   },
-  derender: function(){
+  derender: function () {
 
   },
   renderElements: function () {
@@ -4393,7 +4393,7 @@ module.exports = Backbone.View.extend({
     // add button dynamically
     jQuery('<a class="button button-primary kb-gallery2--js-add-images">' + KB.i18n.Refields.image.addButton + '</a>').appendTo(this.$el);
   },
-  setupElements: function(){
+  setupElements: function () {
     this.$list = this.$('.kb-gallery2--item-list');
     this.$list.sortable({revert: true, delay: 300, stop: _.bind(this.resortSelection, this)});
   },
@@ -4431,6 +4431,10 @@ module.exports = Backbone.View.extend({
 
     this._frame.options.selection.on('add', function (model) {
       that.add(model);
+    });
+
+    this._frame.on('ready', function (model) {
+      jQuery('.media-modal').addClass('kb-gallery-frame');
     });
 
     this._frame.options.selection.on('remove', function (model) {
@@ -4515,11 +4519,11 @@ module.exports = Backbone.View.extend({
   },
   resortToSelection: function () {
     var ids = _.pluck(this.selection.models, 'id');
-    _.each(this.subviews, function(view){
-        view.$el.detach();
-    },this);
+    _.each(this.subviews, function (view) {
+      view.$el.detach();
+    }, this);
 
-    _.each(ids, function(imgId){
+    _.each(ids, function (imgId) {
       var view = this.subviews[imgId];
       view.$el.appendTo(this.$list);
     }, this);
@@ -6376,7 +6380,6 @@ module.exports = Backbone.Collection.extend({
 //KB.Backbone.ModuleBrowserModuleDescription
 var tplModuleTemplateDescription = require('templates/backend/modulebrowser/module-template-description.hbs');
 var tplModuleDescription = require('templates/backend/modulebrowser/module-description.hbs');
-var tplModulePoster = require('templates/backend/modulebrowser/poster.hbs');
 module.exports = Backbone.View.extend({
   initialize: function (options) {
     this.options = options || {};
@@ -6394,9 +6397,7 @@ module.exports = Backbone.View.extend({
     } else {
       this.$el.html(tplModuleDescription({module: this.model.toJSON(), i18n: KB.i18n}));
     }
-    if (this.model.get('settings').poster !== false) {
-      this.$el.append(tplModulePoster({module: this.model.toJSON()}));
-    }
+
     if (this.model.get('settings').helptext !== false) {
       this.$el.append(this.model.get('settings').helptext);
     } 
@@ -6413,7 +6414,7 @@ module.exports = Backbone.View.extend({
   }
 });
 
-},{"templates/backend/modulebrowser/module-description.hbs":143,"templates/backend/modulebrowser/module-template-description.hbs":145,"templates/backend/modulebrowser/poster.hbs":147}],116:[function(require,module,exports){
+},{"templates/backend/modulebrowser/module-description.hbs":143,"templates/backend/modulebrowser/module-template-description.hbs":145}],116:[function(require,module,exports){
 //KB.Backbone.ModuleBrowserModulesList
 var ListItem = require('shared/ModuleBrowser/ModuleBrowserListItem');
 module.exports = Backbone.View.extend({
@@ -6457,6 +6458,8 @@ module.exports = Backbone.View.extend({
 //KB.Backbone.ModuleBrowserListItem
 var tplTemplateListItem = require('templates/backend/modulebrowser/module-template-list-item.hbs');
 var tplListItem = require('templates/backend/modulebrowser/module-list-item.hbs');
+var tplModulePoster = require('templates/backend/modulebrowser/poster.hbs');
+
 module.exports = Backbone.View.extend({
   tagName: 'div',
   className: 'modules-list-item',
@@ -6473,9 +6476,30 @@ module.exports = Backbone.View.extend({
     if (this.model.get('globalModule')) {
       this.$el.html(tplTemplateListItem({module: this.model.toJSON(), i18n: KB.i18n}));
     } else {
-      this.$el.html(tplListItem({module: this.model.toJSON(),i18n: KB.i18n}));
+      this.$el.html(tplListItem({module: this.model.toJSON(), i18n: KB.i18n}));
     }
     el.append(this.$el);
+
+    if (this.model.get('settings').poster !== false) {
+      this.$el.qtip({
+        content: {
+          text: tplModulePoster({module: this.model.toJSON()}),
+        },
+        style: {
+          classes: 'kb-qtip'
+        },
+        position:{
+          my: 'top left',
+          at: 'bottom right',
+          target: 'mouse',
+          adjust:{
+            x: 80,
+            y: 20
+          }
+        }
+      });
+    }
+
   },
   events: {
     'click': 'handleClick',
@@ -6504,7 +6528,7 @@ module.exports = Backbone.View.extend({
   }
 
 });
-},{"templates/backend/modulebrowser/module-list-item.hbs":144,"templates/backend/modulebrowser/module-template-list-item.hbs":146}],118:[function(require,module,exports){
+},{"templates/backend/modulebrowser/module-list-item.hbs":144,"templates/backend/modulebrowser/module-template-list-item.hbs":146,"templates/backend/modulebrowser/poster.hbs":147}],118:[function(require,module,exports){
 var ModuleBrowserTabItemView = require('shared/ModuleBrowser/ModuleBrowserTabItemView');
 module.exports = Backbone.View.extend({
   catSet: false,
@@ -6567,6 +6591,7 @@ module.exports = Backbone.View.extend({
 module.exports = Backbone.Model.extend({
   initialize: function () {
     var that = this;
+    console.log(this);
     this.id = (function () {
       if (that.get('settings').category === 'template') {
         return that.get('mid');

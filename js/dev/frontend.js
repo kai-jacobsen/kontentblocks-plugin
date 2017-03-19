@@ -1415,7 +1415,6 @@ module.exports = Backbone.Model.extend({
     KB.FieldControls.remove(this);
   },
   rebind: function () {
-
     var that = this;
     _.defer(function () {
       if (_.isUndefined(that.getElement())) {
@@ -2781,6 +2780,7 @@ module.exports = Backbone.View.extend({
     this.subviews = {}; // image items
     this.ids = [];
     Logger.Debug.log('Fields: Gallery instance created and initialized');
+
     this.renderElements();
     this.initialSetup();
 
@@ -2794,7 +2794,7 @@ module.exports = Backbone.View.extend({
   events: {
     'click .kb-gallery2--js-add-images': 'addImages'
   },
-  derender: function(){
+  derender: function () {
 
   },
   renderElements: function () {
@@ -2803,7 +2803,7 @@ module.exports = Backbone.View.extend({
     // add button dynamically
     jQuery('<a class="button button-primary kb-gallery2--js-add-images">' + KB.i18n.Refields.image.addButton + '</a>').appendTo(this.$el);
   },
-  setupElements: function(){
+  setupElements: function () {
     this.$list = this.$('.kb-gallery2--item-list');
     this.$list.sortable({revert: true, delay: 300, stop: _.bind(this.resortSelection, this)});
   },
@@ -2841,6 +2841,10 @@ module.exports = Backbone.View.extend({
 
     this._frame.options.selection.on('add', function (model) {
       that.add(model);
+    });
+
+    this._frame.on('ready', function (model) {
+      jQuery('.media-modal').addClass('kb-gallery-frame');
     });
 
     this._frame.options.selection.on('remove', function (model) {
@@ -2925,11 +2929,11 @@ module.exports = Backbone.View.extend({
   },
   resortToSelection: function () {
     var ids = _.pluck(this.selection.models, 'id');
-    _.each(this.subviews, function(view){
-        view.$el.detach();
-    },this);
+    _.each(this.subviews, function (view) {
+      view.$el.detach();
+    }, this);
 
-    _.each(ids, function(imgId){
+    _.each(ids, function (imgId) {
       var view = this.subviews[imgId];
       view.$el.appendTo(this.$list);
     }, this);
@@ -4447,7 +4451,6 @@ var Refields = require('fields/RefieldsController');
 var FieldsAPI = require('fieldsAPI/FieldsAPIController');
 
 
-
 /*
  Preperations
  */
@@ -4595,7 +4598,6 @@ KB.App = function () {
     // create models from already attached modules
     // automatically creates corresponding view
 
-
     _.each(Payload.getPayload('Modules'), function (module) {
       KB.ObjectProxy.add(KB.Modules.add(module));
     });
@@ -4676,7 +4678,6 @@ KB.App = function () {
   };
 
 }(jQuery);
-
 
 
 jQuery(document).ready(function () {
@@ -6218,10 +6219,10 @@ module.exports = Backbone.View.extend({
   },
 
   setupModuleId: function () {
-    var parentObject = this.model.get('parentObject');
-    if (this.model.get('globalModule') && parentObject) {
-      return parentObject.post_name;
-    }
+    // var parentObject = this.model.get('parentObject');
+    // if (this.model.get('globalModule') && parentObject) {
+    //   return parentObject.post_name;
+    // }
     return this.model.get('mid');
   },
   /**
@@ -6394,11 +6395,21 @@ module.exports = Backbone.View.extend({
         // TODO find better method for this
         if (res.data.json) {
           KB.payload = _.extend(KB.payload, res.data.json);
-          //var parsed = KB.Payload.parseAdditionalJSON(res.data.json);
-          if (res.data.json.Fields) {
-            that.FieldModels.reset();
-            that.FieldModels.add(_.toArray(res.data.json.Fields));
-          }
+          // var parsed = KB.Payload.parseAdditionalJSON(res.data.json);
+
+          // if (res.data.json.Modules){
+          //   _.each(res.data.json.Modules, function (module) {
+          //     KB.ObjectProxy.add(module);
+          //   })
+          // }
+
+          _.defer(function(){
+            if (res.data.json.Fields) {
+              that.FieldModels.reset();
+              that.FieldModels.add(_.toArray(res.data.json.Fields));
+            }
+          });
+
         }
         Ui.initTabs();
         Ui.initToggleBoxes();
@@ -6711,7 +6722,7 @@ module.exports = Backbone.View.extend({
     }
     //formdata = this.$form.serializeJSON();
     var asd = this.$form.serializeJSON();
-
+    console.log(asd);
 
     if (asd[mid]) {
       return asd[mid];
@@ -8372,7 +8383,6 @@ module.exports = Backbone.Collection.extend({
 //KB.Backbone.ModuleBrowserModuleDescription
 var tplModuleTemplateDescription = require('templates/backend/modulebrowser/module-template-description.hbs');
 var tplModuleDescription = require('templates/backend/modulebrowser/module-description.hbs');
-var tplModulePoster = require('templates/backend/modulebrowser/poster.hbs');
 module.exports = Backbone.View.extend({
   initialize: function (options) {
     this.options = options || {};
@@ -8390,9 +8400,7 @@ module.exports = Backbone.View.extend({
     } else {
       this.$el.html(tplModuleDescription({module: this.model.toJSON(), i18n: KB.i18n}));
     }
-    if (this.model.get('settings').poster !== false) {
-      this.$el.append(tplModulePoster({module: this.model.toJSON()}));
-    }
+
     if (this.model.get('settings').helptext !== false) {
       this.$el.append(this.model.get('settings').helptext);
     } 
@@ -8409,7 +8417,7 @@ module.exports = Backbone.View.extend({
   }
 });
 
-},{"templates/backend/modulebrowser/module-description.hbs":141,"templates/backend/modulebrowser/module-template-description.hbs":143,"templates/backend/modulebrowser/poster.hbs":145}],129:[function(require,module,exports){
+},{"templates/backend/modulebrowser/module-description.hbs":141,"templates/backend/modulebrowser/module-template-description.hbs":143}],129:[function(require,module,exports){
 //KB.Backbone.ModuleBrowserModulesList
 var ListItem = require('shared/ModuleBrowser/ModuleBrowserListItem');
 module.exports = Backbone.View.extend({
@@ -8453,6 +8461,8 @@ module.exports = Backbone.View.extend({
 //KB.Backbone.ModuleBrowserListItem
 var tplTemplateListItem = require('templates/backend/modulebrowser/module-template-list-item.hbs');
 var tplListItem = require('templates/backend/modulebrowser/module-list-item.hbs');
+var tplModulePoster = require('templates/backend/modulebrowser/poster.hbs');
+
 module.exports = Backbone.View.extend({
   tagName: 'div',
   className: 'modules-list-item',
@@ -8469,9 +8479,30 @@ module.exports = Backbone.View.extend({
     if (this.model.get('globalModule')) {
       this.$el.html(tplTemplateListItem({module: this.model.toJSON(), i18n: KB.i18n}));
     } else {
-      this.$el.html(tplListItem({module: this.model.toJSON(),i18n: KB.i18n}));
+      this.$el.html(tplListItem({module: this.model.toJSON(), i18n: KB.i18n}));
     }
     el.append(this.$el);
+
+    if (this.model.get('settings').poster !== false) {
+      this.$el.qtip({
+        content: {
+          text: tplModulePoster({module: this.model.toJSON()}),
+        },
+        style: {
+          classes: 'kb-qtip'
+        },
+        position:{
+          my: 'top left',
+          at: 'bottom right',
+          target: 'mouse',
+          adjust:{
+            x: 80,
+            y: 20
+          }
+        }
+      });
+    }
+
   },
   events: {
     'click': 'handleClick',
@@ -8500,7 +8531,7 @@ module.exports = Backbone.View.extend({
   }
 
 });
-},{"templates/backend/modulebrowser/module-list-item.hbs":142,"templates/backend/modulebrowser/module-template-list-item.hbs":144}],131:[function(require,module,exports){
+},{"templates/backend/modulebrowser/module-list-item.hbs":142,"templates/backend/modulebrowser/module-template-list-item.hbs":144,"templates/backend/modulebrowser/poster.hbs":145}],131:[function(require,module,exports){
 var ModuleBrowserTabItemView = require('shared/ModuleBrowser/ModuleBrowserTabItemView');
 module.exports = Backbone.View.extend({
   catSet: false,
@@ -8563,6 +8594,7 @@ module.exports = Backbone.View.extend({
 module.exports = Backbone.Model.extend({
   initialize: function () {
     var that = this;
+    console.log(this);
     this.id = (function () {
       if (that.get('settings').category === 'template') {
         return that.get('mid');
