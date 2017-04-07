@@ -231,6 +231,17 @@ module.exports = Backbone.View.extend({
   initialize: function () {
     this.$parent = this.model.View.$el;
     this.$body = jQuery('.kb-module__body', this.$parent);
+//     this.observer = new MutationObserver(function(mutations) {
+//       mutations.forEach(function(mutation) {
+//         console.log(mutation.type);
+//       });
+//     });
+//     // configuration of the observer:
+//     var config = { attributes: true, childList: true, characterData: true, subtree:true };
+//
+// // pass in the target node, as well as the observer options
+//     this.observer.observe(this.el, config);
+
     return this;
 
   },
@@ -261,6 +272,11 @@ module.exports = Backbone.View.extend({
     TinyMCE.restoreEditors();
     this.trigger('open');
     this.reposition();
+
+    var height = jQuery(window).height();
+
+    jQuery('.kb-nano', this.$el).height(height - 100);
+    jQuery('.kb-nano').nanoScroller({preventPageScrolling: true, contentClass: 'kb-nano-content'});
     //jQuery(window).on('scroll', jQuery.proxy(this.reposition, this));
   },
   reposition: function(){
@@ -593,9 +609,16 @@ module.exports = {
       Fields: []
     };
 
+    if (json && json.Areas) {
+      _.each(json.Areas, function (area) {
+        KB.ObjectProxy.add(KB.Areas.add(area));
+      });
+    }
+
     if (json && json.Fields) {
       ret.Fields = KB.FieldControls.add(_.toArray(json.Fields));
     }
+
     return ret;
   },
   getPayload: function (key) {
@@ -1695,11 +1718,11 @@ Fields.registerObject('select', require('./controls/select'));
 Fields.registerObject('editor', require('./controls/editor'));
 Fields.registerObject('otimes', require('./controls/otimes'));
 Fields.registerObject('oembed', require('./controls/oembed'));
-Fields.registerObject('mlayout', require('./controls/mlayout'));
+Fields.registerObject('subarea', require('./controls/subarea'));
 Fields.registerObject('medium', require('./controls/medium'));
 Fields.registerObject('imageselect', require('./controls/imageselect'));
 
-},{"./Fields":24,"./controls/color":27,"./controls/cropimage":28,"./controls/date-multiple":29,"./controls/datetime":31,"./controls/editor":32,"./controls/file":33,"./controls/flexfields":34,"./controls/gallery":40,"./controls/gallery2":43,"./controls/image":46,"./controls/imageselect":47,"./controls/link":48,"./controls/medium":49,"./controls/mlayout":50,"./controls/multiselect":57,"./controls/oembed":58,"./controls/otimes":59,"./controls/select":60,"./controls/tagsinput":61,"./controls/text":64,"./controls/text-multiple":62,"./controls/textarea":65}],27:[function(require,module,exports){
+},{"./Fields":24,"./controls/color":27,"./controls/cropimage":28,"./controls/date-multiple":29,"./controls/datetime":31,"./controls/editor":32,"./controls/file":33,"./controls/flexfields":34,"./controls/gallery":40,"./controls/gallery2":43,"./controls/image":46,"./controls/imageselect":47,"./controls/link":48,"./controls/medium":49,"./controls/multiselect":50,"./controls/oembed":51,"./controls/otimes":52,"./controls/select":53,"./controls/subarea":54,"./controls/tagsinput":61,"./controls/text":64,"./controls/text-multiple":62,"./controls/textarea":65}],27:[function(require,module,exports){
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -3306,138 +3329,155 @@ module.exports = BaseView.extend({
 });
 },{"../FieldControlBaseView":20}],50:[function(require,module,exports){
 var BaseView = require('../FieldControlBaseView');
-var MLayoutController = require('fields/controls/mlayout/MLayoutController');
+module.exports = BaseView.extend({
+  initialize: function () {
+    this.defaults = {
+      filter:true
+    };
+    this.settings = this.model.get('settings') || {};
+    this.render();
+  },
+  render: function () {
+    this.$("[data-kftype='multiselect']").multipleSelect(_.extend(this.defaults, this.settings));
+  },
+  rerender: function () {
+    this.$("[data-kftype='multiselect']").multipleSelect('refresh');
+  }
+});
+},{"../FieldControlBaseView":20}],51:[function(require,module,exports){
+var BaseView = require('../FieldControlBaseView');
+var Ajax = require('common/Ajax');
+var Config = require('common/Config');
+module.exports = BaseView.extend({
+  initialize: function () {
+    this.render();
+  },
+  render: function () {
+    var that = this;
+    this.$input = this.$('.kb-field--oembed input');
+    this.$preview = this.$('[data-kb-oembed-preview]');
+    this.$input.on('change', function () {
+      that.update(that.$input.val());
+    })
+    this.$input.trigger('change');
+  },
+  derender: function () {
+
+  },
+  update: function (val) {
+    var that = this;
+    this.model.set('value', val);
+    var request = this.sendRequest(val).done(function (res) {
+      if (res && res.data && res.data.html){
+        that.$preview.html(res.data.html);
+      }
+    });
+  },
+  toString: function () {
+    return '';
+  },
+  sendRequest: function (val) {
+    return Ajax.send({
+      action: 'getOembed',
+      embedUrl: val,
+      _ajax_nonce: Config.getNonce('read')
+    })
+  }
+});
+},{"../FieldControlBaseView":20,"common/Ajax":9,"common/Config":11}],52:[function(require,module,exports){
+var BaseView = require('../FieldControlBaseView');
+module.exports = BaseView.extend({
+  events: {
+    'click .js-oday-activate-split' : 'split'
+  },
+  initialize: function () {
+    this.render();
+  },
+  render:function(){
+    this.$('.kb-ot-timepicker').datetimepicker({
+      datepicker: false,
+      format: 'H:i',
+      validateOnBlur: false,
+      step: 30
+    });
+  },
+  derender: function(){
+    this.$('.kb-ot-timepicker').datetimepicker('destroy');
+  },
+  split:function(){
+    this.$('table').toggleClass('split');
+  }
+});
+
+
+},{"../FieldControlBaseView":20}],53:[function(require,module,exports){
+var BaseView = require('../FieldControlBaseView');
+module.exports = BaseView.extend({
+  initialize: function () {
+    this.defaults = {
+      sortable: false
+    };
+    this.settings = this.model.get('settings') || {};
+    this.render();
+  },
+  render: function () {
+    var settings = _.extend(this.defaults, this.settings);
+    if (settings.sortable){
+      this.$el.addClass('select-sortable');
+      this.$("[data-kbselect2='true']").select2_sortable(settings);
+    } else {
+      this.$el.removeClass('select-sortable');
+      this.$("[data-kbselect2='true']").select2(settings);
+    }
+  },
+  rerender: function () {
+    this.render();  
+  }
+});
+},{"../FieldControlBaseView":20}],54:[function(require,module,exports){
+var BaseView = require('../FieldControlBaseView');
+var SubareaConroller = require('fields/controls/subarea/SubareaController');
 module.exports = BaseView.extend({
   initialize: function () {
     this.createController();
     this.render();
   },
   render: function () {
-    this.$stage = this.$('.kb-field--mlayout-stage');
-    this.MLayoutController.setElement(this.$stage.get(0)); // root element equals stage element
-    this.MLayoutController.render();
+    this.$stage = this.$('.kb-field--subarea-stage');
+    this.SubareaConroller.setElement(this.$stage.get(0)); // root element equals stage element
+    this.SubareaConroller.render();
   },
   derender: function () {
-    this.MLayoutController.derender();
+    this.SubareaConroller.derender();
   },
   rerender: function () {
-    console.log('rerender');
     this.render();
 
   },
   createController: function () {
-    if (!this.MLayoutController) {
-      return this.MLayoutController = new MLayoutController({
-        el: this.$('.kb-field--mlayout-stage'),
+    var that = this;
+    if (!this.SubareaConroller) {
+      return this.SubareaConroller = new SubareaConroller({
+        el: this.$('.kb-field--subarea-stage'),
         model: this.model,
         parentView: this,
+        subarea: KB.Areas.get(that.$('.kb-field--subarea-stage').attr('id')),
         area: this.model.ModuleModel.Area
       })
     }
   }
 });
-},{"../FieldControlBaseView":20,"fields/controls/mlayout/MLayoutController":51}],51:[function(require,module,exports){
-var SlotView = require('fields/controls/mlayout/SlotView');
-module.exports = Backbone.View.extend({
-  initialize: function (options) {
-    this.area = options.area;
-    this.parentView = options.parentView;
-    this.listenTo(this.model.ModuleModel.View, 'modal.before.nodeupdate', this.disposeSubviews);
-    this.listenTo(this.model.ModuleModel.View, 'modal.after.nodeupdate', this.updateSubviews);
-  },
-  setupViewConnections: function () {
-    var views = {};
-    _.each(this.slots, function (slot) {
-      if (slot.model.get('mid') !== '') {
-        var moduleModel = KB.Modules.get(slot.model.get('mid'));
-        if (moduleModel && moduleModel.View) {
-          views[slot.model.get('mid')] = moduleModel.View;
-        }
-      }
-    });
-    return views;
-  },
-  updateSubviews: function () {
-    _.each(this.subViews, function (subview) {
-      subview.rerender();
-    })
-  },
-  disposeSubviews: function () {
-    _.each(this.subViews, function (subview) {
-      subview.derender();
-    })
-  },
-  setupSlots: function () {
-    this.$slots = this.$('[data-kbml-slot]');
-  },
-  derender: function () {
-    //console.log('derender');
-  },
-  render: function () {
-    this.slots = {};
-    this.setupSlots();
-    this.setupViews();
-    this.subViews = this.setupViewConnections();
-
-  },
-  setupViews: function () {
-    _.each(this.$slots, function (el) {
-      var $el = jQuery(el);
-      var slotId = $el.data('kbml-slot');
-      var fullId = this.createSlotId(slotId);
-      var view = new SlotView({
-        el: $el,
-        model: new Backbone.Model({}),
-        controller: this,
-        slotId: this.createSlotId(slotId)
-      });
-      this.slots[this.createSlotId(slotId)] = view;
-      view.setModule(this.getSlotModule(fullId));
-      view.model.set(this.getSlotData(fullId));
-      this.listenTo(view, 'module.created', this.updateParent);
-      this.listenTo(view, 'module.removed', this.updateParent);
-    }, this)
-  },
-  createSlotId: function (slotId) {
-    return 'slot-' + slotId;
-  },
-  getSlotModule: function (slotId) {
-    var value = this.model.get('value');
-    var module = value[slotId];
-    if (module) {
-      return module;
-    }
-    return null;
-  },
-  getSlotData: function (slotId) {
-    var value = this.model.get('value');
-
-    if (!_.isObject(value)) {
-      value = {};
-    }
-
-    if (!value.slots) {
-      value['slots'] = new Object();
-    }
-
-
-    if (value.slots[slotId]) {
-      return value.slots[slotId];
-    }
-    return {mid: ''};
-  },
-  updateParent: function () {
-    this.model.ModuleModel.sync();
-  }
-
-});
-},{"fields/controls/mlayout/SlotView":54}],52:[function(require,module,exports){
+},{"../FieldControlBaseView":20,"fields/controls/subarea/SubareaController":58}],55:[function(require,module,exports){
 var ModuleBrowser = require('shared/ModuleBrowser/ModuleBrowserController');
 var Checks = require('common/Checks');
 var Config = require('common/Config');
 var Notice = require('common/Notice');
 var Ajax = require('common/Ajax');
 module.exports = ModuleBrowser.extend({
+  initialize: function(options){
+      ModuleBrowser.prototype.initialize.apply(this,arguments);
+      this.subarea = options.subarea;
+  },
   createModule: function (module) {
     var Area, data;
     // check if capability is right for this action
@@ -3446,8 +3486,6 @@ module.exports = ModuleBrowser.extend({
       Notice.notice('You\'re not allowed to do this', 'error');
     }
 
-    // check if block limit isn't reached
-
     // prepare data to send
     data = {
       action: 'createNewModule',
@@ -3455,8 +3493,8 @@ module.exports = ModuleBrowser.extend({
       globalModule: module.get('globalModule'),
       parentObject: module.get('parentObject'),
       parentObjectId: module.get('parentObjectId'),
-      areaContext: this.area.model.get('context'),
-      area: this.area.model.get('id'),
+      areaContext: this.subarea.model.get('context'),
+      area: this.subarea.model.get('id'),
       _ajax_nonce: Config.getNonce('create'),
       frontend: KB.appData.config.frontend,
       submodule: true
@@ -3465,17 +3503,17 @@ module.exports = ModuleBrowser.extend({
     if (this.area.model.get('parent_id')) {
       data.postId = this.area.model.get('parent_id');
     }
-
-    this.close();
     Ajax.send(data, this.success, this);
   },
   success: function (res) {
-    this.trigger('browser.module.created', { res: res})
+    this.trigger('browser.module.created', {res: res});
+    this.close();
+
   }
 
 });
-},{"common/Ajax":9,"common/Checks":10,"common/Config":11,"common/Notice":14,"shared/ModuleBrowser/ModuleBrowserController":126}],53:[function(require,module,exports){
-var tplModuleView = require('fields/controls/mlayout/templates/module-view.hbs');
+},{"common/Ajax":9,"common/Checks":10,"common/Config":11,"common/Notice":14,"shared/ModuleBrowser/ModuleBrowserController":126}],56:[function(require,module,exports){
+var tplModuleView = require('fields/controls/subarea/templates/module-view.hbs');
 var Ajax = require('common/Ajax');
 var Config = require('common/Config');
 var TinyMCE = require('common/TinyMCE');
@@ -3505,6 +3543,7 @@ module.exports = Backbone.View.extend({
     var that = this;
     this.$el.append(tplModuleView({module: this.ModuleModel.toJSON()}));
     this.slotView.$el.prepend(this.$el);
+    this.$el.attr('data-kba-mid', this.ModuleModel.get('mid'));
     _.defer(function () {
       that.setupElements();
     });
@@ -3586,12 +3625,12 @@ module.exports = Backbone.View.extend({
   }
 
 });
-},{"backend/Views/FullscreenView":7,"common/Ajax":9,"common/Config":11,"common/Payload":15,"common/TinyMCE":17,"common/UI":18,"fields/controls/mlayout/templates/module-view.hbs":56}],54:[function(require,module,exports){
-var ModuleBrowser = require('fields/controls/mlayout/ModuleBrowser');
-var ModuleView = require('fields/controls/mlayout/ModuleView');
+},{"backend/Views/FullscreenView":7,"common/Ajax":9,"common/Config":11,"common/Payload":15,"common/TinyMCE":17,"common/UI":18,"fields/controls/subarea/templates/module-view.hbs":60}],57:[function(require,module,exports){
+var ModuleBrowser = require('fields/controls/subarea/ModuleBrowser');
+var ModuleView = require('fields/controls/subarea/ModuleView');
 var Ajax = require('common/Ajax');
 var Config = require('common/Config');
-var tplEmpty = require('fields/controls/mlayout/templates/empty.hbs');
+var tplEmpty = require('fields/controls/subarea/templates/empty.hbs');
 
 module.exports = Backbone.View.extend({
   hasModule: false,
@@ -3608,12 +3647,14 @@ module.exports = Backbone.View.extend({
     this.listenTo(this.model, 'change', this.updateInput);
   },
   setModule: function (module) {
-    if (!_.isNull(module)){
+    if (!_.isNull(module)) {
       this.ModuleModel = new Backbone.Model(module);
     }
   },
+  updateInputValue: function (val) {
+    this.$input.val(val);
+  },
   updateInput: function () {
-
     if (this.ModuleModel && this.ModuleModel.get('submodule')) {
       this.ModuleView = new ModuleView({
         slotView: this,
@@ -3626,7 +3667,7 @@ module.exports = Backbone.View.extend({
     } else {
       this.$el.prepend(tplEmpty({}));
     }
-    this.$input.val(this.model.get('mid'));
+    this.updateInputValue(this.model.get('mid'));
   },
   setup: function () {
     var field = this.controller.model;
@@ -3643,7 +3684,8 @@ module.exports = Backbone.View.extend({
   click: function () {
     if (!this.ModuleBrowser) {
       this.ModuleBrowser = new ModuleBrowser({
-        area: this.controller.area.View
+        area: this.controller.area.View,
+        subarea: this.controller.subarea.View
       });
       this.listenTo(this.ModuleBrowser, 'browser.module.created', this.moduleCreated);
     }
@@ -3660,7 +3702,7 @@ module.exports = Backbone.View.extend({
     var module = res.data.module;
     this.setModule(module);
     this.model.set('mid', module.mid);
-    _.defer(function(){
+    _.defer(function () {
       that.trigger('module.created');
     });
   },
@@ -3688,14 +3730,172 @@ module.exports = Backbone.View.extend({
     }
   }
 });
-},{"common/Ajax":9,"common/Config":11,"fields/controls/mlayout/ModuleBrowser":52,"fields/controls/mlayout/ModuleView":53,"fields/controls/mlayout/templates/empty.hbs":55}],55:[function(require,module,exports){
+},{"common/Ajax":9,"common/Config":11,"fields/controls/subarea/ModuleBrowser":55,"fields/controls/subarea/ModuleView":56,"fields/controls/subarea/templates/empty.hbs":59}],58:[function(require,module,exports){
+var SlotView = require('fields/controls/subarea/SlotView');
+module.exports = Backbone.View.extend({
+  initialize: function (options) {
+    this.area = options.area;
+    this.subarea = options.subarea;
+    this.parentView = options.parentView;
+    this.listenTo(this.model.ModuleModel.View, 'modal.before.nodeupdate', this.disposeSubviews);
+    this.listenTo(this.model.ModuleModel.View, 'modal.after.nodeupdate', this.updateSubviews);
+  },
+
+  setupViewConnections: function () {
+    var views = {};
+    _.each(this.slots, function (slot) {
+      if (slot.model.get('mid') !== '') {
+        var moduleModel = KB.Modules.get(slot.model.get('mid'));
+        if (moduleModel && moduleModel.View) {
+          views[slot.model.get('mid')] = moduleModel.View;
+        }
+      }
+    });
+    return views;
+  },
+  updateSubviews: function () {
+    _.each(this.subViews, function (subview) {
+      subview.rerender();
+    })
+  },
+  disposeSubviews: function () {
+    _.each(this.subViews, function (subview) {
+      subview.derender();
+    })
+  },
+  setupSlots: function () {
+    this.$slots = this.$('[data-kbml-slot]');
+  },
+  derender: function () {
+    //console.log('derender');
+  },
+  render: function () {
+    this.convertDom(); // clean up the layout
+    this.slots = {};
+    this.setupSlots(); //slots from layout
+    this.setupViews();
+    this.subViews = this.setupViewConnections();
+    this.draggable();
+  },
+  draggable: function () {
+    var $source, $target, $sourcecontainer, $targetcontainer;
+    var that = this;
+    this.$('.kbml-slot').draggable({
+      revert: 'invalid',
+      helper: 'clone',
+      revertDuration: 200,
+      start: function () {
+        $source = jQuery(this).find('.kb-submodule');
+        $sourcecontainer = jQuery(this);
+        jQuery(this).addClass('being-dragged');
+      },
+      stop: function () {
+        $source = null;
+        jQuery(this).removeClass('being-dragged');
+      }
+    });
+
+    this.$('.kbml-slot').droppable({
+      hoverClass: 'drop-hover',
+      over: function (event, ui) {
+        $target = jQuery(event.target).find('.kb-submodule');
+        $targetcontainer = jQuery(this);
+      },
+      drop: function (event, ui) {
+
+        $source.detach();
+        $target.detach();
+
+        $sourcecontainer.append($target);
+        $targetcontainer.append($source);
+
+        that.reindex();
+
+        return false;
+      }
+    });
+  },
+  reindex: function () {
+    _.each(this.slots, function (slotView) {
+        var $mid = slotView.$('[data-kba-mid]');
+        if ($mid.length === 1){
+          var mid = $mid.data('kba-mid');
+          if (mid){
+            slotView.updateInputValue(mid);
+          }
+        } else {
+          slotView.updateInputValue('');
+
+        }
+    })
+  },
+  convertDom: function () {
+    this.$el.find('*').each(function (i, el) {
+      el.removeAttribute('style');
+      el.removeAttribute('class');
+      var dataset = el.dataset;
+      if (dataset.kbaEl) {
+        el.className = dataset.kbaEl;
+      }
+    });
+  },
+  setupViews: function () {
+    _.each(this.$slots, function (el) {
+      var $el = jQuery(el);
+      var slotId = $el.data('kbml-slot');
+      var fullId = this.createSlotId(slotId);
+      var view = new SlotView({
+        el: $el,
+        model: new Backbone.Model({}),
+        controller: this,
+        slotId: fullId
+      });
+      this.slots[fullId] = view;
+      view.setModule(this.getSlotModule(fullId));
+      view.model.set(this.getSlotData(fullId)); // this will trigger the view to update
+      this.listenTo(view, 'module.created', this.updateParent);
+      this.listenTo(view, 'module.removed', this.updateParent);
+    }, this)
+  },
+  createSlotId: function (slotId) {
+    return 'slot-' + slotId;
+  },
+  getSlotModule: function (slotId) {
+    var value = this.subarea.get('layout').modules;
+    var module = value[slotId];
+    if (module) {
+      if (module.mid) {
+        if (module.mid != '') {
+          return module;
+        }
+      }
+    }
+    return null;
+  },
+  getSlotData: function (slotId) {
+    var value = this.subarea.get('layout').slots;
+    if (!_.isObject(value)) {
+      value = {};
+    }
+
+    if (value[slotId]) {
+      return value[slotId];
+    }
+    return {mid: ''};
+  },
+  updateParent: function () {
+    this.model.ModuleModel.sync();
+  }
+
+});
+},{"fields/controls/subarea/SlotView":57}],59:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"kbsm-empty\">\n    add module\n</div>";
+    return "<div class=\"kb-submodule\">\n    <div class=\"kbsm-empty\">\n        add module\n    </div>\n</div>";
 },"useData":true});
 
-},{"hbsfy/runtime":213}],56:[function(require,module,exports){
+},{"hbsfy/runtime":213}],60:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -3706,114 +3906,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"
     + "</div>\n</div>\n<div class=\"kbsm-actions\">\n    <div class=\"kbsm-action kbms-action--open\" data-kbtooltip=\"open form\"><span\n            class=\"dashicons dashicons-admin-generic\"></span></div>\n    <div class=\"kbsm-action kbms-action--delete\" data-kbtooltip=\"delete\"><span\n            class=\"dashicons dashicons-welcome-comments\"></span></div>\n    <div class=\"kbsm-action kbms-action--update\" data-kbtooltip=\"update\"><span\n            class=\"dashicons dashicons-update\"></span></div>\n</div>\n<div class=\"kbsm-inner\">\n\n</div>";
 },"useData":true});
 
-},{"hbsfy/runtime":213}],57:[function(require,module,exports){
-var BaseView = require('../FieldControlBaseView');
-module.exports = BaseView.extend({
-  initialize: function () {
-    this.defaults = {
-      filter:true
-    };
-    this.settings = this.model.get('settings') || {};
-    this.render();
-  },
-  render: function () {
-    this.$("[data-kftype='multiselect']").multipleSelect(_.extend(this.defaults, this.settings));
-  },
-  rerender: function () {
-    this.$("[data-kftype='multiselect']").multipleSelect('refresh');
-  }
-});
-},{"../FieldControlBaseView":20}],58:[function(require,module,exports){
-var BaseView = require('../FieldControlBaseView');
-var Ajax = require('common/Ajax');
-var Config = require('common/Config');
-module.exports = BaseView.extend({
-  initialize: function () {
-    this.render();
-  },
-  render: function () {
-    var that = this;
-    this.$input = this.$('.kb-field--oembed input');
-    this.$preview = this.$('[data-kb-oembed-preview]');
-    this.$input.on('change', function () {
-      that.update(that.$input.val());
-    })
-    this.$input.trigger('change');
-  },
-  derender: function () {
-
-  },
-  update: function (val) {
-    var that = this;
-    this.model.set('value', val);
-    var request = this.sendRequest(val).done(function (res) {
-      if (res && res.data && res.data.html){
-        that.$preview.html(res.data.html);
-      }
-    });
-  },
-  toString: function () {
-    return '';
-  },
-  sendRequest: function (val) {
-    return Ajax.send({
-      action: 'getOembed',
-      embedUrl: val,
-      _ajax_nonce: Config.getNonce('read')
-    })
-  }
-});
-},{"../FieldControlBaseView":20,"common/Ajax":9,"common/Config":11}],59:[function(require,module,exports){
-var BaseView = require('../FieldControlBaseView');
-module.exports = BaseView.extend({
-  events: {
-    'click .js-oday-activate-split' : 'split'
-  },
-  initialize: function () {
-    this.render();
-  },
-  render:function(){
-    this.$('.kb-ot-timepicker').datetimepicker({
-      datepicker: false,
-      format: 'H:i',
-      validateOnBlur: false,
-      step: 30
-    });
-  },
-  derender: function(){
-    this.$('.kb-ot-timepicker').datetimepicker('destroy');
-  },
-  split:function(){
-    this.$('table').toggleClass('split');
-  }
-});
-
-
-},{"../FieldControlBaseView":20}],60:[function(require,module,exports){
-var BaseView = require('../FieldControlBaseView');
-module.exports = BaseView.extend({
-  initialize: function () {
-    this.defaults = {
-      sortable: false
-    };
-    this.settings = this.model.get('settings') || {};
-    this.render();
-  },
-  render: function () {
-    var settings = _.extend(this.defaults, this.settings);
-    if (settings.sortable){
-      this.$el.addClass('select-sortable');
-      this.$("[data-kbselect2='true']").select2_sortable(settings);
-    } else {
-      this.$el.removeClass('select-sortable');
-      this.$("[data-kbselect2='true']").select2(settings);
-    }
-  },
-  rerender: function () {
-    this.render();  
-  }
-});
-},{"../FieldControlBaseView":20}],61:[function(require,module,exports){
+},{"hbsfy/runtime":213}],61:[function(require,module,exports){
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -5727,7 +5820,7 @@ module.exports = Backbone.Model.extend({
     if (!AreaModel) {
       AreaModel = KB.Areas.get(this.get('area'));
     }
-    AreaModel.View.attachModuleView(this);
+    AreaModel.View.attachModule(this);
     this.Area = AreaModel;
   },
   dispose: function () {
@@ -5909,7 +6002,7 @@ module.exports = Backbone.View.extend({
     'click .kb-area__empty-placeholder': 'openModuleBrowser'
   },
   initialize: function () {
-    this.attachedModuleViews = {};
+    this.attachedModules = {};
     this.renderSettings = this.model.get('renderSettings');
     this.listenTo(KB.Events, 'editcontrols.show', this.showPlaceholder);
     this.listenTo(KB.Events, 'editcontrols.hide', this.removePlaceholder);
@@ -5945,8 +6038,8 @@ module.exports = Backbone.View.extend({
     this.ModuleBrowser.render();
     return this.ModuleBrowser;
   },
-  attachModuleView: function (moduleModel) {
-    this.attachedModuleViews[moduleModel.get('mid')] = moduleModel; // add module
+  attachModule: function (moduleModel) {
+    this.attachedModules[moduleModel.get('mid')] = moduleModel; // add module
     this.listenTo(moduleModel, 'change:area', this.removeModule); // add listener
 
     if (this.getNumberOfModules() > 0) {
@@ -5957,10 +6050,10 @@ module.exports = Backbone.View.extend({
   },
 
   getNumberOfModules: function () {
-    return _.size(this.attachedModuleViews);
+    return _.size(this.attachedModules);
   },
   getAttachedModules: function () {
-    return this.attachedModuleViews;
+    return this.attachedModules;
   },
   setupSortables: function () {
     var that = this;
@@ -6001,8 +6094,8 @@ module.exports = Backbone.View.extend({
   },
   removeModule: function (ModuleView) {
     var id = ModuleView.model.get('mid');
-    if (this.attachedModuleViews[id]) {
-      delete this.attachedModuleViews[id];
+    if (this.attachedModules[id]) {
+      delete this.attachedModules[id];
     }
     if (this.getNumberOfModules() < 1) {
       this.$el.addClass('kb-area__empty');
@@ -6765,6 +6858,7 @@ module.exports = Backbone.View.extend({
   initialize: function (options) {
     // assign parent View
     this.ModuleView = options.ModuleView;
+    console.log(this);
   },
   derender: function(){
     this.$el.detach();
@@ -7548,7 +7642,7 @@ module.exports = Backbone.View.extend({
   findHelperSize: function (scope) {
     var widths = [];
     var heights = [];
-    _.each(scope.attachedModuleViews, function (ModuleView) {
+    _.each(scope.attachedModules, function (ModuleView) {
       widths.push(ModuleView.View.$el.width());
       heights.push(ModuleView.View.$el.height());
 
@@ -8281,7 +8375,7 @@ module.exports = Backbone.View.extend({
     data = res.data;
     this.options.area.$modulesList.append(data.html);
     model = KB.ObjectProxy.add(KB.Modules.add(data.module));
-    this.options.area.attachModuleView(model);
+    this.options.area.attachModule(model);
     this.parseAdditionalJSON(data.json);
     model.View.trigger('toggle.open');
 
@@ -8745,7 +8839,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"kb-fullscreen--holder-wrap\">\n    <div class=\"kb-fullscreen--controls\">\n       <div class=\"kb-fullscreen-js-close\"><span class=\"dashicons dashicons-no-alt\"></span></div>\n    </div>\n    <div class=\"kb-fullscreen--inner\">\n\n    </div>\n</div>";
+    return "<div class=\"kb-fullscreen--holder-wrap\">\n    <div class=\"kb-fullscreen--controls\">\n        <div class=\"kb-fullscreen-js-close\"><span class=\"dashicons dashicons-no-alt\"></span></div>\n    </div>\n    <div class=\"kb-nano\">\n        <div class=\"kb-fullscreen--inner kb-nano-content\">\n\n        </div>\n    </div>\n</div>";
 },"useData":true});
 
 },{"hbsfy/runtime":213}],140:[function(require,module,exports){

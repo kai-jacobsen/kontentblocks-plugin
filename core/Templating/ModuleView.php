@@ -4,6 +4,7 @@ namespace Kontentblocks\Templating;
 use Exception;
 use Kontentblocks\Kontentblocks;
 use Kontentblocks\Modules\Module;
+use Kontentblocks\Modules\ModuleModel;
 use Kontentblocks\Modules\ModuleViewFile;
 use Kontentblocks\Utils\MobileDetect;
 
@@ -38,6 +39,10 @@ class ModuleView implements \JsonSerializable
      */
     protected $engine;
 
+    /**
+     * @var ModuleModel
+     */
+    protected $model;
 
     /**
      * Class Constructor
@@ -47,15 +52,17 @@ class ModuleView implements \JsonSerializable
      * @param array $addData
      *
      */
-    public function __construct(Module $module, ModuleViewFile $tpl, $addData = array())
+    public function __construct(Module $module, ModuleViewFile $tpl, ModuleModel $model, $addData = array())
     {
         $this->addData = $addData;
         $this->module = $module;
+        $this->model = $model;
         // merge module data and additional injected data
         $this->tplFile = $tpl;
         $this->setPath($tpl->path);
         $this->engine = Kontentblocks::getService('templating.twig.public');
     }
+
 
     /**
      * @param $path
@@ -74,7 +81,7 @@ class ModuleView implements \JsonSerializable
      */
     public function render($echo = false)
     {
-        $this->data = $this->setupData($this->module->model->export(), $this->addData);
+        $this->data = $this->setupData($this->model->export(), $this->addData);
 
         if ($echo) {
             $this->engine->display($this->tplFile->filename, $this->data);
@@ -107,8 +114,8 @@ class ModuleView implements \JsonSerializable
             $data = array();
         }
 
-        if (is_object($this->module->getModel())) {
-            $data['Model'] = $this->module->getModel();
+        if (is_object($this->model)) {
+            $data['Model'] = $this->model;
         }
 
         $data['module'] = $this->module->toJSON();
@@ -122,7 +129,7 @@ class ModuleView implements \JsonSerializable
         }
 
         $data['_utils'] = $this->setupUtilities();
-
+        $data = apply_filters('kb.module.view.data', $data, $this->module);
         return $data;
 
     }
@@ -146,7 +153,7 @@ class ModuleView implements \JsonSerializable
         if (!is_array($data)) {
             return false;
         }
-        $this->module->model->set($data);
+        $this->model->set($data);
         $this->data = wp_parse_args($data, $this->data);
         return true;
     }

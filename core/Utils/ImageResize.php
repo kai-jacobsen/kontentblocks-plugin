@@ -77,6 +77,24 @@ namespace Kontentblocks\Utils {
                     // $attachment may be a url or an id
                 }
 
+                $dwidth = ($width) ? $width : '';
+                $dheight = ($height) ? $height : '';
+                $dcrop = ($crop) ? '_c' : '';
+                $dupscale = ($upscale) ? '_us' : '';
+                $sizedesc = 'kb-' . $attachment . '_' . $dwidth . 'x' . $dheight . $dcrop . $dupscale;
+
+                $exists = wp_get_attachment_image_src($attachment, $sizedesc, false);
+                if (is_array($exists) && isset($exists[3])) {
+                    if ($exists[3] === true) {
+                        if ($single) {
+                            return $exists[0];
+                        } else {
+                            unset($exists[3]);
+                            $exists[3] = $sizedesc;
+                            return $exists;
+                        }
+                    }
+                }
 
                 $metadata = wp_get_attachment_metadata($attachment);
 
@@ -110,7 +128,9 @@ namespace Kontentblocks\Utils {
                 }
 
                 // Check if $img_url is local.
-                if ( false === strpos( $url, $upload_url ) ) return false;
+                if (false === strpos($url, $upload_url)) {
+                    return false;
+                }
 
 
                 // Define path of image.
@@ -167,14 +187,16 @@ namespace Kontentblocks\Utils {
                         }
 
                         $resized_file = $editor->save($destfilename);
+                        if (!isset($metadata['sizes'][$sizedesc])) {
+                            $metadata['sizes'][$sizedesc] = array(
+                                'file' => $resized_file['file'],
+                                'width' => $resized_file['width'],
+                                'height' => $resized_file['height'],
+                                'mime-type' => $resized_file['mime-type'],
+                            );
+                            wp_update_attachment_metadata($attachment, $metadata);
+                        }
 
-                        $metadata['sizes']['test'] = array(
-                            'file' => $resized_file['file'],
-                            'width' => $resized_file['width'],
-                            'height' => $resized_file['height'],
-                            'mime-type' => $resized_file['mime-type'],
-                        );
-                        wp_update_attachment_metadata($attachment, $metadata);
                         if (!is_wp_error($resized_file)) {
                             $resized_rel_path = str_replace($upload_dir, '', $resized_file['path']);
                             $img_url = $upload_url . $resized_rel_path;
@@ -199,7 +221,8 @@ namespace Kontentblocks\Utils {
                     $image = array(
                         0 => $img_url,
                         1 => $dst_w,
-                        2 => $dst_h
+                        2 => $dst_h,
+                        3 => $sizedesc
                     );
                 }
 
