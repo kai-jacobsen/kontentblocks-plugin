@@ -3,7 +3,7 @@
 
 namespace Kontentblocks\Fields;
 
-use Kontentblocks\Common\Exportable;
+use Kontentblocks\Common\ExportableFieldInterface;
 use Kontentblocks\Fields\Definitions\ReturnObjects\StandardFieldReturn;
 use Kontentblocks\Kontentblocks;
 use Kontentblocks\Language\I18n;
@@ -21,7 +21,7 @@ use Kontentblocks\Fields\Returnobjects;
  * 2. subkey, if fields are grouped resp. nested under one subkey in $POST data(see class FieldSubGroup)
  * 3. key, the actual storage key in the $POST data
  */
-abstract class Field implements Exportable
+abstract class Field implements ExportableFieldInterface
 {
 
     /**
@@ -235,7 +235,6 @@ abstract class Field implements Exportable
             'i18n' => I18n::getPackages('Refields.common', "Refields.{$type}")
         );
 
-
         /**
          * Field may alter the injected data array
          */
@@ -256,10 +255,10 @@ abstract class Field implements Exportable
      * @TODO this method is used on several occasions
      *
      * @param string $arrKey
-     * @param string $return
-     * @return mixed|null returns null if data does not exist
+     * @param string $default
+     * @return mixed
      */
-    public function getValue($arrKey = null, $return = '')
+    public function getValue($arrKey = null, $default = '')
     {
         $data = $this->value;
 
@@ -275,8 +274,7 @@ abstract class Field implements Exportable
             return $data[$arrKey];
         }
 
-
-        return $this->getArg('std', $return);
+        return $this->getArg('std', $default);
     }
 
     /**
@@ -321,7 +319,8 @@ abstract class Field implements Exportable
     }
 
     /**
-     *
+     * Before the data is injected into the field/form twig template
+     * Used to further manipulate or extend the data for the form
      * @param array $data
      * @return array
      */
@@ -332,7 +331,6 @@ abstract class Field implements Exportable
 
     /**
      * Just before form output
-     * and optional 'hooks"
      * @since 0.1.0
      */
     public function build()

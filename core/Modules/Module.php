@@ -60,7 +60,7 @@ abstract class Module implements EntityInterface
     /**
      * @var ModuleModel
      */
-    protected $frontendModel;
+    protected $viewModel;
 
 
     /**
@@ -208,7 +208,7 @@ abstract class Module implements EntityInterface
     {
         $model = $this->model;
         if (isset($this->fields)) {
-            $model = $this->setupFrontendData();
+            $model = $this->setupViewModel();
         }
         $this->view = $this->getView($model);
         return $this->render();
@@ -222,11 +222,11 @@ abstract class Module implements EntityInterface
      * @param bool $forcenew
      * @return ModuleModel
      */
-    private function setupFrontendData($forcenew = false)
+    private function setupViewModel($forcenew = false)
     {
-        if (!is_null($this->frontendModel)) {
+        if (!is_null($this->viewModel)) {
             if ($forcenew === false) {
-                return $this->frontendModel;
+                return $this->viewModel;
             }
         }
 
@@ -242,8 +242,8 @@ abstract class Module implements EntityInterface
             }
         }
 
-        $this->frontendModel = new ModuleModel($prepData, $this);
-        return $this->frontendModel;
+        $this->viewModel = new ModuleModel($prepData, $this);
+        return $this->viewModel;
     }
 
     /**
@@ -261,12 +261,11 @@ abstract class Module implements EntityInterface
         if ($this->properties->getSetting('views') && is_null($this->view)) {
             $tpl = $this->getViewfile();
             $full = $this->viewManager->getViewByName($tpl);
-
             if (is_null($full)) {
                 return null;
             }
 
-            $moduleView = new ModuleView($this, $full,$model);
+            $moduleView = new ModuleView($this, $full, $model);
             $this->view = $moduleView;
             return $this->view;
         } else if ($this->view) {
@@ -300,6 +299,15 @@ abstract class Module implements EntityInterface
     }
 
     abstract public function render();
+
+    /**
+     * @return ModuleModel
+     * @deprecated
+     */
+    public function setupFrontendData()
+    {
+        return $this->setupViewModel();
+    }
 
     /**
      * @param ModuleView $view
@@ -370,7 +378,7 @@ abstract class Module implements EntityInterface
             'id' => $this->getId(), // only for backbone compatibility
             'entityData' => apply_filters(
                 'kb.module.modify.data',
-                $this->model->getOriginalData(),
+                $this->model->export(),
                 $this
             ),
             'validator' => $this->properties->getValidator(),

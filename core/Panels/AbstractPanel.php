@@ -178,8 +178,18 @@ abstract class AbstractPanel implements EntityInterface
 
     /**
      * @return PanelModel
+     * @deprecated
      */
-    public function setupFrontendData($forcenew = false)
+    public function setupFrontendData()
+    {
+        return $this->setupViewModel();
+    }
+
+    /**
+     * @param bool $forcenew
+     * @return PanelModel
+     */
+    public function setupViewModel($forcenew = false)
     {
 
         if (!is_null($this->frontendModel)) {
@@ -189,7 +199,7 @@ abstract class AbstractPanel implements EntityInterface
         }
 
         $prepData = [];
-        foreach ($this->model as $key => $v) {
+        foreach ($this->model->export() as $key => $v) {
             /** @var \Kontentblocks\Fields\Field $field */
             $field = $this->fields->getFieldByKey($key);
             if (!is_null($field)) {
