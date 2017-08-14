@@ -3,6 +3,7 @@
 namespace Kontentblocks\Backend\EditScreens;
 
 use Kontentblocks\Backend\Environment\PostEnvironment;
+use Kontentblocks\Backend\Environment\Save\SaveRevision;
 use Kontentblocks\Helper;
 use Kontentblocks\Language\I18n;
 use Kontentblocks\Templating\CoreView;
@@ -42,10 +43,12 @@ Class PostEditScreen
         global $pagenow;
         if (in_array($pagenow, $this->setupHooks())) {
             // add UI
+
             add_action('add_meta_boxes', array($this, 'renderUserInterface'), 10, 2);
             // register save callback
             add_action('save_post', array($this, 'save'), 5, 2);
             add_filter('_wp_post_revision_fields', array($this, 'revisionFields'));
+            add_filter('wp_save_post_revision_check_for_changes', '__return_false', 10, 3);
             // expose data to the document
             add_action('admin_footer', array($this, 'toJSON'), 1);
         }
@@ -59,7 +62,7 @@ Class PostEditScreen
      */
     private function setupHooks()
     {
-        return apply_filters('kb.setup.hooks', array('post.php', 'post-new.php'));
+        return apply_filters('kb.setup.hooks', array('post.php', 'post-new.php', 'revision.php'));
 
     }
 
@@ -104,7 +107,6 @@ Class PostEditScreen
         if (!$areas || empty($areas)) {
             $hasAreas = false;
         }
-
         $screenManager = new ScreenManager($areas, $this->environment);
         $view = new CoreView(
             '/edit-screen/user-interface.twig', array(
@@ -153,6 +155,14 @@ Class PostEditScreen
                 '') === 'dopreview'
         ) {
             $postId = get_the_ID();
+        }
+
+        $parentId = wp_is_post_revision($postId);
+        if ($parentId) {
+            if (post_type_supports(get_post_type($parentId), 'kontentblocks')) {
+                $saveRevision = new SaveRevision($postId, $parentId);
+                $saveRevision->save();
+            }
         }
 
         if (post_type_supports(get_post_type($postId), 'kontentblocks')) {

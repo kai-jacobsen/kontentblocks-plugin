@@ -21,8 +21,6 @@ class StandardFieldSection implements ExportableFieldInterface
      * @var array
      */
     public static $defaults = array(
-        'label' => 'Fieldgroup',
-        'title' => 'Fieldgrouptitle',
         'attributes' => array('class' => 'kbf-section-wrap')
     );
 
@@ -75,7 +73,7 @@ class StandardFieldSection implements ExportableFieldInterface
      * ordering index
      * @var int
      */
-    private $priorityCount = 10;
+    private $priorityIndex = 10;
 
     /**
      * Constructor
@@ -87,7 +85,7 @@ class StandardFieldSection implements ExportableFieldInterface
     public function __construct($sectionId, $args, StandardFieldController $controller)
     {
         $this->sectionId = $sectionId;
-        $this->args = $this->prepareArgs($args);
+        $this->args = $this->setupArgs($args);
         $this->controller = $controller;
         $this->baseId = $controller->getId();
         $this->uid = $this->prepareUid();
@@ -96,15 +94,6 @@ class StandardFieldSection implements ExportableFieldInterface
 
     }
 
-    /**
-     * @param $args
-     * @return array
-     */
-    public function prepareArgs($args)
-    {
-        return Utilities::arrayMergeRecursive($args, self::$defaults);
-
-    }
 
     /**
      * Unique section id
@@ -130,6 +119,9 @@ class StandardFieldSection implements ExportableFieldInterface
     public function addField($type, $key, $args = array())
     {
 
+        if (is_string($key) && $key[0] === '_') {
+            return $this;
+        }
 
         /** @var \Kontentblocks\Fields\FieldRegistry $registry */
         $registry = Kontentblocks::getService('registry.fields');
@@ -141,7 +133,7 @@ class StandardFieldSection implements ExportableFieldInterface
             }
         }
 
-        if (!$registry->validType($type)){
+        if (!$registry->validType($type)) {
             return $this;
         }
 
@@ -153,24 +145,28 @@ class StandardFieldSection implements ExportableFieldInterface
             }
 
             $field = $registry->getField($type, $this->baseId, $groupkey, $key, $args);
-            $field->setController($this->controller);
-            if (!$field) {
-                throw new Exception("Field of type: $type does not exist");
-            } else {
-                $field->setSection($this);
-                $this->markVisibility($field);
-                // conditional check of field visibility
-                // Fields with same arrayKey gets grouped into own collection
-                if (!is_null($groupkey)) {
-                    $field = $this->attachGroupField($groupkey, $field, $key, $args);
-                } else {
-                    $this->fields[$key] = $field;
-                }
 
-                $field->setData($this->getFielddata($field));
-                $this->increaseVisibleFields();
-                $this->orderFields();
+            // a field might only work for certain entities
+            if (is_array($field->getSetting('restriction'))) {
+                if (!in_array($this->entity->getType(), $field->getSetting('restriction'))) {
+                    return $this;
+                }
             }
+
+            $field->setController($this->controller);
+            $field->setSection($this);
+            $this->markVisibility($field);
+            // conditional check of field visibility
+            // Fields with same arrayKey gets grouped into own collection
+            if (!is_null($groupkey)) {
+                $field = $this->attachGroupField($groupkey, $field, $key, $args);
+            } else {
+                $this->fields[$key] = $field;
+            }
+
+            $field->setData($this->getFielddata($field));
+            $this->increaseVisibleFields();
+            $this->orderFields();
         }
         return $this;
     }
@@ -219,8 +215,8 @@ class StandardFieldSection implements ExportableFieldInterface
      */
     private function getPriorityIndex()
     {
-        $prio = $this->priorityCount;
-        $this->priorityCount += 5;
+        $prio = $this->priorityIndex;
+        $this->priorityIndex += 5;
         return $prio;
 
     }
@@ -362,8 +358,10 @@ class StandardFieldSection implements ExportableFieldInterface
      *
      * @return array
      */
-    public function save($data, $oldData)
-    {
+    public function save(
+        $data,
+        $oldData
+    ) {
         $collect = array();
 
         if (!is_array($this->fields)) {
@@ -435,8 +433,9 @@ class StandardFieldSection implements ExportableFieldInterface
      * @param FieldExport $exporter
      * @return array
      */
-    public function export(FieldExport $exporter)
-    {
+    public function export(
+        FieldExport $exporter
+    ) {
         if (empty($this->fields) || is_null($this->fields)) {
             return array();
         }
@@ -461,6 +460,23 @@ class StandardFieldSection implements ExportableFieldInterface
     {
         $this->numberOfVisibleFields--;
 
+    }
+
+    /**
+     * @param $args
+     * @return array
+     */
+    private function setupArgs($args)
+    {
+        $args = Utilities::arrayMergeRecursive($args, self::$defaults);
+        if (!isset($args['label'])){
+            $args['label'] = strtoupper(str_replace('-',' ',$this->sectionId));
+        }
+        if (!isset($args['description'])){
+            $args['description'] = '';
+        }
+
+        return $args;
     }
 
 

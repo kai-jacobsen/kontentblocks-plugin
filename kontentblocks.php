@@ -3,7 +3,7 @@
   Plugin Name: Kontentblocks
   Plugin URI: https://github.com/kai-jacobsen/kontentblocks
   Description: Content modularization framework
-  Version: 0.9.0
+  Version: 0.9.1
   Author: Kai Jacobsen
   Author URI: https://github.com/kai-jacobsen/kontentblocks-plugin
   Text Domain: Kontentblocks
@@ -21,6 +21,7 @@ use Kontentblocks\Backend\Dynamic\DynamicAreas;
 use Kontentblocks\Backend\Dynamic\GlobalModulesMenu;
 use Kontentblocks\Backend\EditScreens\PostEditScreen;
 use Kontentblocks\Backend\EditScreens\Layouts\EditScreenLayoutsRegistry;
+use Kontentblocks\Backend\EditScreens\Revisions;
 use Kontentblocks\Backend\EditScreens\TaxonomyEditScreen;
 use Kontentblocks\Backend\EditScreens\UserEditScreen;
 use Kontentblocks\Hooks\Enqueues;
@@ -47,7 +48,7 @@ use Pimple;
 Class Kontentblocks
 {
 
-    const VERSION = '0.9.0';
+    const VERSION = '0.9.1';
     const DEVMODE = true;
     const TABLEVERSION = '1.0.16';
     const DEBUG = true;
@@ -344,6 +345,7 @@ Class Kontentblocks
          * Main post edit screen handler
          * Post type must support 'kontentblocks"
          */
+        new Revisions();
         new PostEditScreen();
         new TaxonomyEditScreen();
         new UserEditScreen();

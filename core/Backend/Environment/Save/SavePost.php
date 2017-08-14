@@ -35,6 +35,8 @@ class SavePost
         $this->postid = $environment->getId();
         $this->postdata = Request::createFromGlobals();
         $this->index = $this->environment->getStorage()->getIndex();
+        $this->postObj = $environment->getPostObject();
+
     }
 
 
@@ -49,11 +51,10 @@ class SavePost
             return false;
         }
         $areas = $this->environment->getAreas();
-
         $panels = $this->environment->getPanels();
 
         /** @var PostPanel $panel */
-        foreach ($panels as $panel){
+        foreach ($panels as $panel) {
             $panel->saveCallback($postId, $postObj);
         }
 
@@ -63,9 +64,10 @@ class SavePost
             return false;
         }
 
-
         // create backup
         $this->createBackup();
+
+
 
         foreach ($areas as $area) {
             if (!$this->saveByArea($area)) {
@@ -131,13 +133,11 @@ class SavePost
             return false;
         }
 
-        if (get_post_type($this->postid) == 'revision' && !is_null($this->postdata->get('wp-preview'))) {
-            return false;
-        }
 
-        if ($this->environment->getPostType() == 'revision') {
-            return false;
-        }
+//        if ($this->environment->getPostType() == 'revision' && $this->postObj->post_parent !== $this->postid) {
+//            return false;
+//        }
+
 
         // checks passed
         return true;

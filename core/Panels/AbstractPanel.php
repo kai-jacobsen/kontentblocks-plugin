@@ -68,7 +68,7 @@ abstract class AbstractPanel implements EntityInterface
 
     public function preRender()
     {
-
+        return '';
     }
 
     /**
@@ -203,8 +203,7 @@ abstract class AbstractPanel implements EntityInterface
             /** @var \Kontentblocks\Fields\Field $field */
             $field = $this->fields->getFieldByKey($key);
             if (!is_null($field)) {
-                $field->setValue($v);
-                $prepData['_' . $key] = $v;
+                $field->setData($v);
                 $prepData[$key] = (!is_null($field)) ? $field->getFrontendValue() : $v;
             } else {
                 unset($this->model[$key]);

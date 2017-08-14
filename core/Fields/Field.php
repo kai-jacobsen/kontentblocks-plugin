@@ -4,6 +4,7 @@
 namespace Kontentblocks\Fields;
 
 use Kontentblocks\Common\ExportableFieldInterface;
+use Kontentblocks\Fields\Definitions\ReturnObjects\InterfaceFieldReturn;
 use Kontentblocks\Fields\Definitions\ReturnObjects\StandardFieldReturn;
 use Kontentblocks\Kontentblocks;
 use Kontentblocks\Language\I18n;
@@ -82,7 +83,7 @@ abstract class Field implements ExportableFieldInterface
     protected $userValue;
     /**
      * Return Object
-     * @var \Kontentblocks\Fields\InterfaceFieldReturn
+     * @var InterfaceFieldReturn
      *
      */
     private $returnObj;
@@ -130,6 +131,9 @@ abstract class Field implements ExportableFieldInterface
         // nothing to do if not overridden
     }
 
+    /**
+     * @param StandardFieldController $controller
+     */
     public function setController(StandardFieldController $controller)
     {
         $this->controller = $controller;
@@ -387,7 +391,7 @@ abstract class Field implements ExportableFieldInterface
      * Prepare Args for JSON
      * @TODO hacky
      */
-    private function cleanedArgs()
+    protected function cleanedArgs()
     {
         if (method_exists($this, 'argsToJson')) {
             return $this->argsToJson();
@@ -406,6 +410,7 @@ abstract class Field implements ExportableFieldInterface
     {
         $def = array();
         $def['uid'] = $this->createUID();
+        $def['id'] = $this->createUID();
         $def['type'] = $this->type;
         $def['baseId'] = $this->getBaseId();
         $def['fieldId'] = $this->fieldId;
@@ -455,7 +460,7 @@ abstract class Field implements ExportableFieldInterface
      * used by js code to lookup data from entityData
      * @return string
      */
-    private function createKPath()
+    protected function createKPath()
     {
         $path = '';
         if ($this->getArg('arrayKey', false)) {
@@ -470,6 +475,9 @@ abstract class Field implements ExportableFieldInterface
         return $path;
     }
 
+    /**
+     * @param $section
+     */
     public function setSection($section)
     {
         $this->section = $section;
@@ -594,7 +602,6 @@ abstract class Field implements ExportableFieldInterface
      * Prepare output
      * Runs when data is requested by getFrontendValue
      * which is the recommended method to get frontend data
-     * an optional returnObj
      *
      * @param $value
      *

@@ -170,6 +170,9 @@ class Utilities
             $plugins[] = 'wptextpattern';
             $plugins[] = 'wpemoji';
         }
+        if (version_compare($wp_version, '4.8', '>=')) {
+            $plugins[] = 'lists';
+        }
 
         $settings = array(
             'wpautop' => true,
@@ -531,9 +534,19 @@ class Utilities
             $needle = array($needle);
         }
         foreach ($needle as $query) {
-            if (strpos($haystack, $query, $offset) !== false) {
-                return true;
-            } // stop on first true result
+            if (is_array($haystack)) {
+                foreach ($haystack as $hay) {
+                    if (strpos($hay, $query, $offset) !== false) {
+                        return true;
+                    } // stop on first true result
+                }
+            } else {
+                if (strpos($haystack, $query, $offset) !== false) {
+                    return true;
+                } // stop on first true result
+
+            }
+
         }
         return false;
     }
