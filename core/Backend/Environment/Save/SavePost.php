@@ -67,13 +67,11 @@ class SavePost
         // create backup
         $this->createBackup();
 
-
-
-        foreach ($areas as $area) {
-            if (!$this->saveByArea($area)) {
-                continue;
+            foreach ($areas as $area) {
+                if (!$this->saveByArea($area)) {
+                    continue;
+                }
             }
-        }
 
 
         $this->concat();
@@ -134,7 +132,7 @@ class SavePost
         }
 
 
-//        if ($this->environment->getPostType() == 'revision' && $this->postObj->post_parent !== $this->postid) {
+//        if ($this->environment->getPostType() == '1on' && $this->postObj->post_parent !== $this->postid) {
 //            return false;
 //        }
 

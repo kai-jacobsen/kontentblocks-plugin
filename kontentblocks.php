@@ -3,7 +3,7 @@
   Plugin Name: Kontentblocks
   Plugin URI: https://github.com/kai-jacobsen/kontentblocks
   Description: Content modularization framework
-  Version: 0.9.1
+  Version: 0.9.2
   Author: Kai Jacobsen
   Author URI: https://github.com/kai-jacobsen/kontentblocks-plugin
   Text Domain: Kontentblocks
@@ -48,7 +48,7 @@ use Pimple;
 Class Kontentblocks
 {
 
-    const VERSION = '0.9.1';
+    const VERSION = '0.9.2';
     const DEVMODE = true;
     const TABLEVERSION = '1.0.16';
     const DEBUG = true;
@@ -458,3 +458,4 @@ add_action(
 register_activation_hook(__FILE__, array('\Kontentblocks\Kontentblocks', 'onActivation'));
 register_deactivation_hook(__FILE__, array('\Kontentblocks\Kontentblocks', 'onDeactivation'));
 register_uninstall_hook(__FILE__, array('\Kontentblocks\Kontentblocks', 'onUninstall'));
+
