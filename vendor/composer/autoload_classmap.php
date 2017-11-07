@@ -125,6 +125,7 @@ return array(
     'Kontentblocks\\Fields\\Definitions\\Medium' => $baseDir . '/core/Fields/Definitions/Medium.php',
     'Kontentblocks\\Fields\\Definitions\\MultiText' => $baseDir . '/core/Fields/Definitions/MultiText.php',
     'Kontentblocks\\Fields\\Definitions\\Multiselect' => $baseDir . '/core/Fields/Definitions/Multiselect.php',
+    'Kontentblocks\\Fields\\Definitions\\NullField' => $baseDir . '/core/Fields/Definitions/NullField.php',
     'Kontentblocks\\Fields\\Definitions\\Oembed' => $baseDir . '/core/Fields/Definitions/Oembed.php',
     'Kontentblocks\\Fields\\Definitions\\OpeningTimes' => $baseDir . '/core/Fields/Definitions/OpeningTimes.php',
     'Kontentblocks\\Fields\\Definitions\\Plupload' => $baseDir . '/core/Fields/Definitions/Plupload.php',

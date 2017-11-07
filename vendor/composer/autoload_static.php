@@ -215,6 +215,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Kontentblocks\\Fields\\Definitions\\Medium' => __DIR__ . '/../..' . '/core/Fields/Definitions/Medium.php',
         'Kontentblocks\\Fields\\Definitions\\MultiText' => __DIR__ . '/../..' . '/core/Fields/Definitions/MultiText.php',
         'Kontentblocks\\Fields\\Definitions\\Multiselect' => __DIR__ . '/../..' . '/core/Fields/Definitions/Multiselect.php',
+        'Kontentblocks\\Fields\\Definitions\\NullField' => __DIR__ . '/../..' . '/core/Fields/Definitions/NullField.php',
         'Kontentblocks\\Fields\\Definitions\\Oembed' => __DIR__ . '/../..' . '/core/Fields/Definitions/Oembed.php',
         'Kontentblocks\\Fields\\Definitions\\OpeningTimes' => __DIR__ . '/../..' . '/core/Fields/Definitions/OpeningTimes.php',
         'Kontentblocks\\Fields\\Definitions\\Plupload' => __DIR__ . '/../..' . '/core/Fields/Definitions/Plupload.php',
