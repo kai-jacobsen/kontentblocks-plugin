@@ -331,6 +331,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Kontentblocks\\Templating\\ModuleView' => __DIR__ . '/../..' . '/core/Templating/ModuleView.php',
         'Kontentblocks\\Templating\\TemplatePart' => __DIR__ . '/../..' . '/core/Templating/TemplatePart.php',
         'Kontentblocks\\Templating\\Twig' => __DIR__ . '/../..' . '/core/Templating/Twig.php',
+        'Kontentblocks\\Templating\\ViewFactory' => __DIR__ . '/../..' . '/core/Templating/ViewFactory.php',
         'Kontentblocks\\Utils\\AttachmentHandler' => __DIR__ . '/../..' . '/core/Utils/AttachmentHandler.php',
         'Kontentblocks\\Utils\\CommonTwig\\SimpleTwig' => __DIR__ . '/../..' . '/core/Utils/CommonTwig/SimpleTwig.php',
         'Kontentblocks\\Utils\\CommonTwig\\SimpleView' => __DIR__ . '/../..' . '/core/Utils/CommonTwig/SimpleView.php',

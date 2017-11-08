@@ -241,6 +241,7 @@ return array(
     'Kontentblocks\\Templating\\ModuleView' => $baseDir . '/core/Templating/ModuleView.php',
     'Kontentblocks\\Templating\\TemplatePart' => $baseDir . '/core/Templating/TemplatePart.php',
     'Kontentblocks\\Templating\\Twig' => $baseDir . '/core/Templating/Twig.php',
+    'Kontentblocks\\Templating\\ViewFactory' => $baseDir . '/core/Templating/ViewFactory.php',
     'Kontentblocks\\Utils\\AttachmentHandler' => $baseDir . '/core/Utils/AttachmentHandler.php',
     'Kontentblocks\\Utils\\CommonTwig\\SimpleTwig' => $baseDir . '/core/Utils/CommonTwig/SimpleTwig.php',
     'Kontentblocks\\Utils\\CommonTwig\\SimpleView' => $baseDir . '/core/Utils/CommonTwig/SimpleView.php',
