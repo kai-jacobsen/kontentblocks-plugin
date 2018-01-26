@@ -223,6 +223,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Kontentblocks\\Fields\\Definitions\\PostSelect2' => __DIR__ . '/../..' . '/core/Fields/Definitions/PostSelect2.php',
         'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\AbstractEditableFieldReturn' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/AbstractEditableFieldReturn.php',
         'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\BoolReturn' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/BoolReturn.php',
+        'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\DatetimeReturn' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/DatetimeReturn.php',
         'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\EditableElement' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/EditableElement.php',
         'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\EditableImage' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/EditableImage.php',
         'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\EditableLink' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/EditableLink.php',

@@ -133,6 +133,7 @@ return array(
     'Kontentblocks\\Fields\\Definitions\\PostSelect2' => $baseDir . '/core/Fields/Definitions/PostSelect2.php',
     'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\AbstractEditableFieldReturn' => $baseDir . '/core/Fields/Definitions/ReturnObjects/AbstractEditableFieldReturn.php',
     'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\BoolReturn' => $baseDir . '/core/Fields/Definitions/ReturnObjects/BoolReturn.php',
+    'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\DatetimeReturn' => $baseDir . '/core/Fields/Definitions/ReturnObjects/DatetimeReturn.php',
     'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\EditableElement' => $baseDir . '/core/Fields/Definitions/ReturnObjects/EditableElement.php',
     'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\EditableImage' => $baseDir . '/core/Fields/Definitions/ReturnObjects/EditableImage.php',
     'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\EditableLink' => $baseDir . '/core/Fields/Definitions/ReturnObjects/EditableLink.php',
