@@ -131,6 +131,7 @@ return array(
     'Kontentblocks\\Fields\\Definitions\\Plupload' => $baseDir . '/core/Fields/Definitions/Plupload.php',
     'Kontentblocks\\Fields\\Definitions\\PostSelect' => $baseDir . '/core/Fields/Definitions/PostSelect.php',
     'Kontentblocks\\Fields\\Definitions\\PostSelect2' => $baseDir . '/core/Fields/Definitions/PostSelect2.php',
+    'Kontentblocks\\Fields\\Definitions\\RadioSet' => $baseDir . '/core/Fields/Definitions/RadioSet.php',
     'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\AbstractEditableFieldReturn' => $baseDir . '/core/Fields/Definitions/ReturnObjects/AbstractEditableFieldReturn.php',
     'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\BoolReturn' => $baseDir . '/core/Fields/Definitions/ReturnObjects/BoolReturn.php',
     'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\DatetimeReturn' => $baseDir . '/core/Fields/Definitions/ReturnObjects/DatetimeReturn.php',

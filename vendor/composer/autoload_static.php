@@ -221,6 +221,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Kontentblocks\\Fields\\Definitions\\Plupload' => __DIR__ . '/../..' . '/core/Fields/Definitions/Plupload.php',
         'Kontentblocks\\Fields\\Definitions\\PostSelect' => __DIR__ . '/../..' . '/core/Fields/Definitions/PostSelect.php',
         'Kontentblocks\\Fields\\Definitions\\PostSelect2' => __DIR__ . '/../..' . '/core/Fields/Definitions/PostSelect2.php',
+        'Kontentblocks\\Fields\\Definitions\\RadioSet' => __DIR__ . '/../..' . '/core/Fields/Definitions/RadioSet.php',
         'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\AbstractEditableFieldReturn' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/AbstractEditableFieldReturn.php',
         'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\BoolReturn' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/BoolReturn.php',
         'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\DatetimeReturn' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/DatetimeReturn.php',
