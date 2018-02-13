@@ -15,5 +15,5 @@ rm package.json
 git checkout -B development
 git add .
 git commit -am "autodeploy"
-git push -u origin
-git push -u development
+git push --set-upstream origin development
+git push --set-upstream ghub development
