@@ -205,6 +205,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Kontentblocks\\Fields\\Definitions\\File' => __DIR__ . '/../..' . '/core/Fields/Definitions/File.php',
         'Kontentblocks\\Fields\\Definitions\\FlexFields\\FlexFieldsManager' => __DIR__ . '/../..' . '/core/Fields/Definitions/FlexFields/FlexFieldsManager.php',
         'Kontentblocks\\Fields\\Definitions\\FlexFields\\FlexFieldsSection' => __DIR__ . '/../..' . '/core/Fields/Definitions/FlexFields/FlexFieldsSection.php',
+        'Kontentblocks\\Fields\\Definitions\\FlexFields\\FlexFieldsType' => __DIR__ . '/../..' . '/core/Fields/Definitions/FlexFields/FlexFieldsType.php',
         'Kontentblocks\\Fields\\Definitions\\FlexibleFields' => __DIR__ . '/../..' . '/core/Fields/Definitions/FlexibleFields.php',
         'Kontentblocks\\Fields\\Definitions\\Gallery' => __DIR__ . '/../..' . '/core/Fields/Definitions/Gallery.php',
         'Kontentblocks\\Fields\\Definitions\\Gallery2' => __DIR__ . '/../..' . '/core/Fields/Definitions/Gallery2.php',

@@ -115,6 +115,7 @@ return array(
     'Kontentblocks\\Fields\\Definitions\\File' => $baseDir . '/core/Fields/Definitions/File.php',
     'Kontentblocks\\Fields\\Definitions\\FlexFields\\FlexFieldsManager' => $baseDir . '/core/Fields/Definitions/FlexFields/FlexFieldsManager.php',
     'Kontentblocks\\Fields\\Definitions\\FlexFields\\FlexFieldsSection' => $baseDir . '/core/Fields/Definitions/FlexFields/FlexFieldsSection.php',
+    'Kontentblocks\\Fields\\Definitions\\FlexFields\\FlexFieldsType' => $baseDir . '/core/Fields/Definitions/FlexFields/FlexFieldsType.php',
     'Kontentblocks\\Fields\\Definitions\\FlexibleFields' => $baseDir . '/core/Fields/Definitions/FlexibleFields.php',
     'Kontentblocks\\Fields\\Definitions\\Gallery' => $baseDir . '/core/Fields/Definitions/Gallery.php',
     'Kontentblocks\\Fields\\Definitions\\Gallery2' => $baseDir . '/core/Fields/Definitions/Gallery2.php',
