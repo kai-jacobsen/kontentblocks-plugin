@@ -182,6 +182,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Kontentblocks\\Common\\Exportable' => __DIR__ . '/../..' . '/core/Common/Exportable.php',
         'Kontentblocks\\Common\\ExportableFieldInterface' => __DIR__ . '/../..' . '/core/Common/ExportableFieldInterface.php',
         'Kontentblocks\\Common\\Interfaces\\EntityInterface' => __DIR__ . '/../..' . '/core/Common/Interfaces/EntityInterface.php',
+        'Kontentblocks\\Common\\Interfaces\\FieldEntityInterface' => __DIR__ . '/../..' . '/core/Common/Interfaces/FieldEntityInterface.php',
         'Kontentblocks\\Common\\Interfaces\\ModuleLookAheadInterface' => __DIR__ . '/../..' . '/core/Common/Interfaces/ModuleLookAheadInterface.php',
         'Kontentblocks\\Common\\Interfaces\\RendererInterface' => __DIR__ . '/../..' . '/core/Common/Interfaces/RendererInterface.php',
         'Kontentblocks\\Customizer\\CustomizerIntegration' => __DIR__ . '/../..' . '/core/Customizer/CustomizerIntegration.php',

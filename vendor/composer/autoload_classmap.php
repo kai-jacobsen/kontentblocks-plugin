@@ -92,6 +92,7 @@ return array(
     'Kontentblocks\\Common\\Exportable' => $baseDir . '/core/Common/Exportable.php',
     'Kontentblocks\\Common\\ExportableFieldInterface' => $baseDir . '/core/Common/ExportableFieldInterface.php',
     'Kontentblocks\\Common\\Interfaces\\EntityInterface' => $baseDir . '/core/Common/Interfaces/EntityInterface.php',
+    'Kontentblocks\\Common\\Interfaces\\FieldEntityInterface' => $baseDir . '/core/Common/Interfaces/FieldEntityInterface.php',
     'Kontentblocks\\Common\\Interfaces\\ModuleLookAheadInterface' => $baseDir . '/core/Common/Interfaces/ModuleLookAheadInterface.php',
     'Kontentblocks\\Common\\Interfaces\\RendererInterface' => $baseDir . '/core/Common/Interfaces/RendererInterface.php',
     'Kontentblocks\\Customizer\\CustomizerIntegration' => $baseDir . '/core/Customizer/CustomizerIntegration.php',
