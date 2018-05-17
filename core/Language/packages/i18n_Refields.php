@@ -23,6 +23,7 @@
             'linktext' => __( 'Buttonlabel', 'Kontentblocks' ),
             'linktitle' => __( 'Titleattribute', 'Kontentblocks' ),
             'linklabel' => __( 'URL', 'Kontentblocks' ),
+            'linktarget' => __( 'open in new tab', 'Kontentblocks'),
             'addLink' => __( 'Add link', 'Kontentblocks' )
         ),
         // Field::Image
@@ -32,6 +33,9 @@
             'modalHelpTitle' => __('Hold STRG/CMD to select multiple images', 'Kontentblocks'),
             'description' => __( 'Description', 'Kontentblocks' ),
             'addButton' => __('add images', 'Kontentblocks')
+        ),
+        'gallery' => array(
+            'addButton' => __('edit gallery', 'Kontentblocks')
         ),
         // Field:: choseTaxonomy
         'chosetaxonomy' => array(

@@ -81,6 +81,18 @@ abstract class Field implements ExportableFieldInterface
      * @var mixed
      */
     protected $userValue;
+
+    /**
+     * @var FieldTabGroup
+     */
+    protected $tabGroup;
+
+    /**
+     * @var FieldFormRenderer
+     */
+    protected $formRenderer;
+
+
     /**
      * Return Object
      * @var InterfaceFieldReturn
@@ -248,7 +260,7 @@ abstract class Field implements ExportableFieldInterface
             $data = call_user_func($this->getCallback('template.data'), $data);
         }
         $view = new FieldView(
-            $type . '/' . $tpl . '.twig', $data
+            $type . DIRECTORY_SEPARATOR . $tpl . '.twig', $data
         );
         return $view->render(false);
     }
@@ -265,7 +277,6 @@ abstract class Field implements ExportableFieldInterface
     public function getValue($arrKey = null, $default = '')
     {
         $data = $this->value;
-
         if ($this->getCallback('get.value')) {
             $data = call_user_func($this->getCallback('get.value'), $data);
         }
@@ -692,5 +703,38 @@ abstract class Field implements ExportableFieldInterface
                 'type' => $this->type
             )
         );
+    }
+
+    /**
+     * @param $group
+     */
+    public function setGroup($group)
+    {
+        $this->tabGroup = $group;
+    }
+
+    /**
+     * @param $form
+     */
+    public function setFormRenderer(FieldFormRenderer $form)
+    {
+        $this->formRenderer = $form;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function render()
+    {
+        if ($this->formRenderer){
+            return $this->formRenderer->build();
+        }
+    }
+
+    /**
+     * @return string
+     */
+    public function renderHidden(FieldFormRenderer $renderer){
+        return '';
     }
 }

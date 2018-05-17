@@ -5,16 +5,18 @@ namespace Kontentblocks\Modules;
 
 use Kontentblocks\Backend\Environment\PostEnvironment;
 use Kontentblocks\Common\Interfaces\EntityInterface;
+use Kontentblocks\Common\Interfaces\FieldEntityInterface;
 use Kontentblocks\Fields\ModuleFieldController;
 use Kontentblocks\Kontentblocks;
 use Kontentblocks\Templating\CoreView;
 use Kontentblocks\Templating\ModuleView;
+use Kontentblocks\Utils\Utilities;
 
 /**
  * Class Module
  * @package Kontentblocks\Modules
  */
-abstract class Module implements EntityInterface
+abstract class Module implements EntityInterface, FieldEntityInterface
 {
 
     /**
@@ -73,12 +75,13 @@ abstract class Module implements EntityInterface
         $this->properties = $properties;
         $this->environment = $environment;
         $this->context = new ModuleContext($environment->export(), $this);
-        $this->model = new ModuleModel($data, $this);
         $this->viewManager = Kontentblocks::getService('registry.moduleViews')->getViewManager($this);
         /**
          * Setup FieldController, Sections and fields if used
          */
+        $this->model = new ModuleModel($data, $this);
         $this->setupFields();
+        $this->model = $this->prepareModel();
     }
 
     /**
@@ -92,6 +95,7 @@ abstract class Module implements EntityInterface
                 $this->properties->parentObjectId);
             // setup Fields
             $this->fields();
+            $this->fields->afterSetup();
         }
     }
 
@@ -102,6 +106,29 @@ abstract class Module implements EntityInterface
     public function getId()
     {
         return $this->properties->mid;
+    }
+
+    /**
+     * @param $data
+     * @return ModuleModel
+     */
+    protected function prepareModel()
+    {
+        $savedData = $this->model->export();
+        if ($this->fields) {
+            $data = array();
+            $config = $this->fields->export();
+            foreach ($config->getFields() as $attrs) {
+                if ($attrs['arrayKey']) {
+                    $data[$attrs['arrayKey']][$attrs['key']] = $attrs['std'];
+                } else {
+                    $data[$attrs['key']] = $attrs['std'];
+                }
+            }
+            $new = wp_parse_args($savedData, $data);
+            $this->model->set($new);
+        }
+        return $this->model;
     }
 
     /**
@@ -126,7 +153,8 @@ abstract class Module implements EntityInterface
             'views' => true,
             'concat' => true,
             'templates' => array(),
-            'fieldRenderer' => 'Kontentblocks\Fields\Renderer\FieldRendererTabs'
+            'fieldRenderer' => 'Kontentblocks\Fields\Renderer\FieldRendererTabs',
+            'iconclass' => 'dashicons-screenoptions'
         );
 
     }
@@ -137,6 +165,7 @@ abstract class Module implements EntityInterface
      */
     public function getModel()
     {
+
         return $this->model;
     }
 
@@ -180,6 +209,7 @@ abstract class Module implements EntityInterface
         // render fields if set
         if (isset($this->fields) && is_object($this->fields)) {
             $rendererClass = $this->properties->getSetting('fieldRenderer');
+            $this->fields->updateData();
             $renderer = new $rendererClass($this->fields);
             $concat .= $renderer->render();
         } else {
@@ -208,6 +238,7 @@ abstract class Module implements EntityInterface
     {
         $model = $this->model;
         if (isset($this->fields)) {
+            $this->fields->updateData();
             $model = $this->setupViewModel();
         }
         $this->view = $this->getView($model);
@@ -319,6 +350,10 @@ abstract class Module implements EntityInterface
 
     abstract public function render();
 
+    /**
+     * @param ModuleViewFile $viewfile
+     * @return ModuleView
+     */
     public function buildViewWithViewfile(ModuleViewFile $viewfile)
     {
         return new ModuleView($this, $viewfile, $this->setupViewModel());

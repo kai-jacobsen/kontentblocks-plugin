@@ -358,6 +358,8 @@ var BackupUi = Backbone.View.extend({
     this.listEl = jQuery('<ul></ul>').appendTo(this.$el);
     if (this.listEl.length > 0) {
       this.update();
+    } else {
+      return;
     }
 
     // Heartbeat send data1
@@ -1108,7 +1110,9 @@ var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "<div class=\"dashicons dashicons-plus kb-js-create-module\"></div>\n<div class=\"kbmb-hl\">"
+  return "<div class=\"kbmb-icon "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.module : depth0)) != null ? stack1.settings : stack1)) != null ? stack1.iconclass : stack1), depth0))
+    + "\"></div>\n<div class=\"kbmb-hl\">"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.module : depth0)) != null ? stack1.settings : stack1)) != null ? stack1.name : stack1), depth0))
     + "</div>\n<div class=\"kbmb-description\">"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.module : depth0)) != null ? stack1.settings : stack1)) != null ? stack1.description : stack1), depth0))

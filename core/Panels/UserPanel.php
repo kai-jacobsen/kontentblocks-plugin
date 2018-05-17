@@ -1,4 +1,5 @@
 <?php
+
 namespace Kontentblocks\Panels;
 
 
@@ -63,7 +64,7 @@ abstract class UserPanel extends AbstractPanel
         $this->context = new UserPanelContext($environment->export(), $this);
         $this->user = $environment->userObj;
         $this->fields = new UserPanelFieldController($this->getBaseId(), $this);
-        $this->model = new PanelModel($this->dataProvider->get($this->getBaseId()), $this);
+        $this->model = $this->prepareModel();
         $this->data = $this->model->export();
         $this->fields();
 
@@ -83,6 +84,28 @@ abstract class UserPanel extends AbstractPanel
         return wp_parse_args($args, $defaults);
     }
 
+    /**
+     * @return PanelModel
+     */
+    public function prepareModel()
+    {
+        $savedData = $this->dataProvider->get($this->getBaseId());
+        $model = new PanelModel([], $this);
+        if ($this->fields) {
+            $data = array();
+            $config = $this->fields->export();
+            foreach ($config->getFields() as $attrs) {
+                if ($attrs['arrayKey']) {
+                    $data[$attrs['arrayKey']][$attrs['key']] = $attrs['std'];
+                } else {
+                    $data[$attrs['key']] = $attrs['std'];
+                }
+            }
+            $new = wp_parse_args($savedData, $data);
+            $model->set($new);
+        }
+        return $model;
+    }
 
     abstract public function fields();
 
@@ -110,7 +133,7 @@ abstract class UserPanel extends AbstractPanel
             'baseId' => $this->getBaseId(),
             'mid' => $this->getBaseId(),
             'id' => $this->getBaseId(),
-            'entityData' => $this->model->getOriginalData(),
+            'entityData' => $this->model->export(),
             'area' => '_internal',
             'type' => 'user',
             'settings' => $this->args
@@ -129,9 +152,8 @@ abstract class UserPanel extends AbstractPanel
         }
         Utilities::hiddenEditor();
         $this->fields->setFieldRenderClass('\Kontentblocks\Fields\Renderer\FieldRendererWP');
-        $this->renderer = $this->fields->getFieldRenderClass();
         $this->fields->setFormRenderClass('\Kontentblocks\Fields\FieldFormRendererWP');
-
+        $this->renderer = $this->fields->getFieldRenderClass();
         echo "<table class='form-table'><tbody>";
         $this->preRender();
         echo $this->renderFields();
@@ -143,7 +165,7 @@ abstract class UserPanel extends AbstractPanel
      */
     public function renderFields()
     {
-
+        $this->fields->updateData();
         return $this->renderer->render();
     }
 

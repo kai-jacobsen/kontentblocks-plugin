@@ -5,6 +5,9 @@ namespace Kontentblocks\Utils {
     /*
      * All Props to the original!
      */
+
+    use Kontentblocks\Kontentblocks;
+
     /**
      * Title         : Aqua Resizer
      * Description   : Resizes WordPress images on the fly
@@ -71,6 +74,8 @@ namespace Kontentblocks\Utils {
                 $single = true,
                 $upscale = false
             ) {
+
+
                 // Validate inputs.
                 if (!$attachment || (!$width && !$height)) {
                     return false;
@@ -87,7 +92,8 @@ namespace Kontentblocks\Utils {
                 $dupscale = ($upscale) ? '_us' : '';
                 $sizedesc = 'kb-' . '_' . $dwidth . 'x' . $dheight . $dcrop . $dupscale;
                 $exists = wp_get_attachment_image_src($attachment, $sizedesc, false);
-                if (is_array($exists) && isset($exists[3])) {
+                $forcenew = apply_filters('kb.force.image.resize', false);
+                if (is_array($exists) && isset($exists[3]) && !$forcenew) {
                     if ($exists[3] === true) {
                         if ($single) {
                             return $exists[0];
@@ -98,6 +104,7 @@ namespace Kontentblocks\Utils {
                         }
                     }
                 }
+
                 $metadata = wp_get_attachment_metadata($attachment);
                 if (is_numeric($attachment)) {
                     $url = wp_get_attachment_url(absint($attachment));

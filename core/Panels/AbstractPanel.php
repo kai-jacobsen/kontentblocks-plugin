@@ -6,6 +6,7 @@ namespace Kontentblocks\Panels;
 use Kontentblocks\Backend\DataProvider\DataProviderInterface;
 use Kontentblocks\Common\Data\EntityModel;
 use Kontentblocks\Common\Interfaces\EntityInterface;
+use Kontentblocks\Common\Interfaces\FieldEntityInterface;
 use Kontentblocks\Fields\Field;
 use Kontentblocks\Fields\PanelFieldController;
 use Kontentblocks\Fields\StandardFieldController;
@@ -16,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
  * Class AbstractPanel
  * @package Kontentblocks\Panels
  */
-abstract class AbstractPanel implements EntityInterface
+abstract class AbstractPanel implements EntityInterface, FieldEntityInterface
 {
 
     public $saveAsSingle;
@@ -129,7 +130,6 @@ abstract class AbstractPanel implements EntityInterface
         $new = $this->fields->save($postData->request->get($this->baseId), $old);
         $merged = Utilities::arrayMergeRecursive($new, $old);
         $this->model->set($merged)->sync();
-
         if ($this->saveAsSingle) {
             $this->model->saveasSingle();
         }
@@ -159,6 +159,15 @@ abstract class AbstractPanel implements EntityInterface
             }
         }
     }
+
+    /**
+     * @return array
+     */
+    public function getArgs()
+    {
+        return $this->args;
+    }
+
 
     /**
      * @return string
@@ -191,7 +200,6 @@ abstract class AbstractPanel implements EntityInterface
      */
     public function setupViewModel($forcenew = false)
     {
-
         if (!is_null($this->frontendModel)) {
             if ($forcenew === false) {
                 return $this->frontendModel;
@@ -199,6 +207,7 @@ abstract class AbstractPanel implements EntityInterface
         }
 
         $prepData = [];
+
         foreach ($this->model->export() as $key => $v) {
             /** @var \Kontentblocks\Fields\Field $field */
             $field = $this->fields->getFieldByKey($key);
@@ -211,6 +220,7 @@ abstract class AbstractPanel implements EntityInterface
         }
         $fModel = new PanelModel($prepData, $this);
         $this->frontendModel = $fModel;
+
         return $this->frontendModel;
     }
 

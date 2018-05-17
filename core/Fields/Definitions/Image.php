@@ -4,8 +4,10 @@ namespace Kontentblocks\Fields\Definitions;
 
 use Kontentblocks\Customizer\CustomizerIntegration;
 use Kontentblocks\Fields\Customizer\Settings\ImageSetting;
+use Kontentblocks\Fields\Definitions\ReturnObjects\ImageReturn;
 use Kontentblocks\Fields\Field;
 use Kontentblocks\Utils\AttachmentHandler;
+use Symfony\Component\HttpFoundation\Request;
 use WP_Customize_Media_Control;
 
 /**
@@ -21,14 +23,57 @@ Class Image extends Field
         'returnObj' => 'ImageReturn'
     );
 
+    public static function init()
+    {
+        // handle minDimensions Settings
+        add_filter('wp_handle_upload_prefilter', array(__CLASS__, 'uploadFilter'));
+    }
 
+    public static function uploadFilter($file)
+    {
+
+        $req = Request::createFromGlobals();
+        $dimensions = $req->request->get('mindimensions', false);
+
+        if (!is_array($dimensions) || count($dimensions) !== 2) {
+            return $file;
+        }
+
+        $width = absint($dimensions[0]);
+        $height = absint($dimensions[1]);
+
+        if (!is_int($width) || !is_int($height)) {
+            return $file;
+        }
+
+        $img = getimagesize($file['tmp_name']);
+        $minimum = array('width' => $width, 'height' => $height);
+        $width = $img[0];
+        $height = $img[1];
+
+        if ($width < $minimum['width']) {
+            return array("error" => "Image dimensions are too small. Minimum width is {$minimum['width']}px. Uploaded image width is $width px");
+        } elseif ($height < $minimum['height']) {
+            return array("error" => "Image dimensions are too small. Minimum height is {$minimum['height']}px. Uploaded image height is $height px");
+        } else {
+            return $file;
+        }
+    }
+
+
+    /**
+     * Before the data is injected into the field/form twig template
+     * Used to further manipulate or extend the data for the form
+     * @param array $data
+     * @return array
+     */
     public function prepareTemplateData($data)
     {
 
-        $image = new AttachmentHandler($this->getValue('id'));
+        $image = new ImageReturn($this->value, $this, null);
         if (isset($data['value']['crop']) && !is_array($data['value']['crop'])) {
             $int = absint($data['value']['crop']);
-            $image->setCropPosition(self::getCropValue($int));
+            $image->crop(self::getCropValue($int));
         }
 
         $data['cropOptions'] = $this->getCropSelectNode();
@@ -61,6 +106,9 @@ Class Image extends Field
         return $values[5];
     }
 
+    /**
+     * @return array
+     */
     private function getCropSelectNode()
     {
 

@@ -12,12 +12,12 @@ use Kontentblocks\Utils\Utilities;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Edit Screen (Post Edit Screen)
+ * Edit Screen (KDPost Edit Screen)
  * Purpose: Creates the UI for the registered post type, which is just 'page' by default
  * Removes default meta boxes and adds the custom ui
  * Handles saving of areas while in post context
  * @package Kontentblocks
- * @subpackage Post
+ * @subpackage KDPost
  * @since 0.1.0
  */
 Class PostEditScreen
@@ -148,6 +148,7 @@ Class PostEditScreen
      */
     function save($postId, $postObj)
     {
+
         $request = Request::createFromGlobals();
 
         // get the real postId
@@ -157,17 +158,18 @@ Class PostEditScreen
             $postId = get_the_ID();
         }
 
+
+        if (post_type_supports(get_post_type($postId), 'kontentblocks')) {
+            $environment = Utilities::getPostEnvironment($postId);
+            $environment->save($postId, $postObj);
+        }
+
         $parentId = wp_is_post_revision($postId);
         if ($parentId) {
             if (post_type_supports(get_post_type($parentId), 'kontentblocks')) {
                 $saveRevision = new SaveRevision($postId, $parentId);
                 $saveRevision->save();
             }
-        }
-
-        if (post_type_supports(get_post_type($postId), 'kontentblocks')) {
-            $environment = Utilities::getPostEnvironment($postId);
-            $environment->save($postId, $postObj);
         }
 
     }
