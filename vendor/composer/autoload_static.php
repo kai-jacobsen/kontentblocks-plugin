@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
+class ComposerStaticInit81ea97255036d04f6e864dc776a57a69
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -538,33 +538,15 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Symfony\\Component\\Yaml\\Parser' => __DIR__ . '/..' . '/symfony/yaml/Parser.php',
         'Symfony\\Component\\Yaml\\Unescaper' => __DIR__ . '/..' . '/symfony/yaml/Unescaper.php',
         'Symfony\\Component\\Yaml\\Yaml' => __DIR__ . '/..' . '/symfony/yaml/Yaml.php',
-        'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
-        'Twig\\Extension\\RuntimeExtensionInterface' => __DIR__ . '/..' . '/twig/twig/src/Extension/RuntimeExtensionInterface.php',
-        'Twig_Compiler' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Compiler.php',
-        'Twig_Environment' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Environment.php',
-        'Twig_ExpressionParser' => __DIR__ . '/..' . '/twig/twig/lib/Twig/ExpressionParser.php',
-        'Twig_Extension_Core' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Extension/Core.php',
-        'Twig_Lexer' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Lexer.php',
-        'Twig_Loader_Filesystem' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Loader/Filesystem.php',
-        'Twig_NodeVisitor_Optimizer' => __DIR__ . '/..' . '/twig/twig/lib/Twig/NodeVisitor/Optimizer.php',
-        'Twig_NodeVisitor_Sandbox' => __DIR__ . '/..' . '/twig/twig/lib/Twig/NodeVisitor/Sandbox.php',
-        'Twig_Parser' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Parser.php',
-        'Twig_Profiler_NodeVisitor_Profiler' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Profiler/NodeVisitor/Profiler.php',
-        'Twig_Profiler_Profile' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Profiler/Profile.php',
-        'Twig_Template' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Template.php',
-        'Twig_TokenParserBroker' => __DIR__ . '/..' . '/twig/twig/lib/Twig/TokenParserBroker.php',
-        'Twig_TokenParser_For' => __DIR__ . '/..' . '/twig/twig/lib/Twig/TokenParser/For.php',
-        'Twig_TokenParser_Use' => __DIR__ . '/..' . '/twig/twig/lib/Twig/TokenParser/Use.php',
-        'Twig_TokenStream' => __DIR__ . '/..' . '/twig/twig/lib/Twig/TokenStream.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit2f310b6a1c62b4827af5d968814cba86::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit2f310b6a1c62b4827af5d968814cba86::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit2f310b6a1c62b4827af5d968814cba86::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit2f310b6a1c62b4827af5d968814cba86::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit81ea97255036d04f6e864dc776a57a69::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit81ea97255036d04f6e864dc776a57a69::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit81ea97255036d04f6e864dc776a57a69::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit81ea97255036d04f6e864dc776a57a69::$classMap;
 
         }, null, ClassLoader::class);
     }
