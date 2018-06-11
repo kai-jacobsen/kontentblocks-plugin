@@ -154,7 +154,8 @@ abstract class Module implements EntityInterface, FieldEntityInterface
             'concat' => true,
             'templates' => array(),
             'fieldRenderer' => 'Kontentblocks\Fields\Renderer\FieldRendererTabs',
-            'iconclass' => 'dashicons-screenoptions'
+            'iconclass' => 'dashicons-screenoptions',
+            'subarea' => false
         );
 
     }
@@ -288,6 +289,7 @@ abstract class Module implements EntityInterface, FieldEntityInterface
             class_alias('Kontentblocks\Templating\ModuleView', 'Kontentblocks\Templating\ModuleTemplate');
         }
 
+
         if ($this->properties->getSetting('views') && is_null($this->view)) {
             $view = $this->buildView($model);
             if (!is_null($view)) {
@@ -316,6 +318,7 @@ abstract class Module implements EntityInterface, FieldEntityInterface
     protected function buildView(ModuleModel $model)
     {
         $tpl = $this->getViewfile();
+
         $full = $this->viewManager->getViewByName($tpl);
         if (is_null($full)) {
             return null;
