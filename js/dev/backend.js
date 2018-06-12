@@ -5114,7 +5114,7 @@ module.exports = BaseView.extend({
     window._kbLink.setTargetFromModal(target);
 
     // If there's no href, return.
-    if (!attrs.href || attrs.href == 'http://')
+    if (!attrs.href)
       return;
     // Build HTML
     href = attrs.href;
@@ -5451,6 +5451,9 @@ module.exports = Backbone.View.extend({
     UI.repaint(this.fsControl.$el);
   },
   saveModule: function () {
+    if (!this.formLoaded){
+      return false;
+    }
     this.ModuleModel.sync();
     this.getClean();
   },
@@ -5797,7 +5800,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.module : depth0)) != null ? stack1.settings : stack1)) != null ? stack1.name : stack1), depth0))
     + "</div>\n    <div class=\"kbsm--name\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.module : depth0)) != null ? stack1.mid : stack1), depth0))
-    + "</div>\n</div>\n<div class=\"kbsm-actions\">\n    <div class=\"kbsm-action kbms-action--open\" data-kbtooltip=\"open form\"><span\n            class=\"dashicons dashicons-admin-generic\"></span></div>\n    <div class=\"kbsm-action kbms-action--delete\" data-kbtooltip=\"delete\"><span\n            class=\"dashicons dashicons-welcome-comments\"></span></div>\n    <div class=\"kbsm-action kbms-action--update\" data-kbtooltip=\"update\"><span\n            class=\"dashicons dashicons-update\"></span></div>\n</div>\n<div class=\"kbsm-inner\">\n\n</div>";
+    + "</div>\n</div>\n<div class=\"kbsm-actions\">\n    <div class=\"kbsm-action kbms-action--open\" data-kbtooltip=\"open form\"><span\n            class=\"dashicons dashicons-admin-generic\"></span></div>\n    <div class=\"kbsm-action kbms-action--delete\" data-kbtooltip=\"delete\"><span\n            class=\"dashicons dashicons-welcome-comments\"></span></div>\n    <div class=\"kbsm-action kbms-action--update\" data-kbtooltip=\"update\"><span\n            class=\"dashicons dashicons-update\"></span></div>\n</div>\n<div class=\"kbsm-inner\">\n    <div class=\"kbsm-button kbms-action--open\">Bearbeiten</div>\n</div>";
 },"useData":true});
 
 },{"hbsfy/runtime":226}],94:[function(require,module,exports){
@@ -6961,6 +6964,7 @@ var BatchDeleteController = Backbone.View.extend({
     }, this.success, this);
   },
   success: function (res) {
+    var that = this;
     if (res.data.modules) {
       _.each(res.data.modules, function (value, key) {
         if (value) {
@@ -6969,6 +6973,7 @@ var BatchDeleteController = Backbone.View.extend({
           KB.Modules.remove(control.model);
           wp.heartbeat.interval('fast', 2);
           control.model.destroy();
+          that.hide();
         }
       }, this)
     }
