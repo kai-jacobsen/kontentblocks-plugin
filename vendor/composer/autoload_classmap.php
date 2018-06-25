@@ -111,6 +111,7 @@ return array(
     'Kontentblocks\\Fields\\Definitions\\CheckboxGroup' => $baseDir . '/core/Fields/Definitions/CheckboxGroup.php',
     'Kontentblocks\\Fields\\Definitions\\CheckboxSet' => $baseDir . '/core/Fields/Definitions/CheckboxSet.php',
     'Kontentblocks\\Fields\\Definitions\\ChoseTaxonomy' => $baseDir . '/core/Fields/Definitions/ChoseTaxonomy.php',
+    'Kontentblocks\\Fields\\Definitions\\Code' => $baseDir . '/core/Fields/Definitions/Code.php',
     'Kontentblocks\\Fields\\Definitions\\Color' => $baseDir . '/core/Fields/Definitions/Color.php',
     'Kontentblocks\\Fields\\Definitions\\Context' => $baseDir . '/core/Fields/Definitions/Context.php',
     'Kontentblocks\\Fields\\Definitions\\CropImage' => $baseDir . '/core/Fields/Definitions/CropImage.php',

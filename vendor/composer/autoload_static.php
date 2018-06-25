@@ -201,6 +201,7 @@ class ComposerStaticInitdcb1204d479ad8c1bff0450531cb4406
         'Kontentblocks\\Fields\\Definitions\\CheckboxGroup' => __DIR__ . '/../..' . '/core/Fields/Definitions/CheckboxGroup.php',
         'Kontentblocks\\Fields\\Definitions\\CheckboxSet' => __DIR__ . '/../..' . '/core/Fields/Definitions/CheckboxSet.php',
         'Kontentblocks\\Fields\\Definitions\\ChoseTaxonomy' => __DIR__ . '/../..' . '/core/Fields/Definitions/ChoseTaxonomy.php',
+        'Kontentblocks\\Fields\\Definitions\\Code' => __DIR__ . '/../..' . '/core/Fields/Definitions/Code.php',
         'Kontentblocks\\Fields\\Definitions\\Color' => __DIR__ . '/../..' . '/core/Fields/Definitions/Color.php',
         'Kontentblocks\\Fields\\Definitions\\Context' => __DIR__ . '/../..' . '/core/Fields/Definitions/Context.php',
         'Kontentblocks\\Fields\\Definitions\\CropImage' => __DIR__ . '/../..' . '/core/Fields/Definitions/CropImage.php',
