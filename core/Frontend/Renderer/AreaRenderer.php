@@ -114,7 +114,6 @@ class AreaRenderer implements RendererInterface, ModuleLookAheadInterface, \Json
             return false;
         }
 
-
         $this->areaHtmlNode = new AreaNode(
             $this->environment,
             $this->areaSettings
@@ -134,7 +133,7 @@ class AreaRenderer implements RendererInterface, ModuleLookAheadInterface, \Json
             if (!is_a($module, '\Kontentblocks\Modules\Module') || !$module->verifyRender()) {
                 continue;
             }
-            $module->context->renderer = $this;
+            $module->context->setRenderer($this);
             $module->context->set(array('renderPosition' => $this->position));
             $this->beforeModule($module);
             $output .= $this->moduleRenderer->render();
@@ -171,7 +170,7 @@ class AreaRenderer implements RendererInterface, ModuleLookAheadInterface, \Json
         if (!$this->area->settings->isActive()) {
             return false;
         }
-        if ($this->area->dynamic && !$this->area->settings->isAttached() && $this->area->manual) {
+        if ($this->area->dynamic && !$this->area->settings->isAttached() && !$this->area->manual) {
             return false;
         }
 
@@ -199,6 +198,21 @@ class AreaRenderer implements RendererInterface, ModuleLookAheadInterface, \Json
     {
         $classes = array();
 
+        $nextHash = null;
+        $nextSlug = '';
+        $nextModule = $this->getNextModule();
+
+        $prevSlug = '';
+
+        if (is_a($nextModule, Module::class)) {
+            $nextHash = $nextModule->properties->getSetting('hash');
+            $nextSlug = $nextModule->properties->getSetting('slug');
+        }
+
+        if (is_a($this->previousModule, Module::class)) {
+            $prevSlug = $this->previousModule->properties->getSetting('slug');
+        }
+
         if ($this->position === 1) {
             $classes[] = 'first-module';
         }
@@ -218,11 +232,29 @@ class AreaRenderer implements RendererInterface, ModuleLookAheadInterface, \Json
         }
 
 
-        if ($this->previousModule === $module->properties->getSetting('hash')) {
-            $classes[] = 'repeater';
+        if ($nextHash === $module->properties->getSetting('hash') && !$this->repeating) {
+            $classes[] = 'first-repeater';
             $this->repeating = true;
+        }
+
+        if (!empty($nextSlug)) {
+            $classes[] = 'next-' . $nextSlug;
+        }
+
+        if (!empty($prevSlug)) {
+            $classes[] = 'next-' . $prevSlug;
+        }
+
+
+        if ($this->previousModule === $module->properties->getSetting('hash')) {
+            if ($this->repeating && ($nextHash !== $module->properties->getSetting('hash'))) {
+                $classes[] = 'repeater';
+                $classes[] = 'last-repeater';
+                $this->repeating = false;
+            } else {
+                $classes[] = 'repeater';
+            }
         } else {
-            $this->repeating = false;
         }
 
 
@@ -238,16 +270,6 @@ class AreaRenderer implements RendererInterface, ModuleLookAheadInterface, \Json
     }
 
     /**
-     * @param Module $module
-     */
-    public function afterModule(Module $module)
-    {
-        $this->previousModule = $module->properties->getSetting('hash');
-        $this->position++;
-    }
-
-
-    /**
      * @return mixed
      */
     public function getNextModule()
@@ -255,6 +277,15 @@ class AreaRenderer implements RendererInterface, ModuleLookAheadInterface, \Json
         $next = $this->modules->next();
         $this->modules->prev();
         return $next;
+    }
+
+    /**
+     * @param Module $module
+     */
+    public function afterModule(Module $module)
+    {
+        $this->previousModule = $module->properties->getSetting('hash');
+        $this->position++;
     }
 
     /**

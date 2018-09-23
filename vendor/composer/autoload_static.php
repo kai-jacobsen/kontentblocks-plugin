@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
 {
     public static $files = array (
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
     );
 
@@ -18,6 +19,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\HttpFoundation\\' => 33,
         ),
@@ -44,6 +46,10 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
         'Symfony\\Component\\Yaml\\' => 
         array (
@@ -104,8 +110,10 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Kontentblocks\\Ajax\\Actions\\BatchRemoveModules' => __DIR__ . '/../..' . '/core/Ajax/Actions/BatchRemoveModules.php',
         'Kontentblocks\\Ajax\\Actions\\ChangeArea' => __DIR__ . '/../..' . '/core/Ajax/Actions/ChangeArea.php',
         'Kontentblocks\\Ajax\\Actions\\ChangeModuleStatus' => __DIR__ . '/../..' . '/core/Ajax/Actions/ChangeModuleStatus.php',
+        'Kontentblocks\\Ajax\\Actions\\CreateModuleViewTemplate' => __DIR__ . '/../..' . '/core/Ajax/Actions/CreateModuleViewTemplate.php',
         'Kontentblocks\\Ajax\\Actions\\CreateNewModule' => __DIR__ . '/../..' . '/core/Ajax/Actions/CreateNewModule.php',
         'Kontentblocks\\Ajax\\Actions\\CropImage' => __DIR__ . '/../..' . '/core/Ajax/Actions/CropImage.php',
+        'Kontentblocks\\Ajax\\Actions\\DeleteModuleViewTemplate' => __DIR__ . '/../..' . '/core/Ajax/Actions/DeleteModuleViewTemplate.php',
         'Kontentblocks\\Ajax\\Actions\\DuplicateModule' => __DIR__ . '/../..' . '/core/Ajax/Actions/DuplicateModule.php',
         'Kontentblocks\\Ajax\\Actions\\Frontend\\ApplyContentFilter' => __DIR__ . '/../..' . '/core/Ajax/Actions/Frontend/ApplyContentFilter.php',
         'Kontentblocks\\Ajax\\Actions\\Frontend\\FieldGetImage' => __DIR__ . '/../..' . '/core/Ajax/Actions/Frontend/FieldGetImage.php',
@@ -122,6 +130,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Kontentblocks\\Ajax\\Actions\\GetOembed' => __DIR__ . '/../..' . '/core/Ajax/Actions/GetOembed.php',
         'Kontentblocks\\Ajax\\Actions\\GetPostObjects' => __DIR__ . '/../..' . '/core/Ajax/Actions/GetPostObjects.php',
         'Kontentblocks\\Ajax\\Actions\\GetSanitizedId' => __DIR__ . '/../..' . '/core/Ajax/Actions/GetSanitizedId.php',
+        'Kontentblocks\\Ajax\\Actions\\GetTemplateString' => __DIR__ . '/../..' . '/core/Ajax/Actions/GetTemplateString.php',
         'Kontentblocks\\Ajax\\Actions\\HandleClipboard' => __DIR__ . '/../..' . '/core/Ajax/Actions/HandleClipboard.php',
         'Kontentblocks\\Ajax\\Actions\\RemoteGetEditor' => __DIR__ . '/../..' . '/core/Ajax/Actions/RemoteGetEditor.php',
         'Kontentblocks\\Ajax\\Actions\\RemoveModules' => __DIR__ . '/../..' . '/core/Ajax/Actions/RemoveModules.php',
@@ -130,6 +139,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Kontentblocks\\Ajax\\Actions\\UndraftModule' => __DIR__ . '/../..' . '/core/Ajax/Actions/UndraftModule.php',
         'Kontentblocks\\Ajax\\Actions\\UpdateContextAreaOrder' => __DIR__ . '/../..' . '/core/Ajax/Actions/UpdateContextAreaOrder.php',
         'Kontentblocks\\Ajax\\Actions\\UpdateModuleData' => __DIR__ . '/../..' . '/core/Ajax/Actions/UpdateModuleData.php',
+        'Kontentblocks\\Ajax\\Actions\\UpdateModuleViewTemplate' => __DIR__ . '/../..' . '/core/Ajax/Actions/UpdateModuleViewTemplate.php',
         'Kontentblocks\\Ajax\\AjaxActionInterface' => __DIR__ . '/../..' . '/core/Ajax/AjaxActionInterface.php',
         'Kontentblocks\\Ajax\\AjaxCallbackHandler' => __DIR__ . '/../..' . '/core/Ajax/AjaxCallbackHandler.php',
         'Kontentblocks\\Ajax\\AjaxErrorResponse' => __DIR__ . '/../..' . '/core/Ajax/AjaxErrorResponse.php',
@@ -182,6 +192,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Kontentblocks\\Common\\Exportable' => __DIR__ . '/../..' . '/core/Common/Exportable.php',
         'Kontentblocks\\Common\\ExportableFieldInterface' => __DIR__ . '/../..' . '/core/Common/ExportableFieldInterface.php',
         'Kontentblocks\\Common\\Interfaces\\EntityInterface' => __DIR__ . '/../..' . '/core/Common/Interfaces/EntityInterface.php',
+        'Kontentblocks\\Common\\Interfaces\\FieldEntityInterface' => __DIR__ . '/../..' . '/core/Common/Interfaces/FieldEntityInterface.php',
         'Kontentblocks\\Common\\Interfaces\\ModuleLookAheadInterface' => __DIR__ . '/../..' . '/core/Common/Interfaces/ModuleLookAheadInterface.php',
         'Kontentblocks\\Common\\Interfaces\\RendererInterface' => __DIR__ . '/../..' . '/core/Common/Interfaces/RendererInterface.php',
         'Kontentblocks\\Customizer\\CustomizerIntegration' => __DIR__ . '/../..' . '/core/Customizer/CustomizerIntegration.php',
@@ -196,6 +207,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Kontentblocks\\Fields\\Definitions\\CheckboxGroup' => __DIR__ . '/../..' . '/core/Fields/Definitions/CheckboxGroup.php',
         'Kontentblocks\\Fields\\Definitions\\CheckboxSet' => __DIR__ . '/../..' . '/core/Fields/Definitions/CheckboxSet.php',
         'Kontentblocks\\Fields\\Definitions\\ChoseTaxonomy' => __DIR__ . '/../..' . '/core/Fields/Definitions/ChoseTaxonomy.php',
+        'Kontentblocks\\Fields\\Definitions\\Code' => __DIR__ . '/../..' . '/core/Fields/Definitions/Code.php',
         'Kontentblocks\\Fields\\Definitions\\Color' => __DIR__ . '/../..' . '/core/Fields/Definitions/Color.php',
         'Kontentblocks\\Fields\\Definitions\\Context' => __DIR__ . '/../..' . '/core/Fields/Definitions/Context.php',
         'Kontentblocks\\Fields\\Definitions\\CropImage' => __DIR__ . '/../..' . '/core/Fields/Definitions/CropImage.php',
@@ -205,6 +217,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Kontentblocks\\Fields\\Definitions\\File' => __DIR__ . '/../..' . '/core/Fields/Definitions/File.php',
         'Kontentblocks\\Fields\\Definitions\\FlexFields\\FlexFieldsManager' => __DIR__ . '/../..' . '/core/Fields/Definitions/FlexFields/FlexFieldsManager.php',
         'Kontentblocks\\Fields\\Definitions\\FlexFields\\FlexFieldsSection' => __DIR__ . '/../..' . '/core/Fields/Definitions/FlexFields/FlexFieldsSection.php',
+        'Kontentblocks\\Fields\\Definitions\\FlexFields\\FlexFieldsType' => __DIR__ . '/../..' . '/core/Fields/Definitions/FlexFields/FlexFieldsType.php',
         'Kontentblocks\\Fields\\Definitions\\FlexibleFields' => __DIR__ . '/../..' . '/core/Fields/Definitions/FlexibleFields.php',
         'Kontentblocks\\Fields\\Definitions\\Gallery' => __DIR__ . '/../..' . '/core/Fields/Definitions/Gallery.php',
         'Kontentblocks\\Fields\\Definitions\\Gallery2' => __DIR__ . '/../..' . '/core/Fields/Definitions/Gallery2.php',
@@ -216,11 +229,13 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Kontentblocks\\Fields\\Definitions\\MultiText' => __DIR__ . '/../..' . '/core/Fields/Definitions/MultiText.php',
         'Kontentblocks\\Fields\\Definitions\\Multiselect' => __DIR__ . '/../..' . '/core/Fields/Definitions/Multiselect.php',
         'Kontentblocks\\Fields\\Definitions\\NullField' => __DIR__ . '/../..' . '/core/Fields/Definitions/NullField.php',
+        'Kontentblocks\\Fields\\Definitions\\OSM' => __DIR__ . '/../..' . '/core/Fields/Definitions/OSM.php',
         'Kontentblocks\\Fields\\Definitions\\Oembed' => __DIR__ . '/../..' . '/core/Fields/Definitions/Oembed.php',
         'Kontentblocks\\Fields\\Definitions\\OpeningTimes' => __DIR__ . '/../..' . '/core/Fields/Definitions/OpeningTimes.php',
         'Kontentblocks\\Fields\\Definitions\\Plupload' => __DIR__ . '/../..' . '/core/Fields/Definitions/Plupload.php',
         'Kontentblocks\\Fields\\Definitions\\PostSelect' => __DIR__ . '/../..' . '/core/Fields/Definitions/PostSelect.php',
         'Kontentblocks\\Fields\\Definitions\\PostSelect2' => __DIR__ . '/../..' . '/core/Fields/Definitions/PostSelect2.php',
+        'Kontentblocks\\Fields\\Definitions\\RadioSet' => __DIR__ . '/../..' . '/core/Fields/Definitions/RadioSet.php',
         'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\AbstractEditableFieldReturn' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/AbstractEditableFieldReturn.php',
         'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\BoolReturn' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/BoolReturn.php',
         'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\DatetimeReturn' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/DatetimeReturn.php',
@@ -535,6 +550,7 @@ class ComposerStaticInit2f310b6a1c62b4827af5d968814cba86
         'Symfony\\Component\\Yaml\\Parser' => __DIR__ . '/..' . '/symfony/yaml/Parser.php',
         'Symfony\\Component\\Yaml\\Unescaper' => __DIR__ . '/..' . '/symfony/yaml/Unescaper.php',
         'Symfony\\Component\\Yaml\\Yaml' => __DIR__ . '/..' . '/symfony/yaml/Yaml.php',
+        'Symfony\\Polyfill\\Ctype\\Ctype' => __DIR__ . '/..' . '/symfony/polyfill-ctype/Ctype.php',
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
         'Twig\\Cache\\CacheInterface' => __DIR__ . '/..' . '/twig/twig/src/Cache/CacheInterface.php',
         'Twig\\Cache\\FilesystemCache' => __DIR__ . '/..' . '/twig/twig/src/Cache/FilesystemCache.php',

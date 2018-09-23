@@ -45,10 +45,7 @@ class ModuleViewManager
     {
         $this->viewFilesystem = $filesystem;
         $this->module = $module;
-        $this->views = $this->viewFilesystem->getTemplatesforContext($module->getContext());
-        if (count($this->views) > 1) {
-            $this->hasViews = true;
-        }
+        $this->views = $this->updateViews();
 
         /**
          * register handler to save the user choice when the frontend edit module saves
@@ -56,6 +53,19 @@ class ModuleViewManager
         add_action('kb.save.frontend.module', array($this, 'frontendSave'));
     }
 
+    /**
+     * @return array
+     */
+    public function updateViews(){
+        $views = $this->viewFilesystem->getTemplatesforContext($this->module->getContext());
+        if (count($views) > 1) {
+            $this->hasViews = true;
+        } else{
+            $this->hasViews = false;
+        }
+        $this->views = $views;
+        return $this->views;
+    }
 
     /**
      * Check if files are available
@@ -128,7 +138,7 @@ class ModuleViewManager
     /**
      * @param $name
      *
-     * @return null
+     * @return ModuleViewFile|null
      */
     public function getViewByName($name)
     {
@@ -137,6 +147,21 @@ class ModuleViewManager
         } else {
             return null;
         }
+    }
+
+    /**
+     * @param $viewId
+     * @return ModuleViewFile|null
+     */
+    public function getViewById($viewId)
+    {
+        $filter = array_filter($this->views, function ($view) use ($viewId) {
+            return ($view->id === $viewId);
+        });
+        if (empty($filter)) {
+            return null;
+        }
+        return array_shift($filter);
     }
 
     /**

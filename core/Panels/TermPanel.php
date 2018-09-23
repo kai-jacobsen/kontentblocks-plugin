@@ -8,6 +8,7 @@ use Kontentblocks\Backend\DataProvider\TermMetaDataProvider;
 use Kontentblocks\Backend\Environment\TermEnvironment;
 use Kontentblocks\Fields\StandardFieldController;
 use Kontentblocks\Fields\TermPanelFieldController;
+use Kontentblocks\Fields\UserPanelFieldController;
 use Kontentblocks\Kontentblocks;
 use Kontentblocks\Utils\Utilities;
 use Symfony\Component\HttpFoundation\Request;
@@ -66,10 +67,10 @@ abstract class TermPanel extends AbstractPanel
         $this->setupArgs($this->args);
         $this->term = $environment->termObj;
         $this->context = new TermPanelContext($environment->export(), $this);
-        $this->fields = new TermPanelFieldController($args['baseId'], $this);
-        $this->model = new PanelModel($environment->getDataProvider()->get($args['baseId']), $this);
-        $this->data = $this->model->export();
-        $this->fields();
+        $savedData = $this->dataProvider->get(Utilities::buildContextKey($this->baseId));
+        $this->model = new PanelModel($savedData, $this);
+        $this->setupFields();
+        $this->model = $this->prepareModel();
     }
 
     /**
@@ -89,8 +90,36 @@ abstract class TermPanel extends AbstractPanel
         return wp_parse_args($args, $defaults);
     }
 
+    public function setupFields()
+    {
+        $this->fields = new TermPanelFieldController($this->baseId, $this);
+        $this->fields();
+        $this->fields->afterSetup();
+    }
 
     abstract public function fields();
+
+    /**
+     * @return PanelModel
+     */
+    public function prepareModel()
+    {
+        $savedData = $this->model->export();
+        if ($this->fields) {
+            $data = array();
+            $config = $this->fields->export();
+            foreach ($config->getFields() as $attrs) {
+                if ($attrs['arrayKey']) {
+                    $data[$attrs['arrayKey']][$attrs['key']] = $attrs['std'];
+                } else {
+                    $data[$attrs['key']] = $attrs['std'];
+                }
+            }
+            $new = wp_parse_args($savedData, $data);
+            $this->model->set($new);
+        }
+        return $this->model;
+    }
 
     public function init()
     {
@@ -160,7 +189,7 @@ abstract class TermPanel extends AbstractPanel
         if ($this->args['insideTable']) {
             $this->fields->setFormRenderClass('\Kontentblocks\Fields\FieldFormRendererWP');
         }
-
+        $this->fields->updateData();
         $this->renderer = $this->fields->getFieldRenderClass();
 
         $html = '';

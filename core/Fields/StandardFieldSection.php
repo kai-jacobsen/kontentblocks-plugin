@@ -6,6 +6,7 @@ use Exception;
 use Kontentblocks\Common\Data\EntityModel;
 use Kontentblocks\Common\ExportableFieldInterface;
 use Kontentblocks\Common\Interfaces\EntityInterface;
+use function Kontentblocks\fieldRegistry;
 use Kontentblocks\Kontentblocks;
 use Kontentblocks\Utils\Utilities;
 
@@ -103,7 +104,10 @@ class StandardFieldSection implements ExportableFieldInterface
     {
         $args = Utilities::arrayMergeRecursive($args, self::$defaults);
         if (!isset($args['label'])) {
-            $args['label'] = strtoupper(str_replace('-', ' ', $this->sectionId));
+            $args['label'] = ucfirst(str_replace('-', ' ', $this->sectionId));
+        }
+        if (!isset($args['title'])) {
+            $args['title'] = ucfirst(str_replace('-', ' ', $this->sectionId));
         }
         if (!isset($args['description'])) {
             $args['description'] = '';
@@ -130,20 +134,18 @@ class StandardFieldSection implements ExportableFieldInterface
      * @param string $key | Unique key
      * @param array $args | additional parameters, may differ by field type
      *
-     * @throws \Exception
      * @return StandardFieldSection Fluid layout
      */
     public function addField($type, $key, $args = array())
     {
 
-        if (is_string($key) && empty($key)){
+        if (is_string($key) && empty($key)) {
             return $this;
         }
 
         if (is_string($key) && $key[0] === '_') {
             return $this;
         }
-
 
 
         /** @var \Kontentblocks\Fields\FieldRegistry $registry */
@@ -188,7 +190,7 @@ class StandardFieldSection implements ExportableFieldInterface
             }
 
             $this->collectToTabs($field);
-            $field->setData($this->getFielddata($field));
+//            $field->setData($this->getFielddata($field));
             $this->increaseVisibleFields();
             $this->orderFields();
         }
@@ -299,14 +301,12 @@ class StandardFieldSection implements ExportableFieldInterface
     {
 
         $fields = [$field];
-        if (is_a($field, FieldSubGroup::class)){
+        if (is_a($field, FieldSubGroup::class)) {
             $fields = $field->getFields();
         }
 
-        foreach ($fields as $field){
-
+        foreach ($fields as $field) {
             $tabArg = $field->getArg('tab', null);
-
             if (is_null($tabArg)) {
                 $group = $this->getTabGroup($field->getArg('label'), $field->getKey());
             } else {
@@ -540,6 +540,22 @@ class StandardFieldSection implements ExportableFieldInterface
             return !$field->isVisible();
         });
         return $fields;
+    }
+
+    public function addFieldTemplate($tplid)
+    {
+        $registry = fieldRegistry();
+        $tplid = (array)$tplid;
+        foreach ($tplid as $id) {
+            if ($registry->fieldTemplateExists($id)) {
+                $callback = $registry->getFieldTemplate($id);
+                if (is_callable($callback)) {
+                    call_user_func($callback, $this);
+                }
+            }
+        }
+
+        return $this;
     }
 
     /**
