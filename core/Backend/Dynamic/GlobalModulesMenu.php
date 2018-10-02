@@ -334,7 +334,6 @@ class GlobalModulesMenu
 //        if (!wp_verify_nonce($_POST['kb_noncename'], 'kontentblocks_save_post')) {
 //            return false;
 //        }
-
         // Check permissions
         if (!current_user_can('edit_post', $postId)) {
             return false;
@@ -429,11 +428,11 @@ class GlobalModulesMenu
      */
     public function postData($data, $post)
     {
-        $request = Request::createFromGlobals();
         if ($post['post_type'] !== 'kb-gmd') {
             return $data;
         }
 
+        $request = Request::createFromGlobals();
         if (!$request->request->get('new-gmodule', false)) {
             return $data;
         }
