@@ -135,6 +135,7 @@ class StandardFieldSection implements ExportableFieldInterface
      * @param array $args | additional parameters, may differ by field type
      *
      * @return StandardFieldSection Fluid layout
+     * @throws Exception
      */
     public function addField($type, $key, $args = array())
     {
@@ -255,6 +256,13 @@ class StandardFieldSection implements ExportableFieldInterface
      */
     public function markVisibility(Field $field)
     {
+        $cap = $field->getArg('cap', false);
+        if ($cap !== false) {
+            if (!current_user_can($cap)) {
+                return $field->setVisibility(false);
+            }
+        }
+
         $field->setVisibility(true);
     }
 
@@ -342,31 +350,6 @@ class StandardFieldSection implements ExportableFieldInterface
     }
 
     /**
-     * @param $field
-     * @return mixed
-     */
-    private function getFielddata(ExportableFieldInterface $field)
-    {
-        $data = $this->getEntityModel();
-        if (isset($data[$field->getKey()])) {
-            return (is_object($data) && !is_null(
-                    $data[$field->getKey()]
-                )) ? $data[$field->getKey()] : $field->getDefaultValue();
-        }
-
-        return $field->getDefaultValue();
-
-    }
-
-    /**
-     * @return EntityModel
-     */
-    public function getEntityModel()
-    {
-        return $this->entity->getModel();
-    }
-
-    /**
      * Increase number of visible fields property
      */
     protected function increaseVisibleFields()
@@ -379,8 +362,8 @@ class StandardFieldSection implements ExportableFieldInterface
     private function orderFields()
     {
         $code = "return strnatcmp(\$a->getArg('priority'), \$b->getArg('priority'));";
-        uasort($this->fields, function ($a, $b){
-           return strnatcmp($a->getArg('priority'), $b->getArg('priority'));
+        uasort($this->fields, function ($a, $b) {
+            return strnatcmp($a->getArg('priority'), $b->getArg('priority'));
         });
     }
 
@@ -565,6 +548,31 @@ class StandardFieldSection implements ExportableFieldInterface
     protected function decreaseVisibleFields()
     {
         $this->numberOfVisibleFields--;
+    }
+
+    /**
+     * @param $field
+     * @return mixed
+     */
+    private function getFielddata(ExportableFieldInterface $field)
+    {
+        $data = $this->getEntityModel();
+        if (isset($data[$field->getKey()])) {
+            return (is_object($data) && !is_null(
+                    $data[$field->getKey()]
+                )) ? $data[$field->getKey()] : $field->getDefaultValue();
+        }
+
+        return $field->getDefaultValue();
+
+    }
+
+    /**
+     * @return EntityModel
+     */
+    public function getEntityModel()
+    {
+        return $this->entity->getModel();
     }
 
 

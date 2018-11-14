@@ -159,6 +159,7 @@ class AreaRegistry
                 array(
                     'post_type' => 'kb-dyar',
                     'posts_per_page' => -1,
+                    'update_post_meta_cache' => false,
                     'suppress_filters' => false // let multilanguage plugins set the right context
                 )
             );
