@@ -34,7 +34,6 @@
     "symfony/http-foundation": "3.0.*"
   },
   "require-dev": {
-    "codeclimate/php-test-reporter": "*",
     "phpunit/phpunit": "5.7.8"
   }
 }
