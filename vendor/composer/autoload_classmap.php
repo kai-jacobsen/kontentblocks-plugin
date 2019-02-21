@@ -165,6 +165,7 @@ return array(
     'Kontentblocks\\Fields\\Definitions\\Textarea' => $baseDir . '/core/Fields/Definitions/Textarea.php',
     'Kontentblocks\\Fields\\Definitions\\TwigInclude' => $baseDir . '/core/Fields/Definitions/TwigInclude.php',
     'Kontentblocks\\Fields\\Field' => $baseDir . '/core/Fields/Field.php',
+    'Kontentblocks\\Fields\\FieldContext' => $baseDir . '/core/Fields/FieldContext.php',
     'Kontentblocks\\Fields\\FieldExport' => $baseDir . '/core/Fields/FieldExport.php',
     'Kontentblocks\\Fields\\FieldFormRenderer' => $baseDir . '/core/Fields/FieldFormRenderer.php',
     'Kontentblocks\\Fields\\FieldFormRendererPlain' => $baseDir . '/core/Fields/FieldFormRendererPlain.php',

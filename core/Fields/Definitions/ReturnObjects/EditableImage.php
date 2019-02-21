@@ -95,10 +95,9 @@ class EditableImage extends AbstractEditableFieldReturn implements \JsonSerializ
             'crop' => $this->image->crop,
             'upscale' => $this->image->upscale,
             'index' => $this->field->getArg('index', null),
-            'id' => $this->getValue('id'),
+            'id' => $this->createUniqueId(),
             'type' => 'EditableImage',
             'kpath' => $this->createPath(),
-            'parentObjectId' => $this->field->controller->getEntity()->postId,
             'tooltip' => $this->helptext,
             'mode' => ($this->background) ? 'background' : 'simple',
             'state' => $this->field->getArg('state', 'image-details'),
@@ -135,7 +134,8 @@ class EditableImage extends AbstractEditableFieldReturn implements \JsonSerializ
      * @param $string
      * @return $this
      */
-    public function mq($string){
+    public function mq($string)
+    {
         $this->image->mq($string);
         return $this;
     }

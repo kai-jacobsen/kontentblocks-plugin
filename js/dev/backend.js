@@ -165,6 +165,7 @@ KB.App = (function () {
    */
   function createModuleViews(module) {
     // create view
+
     KB.Views.Modules.add(module.get('mid'), new ModuleView({
       model: module,
       el: '#' + module.get('mid')
@@ -185,12 +186,12 @@ KB.App = (function () {
     if (area.get('public')) {
       KB.Views.Areas.add(area.get('id'), new AreaView({
         model: area,
-        el: '#' + area.get('id') + '-container'
+        el: '#' + area.get('id') + '-kb-container'
       }));
     } else {
       KB.Views.Areas.add(area.get('id'), new SystemAreaView({
         model: area,
-        el: '#' + area.get('id') + '-container'
+        el: '#' + area.get('id') + '-kb-container'
       }));
     }
   }
@@ -198,7 +199,7 @@ KB.App = (function () {
   function createPanelViews(panel) {
     KB.Views.Areas.add(panel.get('baseId'), new PanelView({
       model: panel,
-      el: '#kbp-' + panel.get('baseId') + '-container'
+      el: '#kbp-' + panel.get('baseId') + '-kb-container'
     }));
   }
 
@@ -1706,7 +1707,7 @@ module.exports = Backbone.View.extend({
   initialize: function () {
     // Setup Elements
     this.open = false;
-    if (this.model.get('globalModule') == true) {
+    if (this.model.get('globalModule') === true) {
       this.open = true;
     }
     this.$head = jQuery('.kb-module__header', this.$el);
@@ -3543,7 +3544,7 @@ module.exports = Backbone.Model.extend({
   // idAttribute: "uid",
   initialize: function () {
     this.cleanUp(); //remove self from linked fields
-    var module = this.get('fieldId'); // fieldId equals baseId equals the parent object id (Panel or Module)
+    var module = this.get('relId'); // fieldId equals baseId equals the parent object id (Panel or Module)
     if (module && (this.ModuleModel = KB.ObjectProxy.get(module)) && this.getType()) { // if object exists and this field type is valid
       this.set('ModuleModel', this.ModuleModel); // assign the parent object model
       this.setData(); // get data from the parent object and assign to this
@@ -3583,9 +3584,14 @@ module.exports = Backbone.Model.extend({
     }
   },
   updateLinkedFields: function (fieldSettings) {
+    var that = this;
     if (fieldSettings.linkedFields) {
       this.set('linkedFields', fieldSettings.linkedFields);
       this.cleanUp();
+      this.unbind();
+      _.defer(function () {
+        that.rebind();
+      })
     }
   },
   getElement: function () {
@@ -3652,14 +3658,15 @@ module.exports = Backbone.Model.extend({
     _.defer(function () {
       if (_.isUndefined(that.getElement())) {
         _.defer(_.bind(that.FieldControlView.gone, that.FieldControlView));
-      }
-      else if (that.FieldControlView) {
+      } else if (that.FieldControlView) {
         that.FieldControlView.setElement(that.getElement()); // markup might have changed, reset the root element
         _.defer(_.bind(that.FieldControlView.rerender, that.FieldControlView)); // call rerender on the field
       }
     }, true);
   },
   unbind: function () {
+    console.log('unbind');
+
     if (this.FieldControlView && this.FieldControlView.derender) {
       this.FieldControlView.derender(); // call derender
     }
@@ -3674,7 +3681,6 @@ module.exports = Backbone.Model.extend({
 
     delete clone['ModuleModel'];
     delete clone['linkedFields'];
-
     return jQuery.ajax({
       url: ajaxurl,
       data: {
@@ -8342,6 +8348,10 @@ module.exports = BaseView.extend({
     'click': 'toggleDraft'
   },
   isValid: function () {
+    if (KB.Environment && KB.Environment.postType === "kb-gmd" ){
+      return false;
+    }
+
     return true;
   },
   render: function () {
@@ -8381,6 +8391,9 @@ module.exports = BaseView.extend({
     this.listenTo(this.model, 'override:loggedinonly', this.rerender);
   },
   isValid: function () {
+    if (KB.Environment && KB.Environment.postType === "kb-gmd" ){
+      return false;
+    }
     return true;
   },
   render: function () {
@@ -8419,6 +8432,9 @@ module.exports = BaseView.extend({
     'click': 'toggleDraft'
   },
   isValid: function () {
+    if (KB.Environment && KB.Environment.postType === "kb-gmd" ){
+      return false;
+    }
     return true;
   },
   render: function () {
@@ -8646,6 +8662,9 @@ module.exports = BaseView.extend({
     this.moduleView = options.parent;
   },
   isValid: function () {
+    if (KB.Environment && KB.Environment.postType === "kb-gmd" ){
+      return false;
+    }
     return true;
   },
   render: function () {
@@ -8680,6 +8699,9 @@ module.exports = BaseView.extend({
     this.moduleView = options.parent;
   },
   isValid: function () {
+    if (this.model.get('class') === "ModuleGlobalModuleProxy"){
+      return false;
+    }
     return Config.get('moduleTemplateEditor');
   },
   render: function () {
