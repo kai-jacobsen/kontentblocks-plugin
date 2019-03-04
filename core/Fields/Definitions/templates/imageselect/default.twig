@@ -21,8 +21,8 @@
 
         #{{ Field.uniqueId }}
         li {
-            max-width: {{ Field.getArg('width', 100) }}px;
-            max-height: {{ Field.getArg('height', 100) }}px;
+            width: {{ Field.getArg('width', '100px') }};
+            height: {{ Field.getArg('height', 'auto') }};
         }
 
 
