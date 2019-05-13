@@ -196,8 +196,6 @@ progression of integers:
 Go to the :doc:`functions<functions/index>` page to learn more about the
 built-in functions.
 
-.. _named-arguments:
-
 Named Arguments
 ---------------
 
@@ -315,8 +313,8 @@ will be available in the included template too:
 
 The included template ``render_box.html`` is able to access the ``box`` variable.
 
-The name of the template depends on the template loader. For instance, the
-``\Twig\Loader\FilesystemLoader`` allows you to access other templates by giving the
+The filename of the template depends on the template loader. For instance, the
+``Twig_Loader_Filesystem`` allows you to access other templates by giving the
 filename. You can access templates in subdirectories with a slash:
 
 .. code-block:: jinja
@@ -557,12 +555,11 @@ even if you're not working with PHP you should feel comfortable with it.
 
 .. note::
 
-    The operator precedence is as follows, with the lowest-precedence operators
-    listed first: ``?:`` (ternary operator), ``b-and``, ``b-xor``, ``b-or``,
-    ``or``, ``and``, ``==``, ``!=``, ``<``, ``>``, ``>=``, ``<=``, ``in``,
-    ``matches``, ``starts with``, ``ends with``, ``..``, ``+``, ``-``, ``~``,
-    ``*``, ``/``, ``//``, ``%``, ``is`` (tests), ``**``, ``??``, ``|``
-    (filters), ``[]``, and ``.``.
+    The operator precedence is as follows, with the lowest-precedence
+    operators listed first: ``b-and``, ``b-xor``, ``b-or``, ``or``, ``and``,
+    ``==``, ``!=``, ``<``, ``>``, ``>=``, ``<=``, ``in``, ``matches``,
+    ``starts with``, ``ends with``, ``..``, ``+``, ``-``, ``~``, ``*``, ``/``,
+    ``//``, ``%``, ``is``, ``**``, ``|``, ``[]``, and ``.``:
 
     .. code-block:: jinja
 
@@ -614,8 +611,7 @@ exist:
     { 2: 'foo', 4: 'bar' }
 
     {# keys as expressions (the expression must be enclosed into parentheses) -- as of Twig 1.5 #}
-    {% set foo = 'foo' %}
-    { (foo): 'foo', (1 + 1): 'bar', (foo ~ 'b'): 'baz' }
+    { (1 + 1): 'foo', (a ~ 'b'): 'bar' }
 
 * ``true`` / ``false``: ``true`` represents the true value, ``false``
   represents the false value.
@@ -662,8 +658,6 @@ but exists for completeness' sake. The following operators are supported:
 * ``**``: Raises the left operand to the power of the right operand. ``{{ 2 **
   3 }}`` would return ``8``.
 
-.. _template_logic:
-
 Logic
 ~~~~~
 
@@ -679,7 +673,7 @@ You can combine multiple expressions with the following operators:
 
 .. note::
 
-    Twig also supports bitwise operators (``b-and``, ``b-xor``, and ``b-or``).
+    Twig also support bitwise operators (``b-and``, ``b-xor``, and ``b-or``).
 
 .. note::
 
@@ -844,28 +838,25 @@ Whitespace Control
 .. versionadded:: 1.1
     Tag level whitespace control was added in Twig 1.1.
 
-.. versionadded:: 1.39
-    Tag level Line whitespace control was added in Twig 1.39.
-
-The first newline after a template tag is removed automatically (like in PHP).
+The first newline after a template tag is removed automatically (like in PHP.)
 Whitespace is not further modified by the template engine, so each whitespace
 (spaces, tabs, newlines etc.) is returned unchanged.
 
-You can also control whitespace on a per tag level. By using the whitespace
-control modifiers on your tags, you can trim leading and or trailing whitespace.
+Use the ``spaceless`` tag to remove whitespace *between HTML tags*:
 
-Twig supports two modifiers:
+.. code-block:: jinja
 
-* *Whitespace trimming* via the ``-`` modifier: Removes all whitespace
-  (including newlines);
+    {% spaceless %}
+        <div>
+            <strong>foo bar</strong>
+        </div>
+    {% endspaceless %}
 
-* *Line whitespace trimming* via the ``~`` modifier: Removes all whitespace
-  (excluding newlines). Using this modifier on the right disables the default
-  removal of the first newline inherited from PHP.
+    {# output will be <div><strong>foo bar</strong></div> #}
 
-The modifiers can be used on either side of the tags like in ``{%-`` or ``-%}``
-and they consume all whitespace for that side of the tag. It is possible to use
-the modifiers on one side of a tag or on both sides:
+In addition to the spaceless tag you can also control whitespace on a per tag
+level. By using the whitespace control modifier on your tags, you can trim
+leading and or trailing whitespace:
 
 .. code-block:: jinja
 
@@ -874,34 +865,20 @@ the modifiers on one side of a tag or on both sides:
     {%- if true -%}
         {{- value -}}
     {%- endif -%}
+
     {# output 'no spaces' #}
 
-    <li>
-        {{ value }}    </li>
-    {# outputs '<li>\n    no spaces    </li>' #}
+The above sample shows the default whitespace control modifier, and how you can
+use it to remove whitespace around tags. Trimming space will consume all whitespace
+for that side of the tag.  It is possible to use whitespace trimming on one side
+of a tag:
 
-    <li>
-        {{- value }}    </li>
+.. code-block:: jinja
+
+    {% set value = 'no spaces' %}
+    <li>    {{- value }}    </li>
+
     {# outputs '<li>no spaces    </li>' #}
-
-    <li>
-        {{~ value }}    </li>
-    {# outputs '<li>\nno spaces    </li>' #}
-
-.. tip::
-
-    In addition to the whitespace modifiers, Twig also has a ``spaceless`` filter
-    that removes whitespace **between HTML tags**:
-
-    .. code-block:: jinja
-
-        {% filter spaceless %}
-            <div>
-                <strong>foo bar</strong>
-            </div>
-        {% endfilter %}
-
-        {# output will be <div><strong>foo bar</strong></div> #}
 
 Extensions
 ----------
@@ -916,16 +893,16 @@ Extension<creating_extensions>` chapter.
 
 .. _`Twig bundle`:                https://github.com/Anomareh/PHP-Twig.tmbundle
 .. _`Jinja syntax plugin`:        http://jinja.pocoo.org/docs/integration/#vim
-.. _`vim-twig plugin`:            https://github.com/lumiliet/vim-twig
+.. _`vim-twig plugin`:            https://github.com/evidens/vim-twig
 .. _`Twig syntax plugin`:         http://plugins.netbeans.org/plugin/37069/php-twig
 .. _`Twig plugin`:                https://github.com/pulse00/Twig-Eclipse-Plugin
 .. _`Twig language definition`:   https://github.com/gabrielcorpse/gedit-twig-template-language
-.. _`extension repository`:       https://github.com/twigphp/Twig-extensions
+.. _`extension repository`:       http://github.com/twigphp/Twig-extensions
 .. _`Twig syntax mode`:           https://github.com/bobthecow/Twig-HTML.mode
 .. _`other Twig syntax mode`:     https://github.com/muxx/Twig-HTML.mode
 .. _`Notepad++ Twig Highlighter`: https://github.com/Banane9/notepadplusplus-twig
 .. _`web-mode.el`:                http://web-mode.org/
-.. _`regular expressions`:        https://secure.php.net/manual/en/pcre.pattern.php
+.. _`regular expressions`:        http://php.net/manual/en/pcre.pattern.php
 .. _`PHP-twig for atom`:          https://github.com/reesef/php-twig
-.. _`TwigFiddle`:                 https://twigfiddle.com/
+.. _`TwigFiddle`:                 http://twigfiddle.com/
 .. _`Twig pack`:                  https://marketplace.visualstudio.com/items?itemName=bajdzis.vscode-twig-pack

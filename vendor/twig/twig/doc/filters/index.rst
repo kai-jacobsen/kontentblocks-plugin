@@ -29,7 +29,6 @@ Filters
     round
     slice
     sort
-    spaceless
     split
     striptags
     title
