@@ -142,12 +142,8 @@ final class Mbstring
     public static function mb_decode_numericentity($s, $convmap, $encoding = null)
     {
         if (null !== $s && !\is_scalar($s) && !(\is_object($s) && \method_exists($s, '__toString'))) {
-<<<<<<< HEAD
             trigger_error('mb_decode_numericentity() expects parameter 1 to be string, '.\gettype($s).' given', E_USER_WARNING);
 
-=======
-            trigger_error('mb_decode_numericentity() expects parameter 1 to be string, '.gettype($s).' given', E_USER_WARNING);
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
             return null;
         }
 
@@ -156,12 +152,8 @@ final class Mbstring
         }
 
         if (null !== $encoding && !\is_scalar($encoding)) {
-<<<<<<< HEAD
             trigger_error('mb_decode_numericentity() expects parameter 3 to be string, '.\gettype($s).' given', E_USER_WARNING);
 
-=======
-            trigger_error('mb_decode_numericentity() expects parameter 3 to be string, '.gettype($s).' given', E_USER_WARNING);
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
             return '';  // Instead of null (cf. mb_encode_numericentity).
         }
 
@@ -210,12 +202,8 @@ final class Mbstring
     public static function mb_encode_numericentity($s, $convmap, $encoding = null, $is_hex = false)
     {
         if (null !== $s && !\is_scalar($s) && !(\is_object($s) && \method_exists($s, '__toString'))) {
-<<<<<<< HEAD
             trigger_error('mb_encode_numericentity() expects parameter 1 to be string, '.\gettype($s).' given', E_USER_WARNING);
 
-=======
-            trigger_error('mb_encode_numericentity() expects parameter 1 to be string, '.gettype($s).' given', E_USER_WARNING);
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
             return null;
         }
 
@@ -224,22 +212,14 @@ final class Mbstring
         }
 
         if (null !== $encoding && !\is_scalar($encoding)) {
-<<<<<<< HEAD
             trigger_error('mb_encode_numericentity() expects parameter 3 to be string, '.\gettype($s).' given', E_USER_WARNING);
 
-=======
-            trigger_error('mb_encode_numericentity() expects parameter 3 to be string, '.gettype($s).' given', E_USER_WARNING);
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
             return null;  // Instead of '' (cf. mb_decode_numericentity).
         }
 
         if (null !== $is_hex && !\is_scalar($is_hex)) {
-<<<<<<< HEAD
             trigger_error('mb_encode_numericentity() expects parameter 4 to be boolean, '.\gettype($s).' given', E_USER_WARNING);
 
-=======
-            trigger_error('mb_encode_numericentity() expects parameter 4 to be boolean, '.gettype($s).' given', E_USER_WARNING);
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
             return null;
         }
 

@@ -121,13 +121,6 @@ abstract class Twig_Test_IntegrationTestCase extends PHPUnit_Framework_TestCase
 
     protected function doIntegrationTest($file, $message, $condition, $templates, $exception, $outputs)
     {
-<<<<<<< HEAD
-=======
-        if (!$outputs) {
-            $this->markTestSkipped('no tests to run');
-        }
-
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
         if ($condition) {
             eval('$ret = '.$condition.';');
             if (!$ret) {
