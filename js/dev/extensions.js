@@ -1249,7 +1249,11 @@ var _logger = require('./logger');
 
 var _logger2 = _interopRequireDefault(_logger);
 
+<<<<<<< HEAD
 var VERSION = '4.1.2';
+=======
+var VERSION = '4.0.11';
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 exports.VERSION = VERSION;
 var COMPILER_REVISION = 7;
 
@@ -1385,6 +1389,7 @@ module.exports = exports['default'];
 'use strict';
 
 exports.__esModule = true;
+<<<<<<< HEAD
 
 var errorProps = ['description', 'fileName', 'lineNumber', 'message', 'name', 'number', 'stack'];
 
@@ -1468,6 +1473,91 @@ var _helpersLog2 = _interopRequireDefault(_helpersLog);
 
 var _helpersLookup = require('./helpers/lookup');
 
+=======
+
+var errorProps = ['description', 'fileName', 'lineNumber', 'message', 'name', 'number', 'stack'];
+
+function Exception(message, node) {
+  var loc = node && node.loc,
+      line = undefined,
+      column = undefined;
+  if (loc) {
+    line = loc.start.line;
+    column = loc.start.column;
+
+    message += ' - ' + line + ':' + column;
+  }
+
+  var tmp = Error.prototype.constructor.call(this, message);
+
+  // Unfortunately errors are not enumerable in Chrome (at least), so `for prop in tmp` doesn't work.
+  for (var idx = 0; idx < errorProps.length; idx++) {
+    this[errorProps[idx]] = tmp[errorProps[idx]];
+  }
+
+  /* istanbul ignore else */
+  if (Error.captureStackTrace) {
+    Error.captureStackTrace(this, Exception);
+  }
+
+  try {
+    if (loc) {
+      this.lineNumber = line;
+
+      // Work around issue under safari where we can't directly set the column value
+      /* istanbul ignore next */
+      if (Object.defineProperty) {
+        Object.defineProperty(this, 'column', {
+          value: column,
+          enumerable: true
+        });
+      } else {
+        this.column = column;
+      }
+    }
+  } catch (nop) {
+    /* Ignore if the browser is very particular */
+  }
+}
+
+Exception.prototype = new Error();
+
+exports['default'] = Exception;
+module.exports = exports['default'];
+
+
+},{}],35:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+exports.registerDefaultHelpers = registerDefaultHelpers;
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _helpersBlockHelperMissing = require('./helpers/block-helper-missing');
+
+var _helpersBlockHelperMissing2 = _interopRequireDefault(_helpersBlockHelperMissing);
+
+var _helpersEach = require('./helpers/each');
+
+var _helpersEach2 = _interopRequireDefault(_helpersEach);
+
+var _helpersHelperMissing = require('./helpers/helper-missing');
+
+var _helpersHelperMissing2 = _interopRequireDefault(_helpersHelperMissing);
+
+var _helpersIf = require('./helpers/if');
+
+var _helpersIf2 = _interopRequireDefault(_helpersIf);
+
+var _helpersLog = require('./helpers/log');
+
+var _helpersLog2 = _interopRequireDefault(_helpersLog);
+
+var _helpersLookup = require('./helpers/lookup');
+
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var _helpersLookup2 = _interopRequireDefault(_helpersLookup);
 
 var _helpersWith = require('./helpers/with');
@@ -1525,6 +1615,7 @@ exports['default'] = function (instance) {
 
 module.exports = exports['default'];
 
+<<<<<<< HEAD
 
 },{"../utils":47}],37:[function(require,module,exports){
 'use strict';
@@ -1532,6 +1623,15 @@ module.exports = exports['default'];
 exports.__esModule = true;
 // istanbul ignore next
 
+=======
+
+},{"../utils":47}],37:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+// istanbul ignore next
+
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _utils = require('../utils');
@@ -1645,6 +1745,7 @@ exports['default'] = function (instance) {
     }
   });
 };
+<<<<<<< HEAD
 
 module.exports = exports['default'];
 
@@ -1654,6 +1755,17 @@ module.exports = exports['default'];
 
 exports.__esModule = true;
 
+=======
+
+module.exports = exports['default'];
+
+
+},{"../exception":34}],39:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var _utils = require('../utils');
 
 exports['default'] = function (instance) {
@@ -1704,10 +1816,17 @@ exports['default'] = function (instance) {
     instance.log.apply(instance, args);
   });
 };
+<<<<<<< HEAD
 
 module.exports = exports['default'];
 
 
+=======
+
+module.exports = exports['default'];
+
+
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 },{}],41:[function(require,module,exports){
 'use strict';
 
@@ -1847,6 +1966,7 @@ exports.noop = noop;
 // istanbul ignore next
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+<<<<<<< HEAD
 
 // istanbul ignore next
 
@@ -1858,6 +1978,19 @@ var Utils = _interopRequireWildcard(_utils);
 
 var _exception = require('./exception');
 
+=======
+
+// istanbul ignore next
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
+var _utils = require('./utils');
+
+var Utils = _interopRequireWildcard(_utils);
+
+var _exception = require('./exception');
+
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var _exception2 = _interopRequireDefault(_exception);
 
 var _base = require('./base');

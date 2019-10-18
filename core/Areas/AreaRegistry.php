@@ -362,6 +362,20 @@ class AreaRegistry
     }
 
     /**
+     * @param $pt
+     * @return array
+     */
+    public function getAreasByPostType($pt)
+    {
+        return array_filter(
+            $this->areas,
+            function ($area) use ($pt) {
+                return Utilities::strposa($area->postTypes, $pt);
+            }
+        );
+    }
+
+    /**
      * getter for global areas
      * @return array
      * @since 0.1.0

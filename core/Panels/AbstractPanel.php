@@ -207,6 +207,7 @@ abstract class AbstractPanel implements EntityInterface, FieldEntityInterface
         }
 
         $prepData = [];
+
         foreach ($this->model->export() as $key => $v) {
             /** @var \Kontentblocks\Fields\Field $field */
             $field = $this->fields->getFieldByKey($key);

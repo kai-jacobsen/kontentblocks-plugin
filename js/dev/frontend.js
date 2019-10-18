@@ -167,7 +167,11 @@ module.exports = Backbone.View.extend({
 });
 
 
+<<<<<<< HEAD
 },{"backend/Views/ContextUi/ContextColumnView":2,"backend/Views/ContextUi/ContextUiView":4,"backend/Views/ContextUi/controls/ColumnControl":5,"backend/Views/ContextUi/controls/ResetControl":6,"templates/backend/context-bar.hbs":161}],4:[function(require,module,exports){
+=======
+},{"backend/Views/ContextUi/ContextColumnView":2,"backend/Views/ContextUi/ContextUiView":4,"backend/Views/ContextUi/controls/ColumnControl":5,"backend/Views/ContextUi/controls/ResetControl":6,"templates/backend/context-bar.hbs":158}],4:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ControlsView = require('backend/Views/ModuleControls/ControlsView');
 module.exports = ControlsView.extend({
   initialize: function () {
@@ -299,7 +303,11 @@ module.exports = Backbone.View.extend({
     this.trigger('close');
   }
 });
+<<<<<<< HEAD
 },{"common/TinyMCE":28,"common/UI":29,"templates/backend/fullscreen-inner.hbs":162}],8:[function(require,module,exports){
+=======
+},{"common/TinyMCE":28,"common/UI":29,"templates/backend/fullscreen-inner.hbs":159}],8:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /**
  * Creates the individual module-actions menu
  * like: duplicate, delete, status
@@ -437,7 +445,11 @@ module.exports = Backbone.View.extend({
   }
 
 });
+<<<<<<< HEAD
 },{"./Controls":10,"./FieldsList":12,"./ViewsList":14,"common/Ajax":20,"common/Config":22,"templates/backend/template-editor/wrap.hbs":173}],10:[function(require,module,exports){
+=======
+},{"./Controls":10,"./FieldsList":12,"./ViewsList":14,"common/Ajax":20,"common/Config":22,"templates/backend/template-editor/wrap.hbs":170}],10:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Update = require('backend/Views/TemplateEditor/controls/UpdateControl');
 var Create = require('backend/Views/TemplateEditor/controls/CreateControl');
 var Duplicate = require('backend/Views/TemplateEditor/controls/DuplicateControl');
@@ -479,7 +491,11 @@ module.exports = Backbone.View.extend({
     this.$list.append(this.$el);
   }
 });
+<<<<<<< HEAD
 },{"templates/backend/template-editor/field-item.hbs":171}],12:[function(require,module,exports){
+=======
+},{"templates/backend/template-editor/field-item.hbs":168}],12:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ListItem = require('backend/Views/TemplateEditor/FieldItem');
 module.exports = Backbone.View.extend({
   tagName: 'ul',
@@ -535,7 +551,11 @@ module.exports = Backbone.View.extend({
     this.$el.removeClass('kb-active-template');
   }
 });
+<<<<<<< HEAD
 },{"templates/backend/template-editor/list-item.hbs":172}],14:[function(require,module,exports){
+=======
+},{"templates/backend/template-editor/list-item.hbs":169}],14:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ListItem = require('backend/Views/TemplateEditor/ListItem');
 module.exports = Backbone.View.extend({
   tagName: 'ul',
@@ -2211,7 +2231,11 @@ Fields.registerObject('subarea', require('./controls/subarea'));
 Fields.registerObject('medium', require('./controls/medium'));
 Fields.registerObject('imageselect', require('./controls/imageselect'));
 Fields.registerObject('osm', require('./controls/osm'));
+<<<<<<< HEAD
 },{"./Fields":35,"./controls/checkbox":38,"./controls/code":39,"./controls/color":40,"./controls/cropimage":41,"./controls/date-multiple":42,"./controls/datetime":44,"./controls/editor":45,"./controls/file":48,"./controls/file-multiple":46,"./controls/flexfields":49,"./controls/gallery":55,"./controls/gallery2":58,"./controls/image":61,"./controls/imageselect":62,"./controls/link":63,"./controls/medium":64,"./controls/multiselect":65,"./controls/oembed":66,"./controls/osm":67,"./controls/otimes":68,"./controls/select":69,"./controls/subarea":70,"./controls/tagsinput":77,"./controls/text":80,"./controls/text-multiple":78,"./controls/textarea":81}],38:[function(require,module,exports){
+=======
+},{"./Fields":35,"./controls/checkbox":38,"./controls/code":39,"./controls/color":40,"./controls/cropimage":41,"./controls/date-multiple":42,"./controls/datetime":44,"./controls/editor":45,"./controls/file":46,"./controls/flexfields":47,"./controls/gallery":53,"./controls/gallery2":56,"./controls/image":59,"./controls/imageselect":60,"./controls/link":61,"./controls/medium":62,"./controls/multiselect":63,"./controls/oembed":64,"./controls/osm":65,"./controls/otimes":66,"./controls/select":67,"./controls/subarea":68,"./controls/tagsinput":75,"./controls/text":78,"./controls/text-multiple":76,"./controls/textarea":79}],38:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -2235,6 +2259,69 @@ module.exports = BaseView.extend({
   }
 });
 },{"../FieldControlBaseView":31}],39:[function(require,module,exports){
+<<<<<<< HEAD
+var BaseView = require('../FieldControlBaseView');
+module.exports = BaseView.extend({
+  initialize: function () {
+    this.defaults = {
+      mode: 'htmlmixed',
+      theme: 'dracula',
+      lineNumbers: true,
+      lineWrapping: true,
+      tabMode: "indent",
+      indentUnit: 4,
+      autoCloseBrackets: true,
+      autoCloseTags: true
+    };
+    this.settings = this.model.get('settings') || {};
+    this.render();
+  },
+  render: function () {
+    var that = this;
+    this.$textarea = this.$('textarea');
+    // this.$textarea.on('change', function () {
+    //   that.update(that.$textarea.val());
+    // });
+    this.editor = this.getEditor();
+    this.editor.on('change',function(editor) {
+      editor.save();
+      that.update(editor.getTextArea().value);
+    });
+  },
+  derender: function () {
+    if (this.editor){
+      this.editor.save();
+      this.editor.toTextArea();
+    }
+    this.editor = null;
+    delete this.editor;
+
+
+  },
+  getEditor: function(){
+
+    if (this.editor){
+      return this.editor;
+    }
+
+    var settings = _.extend(this.defaults, this.settings);
+    this.editor = CodeMirror.fromTextArea(this.$textarea.get(0), settings);
+    return this.editor;
+  },
+  update: function (val) {
+    this.model.set('value', val);
+  },
+  toString: function () {
+    if (this.editor){
+      var txt = this.editor.getTextArea().value;
+      return txt;
+    }
+    return this.$textarea.val();
+  }
+});
+},{"../FieldControlBaseView":31}],40:[function(require,module,exports){
+=======
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -2654,6 +2741,7 @@ module.exports = BaseView.extend({
   }
 });
 },{"../FieldControlBaseView":31,"common/TinyMCE":28}],46:[function(require,module,exports){
+<<<<<<< HEAD
 var BaseView = require('../FieldControlBaseView');
 var FileMultipleController = require('fields/controls/file-multiple/FileMultipleController');
 module.exports = BaseView.extend({
@@ -2691,6 +2779,8 @@ module.exports = BaseController.extend({
   type: 'file-multiple'
 });
 },{"fields/MultipleControllerBase":36}],48:[function(require,module,exports){
+=======
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -2771,7 +2861,11 @@ module.exports = BaseView.extend({
   }
 });
 
+<<<<<<< HEAD
 },{"../FieldControlBaseView":31}],49:[function(require,module,exports){
+=======
+},{"../FieldControlBaseView":31}],47:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 var FlexfieldController = require('fields/controls/flexfields/FlexfieldsController');
 module.exports = BaseView.extend({
@@ -2804,12 +2898,20 @@ module.exports = BaseView.extend({
     }
   }
 });
+<<<<<<< HEAD
 },{"../FieldControlBaseView":31,"fields/controls/flexfields/FlexfieldsController":52}],50:[function(require,module,exports){
+=======
+},{"../FieldControlBaseView":31,"fields/controls/flexfields/FlexfieldsController":50}],48:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var FlexFieldModelModal = require('fields/FieldControlModelModal');
 module.exports = Backbone.Collection.extend({
   model: FlexFieldModelModal
 });
+<<<<<<< HEAD
 },{"fields/FieldControlModelModal":33}],51:[function(require,module,exports){
+=======
+},{"fields/FieldControlModelModal":33}],49:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports = Backbone.View.extend({
 
   initialize: function (options) {
@@ -2820,7 +2922,10 @@ module.exports = Backbone.View.extend({
     var uid = obj['_meta'].uid || null;
     var title = obj['_meta'].title || null;
     var type = obj['_meta'].type;
+<<<<<<< HEAD
     var status = obj['_meta'].status || 'visible';
+=======
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     var itemId = uid || _.uniqueId('ff2');
     var text = this.model.get('newitemtext') || 'Enter a title : ';
     var ask = this.model.get('requesttitle') || false;
@@ -2847,7 +2952,10 @@ module.exports = Backbone.View.extend({
           type: field.type
         });
         field.view = KB.FieldsAPI.getRefByType(field.type, itemData);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
         if (!fielddata) {
           field.view.setDefaults();
         }
@@ -2858,13 +2966,20 @@ module.exports = Backbone.View.extend({
       itemId: itemId,
       fftype: type,
       title: title,
+<<<<<<< HEAD
       status: status,
+=======
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
       sections: typesections
     }
   }
 
 });
+<<<<<<< HEAD
 },{}],52:[function(require,module,exports){
+=======
+},{}],50:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /**
  * Main Controller
  */
@@ -2899,19 +3014,34 @@ module.exports = Backbone.View.extend({
   initialSetup: function () {
     var data, types;
     data = this.model.get('value'); // model equals FieldControlModel, value equals parent obj data for this field key
+<<<<<<< HEAD
 
+=======
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     types = this.model.get('fields');
     if (!_.isEmpty(data)) {
       _.each(data, function (dataobj, index) {
         if (!dataobj) {
           return;
         }
+<<<<<<< HEAD
         if (!dataobj['_meta'].type) {
           dataobj['_meta'].type = 'default';
         }
         if (!types[dataobj['_meta'].type]) {
           return;
         }
+=======
+
+        if (!dataobj['_meta'].type) {
+          dataobj['_meta'].type = 'default';
+        }
+
+        if (!types[dataobj['_meta'].type]) {
+          return;
+        }
+
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
         // factor item
         var item = this.factory.factorNewItem(data[dataobj['_meta'].uid], dataobj);
         // build view for item
@@ -2989,6 +3119,10 @@ module.exports = Backbone.View.extend({
     this.$addButton = this.$('.kb-flexible-fields--js-add-item');
   },
   addItem: function (e) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     var $btn = jQuery(e.currentTarget);
     var type = $btn.data('kbf-addtype');
     var item = this.factory.factorNewItem(null, {_meta: {type: type}});
@@ -3003,7 +3137,11 @@ module.exports = Backbone.View.extend({
   }
 });
 
+<<<<<<< HEAD
 },{"common/I18n":23,"common/Logger":24,"common/TinyMCE":28,"common/UI":29,"fields/controls/flexfields/FlexFieldsCollection":50,"fields/controls/flexfields/FlexFieldsFactory":51,"fields/controls/flexfields/SectionBoxItem":53,"fields/controls/flexfields/ToggleBoxItem":54,"templates/fields/FlexibleFields/skeleton.hbs":183}],53:[function(require,module,exports){
+=======
+},{"common/I18n":23,"common/Logger":24,"common/TinyMCE":28,"common/UI":29,"fields/controls/flexfields/FlexFieldsCollection":48,"fields/controls/flexfields/FlexFieldsFactory":49,"fields/controls/flexfields/SectionBoxItem":51,"fields/controls/flexfields/ToggleBoxItem":52,"templates/fields/FlexibleFields/skeleton.hbs":179}],51:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ToggleBoxItem =  require('fields/controls/flexfields/ToggleBoxItem');
 var tplSingleSectionBox = require('templates/fields/FlexibleFields/single-section-box.hbs');
 module.exports = ToggleBoxItem.extend({
@@ -3030,15 +3168,23 @@ module.exports = ToggleBoxItem.extend({
       item: item,
       inputName: inputName,
       uid: this.model.get('itemId'),
+<<<<<<< HEAD
       fftype: this.model.get('fftype'),
       visible: true
+=======
+      fftype: this.model.get('fftype')
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     }));
     this.renderTabs($skeleton); // insert the tabs markup
     return $skeleton;
   }
 
 });
+<<<<<<< HEAD
 },{"fields/controls/flexfields/ToggleBoxItem":54,"templates/fields/FlexibleFields/single-section-box.hbs":181}],54:[function(require,module,exports){
+=======
+},{"fields/controls/flexfields/ToggleBoxItem":52,"templates/fields/FlexibleFields/single-section-box.hbs":177}],52:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.FlexibleFields.ItemView
 var Notice = require('common/Notice');
 var tplSingleToggleBox = require('templates/fields/FlexibleFields/single-toggle-box.hbs');
@@ -3095,8 +3241,12 @@ module.exports = Backbone.View.extend({
       item: item,
       inputName: inputName,
       uid: this.model.get('itemId'),
+<<<<<<< HEAD
       fftype: this.model.get('fftype'),
       status: this.model.get('status')
+=======
+      fftype: this.model.get('fftype')
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     }));
     this.renderTabs($skeleton); // insert the tabs markup
     if (this.model.get('status') === 'hidden'){
@@ -3178,7 +3328,11 @@ module.exports = Backbone.View.extend({
     });
   }
 });
+<<<<<<< HEAD
 },{"common/Notice":25,"common/TinyMCE":28,"handlebars":241,"templates/fields/FlexibleFields/single-toggle-box.hbs":182}],55:[function(require,module,exports){
+=======
+},{"common/Notice":25,"common/TinyMCE":28,"handlebars":238,"templates/fields/FlexibleFields/single-toggle-box.hbs":178}],53:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fields/FieldControlBaseView');
 var GalleryController = require('./gallery/GalleryController');
 module.exports = BaseView.extend({
@@ -3262,7 +3416,11 @@ module.exports = BaseView.extend({
 
 
 
+<<<<<<< HEAD
 },{"./gallery/GalleryController":56,"fields/FieldControlBaseView":31}],56:[function(require,module,exports){
+=======
+},{"./gallery/GalleryController":54,"fields/FieldControlBaseView":31}],54:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /**
  * Main Field Controller
  */
@@ -3378,7 +3536,11 @@ module.exports = Backbone.View.extend({
   }
 });
 
+<<<<<<< HEAD
 },{"./ImageView":57,"common/Logger":24}],57:[function(require,module,exports){
+=======
+},{"./ImageView":55,"common/Logger":24}],55:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /**
  * Single Gallery Image View
  */
@@ -3487,7 +3649,11 @@ module.exports = Backbone.View.extend({
 
 });
 
+<<<<<<< HEAD
 },{"common/TinyMCE":28,"common/UI":29,"templates/fields/Gallery/single-image.hbs":184}],58:[function(require,module,exports){
+=======
+},{"common/TinyMCE":28,"common/UI":29,"templates/fields/Gallery/single-image.hbs":180}],56:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fields/FieldControlBaseView');
 var Gallery2Controller = require('./gallery2/Gallery2Controller');
 module.exports = BaseView.extend({
@@ -3516,7 +3682,11 @@ module.exports = BaseView.extend({
 
   }
 });
+<<<<<<< HEAD
 },{"./gallery2/Gallery2Controller":59,"fields/FieldControlBaseView":31}],59:[function(require,module,exports){
+=======
+},{"./gallery2/Gallery2Controller":57,"fields/FieldControlBaseView":31}],57:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /**
  * Main Field Controller
  */
@@ -3699,7 +3869,11 @@ module.exports = Backbone.View.extend({
   }
 });
 
+<<<<<<< HEAD
 },{"./ImageView":60,"common/Logger":24}],60:[function(require,module,exports){
+=======
+},{"./ImageView":58,"common/Logger":24}],58:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var tplSingleImage = require('templates/fields/Gallery2/single-image.hbs');
 module.exports = Backbone.View.extend({
   tagName: 'div',
@@ -3740,7 +3914,11 @@ module.exports = Backbone.View.extend({
   }
 });
 
+<<<<<<< HEAD
 },{"templates/fields/Gallery2/single-image.hbs":185}],61:[function(require,module,exports){
+=======
+},{"templates/fields/Gallery2/single-image.hbs":181}],59:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 var Utilities = require('common/Utilities');
 var Config = require('common/Config');
@@ -3964,7 +4142,11 @@ module.exports = BaseView.extend({
 
   }
 });
+<<<<<<< HEAD
 },{"../FieldControlBaseView":31,"common/Config":22,"common/Utilities":30}],62:[function(require,module,exports){
+=======
+},{"../FieldControlBaseView":31,"common/Config":22,"common/Utilities":30}],60:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -3982,7 +4164,11 @@ module.exports = BaseView.extend({
     this.render();
   }
 });
+<<<<<<< HEAD
 },{"../FieldControlBaseView":31}],63:[function(require,module,exports){
+=======
+},{"../FieldControlBaseView":31}],61:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -4083,7 +4269,11 @@ module.exports = BaseView.extend({
     wpLink.htmlUpdate = window.kb_restore_htmlUpdate;
   }
 });
+<<<<<<< HEAD
 },{"../FieldControlBaseView":31}],64:[function(require,module,exports){
+=======
+},{"../FieldControlBaseView":31}],62:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -4100,7 +4290,11 @@ module.exports = BaseView.extend({
   toString: function(){
   }
 });
+<<<<<<< HEAD
 },{"../FieldControlBaseView":31}],65:[function(require,module,exports){
+=======
+},{"../FieldControlBaseView":31}],63:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -4117,7 +4311,11 @@ module.exports = BaseView.extend({
     this.$("[data-kftype='multiselect']").multipleSelect('refresh');
   }
 });
+<<<<<<< HEAD
 },{"../FieldControlBaseView":31}],66:[function(require,module,exports){
+=======
+},{"../FieldControlBaseView":31}],64:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 var Ajax = require('common/Ajax');
 var Config = require('common/Config');
@@ -4157,7 +4355,11 @@ module.exports = BaseView.extend({
     })
   }
 });
+<<<<<<< HEAD
 },{"../FieldControlBaseView":31,"common/Ajax":20,"common/Config":22}],67:[function(require,module,exports){
+=======
+},{"../FieldControlBaseView":31,"common/Ajax":20,"common/Config":22}],65:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 var Utilities = require('common/Utilities');
 var Config = require('common/Config');
@@ -4177,6 +4379,7 @@ module.exports = BaseView.extend({
     this.$lng = this.$('[data-kb-osm-lng]');
     _.defer(function () {
       that.setupMap();
+<<<<<<< HEAD
       _.defer(function () {
         that.map.invalidateSize();
       });
@@ -4186,6 +4389,9 @@ module.exports = BaseView.extend({
       that.map.invalidateSize();
     })
 
+=======
+    });
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
   },
   updateMarker: function () {
     var lat = this.$lat.val();
@@ -4197,11 +4403,16 @@ module.exports = BaseView.extend({
   },
   setupMap: function () {
     var that = this;
+<<<<<<< HEAD
     this.map = L.map(this.uniq).setView([53.551086, 9.993682], 15);
+=======
+    this.map = L.map(this.uniq).setView([53.551086, 9.993682], 10);
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 18,
     }).addTo(this.map);
+<<<<<<< HEAD
     L.Control.geocoder(
       {
         collapsed: false,
@@ -4211,11 +4422,14 @@ module.exports = BaseView.extend({
       that.map.setView(e.geocode.center, 17);
     })
       .addTo(this.map);
+=======
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     this.map.on('click', function (e) {
       that.setMarker(e.latlng.lat, e.latlng.lng)
     });
     that.updateMarker();
+<<<<<<< HEAD
 
     $('.leaflet-control-geocoder').on('keydown', function (e) {
       if (e.which === 13) {
@@ -4223,6 +4437,8 @@ module.exports = BaseView.extend({
         e.preventDefault();
       }
     })
+=======
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
   },
   setMarker: function (lat, lng) {
     var that = this;
@@ -4233,12 +4449,20 @@ module.exports = BaseView.extend({
     that.marker = L.marker([lat, lng]).addTo(that.map);
     that.$lat.val(lat);
     that.$lng.val(lng);
+<<<<<<< HEAD
+=======
+    console.log(that.marker);
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
   },
   toString: function () {
     return '';
   }
 });
+<<<<<<< HEAD
 },{"../FieldControlBaseView":31,"common/Config":22,"common/Utilities":30}],68:[function(require,module,exports){
+=======
+},{"../FieldControlBaseView":31,"common/Config":22,"common/Utilities":30}],66:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   events: {
@@ -4278,7 +4502,11 @@ module.exports = BaseView.extend({
 });
 
 
+<<<<<<< HEAD
 },{"../FieldControlBaseView":31}],69:[function(require,module,exports){
+=======
+},{"../FieldControlBaseView":31}],67:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -4317,7 +4545,11 @@ module.exports = BaseView.extend({
     }
   }
 });
+<<<<<<< HEAD
 },{"../FieldControlBaseView":31}],70:[function(require,module,exports){
+=======
+},{"../FieldControlBaseView":31}],68:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 var SubareaConroller = require('fields/controls/subarea/SubareaController');
 module.exports = BaseView.extend({
@@ -4351,7 +4583,11 @@ module.exports = BaseView.extend({
     }
   }
 });
+<<<<<<< HEAD
 },{"../FieldControlBaseView":31,"fields/controls/subarea/SubareaController":74}],71:[function(require,module,exports){
+=======
+},{"../FieldControlBaseView":31,"fields/controls/subarea/SubareaController":72}],69:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ModuleBrowser = require('shared/ModuleBrowser/ModuleBrowserController');
 var Checks = require('common/Checks');
 var Config = require('common/Config');
@@ -4397,7 +4633,11 @@ module.exports = ModuleBrowser.extend({
   }
 
 });
+<<<<<<< HEAD
 },{"common/Ajax":20,"common/Checks":21,"common/Config":22,"common/Notice":25,"shared/ModuleBrowser/ModuleBrowserController":149}],72:[function(require,module,exports){
+=======
+},{"common/Ajax":20,"common/Checks":21,"common/Config":22,"common/Notice":25,"shared/ModuleBrowser/ModuleBrowserController":146}],70:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var tplModuleView = require('fields/controls/subarea/templates/module-view.hbs');
 var Ajax = require('common/Ajax');
 var Config = require('common/Config');
@@ -4501,7 +4741,11 @@ module.exports = Backbone.View.extend({
   }
 
 });
+<<<<<<< HEAD
 },{"backend/Views/FullscreenView":7,"common/Ajax":20,"common/Config":22,"common/Payload":26,"common/TinyMCE":28,"common/UI":29,"fields/controls/subarea/templates/module-view.hbs":76}],73:[function(require,module,exports){
+=======
+},{"backend/Views/FullscreenView":7,"common/Ajax":20,"common/Config":22,"common/Payload":26,"common/TinyMCE":28,"common/UI":29,"fields/controls/subarea/templates/module-view.hbs":74}],71:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ModuleBrowser = require('fields/controls/subarea/ModuleBrowser');
 var ModuleView = require('fields/controls/subarea/ModuleView');
 var Ajax = require('common/Ajax');
@@ -4620,7 +4864,11 @@ module.exports = Backbone.View.extend({
     }
   }
 });
+<<<<<<< HEAD
 },{"common/Ajax":20,"common/Config":22,"fields/controls/subarea/ModuleBrowser":71,"fields/controls/subarea/ModuleView":72,"fields/controls/subarea/templates/empty.hbs":75}],74:[function(require,module,exports){
+=======
+},{"common/Ajax":20,"common/Config":22,"fields/controls/subarea/ModuleBrowser":69,"fields/controls/subarea/ModuleView":70,"fields/controls/subarea/templates/empty.hbs":73}],72:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var SlotView = require('fields/controls/subarea/SlotView');
 var Logger = require('common/Logger');
 var ModuleView = require('frontend/Views/ModuleView');
@@ -4815,14 +5063,22 @@ module.exports = Backbone.View.extend({
   }
 
 });
+<<<<<<< HEAD
 },{"common/Config":22,"common/Logger":24,"fields/controls/subarea/SlotView":73,"frontend/Views/ModuleView":132}],75:[function(require,module,exports){
+=======
+},{"common/Config":22,"common/Logger":24,"fields/controls/subarea/SlotView":71,"frontend/Views/ModuleView":129}],73:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div class=\"kb-submodule\">\n    <div class=\"kbsm-empty add-modules\">\n        <div>Modul auswählen</div>\n    </div>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],76:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],74:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -4835,7 +5091,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</div>\n</div>\n<div class=\"kbsm-actions\">\n    <div class=\"kbsm-action kbms-action--open\" data-kbtooltip=\"open form\"><span\n            class=\"dashicons dashicons-admin-generic\"></span></div>\n    <div class=\"kbsm-action kbms-action--delete\" data-kbtooltip=\"delete\"><span\n            class=\"dashicons dashicons-welcome-comments\"></span></div>\n    <div class=\"kbsm-action kbms-action--update\" data-kbtooltip=\"update\"><span\n            class=\"dashicons dashicons-update\"></span></div>\n</div>\n<div class=\"kbsm-inner\">\n    <div class=\"kbsm-button kbms-action--open\">Bearbeiten</div>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],77:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],75:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -4851,7 +5111,11 @@ module.exports = BaseView.extend({
     return '';
   }
 });
+<<<<<<< HEAD
 },{"../FieldControlBaseView":31}],78:[function(require,module,exports){
+=======
+},{"../FieldControlBaseView":31}],76:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 var TextMultipleController = require('fields/controls/text-multiple/TextMultipleController');
 module.exports = BaseView.extend({
@@ -4883,12 +5147,20 @@ module.exports = BaseView.extend({
     }
   }
 });
+<<<<<<< HEAD
 },{"../FieldControlBaseView":31,"fields/controls/text-multiple/TextMultipleController":79}],79:[function(require,module,exports){
+=======
+},{"../FieldControlBaseView":31,"fields/controls/text-multiple/TextMultipleController":77}],77:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseController = require('fields/MultipleControllerBase');
 module.exports = BaseController.extend({
   type: 'text-multiple'
 });
+<<<<<<< HEAD
 },{"fields/MultipleControllerBase":36}],80:[function(require,module,exports){
+=======
+},{"fields/MultipleControllerBase":36}],78:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -4931,7 +5203,11 @@ module.exports = BaseView.extend({
     $charlimit.html(charCount + " chars left");
   }
 });
+<<<<<<< HEAD
 },{"../FieldControlBaseView":31}],81:[function(require,module,exports){
+=======
+},{"../FieldControlBaseView":31}],79:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -4974,7 +5250,11 @@ module.exports = BaseView.extend({
       $charlimit.html(charCount + " chars left");
     }
 });
+<<<<<<< HEAD
 },{"../FieldControlBaseView":31}],82:[function(require,module,exports){
+=======
+},{"../FieldControlBaseView":31}],80:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports =
 {
   fields: {},
@@ -4989,7 +5269,11 @@ module.exports =
     return new this.fields[type]({model: new Backbone.Model(data)});
   }
 };
+<<<<<<< HEAD
 },{}],83:[function(require,module,exports){
+=======
+},{}],81:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 require('fieldsAPI/hbsHelpers');
 var Collection = require('fieldsAPI/FieldsAPICollection');
 KB.FieldsAPI = Collection;
@@ -5011,7 +5295,11 @@ KB.FieldsAPI.register(require('fieldsAPI/definitions/datetime'));
 KB.FieldsAPI.register(require('fieldsAPI/definitions/radioset'));
 
 
+<<<<<<< HEAD
 },{"fieldsAPI/FieldsAPICollection":82,"fieldsAPI/definitions/checkbox":85,"fieldsAPI/definitions/color":86,"fieldsAPI/definitions/date-multiple":87,"fieldsAPI/definitions/datetime":88,"fieldsAPI/definitions/editor":89,"fieldsAPI/definitions/file":91,"fieldsAPI/definitions/file-multiple":90,"fieldsAPI/definitions/image":92,"fieldsAPI/definitions/link":93,"fieldsAPI/definitions/medium":94,"fieldsAPI/definitions/oembed":95,"fieldsAPI/definitions/radioset":96,"fieldsAPI/definitions/select":97,"fieldsAPI/definitions/text":99,"fieldsAPI/definitions/text-multiple":98,"fieldsAPI/definitions/textarea":100,"fieldsAPI/hbsHelpers":101}],84:[function(require,module,exports){
+=======
+},{"fieldsAPI/FieldsAPICollection":80,"fieldsAPI/definitions/checkbox":83,"fieldsAPI/definitions/color":84,"fieldsAPI/definitions/date-multiple":85,"fieldsAPI/definitions/datetime":86,"fieldsAPI/definitions/editor":87,"fieldsAPI/definitions/file":88,"fieldsAPI/definitions/image":89,"fieldsAPI/definitions/link":90,"fieldsAPI/definitions/medium":91,"fieldsAPI/definitions/oembed":92,"fieldsAPI/definitions/radioset":93,"fieldsAPI/definitions/select":94,"fieldsAPI/definitions/text":96,"fieldsAPI/definitions/text-multiple":95,"fieldsAPI/definitions/textarea":97,"fieldsAPI/hbsHelpers":98}],82:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports = Backbone.View.extend({
   tagName: 'div',
   className: 'kb-dyn-field',
@@ -5070,7 +5358,11 @@ module.exports = Backbone.View.extend({
     return index + this.model.get('fieldId') + this.model.get('primeKey') + this.model.get('type');
   }
 });
+<<<<<<< HEAD
 },{}],85:[function(require,module,exports){
+=======
+},{}],83:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/Checkbox',
@@ -5087,7 +5379,11 @@ module.exports = BaseView.extend({
 
 
 
+<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":84,"templates/fields/Checkbox.hbs":174}],86:[function(require,module,exports){
+=======
+},{"fieldsAPI/definitions/baseView":82,"templates/fields/Checkbox.hbs":171}],84:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/Color',
@@ -5107,7 +5403,11 @@ module.exports = BaseView.extend({
 
 
 
+<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":84,"templates/fields/Color.hbs":175}],87:[function(require,module,exports){
+=======
+},{"fieldsAPI/definitions/baseView":82,"templates/fields/Color.hbs":172}],85:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/DateMultiple',
@@ -5145,7 +5445,11 @@ module.exports = BaseView.extend({
 
 
 
+<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":84,"templates/fields/DateMultiple.hbs":176}],88:[function(require,module,exports){
+=======
+},{"fieldsAPI/definitions/baseView":82,"templates/fields/DateMultiple.hbs":173}],86:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/DateTime',
@@ -5183,7 +5487,11 @@ module.exports = BaseView.extend({
 
 
 
+<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":84,"templates/fields/Datetime.hbs":177}],89:[function(require,module,exports){
+=======
+},{"fieldsAPI/definitions/baseView":82,"templates/fields/Datetime.hbs":174}],87:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var TinyMCE = require('common/TinyMCE');
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
@@ -5228,6 +5536,7 @@ module.exports = BaseView.extend({
 
   }
 });
+<<<<<<< HEAD
 },{"common/TinyMCE":28,"fieldsAPI/definitions/baseView":84,"templates/fields/Editor.hbs":178}],90:[function(require,module,exports){
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
@@ -5338,6 +5647,9 @@ module.exports = BaseView.extend({
 
 
 },{"fieldsAPI/definitions/baseView":84,"templates/fields/FileMultiple.hbs":180}],91:[function(require,module,exports){
+=======
+},{"common/TinyMCE":28,"fieldsAPI/definitions/baseView":82,"templates/fields/Editor.hbs":175}],88:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/File',
@@ -5374,7 +5686,11 @@ module.exports = BaseView.extend({
 
 
 
+<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":84,"templates/fields/File.hbs":179}],92:[function(require,module,exports){
+=======
+},{"fieldsAPI/definitions/baseView":82,"templates/fields/File.hbs":176}],89:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //var Field = require('fields/controls/image');
 var BaseView = require('fieldsAPI/definitions/baseView');
 var Utilities = require('common/Utilities');
@@ -5415,7 +5731,11 @@ module.exports = BaseView.extend({
     }
   }
 });
+<<<<<<< HEAD
 },{"common/Config":22,"common/Utilities":30,"fieldsAPI/definitions/baseView":84,"templates/fields/Image.hbs":186}],93:[function(require,module,exports){
+=======
+},{"common/Config":22,"common/Utilities":30,"fieldsAPI/definitions/baseView":82,"templates/fields/Image.hbs":182}],90:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/Link',
@@ -5435,7 +5755,11 @@ module.exports = BaseView.extend({
     }
   }
 });
+<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":84,"templates/fields/Link.hbs":187}],94:[function(require,module,exports){
+=======
+},{"fieldsAPI/definitions/baseView":82,"templates/fields/Link.hbs":183}],91:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/Medium',
@@ -5458,7 +5782,11 @@ module.exports = BaseView.extend({
 
 
 
+<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":84,"templates/fields/Medium.hbs":188}],95:[function(require,module,exports){
+=======
+},{"fieldsAPI/definitions/baseView":82,"templates/fields/Medium.hbs":184}],92:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/Oembed',
@@ -5478,7 +5806,11 @@ module.exports = BaseView.extend({
 
 
 
+<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":84,"templates/fields/Oembed.hbs":189}],96:[function(require,module,exports){
+=======
+},{"fieldsAPI/definitions/baseView":82,"templates/fields/Oembed.hbs":185}],93:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/Radioset',
@@ -5495,7 +5827,11 @@ module.exports = BaseView.extend({
 
 
 
+<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":84,"templates/fields/Radioset.hbs":190}],97:[function(require,module,exports){
+=======
+},{"fieldsAPI/definitions/baseView":82,"templates/fields/Radioset.hbs":186}],94:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/Text',
@@ -5512,7 +5848,11 @@ module.exports = BaseView.extend({
 
 
 
+<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":84,"templates/fields/Select.hbs":191}],98:[function(require,module,exports){
+=======
+},{"fieldsAPI/definitions/baseView":82,"templates/fields/Select.hbs":187}],95:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/TextMultiple',
@@ -5532,7 +5872,11 @@ module.exports = BaseView.extend({
 
 
 
+<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":84,"templates/fields/TextMultiple.hbs":193}],99:[function(require,module,exports){
+=======
+},{"fieldsAPI/definitions/baseView":82,"templates/fields/TextMultiple.hbs":189}],96:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/Text',
@@ -5558,7 +5902,11 @@ module.exports = BaseView.extend({
 
 
 
+<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":84,"templates/fields/Text.hbs":192}],100:[function(require,module,exports){
+=======
+},{"fieldsAPI/definitions/baseView":82,"templates/fields/Text.hbs":188}],97:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   type: 'textarea',
@@ -5573,7 +5921,11 @@ module.exports = BaseView.extend({
     return '';
   }
 });
+<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":84,"templates/fields/Textarea.hbs":194}],101:[function(require,module,exports){
+=======
+},{"fieldsAPI/definitions/baseView":82,"templates/fields/Textarea.hbs":190}],98:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Handlebars = require("hbsfy/runtime");
 Handlebars.registerHelper("debug", function (optionalValue) {
   console.log("Current Context");
@@ -5625,7 +5977,11 @@ Handlebars.registerHelper('trimString', function(passedString, length) {
 
   return new Handlebars.SafeString(theString)
 });
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],102:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],99:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Utilities = require('common/Utilities');
 var Config = require('common/Config');
 module.exports = {
@@ -5680,12 +6036,20 @@ module.exports = {
   }
 };
 
+<<<<<<< HEAD
 },{"common/Config":22,"common/Utilities":30}],103:[function(require,module,exports){
+=======
+},{"common/Config":22,"common/Utilities":30}],100:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var FieldControlModelModal = require('fields/FieldControlModelModal');
 module.exports = Backbone.Collection.extend({
   model: FieldControlModelModal
 });
+<<<<<<< HEAD
 },{"fields/FieldControlModelModal":33}],104:[function(require,module,exports){
+=======
+},{"fields/FieldControlModelModal":33}],101:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports = Backbone.Collection.extend({
 
   filterByAttr: function(attr, value){
@@ -5695,7 +6059,11 @@ module.exports = Backbone.Collection.extend({
   }
 
 });
+<<<<<<< HEAD
 },{}],105:[function(require,module,exports){
+=======
+},{}],102:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var KB = window.KB || {};
 KB.Events = {};
 _.extend(KB, Backbone.Events);
@@ -6005,7 +6373,11 @@ jQuery(document).ready(function () {
 
 });
 
+<<<<<<< HEAD
 },{"./GlobalEvents":106,"./InlineSetup":115,"./Views/AreaView":120,"./Views/LayoutAreaView":123,"./Views/ModuleView":132,"./Views/PanelView":133,"common/Checks":21,"common/Config":22,"common/Logger":24,"common/Payload":26,"common/UI":29,"fields/FieldControlsCollection":34,"fields/RefieldsController":37,"fieldsAPI/FieldsAPIController":83,"frontend/AdminBar":102,"frontend/Collections/ModuleCollection":104,"frontend/Models/AreaModel":116,"frontend/Models/ModuleModel":117,"frontend/Models/PanelModel":118,"frontend/Views/EditModalModules":122,"frontend/Views/Sidebar":134,"shared/ChangeObserver":147,"shared/Collections/ObjectProxyCollection":148,"shared/ViewsCollection":160,"tether":255}],106:[function(require,module,exports){
+=======
+},{"./GlobalEvents":103,"./InlineSetup":112,"./Views/AreaView":117,"./Views/LayoutAreaView":120,"./Views/ModuleView":129,"./Views/PanelView":130,"common/Checks":21,"common/Config":22,"common/Logger":24,"common/Payload":26,"common/UI":29,"fields/FieldControlsCollection":34,"fields/RefieldsController":37,"fieldsAPI/FieldsAPIController":81,"frontend/AdminBar":99,"frontend/Collections/ModuleCollection":101,"frontend/Models/AreaModel":113,"frontend/Models/ModuleModel":114,"frontend/Models/PanelModel":115,"frontend/Views/EditModalModules":119,"frontend/Views/Sidebar":131,"shared/ChangeObserver":144,"shared/Collections/ObjectProxyCollection":145,"shared/ViewsCollection":157,"tether":253}],103:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Logger = require('common/Logger');
 KB.Events.on('module.before.sync panel.before.sync', function(Model){
   if (window.tinymce){
@@ -6022,7 +6394,11 @@ KB.Events.on('content.change', function(){
 jQuery('body').on('webkitTransitionEnd moztransitionend transitionend oTransitionEnd', function () {
   KB.Events.trigger('content.change');
 });
+<<<<<<< HEAD
 },{"common/Logger":24}],107:[function(require,module,exports){
+=======
+},{"common/Logger":24}],104:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Inline.EditableImage
 var Config = require('common/Config');
 var Utilities = require('common/Utilities');
@@ -6277,7 +6653,11 @@ var EditableImage = Backbone.View.extend({
 
 KB.Fields.registerObject('EditableImage', EditableImage);
 module.exports = EditableImage;
+<<<<<<< HEAD
 },{"common/Config":22,"common/Utilities":30,"frontend/Inline/InlineToolbar":110,"frontend/Inline/controls/EditImage":111,"frontend/Inline/controls/InlineUpdate":114}],108:[function(require,module,exports){
+=======
+},{"common/Config":22,"common/Utilities":30,"frontend/Inline/InlineToolbar":107,"frontend/Inline/controls/EditImage":108,"frontend/Inline/controls/InlineUpdate":111}],105:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Inline.EditableImage
 var Config = require('common/Config');
 var Utilities = require('common/Utilities');
@@ -6410,7 +6790,11 @@ var EditableLink = Backbone.View.extend({
 
 KB.Fields.registerObject('EditableLink', EditableLink);
 module.exports = EditableLink;
+<<<<<<< HEAD
 },{"common/Config":22,"common/Utilities":30,"frontend/Inline/InlineToolbar":110,"frontend/Inline/controls/EditLink":112,"frontend/Inline/controls/InlineUpdate":114}],109:[function(require,module,exports){
+=======
+},{"common/Config":22,"common/Utilities":30,"frontend/Inline/InlineToolbar":107,"frontend/Inline/controls/EditLink":109,"frontend/Inline/controls/InlineUpdate":111}],106:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Inline.EditableText
 var Utilities = require('common/Utilities');
 var Config = require('common/Config');
@@ -6583,7 +6967,11 @@ var EditableText = Backbone.View.extend({
 
 
 module.exports = EditableText;
+<<<<<<< HEAD
 },{"common/Config":22,"common/Utilities":30,"frontend/Inline/InlineToolbar":110,"frontend/Inline/controls/EditText":113,"frontend/Inline/controls/InlineUpdate":114}],110:[function(require,module,exports){
+=======
+},{"common/Config":22,"common/Utilities":30,"frontend/Inline/InlineToolbar":107,"frontend/Inline/controls/EditText":110,"frontend/Inline/controls/InlineUpdate":111}],107:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Tether = require('tether');
 module.exports = Backbone.View.extend({
   tagName: 'div',
@@ -6666,7 +7054,11 @@ module.exports = Backbone.View.extend({
   }
 
 });
+<<<<<<< HEAD
 },{"tether":255}],111:[function(require,module,exports){
+=======
+},{"tether":253}],108:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Check = require('common/Checks');
 module.exports = Backbone.View.extend({
   initialize: function (options) {
@@ -6703,7 +7095,11 @@ module.exports = Backbone.View.extend({
     })
   }
 });
+<<<<<<< HEAD
 },{"common/Checks":21}],112:[function(require,module,exports){
+=======
+},{"common/Checks":21}],109:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Check = require('common/Checks');
 module.exports = Backbone.View.extend({
   initialize: function (options) {
@@ -6742,7 +7138,11 @@ module.exports = Backbone.View.extend({
     })
   }
 });
+<<<<<<< HEAD
 },{"common/Checks":21}],113:[function(require,module,exports){
+=======
+},{"common/Checks":21}],110:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Check = require('common/Checks');
 module.exports = Backbone.View.extend({
   initialize: function (options) {
@@ -6778,7 +7178,11 @@ module.exports = Backbone.View.extend({
     })
   }
 });
+<<<<<<< HEAD
 },{"common/Checks":21}],114:[function(require,module,exports){
+=======
+},{"common/Checks":21}],111:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Check = require('common/Checks');
 var Config = require('common/Config');
 var Logger = require('common/Logger');
@@ -6821,7 +7225,11 @@ module.exports = Backbone.View.extend({
 
   }
 });
+<<<<<<< HEAD
 },{"common/Checks":21,"common/Config":22,"common/Logger":24}],115:[function(require,module,exports){
+=======
+},{"common/Checks":21,"common/Config":22,"common/Logger":24}],112:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // Bootstrap File
 //KB.IEdit.Image.init();
 //KB.IEdit.BackgroundImage.init();
@@ -6832,7 +7240,11 @@ KB.Fields.registerObject('EditableText', EditableText);
 KB.Fields.registerObject('EditableImage', EditableImage);
 KB.Fields.registerObject('EditableLink', EditableLink);
 
+<<<<<<< HEAD
 },{"frontend/Inline/EditableImageView":107,"frontend/Inline/EditableLinkView":108,"frontend/Inline/EditableTextView":109}],116:[function(require,module,exports){
+=======
+},{"frontend/Inline/EditableImageView":104,"frontend/Inline/EditableLinkView":105,"frontend/Inline/EditableTextView":106}],113:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.AreaModel
 module.exports = Backbone.Model.extend({
   defaults: {
@@ -6840,7 +7252,11 @@ module.exports = Backbone.Model.extend({
   },
   idAttribute: 'id'
 });
+<<<<<<< HEAD
 },{}],117:[function(require,module,exports){
+=======
+},{}],114:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.ModuleModel
 var Config = require('common/Config');
 var Notice = require('common/Notice');
@@ -6937,7 +7353,11 @@ module.exports = Backbone.Model.extend({
   }
 
 });
+<<<<<<< HEAD
 },{"common/Config":22,"common/Logger":24,"common/Notice":25}],118:[function(require,module,exports){
+=======
+},{"common/Config":22,"common/Logger":24,"common/Notice":25}],115:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.PanelModel
 var Config = require('common/Config');
 var Logger = require('common/Logger');
@@ -6999,7 +7419,11 @@ module.exports = Backbone.Model.extend({
     });
   }
 });
+<<<<<<< HEAD
 },{"common/Config":22,"common/Logger":24}],119:[function(require,module,exports){
+=======
+},{"common/Config":22,"common/Logger":24}],116:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /**
  * Override module browser success method
  */
@@ -7032,7 +7456,11 @@ module.exports = ModuleBrowser.extend({
     ModuleBrowser.prototype.close.apply(this, arguments);
   }
 });
+<<<<<<< HEAD
 },{"common/TinyMCE":28,"shared/ModuleBrowser/ModuleBrowserController":149}],120:[function(require,module,exports){
+=======
+},{"common/TinyMCE":28,"shared/ModuleBrowser/ModuleBrowserController":146}],117:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.AreaView
 var ModuleBrowser = require('frontend/ModuleBrowser/ModuleBrowserExt');
 var Config = require('common/Config');
@@ -7200,7 +7628,11 @@ module.exports = Backbone.View.extend({
 
 
 });
+<<<<<<< HEAD
 },{"common/Ajax":20,"common/Config":22,"common/Notice":25,"frontend/ModuleBrowser/ModuleBrowserExt":119,"templates/frontend/area-empty-placeholder.hbs":195}],121:[function(require,module,exports){
+=======
+},{"common/Ajax":20,"common/Config":22,"common/Notice":25,"frontend/ModuleBrowser/ModuleBrowserExt":116,"templates/frontend/area-empty-placeholder.hbs":191}],118:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Stack = require('common/Stack');
 module.exports = Backbone.View.extend({
   events: {
@@ -7237,7 +7669,11 @@ module.exports = Backbone.View.extend({
   }
 
 });
+<<<<<<< HEAD
 },{"common/Stack":27}],122:[function(require,module,exports){
+=======
+},{"common/Stack":27}],119:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Logger = require('common/Logger');
 var ModalFieldCollection = require('frontend/Collections/ModalFieldCollection');
 var LoadingAnimation = require('frontend/Views/LoadingAnimation');
@@ -7828,7 +8264,11 @@ module.exports = Backbone.View.extend({
     return null;
   }
 });
+<<<<<<< HEAD
 },{"common/Ajax":20,"common/Config":22,"common/Logger":24,"common/Notice":25,"common/TinyMCE":28,"common/UI":29,"frontend/Collections/ModalFieldCollection":103,"frontend/Views/EditModalHistory":121,"frontend/Views/LoadingAnimation":124,"templates/frontend/module-edit-form.hbs":198}],123:[function(require,module,exports){
+=======
+},{"common/Ajax":20,"common/Config":22,"common/Logger":24,"common/Notice":25,"common/TinyMCE":28,"common/UI":29,"frontend/Collections/ModalFieldCollection":100,"frontend/Views/EditModalHistory":118,"frontend/Views/LoadingAnimation":121,"templates/frontend/module-edit-form.hbs":194}],120:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.AreaView
 var AreaView = require('frontend/Views/AreaView');
 var ModuleBrowser = require('frontend/ModuleBrowser/ModuleBrowserExt');
@@ -7926,7 +8366,11 @@ module.exports = AreaView.extend({
   }
 
 });
+<<<<<<< HEAD
 },{"common/Ajax":20,"common/Config":22,"common/Notice":25,"frontend/ModuleBrowser/ModuleBrowserExt":119,"frontend/Views/AreaView":120,"templates/frontend/area-empty-placeholder.hbs":195}],124:[function(require,module,exports){
+=======
+},{"common/Ajax":20,"common/Config":22,"common/Notice":25,"frontend/ModuleBrowser/ModuleBrowserExt":116,"frontend/Views/AreaView":117,"templates/frontend/area-empty-placeholder.hbs":191}],121:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Shared.LoadingAnimation
 module.exports = Backbone.View.extend({
   $overlay: jQuery('<div class="kb-loading-overlay" style="display: none;"><span>working...</span></div>'),
@@ -7948,7 +8392,11 @@ module.exports = Backbone.View.extend({
     this.$overlay.remove();
   }
 });
+<<<<<<< HEAD
 },{}],125:[function(require,module,exports){
+=======
+},{}],122:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /**
  * Creates the individual module-actions controls
  * like: sortable, delete, update
@@ -8076,7 +8524,11 @@ module.exports = Backbone.View.extend({
   }
 
 });
+<<<<<<< HEAD
 },{"./modulecontrols/DeleteControl":127,"./modulecontrols/DraftControl":128,"./modulecontrols/EditControl":129,"./modulecontrols/MoveControl":130,"./modulecontrols/UpdateControl":131,"templates/frontend/module-controls.hbs":197}],126:[function(require,module,exports){
+=======
+},{"./modulecontrols/DeleteControl":124,"./modulecontrols/DraftControl":125,"./modulecontrols/EditControl":126,"./modulecontrols/MoveControl":127,"./modulecontrols/UpdateControl":128,"templates/frontend/module-controls.hbs":193}],123:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Frontend.ModuleMenuItemView
 module.exports = Backbone.View.extend({
   tagName: 'div',
@@ -8090,7 +8542,11 @@ module.exports = Backbone.View.extend({
     this.remove();
   }
 });
+<<<<<<< HEAD
 },{}],127:[function(require,module,exports){
+=======
+},{}],124:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Frontend.ModuleDelete
 var ModuleMenuItem = require('frontend/Views/ModuleControls/modulecontrols/ControlsBaseView');
 var Check = require('common/Checks');
@@ -8134,7 +8590,11 @@ module.exports = ModuleMenuItem.extend({
     return Check.userCan('delete_kontentblocks');
   }
 });
+<<<<<<< HEAD
 },{"common/Ajax":20,"common/Checks":21,"common/Config":22,"common/Notice":25,"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":126}],128:[function(require,module,exports){
+=======
+},{"common/Ajax":20,"common/Checks":21,"common/Config":22,"common/Notice":25,"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":123}],125:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Frontend.ModuleMove
 var ModuleMenuItem = require('frontend/Views/ModuleControls/modulecontrols/ControlsBaseView');
 module.exports = ModuleMenuItem.extend({
@@ -8157,7 +8617,11 @@ module.exports = ModuleMenuItem.extend({
     }
   }
 });
+<<<<<<< HEAD
 },{"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":126}],129:[function(require,module,exports){
+=======
+},{"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":123}],126:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ModuleMenuItem = require('frontend/Views/ModuleControls/modulecontrols/ControlsBaseView');
 var Check = require('common/Checks');
 module.exports = ModuleMenuItem.extend({
@@ -8178,7 +8642,11 @@ module.exports = ModuleMenuItem.extend({
     return Check.userCan('edit_kontentblocks');
   }
 });
+<<<<<<< HEAD
 },{"common/Checks":21,"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":126}],130:[function(require,module,exports){
+=======
+},{"common/Checks":21,"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":123}],127:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Frontend.ModuleMove
 var ModuleMenuItem = require('frontend/Views/ModuleControls/modulecontrols/ControlsBaseView');
 var Check = require('common/Checks');
@@ -8195,7 +8663,11 @@ module.exports = ModuleMenuItem.extend({
     return Check.userCan('edit_kontentblocks') && this.Parent.model.Area.get('sortable') && !this.model.get('submodule');
   }
 });
+<<<<<<< HEAD
 },{"common/Checks":21,"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":126}],131:[function(require,module,exports){
+=======
+},{"common/Checks":21,"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":123}],128:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Frontend.ModuleUpdate
 var ModuleMenuItem = require('frontend/Views/ModuleControls/modulecontrols/ControlsBaseView');
 var Check = require('common/Checks');
@@ -8247,7 +8719,11 @@ module.exports = ModuleMenuItem.extend({
     return Check.userCan('edit_kontentblocks');
   }
 });
+<<<<<<< HEAD
 },{"common/Checks":21,"common/Config":22,"common/Notice":25,"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":126}],132:[function(require,module,exports){
+=======
+},{"common/Checks":21,"common/Config":22,"common/Notice":25,"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":123}],129:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ModuleControlsView = require('frontend/Views/ModuleControls/ModuleControls');
 var Check = require('common/Checks');
 var ModuleStatusBarView = require('shared/ModuleStatusBar/ModuleStatusBarView');
@@ -8396,7 +8872,11 @@ module.exports = Backbone.View.extend({
   }
 
 });
+<<<<<<< HEAD
 },{"common/Checks":21,"frontend/Views/ModuleControls/ModuleControls":125,"shared/ModuleStatusBar/ModuleStatusBarView":157,"shared/ModuleStatusBar/status/PublishStatus":158,"shared/ModuleStatusBar/status/TemplateStatus":159,"templates/frontend/module-placeholder.hbs":199}],133:[function(require,module,exports){
+=======
+},{"common/Checks":21,"frontend/Views/ModuleControls/ModuleControls":122,"shared/ModuleStatusBar/ModuleStatusBarView":154,"shared/ModuleStatusBar/status/PublishStatus":155,"shared/ModuleStatusBar/status/TemplateStatus":156,"templates/frontend/module-placeholder.hbs":195}],130:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports = Backbone.View.extend({
   initialize: function () {
     this.model.View = this;
@@ -8408,7 +8888,11 @@ module.exports = Backbone.View.extend({
 
   }
 });
+<<<<<<< HEAD
 },{}],134:[function(require,module,exports){
+=======
+},{}],131:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // KB.Backbone.SidebarView
 var AreaOverview = require('frontend/Views/Sidebar/AreaOverview/AreaOverviewController');
 var CategoryFilter = require('frontend/Views/Sidebar/AreaDetails/CategoryFilter');
@@ -8558,7 +9042,11 @@ module.exports = Backbone.View.extend({
     }
   }
 });
+<<<<<<< HEAD
 },{"common/Utilities":30,"frontend/Views/Sidebar/AreaDetails/CategoryFilter":137,"frontend/Views/Sidebar/AreaOverview/AreaOverviewController":140,"frontend/Views/Sidebar/PanelOverview/PanelOverviewController":144,"frontend/Views/Sidebar/SidebarHeader":146,"templates/frontend/sidebar/sidebar-nav.hbs":210}],135:[function(require,module,exports){
+=======
+},{"common/Utilities":30,"frontend/Views/Sidebar/AreaDetails/CategoryFilter":134,"frontend/Views/Sidebar/AreaOverview/AreaOverviewController":137,"frontend/Views/Sidebar/PanelOverview/PanelOverviewController":141,"frontend/Views/Sidebar/SidebarHeader":143,"templates/frontend/sidebar/sidebar-nav.hbs":206}],132:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Sidebar.AreaDetails.AreaDetailsController
 var CategoryController = require('frontend/Views/Sidebar/AreaDetails/CategoryController');
 // var AreaSettings = require('frontend/Views/Sidebar/AreaDetails/AreaSettingsController');
@@ -8596,7 +9084,11 @@ module.exports = Backbone.View.extend({
     });
   }
 });
+<<<<<<< HEAD
 },{"common/Ajax":20,"common/Config":22,"common/Notice":25,"frontend/Views/Sidebar/AreaDetails/CategoryController":136,"templates/frontend/sidebar/area-details-header.hbs":200}],136:[function(require,module,exports){
+=======
+},{"common/Ajax":20,"common/Config":22,"common/Notice":25,"frontend/Views/Sidebar/AreaDetails/CategoryController":133,"templates/frontend/sidebar/area-details-header.hbs":196}],133:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Sidebar.AreaDetails.CategoryController
 var ModuleDragItem = require('frontend/Views/Sidebar/AreaDetails/ModuleDragItem');
 
@@ -8626,7 +9118,11 @@ module.exports = Backbone.View.extend({
     })
   }
 });
+<<<<<<< HEAD
 },{"frontend/Views/Sidebar/AreaDetails/ModuleDragItem":138,"templates/frontend/sidebar/category-list.hbs":201}],137:[function(require,module,exports){
+=======
+},{"frontend/Views/Sidebar/AreaDetails/ModuleDragItem":135,"templates/frontend/sidebar/category-list.hbs":197}],134:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Sidebar.CategoryFilter
 var Payload = require('common/Payload');
 module.exports = Backbone.View.extend({
@@ -8669,7 +9165,11 @@ module.exports = Backbone.View.extend({
     return sorted;
   }
 });
+<<<<<<< HEAD
 },{"common/Payload":26}],138:[function(require,module,exports){
+=======
+},{"common/Payload":26}],135:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Sidebar.AreaDetails.ModuleDragItem
 var Payload = require('common/Payload');
 var Notice = require('common/Notice');
@@ -8792,7 +9292,11 @@ module.exports = Backbone.View.extend({
     }
   }
 });
+<<<<<<< HEAD
 },{"common/Ajax":20,"common/Checks":21,"common/Config":22,"common/Notice":25,"common/Payload":26,"frontend/Models/ModuleModel":117,"frontend/Views/AreaView":120,"templates/frontend/sidebar/category-module-item.hbs":202}],139:[function(require,module,exports){
+=======
+},{"common/Ajax":20,"common/Checks":21,"common/Config":22,"common/Notice":25,"common/Payload":26,"frontend/Models/ModuleModel":114,"frontend/Views/AreaView":117,"templates/frontend/sidebar/category-module-item.hbs":198}],136:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ModuleListItem = require('frontend/Views/Sidebar/AreaOverview/ModuleListItem');
 var AreaDetailsController = require('frontend/Views/Sidebar/AreaDetails/AreaDetailsController');
 var tplEmptyArea = require('templates/frontend/sidebar/empty-area.hbs');
@@ -8889,7 +9393,11 @@ module.exports = Backbone.View.extend({
 
   }
 });
+<<<<<<< HEAD
 },{"frontend/Views/Sidebar/AreaDetails/AreaDetailsController":135,"frontend/Views/Sidebar/AreaOverview/ModuleListItem":141,"templates/frontend/sidebar/empty-area.hbs":203}],140:[function(require,module,exports){
+=======
+},{"frontend/Views/Sidebar/AreaDetails/AreaDetailsController":132,"frontend/Views/Sidebar/AreaOverview/ModuleListItem":138,"templates/frontend/sidebar/empty-area.hbs":199}],137:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Sidebar.AreaOverview.AreaOverviewController
 var AreaListItem = require('frontend/Views/Sidebar/AreaOverview/AreaListItem');
 var tplSidebarAreaView = require('templates/frontend/sidebar/sidebar-area-view.hbs');
@@ -8966,7 +9474,11 @@ module.exports = Backbone.View.extend({
     }))
   }
 });
+<<<<<<< HEAD
 },{"frontend/Views/Sidebar/AreaOverview/AreaListItem":139,"templates/frontend/sidebar/root-item.hbs":207,"templates/frontend/sidebar/sidebar-area-view.hbs":208}],141:[function(require,module,exports){
+=======
+},{"frontend/Views/Sidebar/AreaOverview/AreaListItem":136,"templates/frontend/sidebar/root-item.hbs":203,"templates/frontend/sidebar/sidebar-area-view.hbs":204}],138:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Sidebar.AreaOverview.ModuleListItem
 var tplModuleViewItem = require('templates/frontend/sidebar/module-view-item.hbs');
 module.exports = Backbone.View.extend({
@@ -9038,7 +9550,11 @@ module.exports = Backbone.View.extend({
   }
 });
 
+<<<<<<< HEAD
 },{"templates/frontend/sidebar/module-view-item.hbs":204}],142:[function(require,module,exports){
+=======
+},{"templates/frontend/sidebar/module-view-item.hbs":200}],139:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Sidebar.StaticPanelFormView
 var Config = require('common/Config');
 var Payload = require('common/Payload');
@@ -9110,7 +9626,11 @@ module.exports = Backbone.View.extend({
     this.parentView.closeDetails();
   }
 });
+<<<<<<< HEAD
 },{"common/Config":22,"common/Payload":26,"common/UI":29,"templates/frontend/sidebar/option-panel-details.hbs":205}],143:[function(require,module,exports){
+=======
+},{"common/Config":22,"common/Payload":26,"common/UI":29,"templates/frontend/sidebar/option-panel-details.hbs":201}],140:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
 module.exports= Backbone.View.extend({
 
@@ -9142,7 +9662,11 @@ module.exports= Backbone.View.extend({
   }
 });
 
+<<<<<<< HEAD
 },{}],144:[function(require,module,exports){
+=======
+},{}],141:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var StaticPanelView = require('frontend/Views/Sidebar/PanelOverview/StaticPanelView');
 var OptionPanelView = require('frontend/Views/Sidebar/PanelOverview/OptionPanelView');
 var tplRootItem = require('templates/frontend/sidebar/root-item.hbs');
@@ -9197,7 +9721,11 @@ module.exports = Backbone.View.extend({
     }))
   }
 });
+<<<<<<< HEAD
 },{"frontend/Views/Sidebar/PanelOverview/OptionPanelView":143,"frontend/Views/Sidebar/PanelOverview/StaticPanelView":145,"templates/frontend/sidebar/root-item.hbs":207}],145:[function(require,module,exports){
+=======
+},{"frontend/Views/Sidebar/PanelOverview/OptionPanelView":140,"frontend/Views/Sidebar/PanelOverview/StaticPanelView":142,"templates/frontend/sidebar/root-item.hbs":203}],142:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var tplPanelListItem = require('templates/frontend/sidebar/panel-list-item.hbs');
 var StaticPanelFormView = require('frontend/Views/Sidebar/PanelDetails/StaticPanelFormView');
 module.exports = Backbone.View.extend({
@@ -9230,7 +9758,11 @@ module.exports = Backbone.View.extend({
   }
 });
 
+<<<<<<< HEAD
 },{"frontend/Views/Sidebar/PanelDetails/StaticPanelFormView":142,"templates/frontend/sidebar/panel-list-item.hbs":206}],146:[function(require,module,exports){
+=======
+},{"frontend/Views/Sidebar/PanelDetails/StaticPanelFormView":139,"templates/frontend/sidebar/panel-list-item.hbs":202}],143:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Sidebar.Header
 var tplSidebarHeader = require('templates/frontend/sidebar/sidebar-header.hbs');
 module.exports = Backbone.View.extend({
@@ -9244,7 +9776,11 @@ module.exports = Backbone.View.extend({
   }
 
 });
+<<<<<<< HEAD
 },{"templates/frontend/sidebar/sidebar-header.hbs":209}],147:[function(require,module,exports){
+=======
+},{"templates/frontend/sidebar/sidebar-header.hbs":205}],144:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Notice = require('common/Notice');
 var tplChangeObserver = require('templates/frontend/change-observer.hbs');
 var I18n = require('common/I18n');
@@ -9305,7 +9841,11 @@ module.exports = Backbone.View.extend({
 
 
 });
+<<<<<<< HEAD
 },{"common/Config":22,"common/I18n":23,"common/Notice":25,"templates/frontend/change-observer.hbs":196}],148:[function(require,module,exports){
+=======
+},{"common/Config":22,"common/I18n":23,"common/Notice":25,"templates/frontend/change-observer.hbs":192}],145:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports = Backbone.Collection.extend({
 
   initialize: function(){
@@ -9319,7 +9859,11 @@ module.exports = Backbone.Collection.extend({
   }
 
 });
+<<<<<<< HEAD
 },{}],149:[function(require,module,exports){
+=======
+},{}],146:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.ModuleBrowser
 var ModuleDefinitions = require('shared/ModuleBrowser/ModuleBrowserDefinitions');
 var ModuleDefModel = require('shared/ModuleBrowser/ModuleDefinitionModel');
@@ -9565,7 +10109,11 @@ module.exports = Backbone.View.extend({
     return fullDefs;
   }
 });
+<<<<<<< HEAD
 },{"common/Ajax":20,"common/Checks":21,"common/Config":22,"common/Notice":25,"common/Payload":26,"common/TinyMCE":28,"shared/ModuleBrowser/ModuleBrowserDefinitions":150,"shared/ModuleBrowser/ModuleBrowserDescriptions":151,"shared/ModuleBrowser/ModuleBrowserNavigation":154,"shared/ModuleBrowser/ModuleDefinitionModel":156,"templates/backend/modulebrowser/module-browser.hbs":163}],150:[function(require,module,exports){
+=======
+},{"common/Ajax":20,"common/Checks":21,"common/Config":22,"common/Notice":25,"common/Payload":26,"common/TinyMCE":28,"shared/ModuleBrowser/ModuleBrowserDefinitions":147,"shared/ModuleBrowser/ModuleBrowserDescriptions":148,"shared/ModuleBrowser/ModuleBrowserNavigation":151,"shared/ModuleBrowser/ModuleDefinitionModel":153,"templates/backend/modulebrowser/module-browser.hbs":160}],147:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Payload = require('common/Payload');
 var Checks = require('common/Checks');
 
@@ -9627,7 +10175,11 @@ module.exports = Backbone.Collection.extend({
     return cats;
   }
 });
+<<<<<<< HEAD
 },{"common/Checks":21,"common/Payload":26}],151:[function(require,module,exports){
+=======
+},{"common/Payload":26}],148:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.ModuleBrowserModuleDescription
 var tplModuleTemplateDescription = require('templates/backend/modulebrowser/module-template-description.hbs');
 var tplModuleDescription = require('templates/backend/modulebrowser/module-description.hbs');
@@ -9665,7 +10217,11 @@ module.exports = Backbone.View.extend({
   }
 });
 
+<<<<<<< HEAD
 },{"templates/backend/modulebrowser/module-description.hbs":164,"templates/backend/modulebrowser/module-template-description.hbs":166}],152:[function(require,module,exports){
+=======
+},{"templates/backend/modulebrowser/module-description.hbs":161,"templates/backend/modulebrowser/module-template-description.hbs":163}],149:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.ModuleBrowserModulesList
 var ListItem = require('shared/ModuleBrowser/ModuleBrowserListItem');
 module.exports = Backbone.View.extend({
@@ -9705,7 +10261,11 @@ module.exports = Backbone.View.extend({
   render: function(){
   }
 });
+<<<<<<< HEAD
 },{"shared/ModuleBrowser/ModuleBrowserListItem":153}],153:[function(require,module,exports){
+=======
+},{"shared/ModuleBrowser/ModuleBrowserListItem":150}],150:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.ModuleBrowserListItem
 var tplTemplateListItem = require('templates/backend/modulebrowser/module-template-list-item.hbs');
 var tplListItem = require('templates/backend/modulebrowser/module-list-item.hbs');
@@ -9779,7 +10339,11 @@ module.exports = Backbone.View.extend({
   }
 
 });
+<<<<<<< HEAD
 },{"templates/backend/modulebrowser/module-list-item.hbs":165,"templates/backend/modulebrowser/module-template-list-item.hbs":167,"templates/backend/modulebrowser/poster.hbs":168}],154:[function(require,module,exports){
+=======
+},{"templates/backend/modulebrowser/module-list-item.hbs":162,"templates/backend/modulebrowser/module-template-list-item.hbs":164,"templates/backend/modulebrowser/poster.hbs":165}],151:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ModuleBrowserTabItemView = require('shared/ModuleBrowser/ModuleBrowserTabItemView');
 module.exports = Backbone.View.extend({
   catSet: false,
@@ -9795,7 +10359,11 @@ module.exports = Backbone.View.extend({
   }
 
 });
+<<<<<<< HEAD
 },{"shared/ModuleBrowser/ModuleBrowserTabItemView":155}],155:[function(require,module,exports){
+=======
+},{"shared/ModuleBrowser/ModuleBrowserTabItemView":152}],152:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ModuleBrowserList = require('shared/ModuleBrowser/ModuleBrowserList');
 module.exports = Backbone.View.extend({
   initialize: function (options) {
@@ -9837,7 +10405,11 @@ module.exports = Backbone.View.extend({
     this.listRenderer.update();
   }
 });
+<<<<<<< HEAD
 },{"shared/ModuleBrowser/ModuleBrowserList":152}],156:[function(require,module,exports){
+=======
+},{"shared/ModuleBrowser/ModuleBrowserList":149}],153:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.ModuleDefinition
 module.exports = Backbone.Model.extend({
   initialize: function () {
@@ -9851,7 +10423,11 @@ module.exports = Backbone.Model.extend({
     }());
   }
 });
+<<<<<<< HEAD
 },{}],157:[function(require,module,exports){
+=======
+},{}],154:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ControlsView = require('backend/Views/ModuleControls/ControlsView');
 
 module.exports = ControlsView.extend({
@@ -9864,7 +10440,11 @@ module.exports = ControlsView.extend({
   }
 
 });
+<<<<<<< HEAD
 },{"backend/Views/ModuleControls/ControlsView":8}],158:[function(require,module,exports){
+=======
+},{"backend/Views/ModuleControls/ControlsView":8}],155:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('backend/Views/BaseControlView');
 var tplPublishStatus = require('templates/backend/status/publish.hbs');
 var Ajax = require('common/Ajax');
@@ -9917,12 +10497,19 @@ module.exports = BaseView.extend({
   }
 
 });
+<<<<<<< HEAD
 },{"backend/Views/BaseControlView":1,"common/Ajax":20,"common/Checks":21,"common/Config":22,"common/I18n":23,"templates/backend/status/publish.hbs":169}],159:[function(require,module,exports){
 var BaseView = require('backend/Views/BaseControlView');
 var tplTemplatesStatus = require('templates/backend/status/templates.hbs');
 var CodemirrorOverlay = require('backend/Views/TemplateEditor/CodemirrorOverlay');
 var Checks = require('common/Checks');
 
+=======
+},{"backend/Views/BaseControlView":1,"common/Ajax":20,"common/Config":22,"common/I18n":23,"templates/backend/status/publish.hbs":166}],156:[function(require,module,exports){
+var BaseView = require('backend/Views/BaseControlView');
+var tplTemplatesStatus = require('templates/backend/status/templates.hbs');
+var CodemirrorOverlay = require('backend/Views/TemplateEditor/CodemirrorOverlay');
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports = BaseView.extend({
   id: 'templates',
   controller: null,
@@ -9931,9 +10518,12 @@ module.exports = BaseView.extend({
     this.moduleView = options.parent;
     this.views = this.prepareViews(this.model.get('views'));
   },
+<<<<<<< HEAD
   attributes:{
     'aria-label': 'Modultemplate Auswahl'
   },
+=======
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
   events: {
     'dblclick': 'openEditor'
   },
@@ -9959,7 +10549,11 @@ module.exports = BaseView.extend({
     }, this);
   }
 });
+<<<<<<< HEAD
 },{"backend/Views/BaseControlView":1,"backend/Views/TemplateEditor/CodemirrorOverlay":9,"common/Checks":21,"templates/backend/status/templates.hbs":170}],160:[function(require,module,exports){
+=======
+},{"backend/Views/BaseControlView":1,"backend/Views/TemplateEditor/CodemirrorOverlay":9,"templates/backend/status/templates.hbs":167}],157:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /*
  Simple Get/Set implementation to set and get views
  No magic here
@@ -10019,6 +10613,7 @@ KB.ViewsCollection = function () {
 
 _.extend(KB.ViewsCollection.prototype, Backbone.Events);
 module.exports = KB.ViewsCollection;
+<<<<<<< HEAD
 },{}],161:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
@@ -10027,13 +10622,27 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
 },"useData":true});
 
 },{"hbsfy/runtime":254}],162:[function(require,module,exports){
+=======
+},{}],158:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var HandlebarsCompiler = require('hbsfy/runtime');
+module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<div class=\"kb-context-bar grid__col grid__col--12-of-12\">\n    <div class=\"kb-context-bar--actions\">\n\n    </div>\n</div>";
+},"useData":true});
+
+},{"hbsfy/runtime":240}],159:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div class=\"kb-fullscreen--holder-wrap\">\n    <div class=\"kb-fullscreen--controls\">\n        <div class=\"kb-fullscreen-js-close\"><span class=\"dashicons dashicons-no-alt\"></span></div>\n    </div>\n    <div class=\"kb-nano\">\n        <div class=\"kb-fullscreen--inner kb-nano-content\">\n\n        </div>\n    </div>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],163:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],160:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10044,7 +10653,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\">\n\n    <div class=\"module-browser-header module-categories\">\n        <div class=\"genericon genericon-close-alt close-browser kb-button\"></div>\n        <div class=\"dashicons dashicons-list-view module-browser--switch__list-view kb-hide\"></div>\n        <div class=\"dashicons dashicons-exerpt-view module-browser--switch__excerpt-view kb-hide\"></div>\n        <div class=\"dashicons dashicons-grid-view module-browser--switch__grid-view kb-hide\"></div>\n    </div>\n\n    <div class=\"module-browser__left-column kb-nano\">\n        <div class=\"modules-list kb-nano-content\">\n\n        </div>\n    </div>\n\n    <div class=\"module-browser__right-column kb-nano\">\n        <div class=\"module-description kb-nano-content\">\n\n        </div>\n    </div>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],164:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],161:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10057,7 +10670,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</div>\n</h3>\n";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],165:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],162:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10072,7 +10689,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],166:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],163:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10083,7 +10704,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</h3>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],167:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],164:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10094,7 +10719,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],168:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],165:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10105,7 +10734,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\" >\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],169:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],166:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -10130,7 +10763,11 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
   return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.draft : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "");
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],170:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],167:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -10170,7 +10807,11 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "\n";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],171:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],168:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10189,7 +10830,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</div>\n    </div>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],172:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],169:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10200,14 +10845,22 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],173:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],170:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div class=\"kb-tpled--wrap\">\n\n    <div class=\"kb-tpled--header\">\n        <div class=\"kb-fullscreen--controls\">\n            <div class=\"kb-tpled--close\"><span class=\"dashicons dashicons-no-alt\"></span></div>\n        </div>\n    </div>\n    <div class=\"kb-tpled--inner kbflexwrap\">\n        <div class=\"kb-tpled--sidebar kbflex\">\n            <div class=\"kb-tpled--views\">\n                <h5>Templates</h5>\n                <div data-views></div>\n            </div>\n            <div class=\"kb-tpled--actions\">\n                <h5>Actions</h5>\n                <div data-controls></div>\n            </div>\n        </div>\n        <div class=\"kb-tpled--content kbflex\">\n            <div id=\"codemirror\"></div>\n\n        </div>\n        <div class=\"kb-tpled--sidebar kb-tpled--sidebar-right kbflex\">\n            <div class=\"kb-tpled--fields\">\n                <h5>Available Datafields</h5>\n                <div data-fields></div>\n            </div>\n        </div>\n    </div>\n    <div class=\"kb-tpled--footer\">\n\n    </div>\n\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],174:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],171:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -10226,7 +10879,11 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "</p>\n</div>\n";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],175:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],172:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10243,7 +10900,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</p>\n</div>\n";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],176:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],173:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10270,7 +10931,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "'\n           class='kb-datetimepicker--js-sql'>\n    <div data-kbfaction=\"delete\" class=\"kb-field--text-multiple-control kbf-delete\"><span class=\"dashicons dashicons-trash\" ></span></div>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],177:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],174:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10295,7 +10960,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</p>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],178:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],175:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10312,7 +10981,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</p>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],179:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],176:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10351,6 +11024,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</p>\n";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],180:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
@@ -10405,6 +11079,9 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
 },"useData":true});
 
 },{"hbsfy/runtime":254}],181:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],177:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10418,18 +11095,26 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + alias4(((helper = (helper = helpers.inputName || (depth0 != null ? depth0.inputName : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"inputName","hash":{},"data":data}) : helper)))
     + "[_meta][type]\" value=\""
     + alias4(((helper = (helper = helpers.fftype || (depth0 != null ? depth0.fftype : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fftype","hash":{},"data":data}) : helper)))
+<<<<<<< HEAD
     + "\">\n<input data-flexfield-visible type=\"hidden\" name=\""
     + alias4(((helper = (helper = helpers.inputName || (depth0 != null ? depth0.inputName : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"inputName","hash":{},"data":data}) : helper)))
     + "[_meta][status]\" value=\""
     + alias4(((helper = (helper = helpers.status || (depth0 != null ? depth0.status : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"status","hash":{},"data":data}) : helper)))
     + "\">\n\n<div class=\"flexible-fields--section-box\">\n    <div class=\"flexible-fields--section-title\">\n        <span class=\"genericon genericon-draggable flexible-fields--js-drag-handle\"></span>\n        <span class=\"dashicons dashicons-trash flexible-fields--js-trash\"></span>\n        <input type=\"text\" value=\""
+=======
+    + "\">\n<div class=\"flexible-fields--section-box\">\n    <div class=\"flexible-fields--section-title\">\n        <span class=\"genericon genericon-draggable flexible-fields--js-drag-handle\"></span>\n        <span class=\"dashicons dashicons-trash flexible-fields--js-trash\"></span>\n        <input type=\"text\" value=\""
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     + alias4(container.lambda(((stack1 = (depth0 != null ? depth0.item : depth0)) != null ? stack1.title : stack1), depth0))
     + "\" name=\""
     + alias4(((helper = (helper = helpers.inputName || (depth0 != null ? depth0.inputName : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"inputName","hash":{},"data":data}) : helper)))
     + "[_meta][title] \">\n    </div>\n    <div class=\"flexible-fields--section-box-inner\">\n\n    </div>\n    <div class=\"kb-field--tabs\">\n        <ul class=\"flexible-field--tab-nav\">\n        </ul>\n    </div>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],182:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],178:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10443,18 +11128,26 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + alias4(((helper = (helper = helpers.inputName || (depth0 != null ? depth0.inputName : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"inputName","hash":{},"data":data}) : helper)))
     + "[_meta][type]\" value=\""
     + alias4(((helper = (helper = helpers.fftype || (depth0 != null ? depth0.fftype : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fftype","hash":{},"data":data}) : helper)))
+<<<<<<< HEAD
     + "\">\n<input data-flexfield-visible type=\"hidden\" name=\""
     + alias4(((helper = (helper = helpers.inputName || (depth0 != null ? depth0.inputName : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"inputName","hash":{},"data":data}) : helper)))
     + "[_meta][status]\" value=\""
     + alias4(((helper = (helper = helpers.status || (depth0 != null ? depth0.status : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"status","hash":{},"data":data}) : helper)))
     + "\">\n<div class=\"flexible-fields--toggle-title\">\n    <h3>\n        <span class=\"genericon genericon-draggable flexible-fields--js-drag-handle\"></span>\n        <span class=\"genericon genericon-expand flexible-fields--js-toggle\" data-flexfields-toggle></span>\n        <span class=\"dashicons dashicons-trash flexible-fields--js-duplicate\"></span>\n        <span class=\"dashicons dashicons-trash flexible-fields--js-trash\"></span>\n        <span class=\"dashicons dashicons-trash flexible-fields--js-visibility\"></span>\n        <input type=\"text\" value=\""
+=======
+    + "\">\n<div class=\"flexible-fields--toggle-title\">\n    <h3>\n        <span class=\"genericon genericon-draggable flexible-fields--js-drag-handle\"></span>\n        <span class=\"genericon genericon-expand flexible-fields--js-toggle\"></span>\n        <span class=\"dashicons dashicons-trash flexible-fields--js-trash\"></span>\n        <input type=\"text\" value=\""
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     + alias4(container.lambda(((stack1 = (depth0 != null ? depth0.item : depth0)) != null ? stack1.title : stack1), depth0))
     + "\" name=\""
     + alias4(((helper = (helper = helpers.inputName || (depth0 != null ? depth0.inputName : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"inputName","hash":{},"data":data}) : helper)))
     + "[_meta][title]\">\n    </h3>\n</div>\n<div class=\"flexible-fields--toggle-box kb-hide\">\n    <div class=\"kb-field--tabs\">\n        <ul class=\"flexible-field--tab-nav\">\n\n        </ul>\n    </div>\n\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],183:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],179:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -10474,7 +11167,11 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],184:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],180:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10513,7 +11210,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "[remove]\" value=\"\">\n    </div>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],185:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],181:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10528,7 +11229,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\">\n    </div>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],186:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],182:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -10542,7 +11247,11 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.lambda, alias3=container.escapeExpression, alias4=helpers.helperMissing;
 
+<<<<<<< HEAD
   return "<div class=\"kb-field kb-field kb-field--image kb-fieldapi-field\">\n    <div class='kb-field-image-wrapper' data-kbfield=\"image\">\n        <div role=\"button\" aria-label=\"Datei auswählen\" tabindex=\"0\" class='kb-js-add-image kb-field-image-container'>\n"
+=======
+  return "<div class=\"kb-field kb-field kb-field--image kb-fieldapi-field\">\n    <div class='kb-field-image-wrapper' data-kbfield=\"image\">\n        <div class='kb-js-add-image kb-field-image-container'>\n"
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.value : stack1)) != null ? stack1.url : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "        </div>\n        <div class=\"kb-field-image-meta "
     + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.hideMeta : stack1),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
@@ -10565,7 +11274,11 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "'>\n    </div>\n    <div class=\"kb-field-image--footer\">\n        <a class=\"button kb-js-reset-image\">Reset</a>\n    </div>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],187:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],183:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -10636,7 +11349,11 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "</p>\n\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],188:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],184:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10653,7 +11370,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</p>\n</div>\n\n";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],189:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],185:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10670,7 +11391,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</p>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],190:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],186:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data,blockParams,depths) {
@@ -10699,6 +11424,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "</p>\n</div>";
 },"useData":true,"useDepths":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],191:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
@@ -10714,10 +11440,24 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
   return "            <option "
     + ((stack1 = (helpers.ifCond || (depth0 && depth0.ifCond) || helpers.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.value : depth0),"==",((stack1 = (depths[1] != null ? depths[1].model : depths[1])) != null ? stack1.value : stack1),{"name":"ifCond","hash":{},"fn":container.program(8, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n                    value=\""
+=======
+},{"hbsfy/runtime":240}],187:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var HandlebarsCompiler = require('hbsfy/runtime');
+module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
+    return "            <option value=\"\">Auswählen</option>\n";
+},"3":function(container,depth0,helpers,partials,data,blockParams,depths) {
+    var stack1, alias1=container.lambda;
+
+  return "            <option "
+    + ((stack1 = (helpers.ifCond || (depth0 && depth0.ifCond) || helpers.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.value : depth0),"==",((stack1 = (depths[1] != null ? depths[1].model : depths[1])) != null ? stack1.value : stack1),{"name":"ifCond","hash":{},"fn":container.program(4, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "    value=\""
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     + container.escapeExpression(alias1((depth0 != null ? depth0.value : depth0), depth0))
     + "\">"
     + ((stack1 = alias1((depth0 != null ? depth0.name : depth0), depth0)) != null ? stack1 : "")
     + "</option>\n";
+<<<<<<< HEAD
 },"8":function(container,depth0,helpers,partials,data) {
     return "selected=\"selected\"";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
@@ -10733,12 +11473,30 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "    >\n"
     + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.showempty : stack1),{"name":"if","hash":{},"fn":container.program(5, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + ((stack1 = helpers.each.call(alias3,((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.options : stack1),{"name":"each","hash":{},"fn":container.program(7, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+=======
+},"4":function(container,depth0,helpers,partials,data) {
+    return "selected=\"selected\"";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : (container.nullContext || {});
+
+  return "<div class=\"kb-field kb-js-field field-api-text kb-field--select\">\n    <label class=\"heading\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.label : stack1), depth0))
+    + "</label>\n    <select name=\""
+    + alias2((helpers.fieldName || (depth0 && depth0.fieldName) || helpers.helperMissing).call(alias3,((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.baseId : stack1),((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.index : stack1),((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.primeKey : stack1),{"name":"fieldName","hash":{},"data":data}))
+    + "\">\n"
+    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.showempty : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers.each.call(alias3,((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.options : stack1),{"name":"each","hash":{},"fn":container.program(3, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     + "    </select>\n    <p class=\"description\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.description : stack1), depth0))
     + "</p>\n</div>";
 },"useData":true,"useDepths":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],192:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],188:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -10765,7 +11523,11 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "</p>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],193:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],189:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10778,7 +11540,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\">\n    <div data-kbfaction=\"delete\" class=\"kb-field--text-multiple-control kbf-delete\"><span class=\"dashicons dashicons-trash\" ></span></div>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],194:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],190:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10795,7 +11561,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</p>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],195:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],191:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10806,7 +11576,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</div>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],196:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],192:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10817,7 +11591,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],197:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],193:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -10836,7 +11614,11 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "'>\n    <div class=\"kb-controls-wrap\"></div>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],198:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],194:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10853,7 +11635,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</div>\n\n</div>\n<form id=\"onsite-form\" class=\"wp-core-ui wp-admin kb-nano\">\n    <div class=\"kb-nano-content\" id=\"onsite-content\">\n\n        <div class=\"os-content-inner kb-module\">\n\n        </div>\n    </div>\n</form>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],199:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],195:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10864,7 +11650,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\n    <span>Start here.</span>\n    </p>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],200:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],196:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10875,7 +11665,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\n</div>\n<div class=\"kb-sidebar-area-details__settings\" style=\"display: none\">\n\n</div>\n<!--<div class=\"kb-sidebar-area-details__subheader\">Categories</div>-->";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],201:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],197:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10886,7 +11680,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\n    </div>\n    <div class=\"kb-sidebar__category-item__module-list\">\n    </div>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],202:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],198:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10897,14 +11695,22 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\n    <div class=\"kb-sidebar__cat-module-item__actions\">\n    </div>\n</div>\n";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],203:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],199:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<li class=\"kb-sidebar__no-modules\">No Modules attached yet</li>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],204:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],200:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10923,7 +11729,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</span></a>\n    <a class='kb-sidebar__module-delete kb-js-inline-delete'><span\n            class=\"dashicons dashicons-trash\"></span></a>\n    <a class='kb-sidebar__module-update kb-js-inline-update'><span\n            class=\"dashicons dashicons-update\"></span></a>\n\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],205:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],201:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10934,7 +11744,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\n    </div>\n    <span class=\"genericon genericon-close-alt kb-sidebar-action--close\"></span>\n    <div class=\"kb-sidebar-action--update kb-fx-button kb-fx-button--effect-boris\"><span class=\"dashicons dashicons-update\"></span></div>\n\n</div>\n<form class=\"kb-sidebar__form-container\">\n\n</form>\n";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],206:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],202:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10945,7 +11759,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],207:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],203:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10958,7 +11776,11 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\n    <span class=\"dashicons dashicons-arrow-right-alt2 kb-sidebar__add-module kb-js-sidebar-add-module\"></span>\n\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],208:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],204:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10969,25 +11791,344 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</div>\n    <span class=\"dashicons dashicons-arrow-right-alt2 kb-sidebar__add-module kb-js-sidebar-add-module\"></span>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],209:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],205:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div class=\"kb-sidebar__header-wrap\">\n    <div class=\"kb-sidebar__subheader\">\n        Kontentblocks\n    </div>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],210:[function(require,module,exports){
+=======
+},{"hbsfy/runtime":240}],206:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div class=\"kb-sidebar__nav-controls\">\n    <div class=\"kb-sidebar__nav-button kb-js-sidebar-nav-back\">\n        <span class=\"dashicons dashicons-arrow-left-alt2 cbutton cbutton--effect-boris\"></span>\n    </div>\n</div>";
 },"useData":true});
 
+<<<<<<< HEAD
 },{"hbsfy/runtime":254}],211:[function(require,module,exports){
 
 },{}],212:[function(require,module,exports){
 'use strict';
 
+=======
+},{"hbsfy/runtime":240}],207:[function(require,module,exports){
+/** vim: et:ts=4:sw=4:sts=4
+ * @license amdefine 1.0.1 Copyright (c) 2011-2016, The Dojo Foundation All Rights Reserved.
+ * Available via the MIT or new BSD license.
+ * see: http://github.com/jrburke/amdefine for details
+ */
+
+/*jslint node: true */
+/*global module, process */
+'use strict';
+
+/**
+ * Creates a define for node.
+ * @param {Object} module the "module" object that is defined by Node for the
+ * current module.
+ * @param {Function} [requireFn]. Node's require function for the current module.
+ * It only needs to be passed in Node versions before 0.5, when module.require
+ * did not exist.
+ * @returns {Function} a define function that is usable for the current node
+ * module.
+ */
+function amdefine(module, requireFn) {
+    'use strict';
+    var defineCache = {},
+        loaderCache = {},
+        alreadyCalled = false,
+        path = require('path'),
+        makeRequire, stringRequire;
+
+    /**
+     * Trims the . and .. from an array of path segments.
+     * It will keep a leading path segment if a .. will become
+     * the first path segment, to help with module name lookups,
+     * which act like paths, but can be remapped. But the end result,
+     * all paths that use this function should look normalized.
+     * NOTE: this method MODIFIES the input array.
+     * @param {Array} ary the array of path segments.
+     */
+    function trimDots(ary) {
+        var i, part;
+        for (i = 0; ary[i]; i+= 1) {
+            part = ary[i];
+            if (part === '.') {
+                ary.splice(i, 1);
+                i -= 1;
+            } else if (part === '..') {
+                if (i === 1 && (ary[2] === '..' || ary[0] === '..')) {
+                    //End of the line. Keep at least one non-dot
+                    //path segment at the front so it can be mapped
+                    //correctly to disk. Otherwise, there is likely
+                    //no path mapping for a path starting with '..'.
+                    //This can still fail, but catches the most reasonable
+                    //uses of ..
+                    break;
+                } else if (i > 0) {
+                    ary.splice(i - 1, 2);
+                    i -= 2;
+                }
+            }
+        }
+    }
+
+    function normalize(name, baseName) {
+        var baseParts;
+
+        //Adjust any relative paths.
+        if (name && name.charAt(0) === '.') {
+            //If have a base name, try to normalize against it,
+            //otherwise, assume it is a top-level require that will
+            //be relative to baseUrl in the end.
+            if (baseName) {
+                baseParts = baseName.split('/');
+                baseParts = baseParts.slice(0, baseParts.length - 1);
+                baseParts = baseParts.concat(name.split('/'));
+                trimDots(baseParts);
+                name = baseParts.join('/');
+            }
+        }
+
+        return name;
+    }
+
+    /**
+     * Create the normalize() function passed to a loader plugin's
+     * normalize method.
+     */
+    function makeNormalize(relName) {
+        return function (name) {
+            return normalize(name, relName);
+        };
+    }
+
+    function makeLoad(id) {
+        function load(value) {
+            loaderCache[id] = value;
+        }
+
+        load.fromText = function (id, text) {
+            //This one is difficult because the text can/probably uses
+            //define, and any relative paths and requires should be relative
+            //to that id was it would be found on disk. But this would require
+            //bootstrapping a module/require fairly deeply from node core.
+            //Not sure how best to go about that yet.
+            throw new Error('amdefine does not implement load.fromText');
+        };
+
+        return load;
+    }
+
+    makeRequire = function (systemRequire, exports, module, relId) {
+        function amdRequire(deps, callback) {
+            if (typeof deps === 'string') {
+                //Synchronous, single module require('')
+                return stringRequire(systemRequire, exports, module, deps, relId);
+            } else {
+                //Array of dependencies with a callback.
+
+                //Convert the dependencies to modules.
+                deps = deps.map(function (depName) {
+                    return stringRequire(systemRequire, exports, module, depName, relId);
+                });
+
+                //Wait for next tick to call back the require call.
+                if (callback) {
+                    process.nextTick(function () {
+                        callback.apply(null, deps);
+                    });
+                }
+            }
+        }
+
+        amdRequire.toUrl = function (filePath) {
+            if (filePath.indexOf('.') === 0) {
+                return normalize(filePath, path.dirname(module.filename));
+            } else {
+                return filePath;
+            }
+        };
+
+        return amdRequire;
+    };
+
+    //Favor explicit value, passed in if the module wants to support Node 0.4.
+    requireFn = requireFn || function req() {
+        return module.require.apply(module, arguments);
+    };
+
+    function runFactory(id, deps, factory) {
+        var r, e, m, result;
+
+        if (id) {
+            e = loaderCache[id] = {};
+            m = {
+                id: id,
+                uri: __filename,
+                exports: e
+            };
+            r = makeRequire(requireFn, e, m, id);
+        } else {
+            //Only support one define call per file
+            if (alreadyCalled) {
+                throw new Error('amdefine with no module ID cannot be called more than once per file.');
+            }
+            alreadyCalled = true;
+
+            //Use the real variables from node
+            //Use module.exports for exports, since
+            //the exports in here is amdefine exports.
+            e = module.exports;
+            m = module;
+            r = makeRequire(requireFn, e, m, module.id);
+        }
+
+        //If there are dependencies, they are strings, so need
+        //to convert them to dependency values.
+        if (deps) {
+            deps = deps.map(function (depName) {
+                return r(depName);
+            });
+        }
+
+        //Call the factory with the right dependencies.
+        if (typeof factory === 'function') {
+            result = factory.apply(m.exports, deps);
+        } else {
+            result = factory;
+        }
+
+        if (result !== undefined) {
+            m.exports = result;
+            if (id) {
+                loaderCache[id] = m.exports;
+            }
+        }
+    }
+
+    stringRequire = function (systemRequire, exports, module, id, relId) {
+        //Split the ID by a ! so that
+        var index = id.indexOf('!'),
+            originalId = id,
+            prefix, plugin;
+
+        if (index === -1) {
+            id = normalize(id, relId);
+
+            //Straight module lookup. If it is one of the special dependencies,
+            //deal with it, otherwise, delegate to node.
+            if (id === 'require') {
+                return makeRequire(systemRequire, exports, module, relId);
+            } else if (id === 'exports') {
+                return exports;
+            } else if (id === 'module') {
+                return module;
+            } else if (loaderCache.hasOwnProperty(id)) {
+                return loaderCache[id];
+            } else if (defineCache[id]) {
+                runFactory.apply(null, defineCache[id]);
+                return loaderCache[id];
+            } else {
+                if(systemRequire) {
+                    return systemRequire(originalId);
+                } else {
+                    throw new Error('No module with ID: ' + id);
+                }
+            }
+        } else {
+            //There is a plugin in play.
+            prefix = id.substring(0, index);
+            id = id.substring(index + 1, id.length);
+
+            plugin = stringRequire(systemRequire, exports, module, prefix, relId);
+
+            if (plugin.normalize) {
+                id = plugin.normalize(id, makeNormalize(relId));
+            } else {
+                //Normalize the ID normally.
+                id = normalize(id, relId);
+            }
+
+            if (loaderCache[id]) {
+                return loaderCache[id];
+            } else {
+                plugin.load(id, makeRequire(systemRequire, exports, module, relId), makeLoad(id), {});
+
+                return loaderCache[id];
+            }
+        }
+    };
+
+    //Create a define function specific to the module asking for amdefine.
+    function define(id, deps, factory) {
+        if (Array.isArray(id)) {
+            factory = deps;
+            deps = id;
+            id = undefined;
+        } else if (typeof id !== 'string') {
+            factory = id;
+            id = deps = undefined;
+        }
+
+        if (deps && !Array.isArray(deps)) {
+            factory = deps;
+            deps = undefined;
+        }
+
+        if (!deps) {
+            deps = ['require', 'exports', 'module'];
+        }
+
+        //Set up properties for this module. If an ID, then use
+        //internal cache. If no ID, then use the external variables
+        //for this node module.
+        if (id) {
+            //Put the module in deep freeze until there is a
+            //require call for it.
+            defineCache[id] = [id, deps, factory];
+        } else {
+            runFactory(id, deps, factory);
+        }
+    }
+
+    //define.require, which has access to all the values in the
+    //cache. Useful for AMD modules that all have IDs in the file,
+    //but need to finally export a value to node based on one of those
+    //IDs.
+    define.require = function (id) {
+        if (loaderCache[id]) {
+            return loaderCache[id];
+        }
+
+        if (defineCache[id]) {
+            runFactory.apply(null, defineCache[id]);
+            return loaderCache[id];
+        }
+    };
+
+    define.amd = {};
+
+    return define;
+}
+
+module.exports = amdefine;
+
+},{"path":241}],208:[function(require,module,exports){
+
+},{}],209:[function(require,module,exports){
+'use strict';
+
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 exports.__esModule = true;
 // istanbul ignore next
 
@@ -11052,7 +12193,11 @@ exports['default'] = inst;
 module.exports = exports['default'];
 
 
+<<<<<<< HEAD
 },{"./handlebars.runtime":213,"./handlebars/compiler/ast":215,"./handlebars/compiler/base":216,"./handlebars/compiler/compiler":218,"./handlebars/compiler/javascript-compiler":220,"./handlebars/compiler/visitor":223,"./handlebars/no-conflict":237}],213:[function(require,module,exports){
+=======
+},{"./handlebars.runtime":210,"./handlebars/compiler/ast":212,"./handlebars/compiler/base":213,"./handlebars/compiler/compiler":215,"./handlebars/compiler/javascript-compiler":217,"./handlebars/compiler/visitor":220,"./handlebars/no-conflict":234}],210:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 'use strict';
 
 exports.__esModule = true;
@@ -11120,7 +12265,11 @@ exports['default'] = inst;
 module.exports = exports['default'];
 
 
+<<<<<<< HEAD
 },{"./handlebars/base":214,"./handlebars/exception":227,"./handlebars/no-conflict":237,"./handlebars/runtime":238,"./handlebars/safe-string":239,"./handlebars/utils":240}],214:[function(require,module,exports){
+=======
+},{"./handlebars/base":211,"./handlebars/exception":224,"./handlebars/no-conflict":234,"./handlebars/runtime":235,"./handlebars/safe-string":236,"./handlebars/utils":237}],211:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 'use strict';
 
 exports.__esModule = true;
@@ -11143,7 +12292,11 @@ var _logger = require('./logger');
 
 var _logger2 = _interopRequireDefault(_logger);
 
+<<<<<<< HEAD
 var VERSION = '4.1.2';
+=======
+var VERSION = '4.0.11';
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 exports.VERSION = VERSION;
 var COMPILER_REVISION = 7;
 
@@ -11226,7 +12379,11 @@ exports.createFrame = _utils.createFrame;
 exports.logger = _logger2['default'];
 
 
+<<<<<<< HEAD
 },{"./decorators":225,"./exception":227,"./helpers":228,"./logger":236,"./utils":240}],215:[function(require,module,exports){
+=======
+},{"./decorators":222,"./exception":224,"./helpers":225,"./logger":233,"./utils":237}],212:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 'use strict';
 
 exports.__esModule = true;
@@ -11259,7 +12416,11 @@ exports['default'] = AST;
 module.exports = exports['default'];
 
 
+<<<<<<< HEAD
 },{}],216:[function(require,module,exports){
+=======
+},{}],213:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 'use strict';
 
 exports.__esModule = true;
@@ -11267,6 +12428,7 @@ exports.parse = parse;
 // istanbul ignore next
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+<<<<<<< HEAD
 
 // istanbul ignore next
 
@@ -11274,6 +12436,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 var _parser = require('./parser');
 
+=======
+
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _parser = require('./parser');
+
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var _parser2 = _interopRequireDefault(_parser);
 
 var _whitespaceControl = require('./whitespace-control');
@@ -11309,7 +12480,11 @@ function parse(input, options) {
 }
 
 
+<<<<<<< HEAD
 },{"../utils":240,"./helpers":219,"./parser":221,"./whitespace-control":224}],217:[function(require,module,exports){
+=======
+},{"../utils":237,"./helpers":216,"./parser":218,"./whitespace-control":221}],214:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /* global define */
 'use strict';
 
@@ -11477,7 +12652,11 @@ exports['default'] = CodeGen;
 module.exports = exports['default'];
 
 
+<<<<<<< HEAD
 },{"../utils":240,"source-map":252}],218:[function(require,module,exports){
+=======
+},{"../utils":237,"source-map":242}],215:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /* eslint-disable new-cap */
 
 'use strict';
@@ -11487,6 +12666,7 @@ exports.Compiler = Compiler;
 exports.precompile = precompile;
 exports.compile = compile;
 // istanbul ignore next
+<<<<<<< HEAD
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -11498,6 +12678,19 @@ var _utils = require('../utils');
 
 var _ast = require('./ast');
 
+=======
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _exception = require('../exception');
+
+var _exception2 = _interopRequireDefault(_exception);
+
+var _utils = require('../utils');
+
+var _ast = require('./ast');
+
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var _ast2 = _interopRequireDefault(_ast);
 
 var slice = [].slice;
@@ -11567,7 +12760,14 @@ Compiler.prototype = {
       // cause backwards-compatibility issues... It's an old library...
       // eslint-disable-next-line guard-for-in
       for (var _name in knownHelpers) {
+<<<<<<< HEAD
         this.options.knownHelpers[_name] = knownHelpers[_name];
+=======
+        /* istanbul ignore else */
+        if (_name in knownHelpers) {
+          this.options.knownHelpers[_name] = knownHelpers[_name];
+        }
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
       }
     }
 
@@ -12052,7 +13252,11 @@ function transformLiteralToPath(sexpr) {
 }
 
 
+<<<<<<< HEAD
 },{"../exception":227,"../utils":240,"./ast":215}],219:[function(require,module,exports){
+=======
+},{"../exception":224,"../utils":237,"./ast":212}],216:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 'use strict';
 
 exports.__esModule = true;
@@ -12282,7 +13486,11 @@ function preparePartialBlock(open, program, close, locInfo) {
 }
 
 
+<<<<<<< HEAD
 },{"../exception":227}],220:[function(require,module,exports){
+=======
+},{"../exception":224}],217:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 'use strict';
 
 exports.__esModule = true;
@@ -13415,7 +14623,11 @@ exports['default'] = JavaScriptCompiler;
 module.exports = exports['default'];
 
 
+<<<<<<< HEAD
 },{"../base":214,"../exception":227,"../utils":240,"./code-gen":217}],221:[function(require,module,exports){
+=======
+},{"../base":211,"../exception":224,"../utils":237,"./code-gen":214}],218:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // File ignored in coverage tests via setting in .istanbul.yml
 /* Jison generated parser */
 "use strict";
@@ -13427,7 +14639,12 @@ var handlebars = (function () {
         symbols_: { "error": 2, "root": 3, "program": 4, "EOF": 5, "program_repetition0": 6, "statement": 7, "mustache": 8, "block": 9, "rawBlock": 10, "partial": 11, "partialBlock": 12, "content": 13, "COMMENT": 14, "CONTENT": 15, "openRawBlock": 16, "rawBlock_repetition_plus0": 17, "END_RAW_BLOCK": 18, "OPEN_RAW_BLOCK": 19, "helperName": 20, "openRawBlock_repetition0": 21, "openRawBlock_option0": 22, "CLOSE_RAW_BLOCK": 23, "openBlock": 24, "block_option0": 25, "closeBlock": 26, "openInverse": 27, "block_option1": 28, "OPEN_BLOCK": 29, "openBlock_repetition0": 30, "openBlock_option0": 31, "openBlock_option1": 32, "CLOSE": 33, "OPEN_INVERSE": 34, "openInverse_repetition0": 35, "openInverse_option0": 36, "openInverse_option1": 37, "openInverseChain": 38, "OPEN_INVERSE_CHAIN": 39, "openInverseChain_repetition0": 40, "openInverseChain_option0": 41, "openInverseChain_option1": 42, "inverseAndProgram": 43, "INVERSE": 44, "inverseChain": 45, "inverseChain_option0": 46, "OPEN_ENDBLOCK": 47, "OPEN": 48, "mustache_repetition0": 49, "mustache_option0": 50, "OPEN_UNESCAPED": 51, "mustache_repetition1": 52, "mustache_option1": 53, "CLOSE_UNESCAPED": 54, "OPEN_PARTIAL": 55, "partialName": 56, "partial_repetition0": 57, "partial_option0": 58, "openPartialBlock": 59, "OPEN_PARTIAL_BLOCK": 60, "openPartialBlock_repetition0": 61, "openPartialBlock_option0": 62, "param": 63, "sexpr": 64, "OPEN_SEXPR": 65, "sexpr_repetition0": 66, "sexpr_option0": 67, "CLOSE_SEXPR": 68, "hash": 69, "hash_repetition_plus0": 70, "hashSegment": 71, "ID": 72, "EQUALS": 73, "blockParams": 74, "OPEN_BLOCK_PARAMS": 75, "blockParams_repetition_plus0": 76, "CLOSE_BLOCK_PARAMS": 77, "path": 78, "dataName": 79, "STRING": 80, "NUMBER": 81, "BOOLEAN": 82, "UNDEFINED": 83, "NULL": 84, "DATA": 85, "pathSegments": 86, "SEP": 87, "$accept": 0, "$end": 1 },
         terminals_: { 2: "error", 5: "EOF", 14: "COMMENT", 15: "CONTENT", 18: "END_RAW_BLOCK", 19: "OPEN_RAW_BLOCK", 23: "CLOSE_RAW_BLOCK", 29: "OPEN_BLOCK", 33: "CLOSE", 34: "OPEN_INVERSE", 39: "OPEN_INVERSE_CHAIN", 44: "INVERSE", 47: "OPEN_ENDBLOCK", 48: "OPEN", 51: "OPEN_UNESCAPED", 54: "CLOSE_UNESCAPED", 55: "OPEN_PARTIAL", 60: "OPEN_PARTIAL_BLOCK", 65: "OPEN_SEXPR", 68: "CLOSE_SEXPR", 72: "ID", 73: "EQUALS", 75: "OPEN_BLOCK_PARAMS", 77: "CLOSE_BLOCK_PARAMS", 80: "STRING", 81: "NUMBER", 82: "BOOLEAN", 83: "UNDEFINED", 84: "NULL", 85: "DATA", 87: "SEP" },
         productions_: [0, [3, 2], [4, 1], [7, 1], [7, 1], [7, 1], [7, 1], [7, 1], [7, 1], [7, 1], [13, 1], [10, 3], [16, 5], [9, 4], [9, 4], [24, 6], [27, 6], [38, 6], [43, 2], [45, 3], [45, 1], [26, 3], [8, 5], [8, 5], [11, 5], [12, 3], [59, 5], [63, 1], [63, 1], [64, 5], [69, 1], [71, 3], [74, 3], [20, 1], [20, 1], [20, 1], [20, 1], [20, 1], [20, 1], [20, 1], [56, 1], [56, 1], [79, 2], [78, 1], [86, 3], [86, 1], [6, 0], [6, 2], [17, 1], [17, 2], [21, 0], [21, 2], [22, 0], [22, 1], [25, 0], [25, 1], [28, 0], [28, 1], [30, 0], [30, 2], [31, 0], [31, 1], [32, 0], [32, 1], [35, 0], [35, 2], [36, 0], [36, 1], [37, 0], [37, 1], [40, 0], [40, 2], [41, 0], [41, 1], [42, 0], [42, 1], [46, 0], [46, 1], [49, 0], [49, 2], [50, 0], [50, 1], [52, 0], [52, 2], [53, 0], [53, 1], [57, 0], [57, 2], [58, 0], [58, 1], [61, 0], [61, 2], [62, 0], [62, 1], [66, 0], [66, 2], [67, 0], [67, 1], [70, 1], [70, 2], [76, 1], [76, 2]],
+<<<<<<< HEAD
         performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate, $$, _$) {
+=======
+        performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate, $$, _$
+        /**/) {
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
             var $0 = $$.length - 1;
             switch (yystate) {
@@ -13645,6 +14862,7 @@ var handlebars = (function () {
                     this.$ = [];
                     break;
                 case 83:
+<<<<<<< HEAD
                     $$[$0 - 1].push($$[$0]);
                     break;
                 case 86:
@@ -13662,6 +14880,25 @@ var handlebars = (function () {
                 case 94:
                     this.$ = [];
                     break;
+=======
+                    $$[$0 - 1].push($$[$0]);
+                    break;
+                case 86:
+                    this.$ = [];
+                    break;
+                case 87:
+                    $$[$0 - 1].push($$[$0]);
+                    break;
+                case 90:
+                    this.$ = [];
+                    break;
+                case 91:
+                    $$[$0 - 1].push($$[$0]);
+                    break;
+                case 94:
+                    this.$ = [];
+                    break;
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
                 case 95:
                     $$[$0 - 1].push($$[$0]);
                     break;
@@ -13964,7 +15201,8 @@ var handlebars = (function () {
                 this.begin(condition);
             } };
         lexer.options = {};
-        lexer.performAction = function anonymous(yy, yy_, $avoiding_name_collisions, YY_START) {
+        lexer.performAction = function anonymous(yy, yy_, $avoiding_name_collisions, YY_START
+        /**/) {
 
             function strip(start, end) {
                 return yy_.yytext = yy_.yytext.substring(start, yy_.yyleng - end + start);
@@ -14004,7 +15242,11 @@ var handlebars = (function () {
                     if (this.conditionStack[this.conditionStack.length - 1] === 'raw') {
                         return 15;
                     } else {
+<<<<<<< HEAD
                         strip(5, 9);
+=======
+                        yy_.yytext = yy_.yytext.substr(5, yy_.yyleng - 9);
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
                         return 'END_RAW_BLOCK';
                     }
 
@@ -14154,7 +15396,11 @@ var handlebars = (function () {
 module.exports = exports["default"];
 
 
+<<<<<<< HEAD
 },{}],222:[function(require,module,exports){
+=======
+},{}],219:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /* eslint-disable new-cap */
 'use strict';
 
@@ -14162,11 +15408,19 @@ exports.__esModule = true;
 exports.print = print;
 exports.PrintVisitor = PrintVisitor;
 // istanbul ignore next
+<<<<<<< HEAD
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _visitor = require('./visitor');
 
+=======
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _visitor = require('./visitor');
+
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var _visitor2 = _interopRequireDefault(_visitor);
 
 function print(ast) {
@@ -14207,6 +15461,8 @@ PrintVisitor.prototype.Program = function (program) {
 
   for (i = 0, l = body.length; i < l; i++) {
     out += this.accept(body[i]);
+<<<<<<< HEAD
+=======
   }
 
   this.padding--;
@@ -14342,7 +15598,7 @@ PrintVisitor.prototype.HashPair = function (pair) {
 /* eslint-enable new-cap */
 
 
-},{"./visitor":223}],223:[function(require,module,exports){
+},{"./visitor":220}],220:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -14484,7 +15740,7 @@ exports['default'] = Visitor;
 module.exports = exports['default'];
 
 
-},{"../exception":227}],224:[function(require,module,exports){
+},{"../exception":224}],221:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -14707,6 +15963,686 @@ exports['default'] = WhitespaceControl;
 module.exports = exports['default'];
 
 
+},{"./visitor":220}],222:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+exports.registerDefaultDecorators = registerDefaultDecorators;
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _decoratorsInline = require('./decorators/inline');
+
+var _decoratorsInline2 = _interopRequireDefault(_decoratorsInline);
+
+function registerDefaultDecorators(instance) {
+  _decoratorsInline2['default'](instance);
+}
+
+
+},{"./decorators/inline":223}],223:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+
+var _utils = require('../utils');
+
+exports['default'] = function (instance) {
+  instance.registerDecorator('inline', function (fn, props, container, options) {
+    var ret = fn;
+    if (!props.partials) {
+      props.partials = {};
+      ret = function (context, options) {
+        // Create a new partials stack frame prior to exec.
+        var original = container.partials;
+        container.partials = _utils.extend({}, original, props.partials);
+        var ret = fn(context, options);
+        container.partials = original;
+        return ret;
+      };
+    }
+
+    props.partials[options.args[0]] = options.fn;
+
+    return ret;
+  });
+};
+
+module.exports = exports['default'];
+
+
+},{"../utils":237}],224:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+
+var errorProps = ['description', 'fileName', 'lineNumber', 'message', 'name', 'number', 'stack'];
+
+function Exception(message, node) {
+  var loc = node && node.loc,
+      line = undefined,
+      column = undefined;
+  if (loc) {
+    line = loc.start.line;
+    column = loc.start.column;
+
+    message += ' - ' + line + ':' + column;
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
+  }
+
+  var tmp = Error.prototype.constructor.call(this, message);
+
+  // Unfortunately errors are not enumerable in Chrome (at least), so `for prop in tmp` doesn't work.
+  for (var idx = 0; idx < errorProps.length; idx++) {
+    this[errorProps[idx]] = tmp[errorProps[idx]];
+  }
+
+<<<<<<< HEAD
+PrintVisitor.prototype.MustacheStatement = function (mustache) {
+  return this.pad('{{ ' + this.SubExpression(mustache) + ' }}');
+};
+PrintVisitor.prototype.Decorator = function (mustache) {
+  return this.pad('{{ DIRECTIVE ' + this.SubExpression(mustache) + ' }}');
+};
+
+PrintVisitor.prototype.BlockStatement = PrintVisitor.prototype.DecoratorBlock = function (block) {
+  var out = '';
+
+  out += this.pad((block.type === 'DecoratorBlock' ? 'DIRECTIVE ' : '') + 'BLOCK:');
+  this.padding++;
+  out += this.pad(this.SubExpression(block));
+  if (block.program) {
+    out += this.pad('PROGRAM:');
+    this.padding++;
+    out += this.accept(block.program);
+    this.padding--;
+  }
+  if (block.inverse) {
+    if (block.program) {
+      this.padding++;
+    }
+    out += this.pad('{{^}}');
+    this.padding++;
+    out += this.accept(block.inverse);
+    this.padding--;
+    if (block.program) {
+      this.padding--;
+=======
+  /* istanbul ignore else */
+  if (Error.captureStackTrace) {
+    Error.captureStackTrace(this, Exception);
+  }
+
+  try {
+    if (loc) {
+      this.lineNumber = line;
+
+      // Work around issue under safari where we can't directly set the column value
+      /* istanbul ignore next */
+      if (Object.defineProperty) {
+        Object.defineProperty(this, 'column', {
+          value: column,
+          enumerable: true
+        });
+      } else {
+        this.column = column;
+      }
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
+    }
+  } catch (nop) {
+    /* Ignore if the browser is very particular */
+  }
+}
+
+Exception.prototype = new Error();
+
+<<<<<<< HEAD
+PrintVisitor.prototype.PartialStatement = function (partial) {
+  var content = 'PARTIAL:' + partial.name.original;
+  if (partial.params[0]) {
+    content += ' ' + this.accept(partial.params[0]);
+  }
+  if (partial.hash) {
+    content += ' ' + this.accept(partial.hash);
+  }
+  return this.pad('{{> ' + content + ' }}');
+};
+PrintVisitor.prototype.PartialBlockStatement = function (partial) {
+  var content = 'PARTIAL BLOCK:' + partial.name.original;
+  if (partial.params[0]) {
+    content += ' ' + this.accept(partial.params[0]);
+  }
+  if (partial.hash) {
+    content += ' ' + this.accept(partial.hash);
+  }
+
+  content += ' ' + this.pad('PROGRAM:');
+  this.padding++;
+  content += this.accept(partial.program);
+  this.padding--;
+
+  return this.pad('{{> ' + content + ' }}');
+};
+
+PrintVisitor.prototype.ContentStatement = function (content) {
+  return this.pad("CONTENT[ '" + content.value + "' ]");
+};
+
+PrintVisitor.prototype.CommentStatement = function (comment) {
+  return this.pad("{{! '" + comment.value + "' }}");
+};
+=======
+exports['default'] = Exception;
+module.exports = exports['default'];
+
+
+},{}],225:[function(require,module,exports){
+'use strict';
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
+
+exports.__esModule = true;
+exports.registerDefaultHelpers = registerDefaultHelpers;
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _helpersBlockHelperMissing = require('./helpers/block-helper-missing');
+
+var _helpersBlockHelperMissing2 = _interopRequireDefault(_helpersBlockHelperMissing);
+
+var _helpersEach = require('./helpers/each');
+
+var _helpersEach2 = _interopRequireDefault(_helpersEach);
+
+var _helpersHelperMissing = require('./helpers/helper-missing');
+
+var _helpersHelperMissing2 = _interopRequireDefault(_helpersHelperMissing);
+
+var _helpersIf = require('./helpers/if');
+
+var _helpersIf2 = _interopRequireDefault(_helpersIf);
+
+var _helpersLog = require('./helpers/log');
+
+var _helpersLog2 = _interopRequireDefault(_helpersLog);
+
+var _helpersLookup = require('./helpers/lookup');
+
+<<<<<<< HEAD
+  return 'HASH{' + joinedPairs.join(', ') + '}';
+};
+PrintVisitor.prototype.HashPair = function (pair) {
+  return pair.key + '=' + this.accept(pair.value);
+};
+/* eslint-enable new-cap */
+
+
+},{"./visitor":223}],223:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _exception = require('../exception');
+
+var _exception2 = _interopRequireDefault(_exception);
+=======
+var _helpersLookup2 = _interopRequireDefault(_helpersLookup);
+
+var _helpersWith = require('./helpers/with');
+
+var _helpersWith2 = _interopRequireDefault(_helpersWith);
+
+function registerDefaultHelpers(instance) {
+  _helpersBlockHelperMissing2['default'](instance);
+  _helpersEach2['default'](instance);
+  _helpersHelperMissing2['default'](instance);
+  _helpersIf2['default'](instance);
+  _helpersLog2['default'](instance);
+  _helpersLookup2['default'](instance);
+  _helpersWith2['default'](instance);
+}
+
+
+},{"./helpers/block-helper-missing":226,"./helpers/each":227,"./helpers/helper-missing":228,"./helpers/if":229,"./helpers/log":230,"./helpers/lookup":231,"./helpers/with":232}],226:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
+
+var _utils = require('../utils');
+
+exports['default'] = function (instance) {
+  instance.registerHelper('blockHelperMissing', function (context, options) {
+    var inverse = options.inverse,
+        fn = options.fn;
+
+<<<<<<< HEAD
+  // Visits a given value. If mutating, will replace the value if necessary.
+  acceptKey: function acceptKey(node, name) {
+    var value = this.accept(node[name]);
+    if (this.mutating) {
+      // Hacky sanity check: This may have a few false positives for type for the helper
+      // methods but will generally do the right thing without a lot of overhead.
+      if (value && !Visitor.prototype[value.type]) {
+        throw new _exception2['default']('Unexpected node type "' + value.type + '" found when accepting ' + name + ' on ' + node.type);
+=======
+    if (context === true) {
+      return fn(this);
+    } else if (context === false || context == null) {
+      return inverse(this);
+    } else if (_utils.isArray(context)) {
+      if (context.length > 0) {
+        if (options.ids) {
+          options.ids = [options.name];
+        }
+
+        return instance.helpers.each(context, options);
+      } else {
+        return inverse(this);
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
+      }
+    } else {
+      if (options.data && options.ids) {
+        var data = _utils.createFrame(options.data);
+        data.contextPath = _utils.appendContextPath(options.data.contextPath, options.name);
+        options = { data: data };
+      }
+
+      return fn(context, options);
+    }
+  });
+};
+
+module.exports = exports['default'];
+
+<<<<<<< HEAD
+    if (!node[name]) {
+      throw new _exception2['default'](node.type + ' requires ' + name);
+    }
+  },
+=======
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
+
+},{"../utils":237}],227:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+<<<<<<< HEAD
+    /* istanbul ignore next: Sanity code */
+    if (!this[object.type]) {
+      throw new _exception2['default']('Unknown type: ' + object.type, object);
+    }
+
+    if (this.current) {
+      this.parents.unshift(this.current);
+    }
+    this.current = object;
+=======
+var _utils = require('../utils');
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
+
+var _exception = require('../exception');
+
+var _exception2 = _interopRequireDefault(_exception);
+
+exports['default'] = function (instance) {
+  instance.registerHelper('each', function (context, options) {
+    if (!options) {
+      throw new _exception2['default']('Must pass iterator to #each');
+    }
+
+    var fn = options.fn,
+        inverse = options.inverse,
+        i = 0,
+        ret = '',
+        data = undefined,
+        contextPath = undefined;
+
+<<<<<<< HEAD
+  MustacheStatement: visitSubExpression,
+  Decorator: visitSubExpression,
+
+  BlockStatement: visitBlock,
+  DecoratorBlock: visitBlock,
+
+  PartialStatement: visitPartial,
+  PartialBlockStatement: function PartialBlockStatement(partial) {
+    visitPartial.call(this, partial);
+
+    this.acceptKey(partial, 'program');
+  },
+
+  ContentStatement: function ContentStatement() /* content */{},
+  CommentStatement: function CommentStatement() /* comment */{},
+
+  SubExpression: visitSubExpression,
+
+  PathExpression: function PathExpression() /* path */{},
+
+  StringLiteral: function StringLiteral() /* string */{},
+  NumberLiteral: function NumberLiteral() /* number */{},
+  BooleanLiteral: function BooleanLiteral() /* bool */{},
+  UndefinedLiteral: function UndefinedLiteral() /* literal */{},
+  NullLiteral: function NullLiteral() /* literal */{},
+=======
+    if (options.data && options.ids) {
+      contextPath = _utils.appendContextPath(options.data.contextPath, options.ids[0]) + '.';
+    }
+
+    if (_utils.isFunction(context)) {
+      context = context.call(this);
+    }
+
+    if (options.data) {
+      data = _utils.createFrame(options.data);
+    }
+
+    function execIteration(field, index, last) {
+      if (data) {
+        data.key = field;
+        data.index = index;
+        data.first = index === 0;
+        data.last = !!last;
+
+        if (contextPath) {
+          data.contextPath = contextPath + field;
+        }
+      }
+
+      ret = ret + fn(context[field], {
+        data: data,
+        blockParams: _utils.blockParams([context[field], field], [contextPath + field, null])
+      });
+    }
+
+    if (context && typeof context === 'object') {
+      if (_utils.isArray(context)) {
+        for (var j = context.length; i < j; i++) {
+          if (i in context) {
+            execIteration(i, i, i === context.length - 1);
+          }
+        }
+      } else {
+        var priorKey = undefined;
+
+        for (var key in context) {
+          if (context.hasOwnProperty(key)) {
+            // We're running the iterations one step out of sync so we can detect
+            // the last iteration without have to scan the object twice and create
+            // an itermediate keys array.
+            if (priorKey !== undefined) {
+              execIteration(priorKey, i - 1);
+            }
+            priorKey = key;
+            i++;
+          }
+        }
+        if (priorKey !== undefined) {
+          execIteration(priorKey, i - 1, true);
+        }
+      }
+    }
+
+    if (i === 0) {
+      ret = inverse(this);
+    }
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
+
+    return ret;
+  });
+};
+
+<<<<<<< HEAD
+function visitSubExpression(mustache) {
+  this.acceptRequired(mustache, 'path');
+  this.acceptArray(mustache.params);
+  this.acceptKey(mustache, 'hash');
+}
+function visitBlock(block) {
+  visitSubExpression.call(this, block);
+
+  this.acceptKey(block, 'program');
+  this.acceptKey(block, 'inverse');
+}
+function visitPartial(partial) {
+  this.acceptRequired(partial, 'name');
+  this.acceptArray(partial.params);
+  this.acceptKey(partial, 'hash');
+}
+
+exports['default'] = Visitor;
+module.exports = exports['default'];
+
+
+},{"../exception":227}],224:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _visitor = require('./visitor');
+
+var _visitor2 = _interopRequireDefault(_visitor);
+
+function WhitespaceControl() {
+  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+  this.options = options;
+}
+WhitespaceControl.prototype = new _visitor2['default']();
+
+WhitespaceControl.prototype.Program = function (program) {
+  var doStandalone = !this.options.ignoreStandalone;
+
+  var isRoot = !this.isRootSeen;
+  this.isRootSeen = true;
+=======
+module.exports = exports['default'];
+
+
+},{"../exception":224,"../utils":237}],228:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _exception = require('../exception');
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
+
+var _exception2 = _interopRequireDefault(_exception);
+
+exports['default'] = function (instance) {
+  instance.registerHelper('helperMissing', function () /* [args, ]options */{
+    if (arguments.length === 1) {
+      // A missing field in a {{foo}} construct.
+      return undefined;
+    } else {
+      // Someone is actually trying to call something, blow up.
+      throw new _exception2['default']('Missing helper: "' + arguments[arguments.length - 1].name + '"');
+    }
+  });
+};
+
+module.exports = exports['default'];
+
+
+<<<<<<< HEAD
+    if (doStandalone && inlineStandalone) {
+      omitRight(body, i);
+
+      if (omitLeft(body, i)) {
+        // If we are on a standalone node, save the indent info for partials
+        if (current.type === 'PartialStatement') {
+          // Pull out the whitespace from the final line
+          current.indent = /([ \t]+$)/.exec(body[i - 1].original)[1];
+        }
+      }
+    }
+    if (doStandalone && openStandalone) {
+      omitRight((current.program || current.inverse).body);
+
+      // Strip out the previous content node if it's whitespace only
+      omitLeft(body, i);
+    }
+    if (doStandalone && closeStandalone) {
+      // Always strip the next node
+      omitRight(body, i);
+=======
+},{"../exception":224}],229:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+
+var _utils = require('../utils');
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
+
+exports['default'] = function (instance) {
+  instance.registerHelper('if', function (conditional, options) {
+    if (_utils.isFunction(conditional)) {
+      conditional = conditional.call(this);
+    }
+<<<<<<< HEAD
+  }
+
+  return program;
+};
+
+WhitespaceControl.prototype.BlockStatement = WhitespaceControl.prototype.DecoratorBlock = WhitespaceControl.prototype.PartialBlockStatement = function (block) {
+  this.accept(block.program);
+  this.accept(block.inverse);
+
+  // Find the inverse program that is involed with whitespace stripping.
+  var program = block.program || block.inverse,
+      inverse = block.program && block.inverse,
+      firstInverse = inverse,
+      lastInverse = inverse;
+
+  if (inverse && inverse.chained) {
+    firstInverse = inverse.body[0].program;
+=======
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
+
+    // Default behavior is to render the positive path if the value is truthy and not empty.
+    // The `includeZero` option may be set to treat the condtional as purely not empty based on the
+    // behavior of isEmpty. Effectively this determines if 0 is handled by the positive path or negative.
+    if (!options.hash.includeZero && !conditional || _utils.isEmpty(conditional)) {
+      return options.inverse(this);
+    } else {
+      return options.fn(this);
+    }
+  });
+
+  instance.registerHelper('unless', function (conditional, options) {
+    return instance.helpers['if'].call(this, conditional, { fn: options.inverse, inverse: options.fn, hash: options.hash });
+  });
+};
+
+module.exports = exports['default'];
+
+
+},{"../utils":237}],230:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+
+exports['default'] = function (instance) {
+  instance.registerHelper('log', function () /* message, options */{
+    var args = [undefined],
+        options = arguments[arguments.length - 1];
+    for (var i = 0; i < arguments.length - 1; i++) {
+      args.push(arguments[i]);
+    }
+
+<<<<<<< HEAD
+    // Find standalone else statments
+    if (!this.options.ignoreStandalone && isPrevWhitespace(program.body) && isNextWhitespace(firstInverse.body)) {
+      omitLeft(program.body);
+      omitRight(firstInverse.body);
+=======
+    var level = 1;
+    if (options.hash.level != null) {
+      level = options.hash.level;
+    } else if (options.data && options.data.level != null) {
+      level = options.data.level;
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
+    }
+    args[0] = level;
+
+    instance.log.apply(instance, args);
+  });
+};
+
+<<<<<<< HEAD
+WhitespaceControl.prototype.Decorator = WhitespaceControl.prototype.MustacheStatement = function (mustache) {
+  return mustache.strip;
+};
+=======
+module.exports = exports['default'];
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
+
+
+},{}],231:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+
+exports['default'] = function (instance) {
+  instance.registerHelper('lookup', function (obj, field) {
+    return obj && obj[field];
+  });
+};
+
+module.exports = exports['default'];
+
+
+},{}],232:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+
+var _utils = require('../utils');
+
+exports['default'] = function (instance) {
+  instance.registerHelper('with', function (context, options) {
+    if (_utils.isFunction(context)) {
+      context = context.call(this);
+    }
+
+    var fn = options.fn;
+
+    if (!_utils.isEmpty(context)) {
+      var data = options.data;
+      if (options.data && options.ids) {
+        data = _utils.createFrame(options.data);
+        data.contextPath = _utils.appendContextPath(options.data.contextPath, options.ids[0]);
+      }
+
+      return fn(context, {
+        data: data,
+        blockParams: _utils.blockParams([context], [data && data.contextPath])
+      });
+    } else {
+      return options.inverse(this);
+    }
+  });
+};
+
+module.exports = exports['default'];
+
+
+<<<<<<< HEAD
 },{"./visitor":223}],225:[function(require,module,exports){
 'use strict';
 
@@ -14757,30 +16693,45 @@ module.exports = exports['default'];
 
 
 },{"../utils":240}],227:[function(require,module,exports){
+=======
+},{"../utils":237}],233:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 'use strict';
 
 exports.__esModule = true;
 
-var errorProps = ['description', 'fileName', 'lineNumber', 'message', 'name', 'number', 'stack'];
+var _utils = require('./utils');
 
-function Exception(message, node) {
-  var loc = node && node.loc,
-      line = undefined,
-      column = undefined;
-  if (loc) {
-    line = loc.start.line;
-    column = loc.start.column;
+var logger = {
+  methodMap: ['debug', 'info', 'warn', 'error'],
+  level: 'info',
 
-    message += ' - ' + line + ':' + column;
-  }
+  // Maps a given level value to the `methodMap` indexes above.
+  lookupLevel: function lookupLevel(level) {
+    if (typeof level === 'string') {
+      var levelMap = _utils.indexOf(logger.methodMap, level.toLowerCase());
+      if (levelMap >= 0) {
+        level = levelMap;
+      } else {
+        level = parseInt(level, 10);
+      }
+    }
 
-  var tmp = Error.prototype.constructor.call(this, message);
+    return level;
+  },
 
-  // Unfortunately errors are not enumerable in Chrome (at least), so `for prop in tmp` doesn't work.
-  for (var idx = 0; idx < errorProps.length; idx++) {
-    this[errorProps[idx]] = tmp[errorProps[idx]];
-  }
+  // Can be overridden in the host environment
+  log: function log(level) {
+    level = logger.lookupLevel(level);
 
+    if (typeof console !== 'undefined' && logger.lookupLevel(logger.level) <= level) {
+      var method = logger.methodMap[level];
+      if (!console[method]) {
+        // eslint-disable-line no-console
+        method = 'log';
+      }
+
+<<<<<<< HEAD
   /* istanbul ignore else */
   if (Error.captureStackTrace) {
     Error.captureStackTrace(this, Exception);
@@ -14803,15 +16754,22 @@ function Exception(message, node) {
     }
   } catch (nop) {
     /* Ignore if the browser is very particular */
+=======
+      for (var _len = arguments.length, message = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        message[_key - 1] = arguments[_key];
+      }
+
+      console[method].apply(console, message); // eslint-disable-line no-console
+    }
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
   }
-}
+};
 
-Exception.prototype = new Error();
-
-exports['default'] = Exception;
+exports['default'] = logger;
 module.exports = exports['default'];
 
 
+<<<<<<< HEAD
 },{}],228:[function(require,module,exports){
 'use strict';
 
@@ -14857,6 +16815,72 @@ function registerDefaultHelpers(instance) {
   _helpersLog2['default'](instance);
   _helpersLookup2['default'](instance);
   _helpersWith2['default'](instance);
+=======
+},{"./utils":237}],234:[function(require,module,exports){
+/* global window */
+'use strict';
+
+exports.__esModule = true;
+
+exports['default'] = function (Handlebars) {
+  /* istanbul ignore next */
+  var root = typeof global !== 'undefined' ? global : window,
+      $Handlebars = root.Handlebars;
+  /* istanbul ignore next */
+  Handlebars.noConflict = function () {
+    if (root.Handlebars === Handlebars) {
+      root.Handlebars = $Handlebars;
+    }
+    return Handlebars;
+  };
+};
+
+module.exports = exports['default'];
+
+
+},{}],235:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+exports.checkRevision = checkRevision;
+exports.template = template;
+exports.wrapProgram = wrapProgram;
+exports.resolvePartial = resolvePartial;
+exports.invokePartial = invokePartial;
+exports.noop = noop;
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+// istanbul ignore next
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
+var _utils = require('./utils');
+
+var Utils = _interopRequireWildcard(_utils);
+
+var _exception = require('./exception');
+
+var _exception2 = _interopRequireDefault(_exception);
+
+var _base = require('./base');
+
+function checkRevision(compilerInfo) {
+  var compilerRevision = compilerInfo && compilerInfo[0] || 1,
+      currentRevision = _base.COMPILER_REVISION;
+
+  if (compilerRevision !== currentRevision) {
+    if (compilerRevision < currentRevision) {
+      var runtimeVersions = _base.REVISION_CHANGES[currentRevision],
+          compilerVersions = _base.REVISION_CHANGES[compilerRevision];
+      throw new _exception2['default']('Template was precompiled with an older version of Handlebars than the current runtime. ' + 'Please update your precompiler to a newer version (' + runtimeVersions + ') or downgrade your runtime to an older version (' + compilerVersions + ').');
+    } else {
+      // Use the embedded version info since the runtime doesn't know about this revision yet
+      throw new _exception2['default']('Template was precompiled with a newer version of Handlebars than the current runtime. ' + 'Please update your runtime to a newer version (' + compilerInfo[1] + ').');
+    }
+  }
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 }
 
 
@@ -15424,12 +17448,21 @@ function template(templateSpec, env) {
 function wrapProgram(container, i, fn, data, declaredBlockParams, blockParams, depths) {
   function prog(context) {
     var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+<<<<<<< HEAD
 
     var currentDepths = depths;
     if (depths && context != depths[0] && !(context === container.nullContext && depths[0] === null)) {
       currentDepths = [context].concat(depths);
     }
 
+=======
+
+    var currentDepths = depths;
+    if (depths && context != depths[0] && !(context === container.nullContext && depths[0] === null)) {
+      currentDepths = [context].concat(depths);
+    }
+
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     return fn(container, context, container.helpers, container.partials, options.data || data, blockParams && [options.blockParams].concat(blockParams), currentDepths);
   }
 
@@ -15518,7 +17551,11 @@ function executeDecorators(fn, prog, container, depths, data, blockParams) {
 }
 
 
+<<<<<<< HEAD
 },{"./base":214,"./exception":227,"./utils":240}],239:[function(require,module,exports){
+=======
+},{"./base":211,"./exception":224,"./utils":237}],236:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // Build out our basic SafeString type
 'use strict';
 
@@ -15535,7 +17572,11 @@ exports['default'] = SafeString;
 module.exports = exports['default'];
 
 
+<<<<<<< HEAD
 },{}],240:[function(require,module,exports){
+=======
+},{}],237:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 'use strict';
 
 exports.__esModule = true;
@@ -15661,7 +17702,11 @@ function appendContextPath(contextPath, id) {
 }
 
 
+<<<<<<< HEAD
 },{}],241:[function(require,module,exports){
+=======
+},{}],238:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // USAGE:
 // var handlebars = require('handlebars');
 /* eslint-disable no-var */
@@ -15688,7 +17733,333 @@ if (typeof require !== 'undefined' && require.extensions) {
   require.extensions['.hbs'] = extension;
 }
 
+<<<<<<< HEAD
 },{"../dist/cjs/handlebars":212,"../dist/cjs/handlebars/compiler/printer":222,"fs":211}],242:[function(require,module,exports){
+=======
+},{"../dist/cjs/handlebars":209,"../dist/cjs/handlebars/compiler/printer":219,"fs":208}],239:[function(require,module,exports){
+// Create a simple path alias to allow browserify to resolve
+// the runtime on a supported path.
+module.exports = require('./dist/cjs/handlebars.runtime')['default'];
+
+},{"./dist/cjs/handlebars.runtime":210}],240:[function(require,module,exports){
+module.exports = require("handlebars/runtime")["default"];
+
+},{"handlebars/runtime":239}],241:[function(require,module,exports){
+// .dirname, .basename, and .extname methods are extracted from Node.js v8.11.1,
+// backported and transplited with Babel, with backwards-compat fixes
+
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+// resolves . and .. elements in a path array with directory names there
+// must be no slashes, empty elements, or device names (c:\) in the array
+// (so also no leading and trailing slashes - it does not distinguish
+// relative and absolute paths)
+function normalizeArray(parts, allowAboveRoot) {
+  // if the path tries to go above the root, `up` ends up > 0
+  var up = 0;
+  for (var i = parts.length - 1; i >= 0; i--) {
+    var last = parts[i];
+    if (last === '.') {
+      parts.splice(i, 1);
+    } else if (last === '..') {
+      parts.splice(i, 1);
+      up++;
+    } else if (up) {
+      parts.splice(i, 1);
+      up--;
+    }
+  }
+
+  // if the path is allowed to go above the root, restore leading ..s
+  if (allowAboveRoot) {
+    for (; up--; up) {
+      parts.unshift('..');
+    }
+  }
+
+  return parts;
+}
+
+// path.resolve([from ...], to)
+// posix version
+exports.resolve = function() {
+  var resolvedPath = '',
+      resolvedAbsolute = false;
+
+  for (var i = arguments.length - 1; i >= -1 && !resolvedAbsolute; i--) {
+    var path = (i >= 0) ? arguments[i] : process.cwd();
+
+    // Skip empty and invalid entries
+    if (typeof path !== 'string') {
+      throw new TypeError('Arguments to path.resolve must be strings');
+    } else if (!path) {
+      continue;
+    }
+
+    resolvedPath = path + '/' + resolvedPath;
+    resolvedAbsolute = path.charAt(0) === '/';
+  }
+
+  // At this point the path should be resolved to a full absolute path, but
+  // handle relative paths to be safe (might happen when process.cwd() fails)
+
+  // Normalize the path
+  resolvedPath = normalizeArray(filter(resolvedPath.split('/'), function(p) {
+    return !!p;
+  }), !resolvedAbsolute).join('/');
+
+  return ((resolvedAbsolute ? '/' : '') + resolvedPath) || '.';
+};
+
+// path.normalize(path)
+// posix version
+exports.normalize = function(path) {
+  var isAbsolute = exports.isAbsolute(path),
+      trailingSlash = substr(path, -1) === '/';
+
+  // Normalize the path
+  path = normalizeArray(filter(path.split('/'), function(p) {
+    return !!p;
+  }), !isAbsolute).join('/');
+
+  if (!path && !isAbsolute) {
+    path = '.';
+  }
+  if (path && trailingSlash) {
+    path += '/';
+  }
+
+  return (isAbsolute ? '/' : '') + path;
+};
+
+// posix version
+exports.isAbsolute = function(path) {
+  return path.charAt(0) === '/';
+};
+
+// posix version
+exports.join = function() {
+  var paths = Array.prototype.slice.call(arguments, 0);
+  return exports.normalize(filter(paths, function(p, index) {
+    if (typeof p !== 'string') {
+      throw new TypeError('Arguments to path.join must be strings');
+    }
+    return p;
+  }).join('/'));
+};
+
+
+// path.relative(from, to)
+// posix version
+exports.relative = function(from, to) {
+  from = exports.resolve(from).substr(1);
+  to = exports.resolve(to).substr(1);
+
+  function trim(arr) {
+    var start = 0;
+    for (; start < arr.length; start++) {
+      if (arr[start] !== '') break;
+    }
+
+    var end = arr.length - 1;
+    for (; end >= 0; end--) {
+      if (arr[end] !== '') break;
+    }
+
+    if (start > end) return [];
+    return arr.slice(start, end - start + 1);
+  }
+
+  var fromParts = trim(from.split('/'));
+  var toParts = trim(to.split('/'));
+
+  var length = Math.min(fromParts.length, toParts.length);
+  var samePartsLength = length;
+  for (var i = 0; i < length; i++) {
+    if (fromParts[i] !== toParts[i]) {
+      samePartsLength = i;
+      break;
+    }
+  }
+
+  var outputParts = [];
+  for (var i = samePartsLength; i < fromParts.length; i++) {
+    outputParts.push('..');
+  }
+
+  outputParts = outputParts.concat(toParts.slice(samePartsLength));
+
+  return outputParts.join('/');
+};
+
+exports.sep = '/';
+exports.delimiter = ':';
+
+exports.dirname = function (path) {
+  if (typeof path !== 'string') path = path + '';
+  if (path.length === 0) return '.';
+  var code = path.charCodeAt(0);
+  var hasRoot = code === 47 /*/*/;
+  var end = -1;
+  var matchedSlash = true;
+  for (var i = path.length - 1; i >= 1; --i) {
+    code = path.charCodeAt(i);
+    if (code === 47 /*/*/) {
+        if (!matchedSlash) {
+          end = i;
+          break;
+        }
+      } else {
+      // We saw the first non-path separator
+      matchedSlash = false;
+    }
+  }
+
+  if (end === -1) return hasRoot ? '/' : '.';
+  if (hasRoot && end === 1) {
+    // return '//';
+    // Backwards-compat fix:
+    return '/';
+  }
+  return path.slice(0, end);
+};
+
+function basename(path) {
+  if (typeof path !== 'string') path = path + '';
+
+  var start = 0;
+  var end = -1;
+  var matchedSlash = true;
+  var i;
+
+  for (i = path.length - 1; i >= 0; --i) {
+    if (path.charCodeAt(i) === 47 /*/*/) {
+        // If we reached a path separator that was not part of a set of path
+        // separators at the end of the string, stop now
+        if (!matchedSlash) {
+          start = i + 1;
+          break;
+        }
+      } else if (end === -1) {
+      // We saw the first non-path separator, mark this as the end of our
+      // path component
+      matchedSlash = false;
+      end = i + 1;
+    }
+  }
+
+  if (end === -1) return '';
+  return path.slice(start, end);
+}
+
+// Uses a mixed approach for backwards-compatibility, as ext behavior changed
+// in new Node.js versions, so only basename() above is backported here
+exports.basename = function (path, ext) {
+  var f = basename(path);
+  if (ext && f.substr(-1 * ext.length) === ext) {
+    f = f.substr(0, f.length - ext.length);
+  }
+  return f;
+};
+
+exports.extname = function (path) {
+  if (typeof path !== 'string') path = path + '';
+  var startDot = -1;
+  var startPart = 0;
+  var end = -1;
+  var matchedSlash = true;
+  // Track the state of characters (if any) we see before our first dot and
+  // after any path separator we find
+  var preDotState = 0;
+  for (var i = path.length - 1; i >= 0; --i) {
+    var code = path.charCodeAt(i);
+    if (code === 47 /*/*/) {
+        // If we reached a path separator that was not part of a set of path
+        // separators at the end of the string, stop now
+        if (!matchedSlash) {
+          startPart = i + 1;
+          break;
+        }
+        continue;
+      }
+    if (end === -1) {
+      // We saw the first non-path separator, mark this as the end of our
+      // extension
+      matchedSlash = false;
+      end = i + 1;
+    }
+    if (code === 46 /*.*/) {
+        // If this is our first dot, mark it as the start of our extension
+        if (startDot === -1)
+          startDot = i;
+        else if (preDotState !== 1)
+          preDotState = 1;
+    } else if (startDot !== -1) {
+      // We saw a non-dot and non-path separator before our dot, so we should
+      // have a good chance at having a non-empty extension
+      preDotState = -1;
+    }
+  }
+
+  if (startDot === -1 || end === -1 ||
+      // We saw a non-dot character immediately before the dot
+      preDotState === 0 ||
+      // The (right-most) trimmed path component is exactly '..'
+      preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) {
+    return '';
+  }
+  return path.slice(startDot, end);
+};
+
+function filter (xs, f) {
+    if (xs.filter) return xs.filter(f);
+    var res = [];
+    for (var i = 0; i < xs.length; i++) {
+        if (f(xs[i], i, xs)) res.push(xs[i]);
+    }
+    return res;
+}
+
+// String.prototype.substr - negative index don't work in IE8
+var substr = 'ab'.substr(-1) === 'b'
+    ? function (str, start, len) { return str.substr(start, len) }
+    : function (str, start, len) {
+        if (start < 0) start = str.length + start;
+        return str.substr(start, len);
+    }
+;
+
+},{}],242:[function(require,module,exports){
+/*
+ * Copyright 2009-2011 Mozilla Foundation and contributors
+ * Licensed under the New BSD license. See LICENSE.txt or:
+ * http://opensource.org/licenses/BSD-3-Clause
+ */
+exports.SourceMapGenerator = require('./source-map/source-map-generator').SourceMapGenerator;
+exports.SourceMapConsumer = require('./source-map/source-map-consumer').SourceMapConsumer;
+exports.SourceNode = require('./source-map/source-node').SourceNode;
+
+},{"./source-map/source-map-consumer":249,"./source-map/source-map-generator":250,"./source-map/source-node":251}],243:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -15732,6 +18103,7 @@ ArraySet.prototype.size = function ArraySet_size() {
   return hasNativeMap ? this._set.size : Object.getOwnPropertyNames(this._set).length;
 };
 
+<<<<<<< HEAD
 /**
  * Add the given string to this set.
  *
@@ -15749,6 +18121,31 @@ ArraySet.prototype.add = function ArraySet_add(aStr, aAllowDuplicates) {
       this._set.set(aStr, idx);
     } else {
       this._set[sStr] = idx;
+=======
+  /**
+   * Return how many unique items are in this ArraySet. If duplicates have been
+   * added, than those do not count towards the size.
+   *
+   * @returns Number
+   */
+  ArraySet.prototype.size = function ArraySet_size() {
+    return Object.getOwnPropertyNames(this._set).length;
+  };
+
+  /**
+   * Add the given string to this set.
+   *
+   * @param String aStr
+   */
+  ArraySet.prototype.add = function ArraySet_add(aStr, aAllowDuplicates) {
+    var isDuplicate = this.has(aStr);
+    var idx = this._array.length;
+    if (!isDuplicate || aAllowDuplicates) {
+      this._array.push(aStr);
+    }
+    if (!isDuplicate) {
+      this._set[util.toSetString(aStr)] = idx;
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     }
   }
 };
@@ -15811,7 +18208,11 @@ ArraySet.prototype.toArray = function ArraySet_toArray() {
 
 exports.ArraySet = ArraySet;
 
+<<<<<<< HEAD
 },{"./util":251}],243:[function(require,module,exports){
+=======
+},{"./util":252,"amdefine":207}],244:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -16313,7 +18714,39 @@ function doQuickSort(ary, comparator, p, r) {
     swap(ary, i + 1, j);
     var q = i + 1;
 
+<<<<<<< HEAD
     // (2) Recurse on each half.
+=======
+  /**
+   * Decodes the next base 64 VLQ value from the given string and returns the
+   * value and the rest of the string via the out parameter.
+   */
+  exports.decode = function base64VLQ_decode(aStr, aIndex, aOutParam) {
+    var strLen = aStr.length;
+    var result = 0;
+    var shift = 0;
+    var continuation, digit;
+
+    do {
+      if (aIndex >= strLen) {
+        throw new Error("Expected more digits in base 64 VLQ value.");
+      }
+
+      digit = base64.decode(aStr.charCodeAt(aIndex++));
+      if (digit === -1) {
+        throw new Error("Invalid base64 digit: " + aStr.charAt(aIndex - 1));
+      }
+
+      continuation = !!(digit & VLQ_CONTINUATION_BIT);
+      digit &= VLQ_BASE_MASK;
+      result = result + (digit << shift);
+      shift += VLQ_BASE_SHIFT;
+    } while (continuation);
+
+    aOutParam.value = fromVLQSigned(result);
+    aOutParam.rest = aIndex;
+  };
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     doQuickSort(ary, comparator, p, q - 1);
     doQuickSort(ary, comparator, q + 1, r);
@@ -16332,7 +18765,11 @@ exports.quickSort = function (ary, comparator) {
   doQuickSort(ary, comparator, 0, ary.length - 1);
 };
 
+<<<<<<< HEAD
 },{}],248:[function(require,module,exports){
+=======
+},{"./base64":245,"amdefine":207}],245:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -16357,6 +18794,7 @@ function SourceMapConsumer(aSourceMap, aSourceMapURL) {
     : new BasicSourceMapConsumer(sourceMap, aSourceMapURL);
 }
 
+<<<<<<< HEAD
 SourceMapConsumer.fromSourceMap = function(aSourceMap, aSourceMapURL) {
   return BasicSourceMapConsumer.fromSourceMap(aSourceMap, aSourceMapURL);
 }
@@ -16403,8 +18841,19 @@ Object.defineProperty(SourceMapConsumer.prototype, '_generatedMappings', {
   get: function () {
     if (!this.__generatedMappings) {
       this._parseMappings(this._mappings, this.sourceRoot);
+=======
+  var intToCharMap = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'.split('');
+
+  /**
+   * Encode an integer in the range of 0 to 63 to a single base 64 digit.
+   */
+  exports.encode = function (number) {
+    if (0 <= number && number < intToCharMap.length) {
+      return intToCharMap[number];
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     }
 
+<<<<<<< HEAD
     return this.__generatedMappings;
   }
 });
@@ -16417,11 +18866,62 @@ Object.defineProperty(SourceMapConsumer.prototype, '_originalMappings', {
     if (!this.__originalMappings) {
       this._parseMappings(this._mappings, this.sourceRoot);
     }
+=======
+  /**
+   * Decode a single base 64 character code digit to an integer. Returns -1 on
+   * failure.
+   */
+  exports.decode = function (charCode) {
+    var bigA = 65;     // 'A'
+    var bigZ = 90;     // 'Z'
+
+    var littleA = 97;  // 'a'
+    var littleZ = 122; // 'z'
+
+    var zero = 48;     // '0'
+    var nine = 57;     // '9'
+
+    var plus = 43;     // '+'
+    var slash = 47;    // '/'
+
+    var littleOffset = 26;
+    var numberOffset = 52;
+
+    // 0 - 25: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+    if (bigA <= charCode && charCode <= bigZ) {
+      return (charCode - bigA);
+    }
+
+    // 26 - 51: abcdefghijklmnopqrstuvwxyz
+    if (littleA <= charCode && charCode <= littleZ) {
+      return (charCode - littleA + littleOffset);
+    }
+
+    // 52 - 61: 0123456789
+    if (zero <= charCode && charCode <= nine) {
+      return (charCode - zero + numberOffset);
+    }
+
+    // 62: +
+    if (charCode == plus) {
+      return 62;
+    }
+
+    // 63: /
+    if (charCode == slash) {
+      return 63;
+    }
+
+    // Invalid base64 digit.
+    return -1;
+  };
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     return this.__originalMappings;
   }
 });
 
+<<<<<<< HEAD
 SourceMapConsumer.prototype._charIsMappingSeparator =
   function SourceMapConsumer_charIsMappingSeparator(aStr, index) {
     var c = aStr.charAt(index);
@@ -16432,12 +18932,21 @@ SourceMapConsumer.prototype._charIsMappingSeparator =
  * Parse the mappings in a string in to a data structure which we can easily
  * query (the ordered arrays in the `this.__generatedMappings` and
  * `this.__originalMappings` properties).
+=======
+},{"amdefine":207}],246:[function(require,module,exports){
+/* -*- Mode: js; js-indent-level: 2; -*- */
+/*
+ * Copyright 2011 Mozilla Foundation and contributors
+ * Licensed under the New BSD license. See LICENSE or:
+ * http://opensource.org/licenses/BSD-3-Clause
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
  */
 SourceMapConsumer.prototype._parseMappings =
   function SourceMapConsumer_parseMappings(aStr, aSourceRoot) {
     throw new Error("Subclasses must implement _parseMappings");
   };
 
+<<<<<<< HEAD
 SourceMapConsumer.GENERATED_ORDER = 1;
 SourceMapConsumer.ORIGINAL_ORDER = 2;
 
@@ -16578,9 +19087,71 @@ SourceMapConsumer.prototype.allGeneratedPositionsFor =
 
           mapping = this._originalMappings[++index];
         }
+=======
+  exports.GREATEST_LOWER_BOUND = 1;
+  exports.LEAST_UPPER_BOUND = 2;
+
+  /**
+   * Recursive implementation of binary search.
+   *
+   * @param aLow Indices here and lower do not contain the needle.
+   * @param aHigh Indices here and higher do not contain the needle.
+   * @param aNeedle The element being searched for.
+   * @param aHaystack The non-empty array being searched.
+   * @param aCompare Function which takes two elements and returns -1, 0, or 1.
+   * @param aBias Either 'binarySearch.GREATEST_LOWER_BOUND' or
+   *     'binarySearch.LEAST_UPPER_BOUND'. Specifies whether to return the
+   *     closest element that is smaller than or greater than the one we are
+   *     searching for, respectively, if the exact element cannot be found.
+   */
+  function recursiveSearch(aLow, aHigh, aNeedle, aHaystack, aCompare, aBias) {
+    // This function terminates when one of the following is true:
+    //
+    //   1. We find the exact element we are looking for.
+    //
+    //   2. We did not find the exact element, but we can return the index of
+    //      the next-closest element.
+    //
+    //   3. We did not find the exact element, and there is no next-closest
+    //      element than the one we are searching for, so we return -1.
+    var mid = Math.floor((aHigh - aLow) / 2) + aLow;
+    var cmp = aCompare(aNeedle, aHaystack[mid], true);
+    if (cmp === 0) {
+      // Found the element we are looking for.
+      return mid;
+    }
+    else if (cmp > 0) {
+      // Our needle is greater than aHaystack[mid].
+      if (aHigh - mid > 1) {
+        // The element is in the upper half.
+        return recursiveSearch(mid, aHigh, aNeedle, aHaystack, aCompare, aBias);
+      }
+
+      // The exact needle element was not found in this haystack. Determine if
+      // we are in termination case (3) or (2) and return the appropriate thing.
+      if (aBias == exports.LEAST_UPPER_BOUND) {
+        return aHigh < aHaystack.length ? aHigh : -1;
+      } else {
+        return mid;
+      }
+    }
+    else {
+      // Our needle is less than aHaystack[mid].
+      if (mid - aLow > 1) {
+        // The element is in the lower half.
+        return recursiveSearch(aLow, mid, aNeedle, aHaystack, aCompare, aBias);
+      }
+
+      // we are in termination case (3) or (2) and return the appropriate thing.
+      if (aBias == exports.LEAST_UPPER_BOUND) {
+        return mid;
+      } else {
+        return aLow < 0 ? -1 : aLow;
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
       }
     }
 
+<<<<<<< HEAD
     return mappings;
   };
 
@@ -16703,6 +19274,552 @@ BasicSourceMapConsumer.prototype._findSourceIndex = function(aSource) {
   for (i = 0; i < this._absoluteSources.length; ++i) {
     if (this._absoluteSources[i] == aSource) {
       return i;
+=======
+  /**
+   * This is an implementation of binary search which will always try and return
+   * the index of the closest element if there is no exact hit. This is because
+   * mappings between original and generated line/col pairs are single points,
+   * and there is an implicit region between each of them, so a miss just means
+   * that you aren't on the very start of a region.
+   *
+   * @param aNeedle The element you are looking for.
+   * @param aHaystack The array that is being searched.
+   * @param aCompare A function which takes the needle and an element in the
+   *     array and returns -1, 0, or 1 depending on whether the needle is less
+   *     than, equal to, or greater than the element, respectively.
+   * @param aBias Either 'binarySearch.GREATEST_LOWER_BOUND' or
+   *     'binarySearch.LEAST_UPPER_BOUND'. Specifies whether to return the
+   *     closest element that is smaller than or greater than the one we are
+   *     searching for, respectively, if the exact element cannot be found.
+   *     Defaults to 'binarySearch.GREATEST_LOWER_BOUND'.
+   */
+  exports.search = function search(aNeedle, aHaystack, aCompare, aBias) {
+    if (aHaystack.length === 0) {
+      return -1;
+    }
+
+    var index = recursiveSearch(-1, aHaystack.length, aNeedle, aHaystack,
+                                aCompare, aBias || exports.GREATEST_LOWER_BOUND);
+    if (index < 0) {
+      return -1;
+    }
+
+    // We have found either the exact element, or the next-closest element than
+    // the one we are searching for. However, there may be more than one such
+    // element. Make sure we always return the smallest of these.
+    while (index - 1 >= 0) {
+      if (aCompare(aHaystack[index], aHaystack[index - 1], true) !== 0) {
+        break;
+      }
+      --index;
+    }
+
+    return index;
+  };
+
+});
+
+},{"amdefine":207}],247:[function(require,module,exports){
+/* -*- Mode: js; js-indent-level: 2; -*- */
+/*
+ * Copyright 2014 Mozilla Foundation and contributors
+ * Licensed under the New BSD license. See LICENSE or:
+ * http://opensource.org/licenses/BSD-3-Clause
+ */
+if (typeof define !== 'function') {
+    var define = require('amdefine')(module, require);
+}
+define(function (require, exports, module) {
+
+  var util = require('./util');
+
+  /**
+   * Determine whether mappingB is after mappingA with respect to generated
+   * position.
+   */
+  function generatedPositionAfter(mappingA, mappingB) {
+    // Optimized for most common case
+    var lineA = mappingA.generatedLine;
+    var lineB = mappingB.generatedLine;
+    var columnA = mappingA.generatedColumn;
+    var columnB = mappingB.generatedColumn;
+    return lineB > lineA || lineB == lineA && columnB >= columnA ||
+           util.compareByGeneratedPositionsInflated(mappingA, mappingB) <= 0;
+  }
+
+  /**
+   * A data structure to provide a sorted view of accumulated mappings in a
+   * performance conscious manner. It trades a neglibable overhead in general
+   * case for a large speedup in case of mappings being added in order.
+   */
+  function MappingList() {
+    this._array = [];
+    this._sorted = true;
+    // Serves as infimum
+    this._last = {generatedLine: -1, generatedColumn: 0};
+  }
+
+  /**
+   * Iterate through internal items. This method takes the same arguments that
+   * `Array.prototype.forEach` takes.
+   *
+   * NOTE: The order of the mappings is NOT guaranteed.
+   */
+  MappingList.prototype.unsortedForEach =
+    function MappingList_forEach(aCallback, aThisArg) {
+      this._array.forEach(aCallback, aThisArg);
+    };
+
+  /**
+   * Add the given source mapping.
+   *
+   * @param Object aMapping
+   */
+  MappingList.prototype.add = function MappingList_add(aMapping) {
+    var mapping;
+    if (generatedPositionAfter(this._last, aMapping)) {
+      this._last = aMapping;
+      this._array.push(aMapping);
+    } else {
+      this._sorted = false;
+      this._array.push(aMapping);
+    }
+  };
+
+  /**
+   * Returns the flat, sorted array of mappings. The mappings are sorted by
+   * generated position.
+   *
+   * WARNING: This method returns internal data without copying, for
+   * performance. The return value must NOT be mutated, and should be treated as
+   * an immutable borrow. If you want to take ownership, you must make your own
+   * copy.
+   */
+  MappingList.prototype.toArray = function MappingList_toArray() {
+    if (!this._sorted) {
+      this._array.sort(util.compareByGeneratedPositionsInflated);
+      this._sorted = true;
+    }
+    return this._array;
+  };
+
+  exports.MappingList = MappingList;
+
+});
+
+},{"./util":252,"amdefine":207}],248:[function(require,module,exports){
+/* -*- Mode: js; js-indent-level: 2; -*- */
+/*
+ * Copyright 2011 Mozilla Foundation and contributors
+ * Licensed under the New BSD license. See LICENSE or:
+ * http://opensource.org/licenses/BSD-3-Clause
+ */
+if (typeof define !== 'function') {
+    var define = require('amdefine')(module, require);
+}
+define(function (require, exports, module) {
+
+  // It turns out that some (most?) JavaScript engines don't self-host
+  // `Array.prototype.sort`. This makes sense because C++ will likely remain
+  // faster than JS when doing raw CPU-intensive sorting. However, when using a
+  // custom comparator function, calling back and forth between the VM's C++ and
+  // JIT'd JS is rather slow *and* loses JIT type information, resulting in
+  // worse generated code for the comparator function than would be optimal. In
+  // fact, when sorting with a comparator, these costs outweigh the benefits of
+  // sorting in C++. By using our own JS-implemented Quick Sort (below), we get
+  // a ~3500ms mean speed-up in `bench/bench.html`.
+
+  /**
+   * Swap the elements indexed by `x` and `y` in the array `ary`.
+   *
+   * @param {Array} ary
+   *        The array.
+   * @param {Number} x
+   *        The index of the first item.
+   * @param {Number} y
+   *        The index of the second item.
+   */
+  function swap(ary, x, y) {
+    var temp = ary[x];
+    ary[x] = ary[y];
+    ary[y] = temp;
+  }
+
+  /**
+   * Returns a random integer within the range `low .. high` inclusive.
+   *
+   * @param {Number} low
+   *        The lower bound on the range.
+   * @param {Number} high
+   *        The upper bound on the range.
+   */
+  function randomIntInRange(low, high) {
+    return Math.round(low + (Math.random() * (high - low)));
+  }
+
+  /**
+   * The Quick Sort algorithm.
+   *
+   * @param {Array} ary
+   *        An array to sort.
+   * @param {function} comparator
+   *        Function to use to compare two items.
+   * @param {Number} p
+   *        Start index of the array
+   * @param {Number} r
+   *        End index of the array
+   */
+  function doQuickSort(ary, comparator, p, r) {
+    // If our lower bound is less than our upper bound, we (1) partition the
+    // array into two pieces and (2) recurse on each half. If it is not, this is
+    // the empty array and our base case.
+
+    if (p < r) {
+      // (1) Partitioning.
+      //
+      // The partitioning chooses a pivot between `p` and `r` and moves all
+      // elements that are less than or equal to the pivot to the before it, and
+      // all the elements that are greater than it after it. The effect is that
+      // once partition is done, the pivot is in the exact place it will be when
+      // the array is put in sorted order, and it will not need to be moved
+      // again. This runs in O(n) time.
+
+      // Always choose a random pivot so that an input array which is reverse
+      // sorted does not cause O(n^2) running time.
+      var pivotIndex = randomIntInRange(p, r);
+      var i = p - 1;
+
+      swap(ary, pivotIndex, r);
+      var pivot = ary[r];
+
+      // Immediately after `j` is incremented in this loop, the following hold
+      // true:
+      //
+      //   * Every element in `ary[p .. i]` is less than or equal to the pivot.
+      //
+      //   * Every element in `ary[i+1 .. j-1]` is greater than the pivot.
+      for (var j = p; j < r; j++) {
+        if (comparator(ary[j], pivot) <= 0) {
+          i += 1;
+          swap(ary, i, j);
+        }
+      }
+
+      swap(ary, i + 1, j);
+      var q = i + 1;
+
+      // (2) Recurse on each half.
+
+      doQuickSort(ary, comparator, p, q - 1);
+      doQuickSort(ary, comparator, q + 1, r);
+    }
+  }
+
+  /**
+   * Sort the given array in-place with the given comparator function.
+   *
+   * @param {Array} ary
+   *        An array to sort.
+   * @param {function} comparator
+   *        Function to use to compare two items.
+   */
+  exports.quickSort = function (ary, comparator) {
+    doQuickSort(ary, comparator, 0, ary.length - 1);
+  };
+
+});
+
+},{"amdefine":207}],249:[function(require,module,exports){
+/* -*- Mode: js; js-indent-level: 2; -*- */
+/*
+ * Copyright 2011 Mozilla Foundation and contributors
+ * Licensed under the New BSD license. See LICENSE or:
+ * http://opensource.org/licenses/BSD-3-Clause
+ */
+if (typeof define !== 'function') {
+    var define = require('amdefine')(module, require);
+}
+define(function (require, exports, module) {
+
+  var util = require('./util');
+  var binarySearch = require('./binary-search');
+  var ArraySet = require('./array-set').ArraySet;
+  var base64VLQ = require('./base64-vlq');
+  var quickSort = require('./quick-sort').quickSort;
+
+  function SourceMapConsumer(aSourceMap) {
+    var sourceMap = aSourceMap;
+    if (typeof aSourceMap === 'string') {
+      sourceMap = JSON.parse(aSourceMap.replace(/^\)\]\}'/, ''));
+    }
+
+    return sourceMap.sections != null
+      ? new IndexedSourceMapConsumer(sourceMap)
+      : new BasicSourceMapConsumer(sourceMap);
+  }
+
+  SourceMapConsumer.fromSourceMap = function(aSourceMap) {
+    return BasicSourceMapConsumer.fromSourceMap(aSourceMap);
+  }
+
+  /**
+   * The version of the source mapping spec that we are consuming.
+   */
+  SourceMapConsumer.prototype._version = 3;
+
+  // `__generatedMappings` and `__originalMappings` are arrays that hold the
+  // parsed mapping coordinates from the source map's "mappings" attribute. They
+  // are lazily instantiated, accessed via the `_generatedMappings` and
+  // `_originalMappings` getters respectively, and we only parse the mappings
+  // and create these arrays once queried for a source location. We jump through
+  // these hoops because there can be many thousands of mappings, and parsing
+  // them is expensive, so we only want to do it if we must.
+  //
+  // Each object in the arrays is of the form:
+  //
+  //     {
+  //       generatedLine: The line number in the generated code,
+  //       generatedColumn: The column number in the generated code,
+  //       source: The path to the original source file that generated this
+  //               chunk of code,
+  //       originalLine: The line number in the original source that
+  //                     corresponds to this chunk of generated code,
+  //       originalColumn: The column number in the original source that
+  //                       corresponds to this chunk of generated code,
+  //       name: The name of the original symbol which generated this chunk of
+  //             code.
+  //     }
+  //
+  // All properties except for `generatedLine` and `generatedColumn` can be
+  // `null`.
+  //
+  // `_generatedMappings` is ordered by the generated positions.
+  //
+  // `_originalMappings` is ordered by the original positions.
+
+  SourceMapConsumer.prototype.__generatedMappings = null;
+  Object.defineProperty(SourceMapConsumer.prototype, '_generatedMappings', {
+    get: function () {
+      if (!this.__generatedMappings) {
+        this._parseMappings(this._mappings, this.sourceRoot);
+      }
+
+      return this.__generatedMappings;
+    }
+  });
+
+  SourceMapConsumer.prototype.__originalMappings = null;
+  Object.defineProperty(SourceMapConsumer.prototype, '_originalMappings', {
+    get: function () {
+      if (!this.__originalMappings) {
+        this._parseMappings(this._mappings, this.sourceRoot);
+      }
+
+      return this.__originalMappings;
+    }
+  });
+
+  SourceMapConsumer.prototype._charIsMappingSeparator =
+    function SourceMapConsumer_charIsMappingSeparator(aStr, index) {
+      var c = aStr.charAt(index);
+      return c === ";" || c === ",";
+    };
+
+  /**
+   * Parse the mappings in a string in to a data structure which we can easily
+   * query (the ordered arrays in the `this.__generatedMappings` and
+   * `this.__originalMappings` properties).
+   */
+  SourceMapConsumer.prototype._parseMappings =
+    function SourceMapConsumer_parseMappings(aStr, aSourceRoot) {
+      throw new Error("Subclasses must implement _parseMappings");
+    };
+
+  SourceMapConsumer.GENERATED_ORDER = 1;
+  SourceMapConsumer.ORIGINAL_ORDER = 2;
+
+  SourceMapConsumer.GREATEST_LOWER_BOUND = 1;
+  SourceMapConsumer.LEAST_UPPER_BOUND = 2;
+
+  /**
+   * Iterate over each mapping between an original source/line/column and a
+   * generated line/column in this source map.
+   *
+   * @param Function aCallback
+   *        The function that is called with each mapping.
+   * @param Object aContext
+   *        Optional. If specified, this object will be the value of `this` every
+   *        time that `aCallback` is called.
+   * @param aOrder
+   *        Either `SourceMapConsumer.GENERATED_ORDER` or
+   *        `SourceMapConsumer.ORIGINAL_ORDER`. Specifies whether you want to
+   *        iterate over the mappings sorted by the generated file's line/column
+   *        order or the original's source/line/column order, respectively. Defaults to
+   *        `SourceMapConsumer.GENERATED_ORDER`.
+   */
+  SourceMapConsumer.prototype.eachMapping =
+    function SourceMapConsumer_eachMapping(aCallback, aContext, aOrder) {
+      var context = aContext || null;
+      var order = aOrder || SourceMapConsumer.GENERATED_ORDER;
+
+      var mappings;
+      switch (order) {
+      case SourceMapConsumer.GENERATED_ORDER:
+        mappings = this._generatedMappings;
+        break;
+      case SourceMapConsumer.ORIGINAL_ORDER:
+        mappings = this._originalMappings;
+        break;
+      default:
+        throw new Error("Unknown order of iteration.");
+      }
+
+      var sourceRoot = this.sourceRoot;
+      mappings.map(function (mapping) {
+        var source = mapping.source === null ? null : this._sources.at(mapping.source);
+        if (source != null && sourceRoot != null) {
+          source = util.join(sourceRoot, source);
+        }
+        return {
+          source: source,
+          generatedLine: mapping.generatedLine,
+          generatedColumn: mapping.generatedColumn,
+          originalLine: mapping.originalLine,
+          originalColumn: mapping.originalColumn,
+          name: mapping.name === null ? null : this._names.at(mapping.name)
+        };
+      }, this).forEach(aCallback, context);
+    };
+
+  /**
+   * Returns all generated line and column information for the original source,
+   * line, and column provided. If no column is provided, returns all mappings
+   * corresponding to a either the line we are searching for or the next
+   * closest line that has any mappings. Otherwise, returns all mappings
+   * corresponding to the given line and either the column we are searching for
+   * or the next closest column that has any offsets.
+   *
+   * The only argument is an object with the following properties:
+   *
+   *   - source: The filename of the original source.
+   *   - line: The line number in the original source.
+   *   - column: Optional. the column number in the original source.
+   *
+   * and an array of objects is returned, each with the following properties:
+   *
+   *   - line: The line number in the generated source, or null.
+   *   - column: The column number in the generated source, or null.
+   */
+  SourceMapConsumer.prototype.allGeneratedPositionsFor =
+    function SourceMapConsumer_allGeneratedPositionsFor(aArgs) {
+      var line = util.getArg(aArgs, 'line');
+
+      // When there is no exact match, BasicSourceMapConsumer.prototype._findMapping
+      // returns the index of the closest mapping less than the needle. By
+      // setting needle.originalColumn to 0, we thus find the last mapping for
+      // the given line, provided such a mapping exists.
+      var needle = {
+        source: util.getArg(aArgs, 'source'),
+        originalLine: line,
+        originalColumn: util.getArg(aArgs, 'column', 0)
+      };
+
+      if (this.sourceRoot != null) {
+        needle.source = util.relative(this.sourceRoot, needle.source);
+      }
+      if (!this._sources.has(needle.source)) {
+        return [];
+      }
+      needle.source = this._sources.indexOf(needle.source);
+
+      var mappings = [];
+
+      var index = this._findMapping(needle,
+                                    this._originalMappings,
+                                    "originalLine",
+                                    "originalColumn",
+                                    util.compareByOriginalPositions,
+                                    binarySearch.LEAST_UPPER_BOUND);
+      if (index >= 0) {
+        var mapping = this._originalMappings[index];
+
+        if (aArgs.column === undefined) {
+          var originalLine = mapping.originalLine;
+
+          // Iterate until either we run out of mappings, or we run into
+          // a mapping for a different line than the one we found. Since
+          // mappings are sorted, this is guaranteed to find all mappings for
+          // the line we found.
+          while (mapping && mapping.originalLine === originalLine) {
+            mappings.push({
+              line: util.getArg(mapping, 'generatedLine', null),
+              column: util.getArg(mapping, 'generatedColumn', null),
+              lastColumn: util.getArg(mapping, 'lastGeneratedColumn', null)
+            });
+
+            mapping = this._originalMappings[++index];
+          }
+        } else {
+          var originalColumn = mapping.originalColumn;
+
+          // Iterate until either we run out of mappings, or we run into
+          // a mapping for a different line than the one we were searching for.
+          // Since mappings are sorted, this is guaranteed to find all mappings for
+          // the line we are searching for.
+          while (mapping &&
+                 mapping.originalLine === line &&
+                 mapping.originalColumn == originalColumn) {
+            mappings.push({
+              line: util.getArg(mapping, 'generatedLine', null),
+              column: util.getArg(mapping, 'generatedColumn', null),
+              lastColumn: util.getArg(mapping, 'lastGeneratedColumn', null)
+            });
+
+            mapping = this._originalMappings[++index];
+          }
+        }
+      }
+
+      return mappings;
+    };
+
+  exports.SourceMapConsumer = SourceMapConsumer;
+
+  /**
+   * A BasicSourceMapConsumer instance represents a parsed source map which we can
+   * query for information about the original file positions by giving it a file
+   * position in the generated source.
+   *
+   * The only parameter is the raw source map (either as a JSON string, or
+   * already parsed to an object). According to the spec, source maps have the
+   * following attributes:
+   *
+   *   - version: Which version of the source map spec this map is following.
+   *   - sources: An array of URLs to the original source files.
+   *   - names: An array of identifiers which can be referrenced by individual mappings.
+   *   - sourceRoot: Optional. The URL root from which all sources are relative.
+   *   - sourcesContent: Optional. An array of contents of the original source files.
+   *   - mappings: A string of base64 VLQs which contain the actual mappings.
+   *   - file: Optional. The generated file this source map is associated with.
+   *
+   * Here is an example source map, taken from the source map spec[0]:
+   *
+   *     {
+   *       version : 3,
+   *       file: "out.js",
+   *       sourceRoot : "",
+   *       sources: ["foo.js", "bar.js"],
+   *       names: ["src", "maps", "are", "fun"],
+   *       mappings: "AA,AB;;ABCDE;"
+   *     }
+   *
+   * [0]: https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit?pli=1#
+   */
+  function BasicSourceMapConsumer(aSourceMap) {
+    var sourceMap = aSourceMap;
+    if (typeof aSourceMap === 'string') {
+      sourceMap = JSON.parse(aSourceMap.replace(/^\)\]\}'/, ''));
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     }
   }
 
@@ -16748,6 +19865,7 @@ BasicSourceMapConsumer.fromSourceMap =
       destMapping.generatedLine = srcMapping.generatedLine;
       destMapping.generatedColumn = srcMapping.generatedColumn;
 
+<<<<<<< HEAD
       if (srcMapping.source) {
         destMapping.source = sources.indexOf(srcMapping.source);
         destMapping.originalLine = srcMapping.originalLine;
@@ -16823,6 +19941,57 @@ BasicSourceMapConsumer.prototype._parseMappings =
       }
       else if (aStr.charAt(index) === ',') {
         index++;
+=======
+  BasicSourceMapConsumer.prototype = Object.create(SourceMapConsumer.prototype);
+  BasicSourceMapConsumer.prototype.consumer = SourceMapConsumer;
+
+  /**
+   * Create a BasicSourceMapConsumer from a SourceMapGenerator.
+   *
+   * @param SourceMapGenerator aSourceMap
+   *        The source map that will be consumed.
+   * @returns BasicSourceMapConsumer
+   */
+  BasicSourceMapConsumer.fromSourceMap =
+    function SourceMapConsumer_fromSourceMap(aSourceMap) {
+      var smc = Object.create(BasicSourceMapConsumer.prototype);
+
+      var names = smc._names = ArraySet.fromArray(aSourceMap._names.toArray(), true);
+      var sources = smc._sources = ArraySet.fromArray(aSourceMap._sources.toArray(), true);
+      smc.sourceRoot = aSourceMap._sourceRoot;
+      smc.sourcesContent = aSourceMap._generateSourcesContent(smc._sources.toArray(),
+                                                              smc.sourceRoot);
+      smc.file = aSourceMap._file;
+
+      // Because we are modifying the entries (by converting string sources and
+      // names to indices into the sources and names ArraySets), we have to make
+      // a copy of the entry or else bad things happen. Shared mutable state
+      // strikes again! See github issue #191.
+
+      var generatedMappings = aSourceMap._mappings.toArray().slice();
+      var destGeneratedMappings = smc.__generatedMappings = [];
+      var destOriginalMappings = smc.__originalMappings = [];
+
+      for (var i = 0, length = generatedMappings.length; i < length; i++) {
+        var srcMapping = generatedMappings[i];
+        var destMapping = new Mapping;
+        destMapping.generatedLine = srcMapping.generatedLine;
+        destMapping.generatedColumn = srcMapping.generatedColumn;
+
+        if (srcMapping.source) {
+          destMapping.source = sources.indexOf(srcMapping.source);
+          destMapping.originalLine = srcMapping.originalLine;
+          destMapping.originalColumn = srcMapping.originalColumn;
+
+          if (srcMapping.name) {
+            destMapping.name = names.indexOf(srcMapping.name);
+          }
+
+          destOriginalMappings.push(destMapping);
+        }
+
+        destGeneratedMappings.push(destMapping);
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
       }
       else {
         mapping = new Mapping();
@@ -16863,6 +20032,7 @@ BasicSourceMapConsumer.prototype._parseMappings =
           cachedSegments[str] = segment;
         }
 
+<<<<<<< HEAD
         // Generated column.
         mapping.generatedColumn = previousGeneratedColumn + segment[0];
         previousGeneratedColumn = mapping.generatedColumn;
@@ -17002,6 +20172,194 @@ BasicSourceMapConsumer.prototype.originalPositionFor =
         if (source !== null) {
           source = this._sources.at(source);
           source = util.computeSourceURL(this.sourceRoot, source, this._sourceMapURL);
+=======
+      quickSort(smc.__originalMappings, util.compareByOriginalPositions);
+
+      return smc;
+    };
+
+  /**
+   * The version of the source mapping spec that we are consuming.
+   */
+  BasicSourceMapConsumer.prototype._version = 3;
+
+  /**
+   * The list of original sources.
+   */
+  Object.defineProperty(BasicSourceMapConsumer.prototype, 'sources', {
+    get: function () {
+      return this._sources.toArray().map(function (s) {
+        return this.sourceRoot != null ? util.join(this.sourceRoot, s) : s;
+      }, this);
+    }
+  });
+
+  /**
+   * Provide the JIT with a nice shape / hidden class.
+   */
+  function Mapping() {
+    this.generatedLine = 0;
+    this.generatedColumn = 0;
+    this.source = null;
+    this.originalLine = null;
+    this.originalColumn = null;
+    this.name = null;
+  }
+
+  /**
+   * Parse the mappings in a string in to a data structure which we can easily
+   * query (the ordered arrays in the `this.__generatedMappings` and
+   * `this.__originalMappings` properties).
+   */
+  BasicSourceMapConsumer.prototype._parseMappings =
+    function SourceMapConsumer_parseMappings(aStr, aSourceRoot) {
+      var generatedLine = 1;
+      var previousGeneratedColumn = 0;
+      var previousOriginalLine = 0;
+      var previousOriginalColumn = 0;
+      var previousSource = 0;
+      var previousName = 0;
+      var length = aStr.length;
+      var index = 0;
+      var cachedSegments = {};
+      var temp = {};
+      var originalMappings = [];
+      var generatedMappings = [];
+      var mapping, str, segment, end, value;
+
+      while (index < length) {
+        if (aStr.charAt(index) === ';') {
+          generatedLine++;
+          index++;
+          previousGeneratedColumn = 0;
+        }
+        else if (aStr.charAt(index) === ',') {
+          index++;
+        }
+        else {
+          mapping = new Mapping();
+          mapping.generatedLine = generatedLine;
+
+          // Because each offset is encoded relative to the previous one,
+          // many segments often have the same encoding. We can exploit this
+          // fact by caching the parsed variable length fields of each segment,
+          // allowing us to avoid a second parse if we encounter the same
+          // segment again.
+          for (end = index; end < length; end++) {
+            if (this._charIsMappingSeparator(aStr, end)) {
+              break;
+            }
+          }
+          str = aStr.slice(index, end);
+
+          segment = cachedSegments[str];
+          if (segment) {
+            index += str.length;
+          } else {
+            segment = [];
+            while (index < end) {
+              base64VLQ.decode(aStr, index, temp);
+              value = temp.value;
+              index = temp.rest;
+              segment.push(value);
+            }
+
+            if (segment.length === 2) {
+              throw new Error('Found a source, but no line and column');
+            }
+
+            if (segment.length === 3) {
+              throw new Error('Found a source and line, but no column');
+            }
+
+            cachedSegments[str] = segment;
+          }
+
+          // Generated column.
+          mapping.generatedColumn = previousGeneratedColumn + segment[0];
+          previousGeneratedColumn = mapping.generatedColumn;
+
+          if (segment.length > 1) {
+            // Original source.
+            mapping.source = previousSource + segment[1];
+            previousSource += segment[1];
+
+            // Original line.
+            mapping.originalLine = previousOriginalLine + segment[2];
+            previousOriginalLine = mapping.originalLine;
+            // Lines are stored 0-based
+            mapping.originalLine += 1;
+
+            // Original column.
+            mapping.originalColumn = previousOriginalColumn + segment[3];
+            previousOriginalColumn = mapping.originalColumn;
+
+            if (segment.length > 4) {
+              // Original name.
+              mapping.name = previousName + segment[4];
+              previousName += segment[4];
+            }
+          }
+
+          generatedMappings.push(mapping);
+          if (typeof mapping.originalLine === 'number') {
+            originalMappings.push(mapping);
+          }
+        }
+      }
+
+      quickSort(generatedMappings, util.compareByGeneratedPositionsDeflated);
+      this.__generatedMappings = generatedMappings;
+
+      quickSort(originalMappings, util.compareByOriginalPositions);
+      this.__originalMappings = originalMappings;
+    };
+
+  /**
+   * Find the mapping that best matches the hypothetical "needle" mapping that
+   * we are searching for in the given "haystack" of mappings.
+   */
+  BasicSourceMapConsumer.prototype._findMapping =
+    function SourceMapConsumer_findMapping(aNeedle, aMappings, aLineName,
+                                           aColumnName, aComparator, aBias) {
+      // To return the position we are searching for, we must first find the
+      // mapping for the given position and then return the opposite position it
+      // points to. Because the mappings are sorted, we can use binary search to
+      // find the best mapping.
+
+      if (aNeedle[aLineName] <= 0) {
+        throw new TypeError('Line must be greater than or equal to 1, got '
+                            + aNeedle[aLineName]);
+      }
+      if (aNeedle[aColumnName] < 0) {
+        throw new TypeError('Column must be greater than or equal to 0, got '
+                            + aNeedle[aColumnName]);
+      }
+
+      return binarySearch.search(aNeedle, aMappings, aComparator, aBias);
+    };
+
+  /**
+   * Compute the last column for each generated mapping. The last column is
+   * inclusive.
+   */
+  BasicSourceMapConsumer.prototype.computeColumnSpans =
+    function SourceMapConsumer_computeColumnSpans() {
+      for (var index = 0; index < this._generatedMappings.length; ++index) {
+        var mapping = this._generatedMappings[index];
+
+        // Mappings do not contain a field for the last generated columnt. We
+        // can come up with an optimistic estimate, however, by assuming that
+        // mappings are contiguous (i.e. given two consecutive mappings, the
+        // first mapping ends where the second one starts).
+        if (index + 1 < this._generatedMappings.length) {
+          var nextMapping = this._generatedMappings[index + 1];
+
+          if (mapping.generatedLine === nextMapping.generatedLine) {
+            mapping.lastGeneratedColumn = nextMapping.generatedColumn - 1;
+            continue;
+          }
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
         }
         var name = util.getArg(mapping, 'name', null);
         if (name !== null) {
@@ -17024,6 +20382,7 @@ BasicSourceMapConsumer.prototype.originalPositionFor =
     };
   };
 
+<<<<<<< HEAD
 /**
  * Return true if we have the source content for every source in the source
  * map, false otherwise.
@@ -17052,12 +20411,50 @@ BasicSourceMapConsumer.prototype.sourceContentFor =
     if (index >= 0) {
       return this.sourcesContent[index];
     }
+=======
+  /**
+   * Returns the original source, line, and column information for the generated
+   * source's line and column positions provided. The only argument is an object
+   * with the following properties:
+   *
+   *   - line: The line number in the generated source.
+   *   - column: The column number in the generated source.
+   *   - bias: Either 'SourceMapConsumer.GREATEST_LOWER_BOUND' or
+   *     'SourceMapConsumer.LEAST_UPPER_BOUND'. Specifies whether to return the
+   *     closest element that is smaller than or greater than the one we are
+   *     searching for, respectively, if the exact element cannot be found.
+   *     Defaults to 'SourceMapConsumer.GREATEST_LOWER_BOUND'.
+   *
+   * and an object is returned with the following properties:
+   *
+   *   - source: The original source file, or null.
+   *   - line: The line number in the original source, or null.
+   *   - column: The column number in the original source, or null.
+   *   - name: The original identifier, or null.
+   */
+  BasicSourceMapConsumer.prototype.originalPositionFor =
+    function SourceMapConsumer_originalPositionFor(aArgs) {
+      var needle = {
+        generatedLine: util.getArg(aArgs, 'line'),
+        generatedColumn: util.getArg(aArgs, 'column')
+      };
+
+      var index = this._findMapping(
+        needle,
+        this._generatedMappings,
+        "generatedLine",
+        "generatedColumn",
+        util.compareByGeneratedPositionsDeflated,
+        util.getArg(aArgs, 'bias', SourceMapConsumer.GREATEST_LOWER_BOUND)
+      );
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     var relativeSource = aSource;
     if (this.sourceRoot != null) {
       relativeSource = util.relative(this.sourceRoot, relativeSource);
     }
 
+<<<<<<< HEAD
     var url;
     if (this.sourceRoot != null
         && (url = util.urlParse(this.sourceRoot))) {
@@ -17069,6 +20466,27 @@ BasicSourceMapConsumer.prototype.sourceContentFor =
       if (url.scheme == "file"
           && this._sources.has(fileUriAbsPath)) {
         return this.sourcesContent[this._sources.indexOf(fileUriAbsPath)]
+=======
+        if (mapping.generatedLine === needle.generatedLine) {
+          var source = util.getArg(mapping, 'source', null);
+          if (source !== null) {
+            source = this._sources.at(source);
+            if (this.sourceRoot != null) {
+              source = util.join(this.sourceRoot, source);
+            }
+          }
+          var name = util.getArg(mapping, 'name', null);
+          if (name !== null) {
+            name = this._names.at(name);
+          }
+          return {
+            source: source,
+            line: util.getArg(mapping, 'originalLine', null),
+            column: util.getArg(mapping, 'originalColumn', null),
+            name: name
+          };
+        }
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
       }
 
       if ((!url.path || url.path == "/")
@@ -17130,6 +20548,7 @@ BasicSourceMapConsumer.prototype.generatedPositionFor =
       originalColumn: util.getArg(aArgs, 'column')
     };
 
+<<<<<<< HEAD
     var index = this._findMapping(
       needle,
       this._originalMappings,
@@ -17138,6 +20557,31 @@ BasicSourceMapConsumer.prototype.generatedPositionFor =
       util.compareByOriginalPositions,
       util.getArg(aArgs, 'bias', SourceMapConsumer.GREATEST_LOWER_BOUND)
     );
+=======
+  /**
+   * Return true if we have the source content for every source in the source
+   * map, false otherwise.
+   */
+  BasicSourceMapConsumer.prototype.hasContentsOfAllSources =
+    function BasicSourceMapConsumer_hasContentsOfAllSources() {
+      if (!this.sourcesContent) {
+        return false;
+      }
+      return this.sourcesContent.length >= this._sources.size() &&
+        !this.sourcesContent.some(function (sc) { return sc == null; });
+    };
+
+  /**
+   * Returns the original source content. The only argument is the url of the
+   * original source file. Returns null if no original source content is
+   * availible.
+   */
+  BasicSourceMapConsumer.prototype.sourceContentFor =
+    function SourceMapConsumer_sourceContentFor(aSource, nullOnMissing) {
+      if (!this.sourcesContent) {
+        return null;
+      }
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     if (index >= 0) {
       var mapping = this._originalMappings[index];
@@ -17160,6 +20604,7 @@ BasicSourceMapConsumer.prototype.generatedPositionFor =
 
 exports.BasicSourceMapConsumer = BasicSourceMapConsumer;
 
+<<<<<<< HEAD
 /**
  * An IndexedSourceMapConsumer instance represents a parsed source map which
  * we can query for information. It differs from BasicSourceMapConsumer in
@@ -17224,6 +20669,68 @@ function IndexedSourceMapConsumer(aSourceMap, aSourceMapURL) {
 
   this._sources = new ArraySet();
   this._names = new ArraySet();
+=======
+      // This function is used recursively from
+      // IndexedSourceMapConsumer.prototype.sourceContentFor. In that case, we
+      // don't want to throw if we can't find the source - we just want to
+      // return null, so we provide a flag to exit gracefully.
+      if (nullOnMissing) {
+        return null;
+      }
+      else {
+        throw new Error('"' + aSource + '" is not in the SourceMap.');
+      }
+    };
+
+  /**
+   * Returns the generated line and column information for the original source,
+   * line, and column positions provided. The only argument is an object with
+   * the following properties:
+   *
+   *   - source: The filename of the original source.
+   *   - line: The line number in the original source.
+   *   - column: The column number in the original source.
+   *   - bias: Either 'SourceMapConsumer.GREATEST_LOWER_BOUND' or
+   *     'SourceMapConsumer.LEAST_UPPER_BOUND'. Specifies whether to return the
+   *     closest element that is smaller than or greater than the one we are
+   *     searching for, respectively, if the exact element cannot be found.
+   *     Defaults to 'SourceMapConsumer.GREATEST_LOWER_BOUND'.
+   *
+   * and an object is returned with the following properties:
+   *
+   *   - line: The line number in the generated source, or null.
+   *   - column: The column number in the generated source, or null.
+   */
+  BasicSourceMapConsumer.prototype.generatedPositionFor =
+    function SourceMapConsumer_generatedPositionFor(aArgs) {
+      var source = util.getArg(aArgs, 'source');
+      if (this.sourceRoot != null) {
+        source = util.relative(this.sourceRoot, source);
+      }
+      if (!this._sources.has(source)) {
+        return {
+          line: null,
+          column: null,
+          lastColumn: null
+        };
+      }
+      source = this._sources.indexOf(source);
+
+      var needle = {
+        source: source,
+        originalLine: util.getArg(aArgs, 'line'),
+        originalColumn: util.getArg(aArgs, 'column')
+      };
+
+      var index = this._findMapping(
+        needle,
+        this._originalMappings,
+        "originalLine",
+        "originalColumn",
+        util.compareByOriginalPositions,
+        util.getArg(aArgs, 'bias', SourceMapConsumer.GREATEST_LOWER_BOUND)
+      );
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
   var lastOffset = {
     line: -1,
@@ -17239,6 +20746,7 @@ function IndexedSourceMapConsumer(aSourceMap, aSourceMapURL) {
     var offsetLine = util.getArg(offset, 'line');
     var offsetColumn = util.getArg(offset, 'column');
 
+<<<<<<< HEAD
     if (offsetLine < lastOffset.line ||
         (offsetLine === lastOffset.line && offsetColumn < lastOffset.column)) {
       throw new Error('Section offsets must be ordered and non-overlapping.');
@@ -17274,6 +20782,15 @@ Object.defineProperty(IndexedSourceMapConsumer.prototype, 'sources', {
     for (var i = 0; i < this._sections.length; i++) {
       for (var j = 0; j < this._sections[i].consumer.sources.length; j++) {
         sources.push(this._sections[i].consumer.sources[j]);
+=======
+        if (mapping.source === needle.source) {
+          return {
+            line: util.getArg(mapping, 'generatedLine', null),
+            column: util.getArg(mapping, 'generatedColumn', null),
+            lastColumn: util.getArg(mapping, 'lastGeneratedColumn', null)
+          };
+        }
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
       }
     }
     return sources;
@@ -17325,6 +20842,7 @@ IndexedSourceMapConsumer.prototype.originalPositionFor =
         source: null,
         line: null,
         column: null,
+<<<<<<< HEAD
         name: null
       };
     }
@@ -17401,6 +20919,173 @@ IndexedSourceMapConsumer.prototype.generatedPositionFor =
       // sources of the consumer.
       if (section.consumer._findSourceIndex(util.getArg(aArgs, 'source')) === -1) {
         continue;
+=======
+        lastColumn: null
+      };
+    };
+
+  exports.BasicSourceMapConsumer = BasicSourceMapConsumer;
+
+  /**
+   * An IndexedSourceMapConsumer instance represents a parsed source map which
+   * we can query for information. It differs from BasicSourceMapConsumer in
+   * that it takes "indexed" source maps (i.e. ones with a "sections" field) as
+   * input.
+   *
+   * The only parameter is a raw source map (either as a JSON string, or already
+   * parsed to an object). According to the spec for indexed source maps, they
+   * have the following attributes:
+   *
+   *   - version: Which version of the source map spec this map is following.
+   *   - file: Optional. The generated file this source map is associated with.
+   *   - sections: A list of section definitions.
+   *
+   * Each value under the "sections" field has two fields:
+   *   - offset: The offset into the original specified at which this section
+   *       begins to apply, defined as an object with a "line" and "column"
+   *       field.
+   *   - map: A source map definition. This source map could also be indexed,
+   *       but doesn't have to be.
+   *
+   * Instead of the "map" field, it's also possible to have a "url" field
+   * specifying a URL to retrieve a source map from, but that's currently
+   * unsupported.
+   *
+   * Here's an example source map, taken from the source map spec[0], but
+   * modified to omit a section which uses the "url" field.
+   *
+   *  {
+   *    version : 3,
+   *    file: "app.js",
+   *    sections: [{
+   *      offset: {line:100, column:10},
+   *      map: {
+   *        version : 3,
+   *        file: "section.js",
+   *        sources: ["foo.js", "bar.js"],
+   *        names: ["src", "maps", "are", "fun"],
+   *        mappings: "AAAA,E;;ABCDE;"
+   *      }
+   *    }],
+   *  }
+   *
+   * [0]: https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit#heading=h.535es3xeprgt
+   */
+  function IndexedSourceMapConsumer(aSourceMap) {
+    var sourceMap = aSourceMap;
+    if (typeof aSourceMap === 'string') {
+      sourceMap = JSON.parse(aSourceMap.replace(/^\)\]\}'/, ''));
+    }
+
+    var version = util.getArg(sourceMap, 'version');
+    var sections = util.getArg(sourceMap, 'sections');
+
+    if (version != this._version) {
+      throw new Error('Unsupported version: ' + version);
+    }
+
+    this._sources = new ArraySet();
+    this._names = new ArraySet();
+
+    var lastOffset = {
+      line: -1,
+      column: 0
+    };
+    this._sections = sections.map(function (s) {
+      if (s.url) {
+        // The url field will require support for asynchronicity.
+        // See https://github.com/mozilla/source-map/issues/16
+        throw new Error('Support for url field in sections not implemented.');
+      }
+      var offset = util.getArg(s, 'offset');
+      var offsetLine = util.getArg(offset, 'line');
+      var offsetColumn = util.getArg(offset, 'column');
+
+      if (offsetLine < lastOffset.line ||
+          (offsetLine === lastOffset.line && offsetColumn < lastOffset.column)) {
+        throw new Error('Section offsets must be ordered and non-overlapping.');
+      }
+      lastOffset = offset;
+
+      return {
+        generatedOffset: {
+          // The offset fields are 0-based, but we use 1-based indices when
+          // encoding/decoding from VLQ.
+          generatedLine: offsetLine + 1,
+          generatedColumn: offsetColumn + 1
+        },
+        consumer: new SourceMapConsumer(util.getArg(s, 'map'))
+      }
+    });
+  }
+
+  IndexedSourceMapConsumer.prototype = Object.create(SourceMapConsumer.prototype);
+  IndexedSourceMapConsumer.prototype.constructor = SourceMapConsumer;
+
+  /**
+   * The version of the source mapping spec that we are consuming.
+   */
+  IndexedSourceMapConsumer.prototype._version = 3;
+
+  /**
+   * The list of original sources.
+   */
+  Object.defineProperty(IndexedSourceMapConsumer.prototype, 'sources', {
+    get: function () {
+      var sources = [];
+      for (var i = 0; i < this._sections.length; i++) {
+        for (var j = 0; j < this._sections[i].consumer.sources.length; j++) {
+          sources.push(this._sections[i].consumer.sources[j]);
+        }
+      };
+      return sources;
+    }
+  });
+
+  /**
+   * Returns the original source, line, and column information for the generated
+   * source's line and column positions provided. The only argument is an object
+   * with the following properties:
+   *
+   *   - line: The line number in the generated source.
+   *   - column: The column number in the generated source.
+   *
+   * and an object is returned with the following properties:
+   *
+   *   - source: The original source file, or null.
+   *   - line: The line number in the original source, or null.
+   *   - column: The column number in the original source, or null.
+   *   - name: The original identifier, or null.
+   */
+  IndexedSourceMapConsumer.prototype.originalPositionFor =
+    function IndexedSourceMapConsumer_originalPositionFor(aArgs) {
+      var needle = {
+        generatedLine: util.getArg(aArgs, 'line'),
+        generatedColumn: util.getArg(aArgs, 'column')
+      };
+
+      // Find the section containing the generated position we're trying to map
+      // to an original position.
+      var sectionIndex = binarySearch.search(needle, this._sections,
+        function(needle, section) {
+          var cmp = needle.generatedLine - section.generatedOffset.generatedLine;
+          if (cmp) {
+            return cmp;
+          }
+
+          return (needle.generatedColumn -
+                  section.generatedOffset.generatedColumn);
+        });
+      var section = this._sections[sectionIndex];
+
+      if (!section) {
+        return {
+          source: null,
+          line: null,
+          column: null,
+          name: null
+        };
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
       }
       var generatedPosition = section.consumer.generatedPositionFor(aArgs);
       if (generatedPosition) {
@@ -17416,12 +21101,25 @@ IndexedSourceMapConsumer.prototype.generatedPositionFor =
       }
     }
 
+<<<<<<< HEAD
     return {
       line: null,
       column: null
+=======
+      return section.consumer.originalPositionFor({
+        line: needle.generatedLine -
+          (section.generatedOffset.generatedLine - 1),
+        column: needle.generatedColumn -
+          (section.generatedOffset.generatedLine === needle.generatedLine
+           ? section.generatedOffset.generatedColumn - 1
+           : 0),
+        bias: aArgs.bias
+      });
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     };
   };
 
+<<<<<<< HEAD
 /**
  * Parse the mappings in a string in to a data structure which we can easily
  * query (the ordered arrays in the `this.__generatedMappings` and
@@ -17472,14 +21170,153 @@ IndexedSourceMapConsumer.prototype._parseMappings =
         }
       }
     }
+=======
+  /**
+   * Return true if we have the source content for every source in the source
+   * map, false otherwise.
+   */
+  IndexedSourceMapConsumer.prototype.hasContentsOfAllSources =
+    function IndexedSourceMapConsumer_hasContentsOfAllSources() {
+      return this._sections.every(function (s) {
+        return s.consumer.hasContentsOfAllSources();
+      });
+    };
+
+  /**
+   * Returns the original source content. The only argument is the url of the
+   * original source file. Returns null if no original source content is
+   * available.
+   */
+  IndexedSourceMapConsumer.prototype.sourceContentFor =
+    function IndexedSourceMapConsumer_sourceContentFor(aSource, nullOnMissing) {
+      for (var i = 0; i < this._sections.length; i++) {
+        var section = this._sections[i];
+
+        var content = section.consumer.sourceContentFor(aSource, true);
+        if (content) {
+          return content;
+        }
+      }
+      if (nullOnMissing) {
+        return null;
+      }
+      else {
+        throw new Error('"' + aSource + '" is not in the SourceMap.');
+      }
+    };
+
+  /**
+   * Returns the generated line and column information for the original source,
+   * line, and column positions provided. The only argument is an object with
+   * the following properties:
+   *
+   *   - source: The filename of the original source.
+   *   - line: The line number in the original source.
+   *   - column: The column number in the original source.
+   *
+   * and an object is returned with the following properties:
+   *
+   *   - line: The line number in the generated source, or null.
+   *   - column: The column number in the generated source, or null.
+   */
+  IndexedSourceMapConsumer.prototype.generatedPositionFor =
+    function IndexedSourceMapConsumer_generatedPositionFor(aArgs) {
+      for (var i = 0; i < this._sections.length; i++) {
+        var section = this._sections[i];
+
+        // Only consider this section if the requested source is in the list of
+        // sources of the consumer.
+        if (section.consumer.sources.indexOf(util.getArg(aArgs, 'source')) === -1) {
+          continue;
+        }
+        var generatedPosition = section.consumer.generatedPositionFor(aArgs);
+        if (generatedPosition) {
+          var ret = {
+            line: generatedPosition.line +
+              (section.generatedOffset.generatedLine - 1),
+            column: generatedPosition.column +
+              (section.generatedOffset.generatedLine === generatedPosition.line
+               ? section.generatedOffset.generatedColumn - 1
+               : 0)
+          };
+          return ret;
+        }
+      }
+
+      return {
+        line: null,
+        column: null
+      };
+    };
+
+  /**
+   * Parse the mappings in a string in to a data structure which we can easily
+   * query (the ordered arrays in the `this.__generatedMappings` and
+   * `this.__originalMappings` properties).
+   */
+  IndexedSourceMapConsumer.prototype._parseMappings =
+    function IndexedSourceMapConsumer_parseMappings(aStr, aSourceRoot) {
+      this.__generatedMappings = [];
+      this.__originalMappings = [];
+      for (var i = 0; i < this._sections.length; i++) {
+        var section = this._sections[i];
+        var sectionMappings = section.consumer._generatedMappings;
+        for (var j = 0; j < sectionMappings.length; j++) {
+          var mapping = sectionMappings[i];
+
+          var source = section.consumer._sources.at(mapping.source);
+          if (section.consumer.sourceRoot !== null) {
+            source = util.join(section.consumer.sourceRoot, source);
+          }
+          this._sources.add(source);
+          source = this._sources.indexOf(source);
+
+          var name = section.consumer._names.at(mapping.name);
+          this._names.add(name);
+          name = this._names.indexOf(name);
+
+          // The mappings coming from the consumer for the section have
+          // generated positions relative to the start of the section, so we
+          // need to offset them to be relative to the start of the concatenated
+          // generated file.
+          var adjustedMapping = {
+            source: source,
+            generatedLine: mapping.generatedLine +
+              (section.generatedOffset.generatedLine - 1),
+            generatedColumn: mapping.column +
+              (section.generatedOffset.generatedLine === mapping.generatedLine)
+              ? section.generatedOffset.generatedColumn - 1
+              : 0,
+            originalLine: mapping.originalLine,
+            originalColumn: mapping.originalColumn,
+            name: name
+          };
+
+          this.__generatedMappings.push(adjustedMapping);
+          if (typeof adjustedMapping.originalLine === 'number') {
+            this.__originalMappings.push(adjustedMapping);
+          }
+        };
+      };
+
+      quickSort(this.__generatedMappings, util.compareByGeneratedPositionsDeflated);
+      quickSort(this.__originalMappings, util.compareByOriginalPositions);
+    };
+
+  exports.IndexedSourceMapConsumer = IndexedSourceMapConsumer;
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     quickSort(this.__generatedMappings, util.compareByGeneratedPositionsDeflated);
     quickSort(this.__originalMappings, util.compareByOriginalPositions);
   };
 
+<<<<<<< HEAD
 exports.IndexedSourceMapConsumer = IndexedSourceMapConsumer;
 
 },{"./array-set":242,"./base64-vlq":243,"./binary-search":245,"./quick-sort":247,"./util":251}],249:[function(require,module,exports){
+=======
+},{"./array-set":243,"./base64-vlq":244,"./binary-search":246,"./quick-sort":248,"./util":252,"amdefine":207}],250:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -17736,6 +21573,7 @@ SourceMapGenerator.prototype.applySourceMap =
     }, this);
   };
 
+<<<<<<< HEAD
 /**
  * A mapping can have one of the three levels of data:
  *
@@ -17820,6 +21658,40 @@ SourceMapGenerator.prototype._serializeMappings =
         if (i > 0) {
           if (!util.compareByGeneratedPositionsInflated(mapping, mappings[i - 1])) {
             continue;
+=======
+  /**
+   * Serialize the accumulated mappings in to the stream of base 64 VLQs
+   * specified by the source map format.
+   */
+  SourceMapGenerator.prototype._serializeMappings =
+    function SourceMapGenerator_serializeMappings() {
+      var previousGeneratedColumn = 0;
+      var previousGeneratedLine = 1;
+      var previousOriginalColumn = 0;
+      var previousOriginalLine = 0;
+      var previousName = 0;
+      var previousSource = 0;
+      var result = '';
+      var mapping;
+
+      var mappings = this._mappings.toArray();
+      for (var i = 0, len = mappings.length; i < len; i++) {
+        mapping = mappings[i];
+
+        if (mapping.generatedLine !== previousGeneratedLine) {
+          previousGeneratedColumn = 0;
+          while (mapping.generatedLine !== previousGeneratedLine) {
+            result += ';';
+            previousGeneratedLine++;
+          }
+        }
+        else {
+          if (i > 0) {
+            if (!util.compareByGeneratedPositionsInflated(mapping, mappings[i - 1])) {
+              continue;
+            }
+            result += ',';
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
           }
           next += ',';
         }
@@ -17893,8 +21765,18 @@ SourceMapGenerator.prototype.toJSON =
       map.sourcesContent = this._generateSourcesContent(map.sources, map.sourceRoot);
     }
 
+<<<<<<< HEAD
     return map;
   };
+=======
+  /**
+   * Render the source map being generated to a string.
+   */
+  SourceMapGenerator.prototype.toString =
+    function SourceMapGenerator_toString() {
+      return JSON.stringify(this.toJSON());
+    };
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
 /**
  * Render the source map being generated to a string.
@@ -17906,7 +21788,11 @@ SourceMapGenerator.prototype.toString =
 
 exports.SourceMapGenerator = SourceMapGenerator;
 
+<<<<<<< HEAD
 },{"./array-set":242,"./base64-vlq":243,"./mapping-list":246,"./util":251}],250:[function(require,module,exports){
+=======
+},{"./array-set":243,"./base64-vlq":244,"./mapping-list":247,"./util":252,"amdefine":207}],251:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -18321,7 +22207,11 @@ SourceNode.prototype.toStringWithSourceMap = function SourceNode_toStringWithSou
 
 exports.SourceNode = SourceNode;
 
+<<<<<<< HEAD
 },{"./source-map-generator":249,"./util":251}],251:[function(require,module,exports){
+=======
+},{"./source-map-generator":250,"./util":252,"amdefine":207}],252:[function(require,module,exports){
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -18483,10 +22373,40 @@ function join(aRoot, aPath) {
     return urlGenerate(aPathUrl);
   }
 
+<<<<<<< HEAD
   if (aPathUrl || aPath.match(dataUrlRegexp)) {
     return aPath;
+=======
+    aRoot = aRoot.replace(/\/$/, '');
+
+    // It is possible for the path to be above the root. In this case, simply
+    // checking whether the root is a prefix of the path won't work. Instead, we
+    // need to remove components from the root one by one, until either we find
+    // a prefix that fits, or we run out of components to remove.
+    var level = 0;
+    while (aPath.indexOf(aRoot + '/') !== 0) {
+      var index = aRoot.lastIndexOf("/");
+      if (index < 0) {
+        return aPath;
+      }
+
+      // If the only part of the root that is left is the scheme (i.e. http://,
+      // file:///, etc.), one or more slashes (/), or simply nothing at all, we
+      // have exhausted all components, so the path is not relative to the root.
+      aRoot = aRoot.slice(0, index);
+      if (aRoot.match(/^([^\/]+:\/)?\/*$/)) {
+        return aPath;
+      }
+
+      ++level;
+    }
+
+    // Make sure we add a "../" for each component we removed from the root.
+    return Array(level + 1).join("../") + aPath.substr(aRoot.length + 1);
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
   }
 
+<<<<<<< HEAD
   // `join('http://', 'www.example.com')`
   if (aRootUrl && !aRootUrl.host && !aRootUrl.path) {
     aRootUrl.host = aPath;
@@ -18836,12 +22756,173 @@ module.exports = require("handlebars/runtime")["default"];
   if (typeof define === "function" && define.amd) {
     define([], factory);
   } else if (typeof exports === "object") {
+=======
+  /**
+   * Because behavior goes wacky when you set `__proto__` on objects, we
+   * have to prefix all the strings in our set with an arbitrary character.
+   *
+   * See https://github.com/mozilla/source-map/pull/31 and
+   * https://github.com/mozilla/source-map/issues/30
+   *
+   * @param String aStr
+   */
+  function toSetString(aStr) {
+    return '$' + aStr;
+  }
+  exports.toSetString = toSetString;
+
+  function fromSetString(aStr) {
+    return aStr.substr(1);
+  }
+  exports.fromSetString = fromSetString;
+
+  /**
+   * Comparator between two mappings where the original positions are compared.
+   *
+   * Optionally pass in `true` as `onlyCompareGenerated` to consider two
+   * mappings with the same original source/line/column, but different generated
+   * line and column the same. Useful when searching for a mapping with a
+   * stubbed out mapping.
+   */
+  function compareByOriginalPositions(mappingA, mappingB, onlyCompareOriginal) {
+    var cmp = mappingA.source - mappingB.source;
+    if (cmp !== 0) {
+      return cmp;
+    }
+
+    cmp = mappingA.originalLine - mappingB.originalLine;
+    if (cmp !== 0) {
+      return cmp;
+    }
+
+    cmp = mappingA.originalColumn - mappingB.originalColumn;
+    if (cmp !== 0 || onlyCompareOriginal) {
+      return cmp;
+    }
+
+    cmp = mappingA.generatedColumn - mappingB.generatedColumn;
+    if (cmp !== 0) {
+      return cmp;
+    }
+
+    cmp = mappingA.generatedLine - mappingB.generatedLine;
+    if (cmp !== 0) {
+      return cmp;
+    }
+
+    return mappingA.name - mappingB.name;
+  };
+  exports.compareByOriginalPositions = compareByOriginalPositions;
+
+  /**
+   * Comparator between two mappings with deflated source and name indices where
+   * the generated positions are compared.
+   *
+   * Optionally pass in `true` as `onlyCompareGenerated` to consider two
+   * mappings with the same generated line and column, but different
+   * source/name/original line and column the same. Useful when searching for a
+   * mapping with a stubbed out mapping.
+   */
+  function compareByGeneratedPositionsDeflated(mappingA, mappingB, onlyCompareGenerated) {
+    var cmp = mappingA.generatedLine - mappingB.generatedLine;
+    if (cmp !== 0) {
+      return cmp;
+    }
+
+    cmp = mappingA.generatedColumn - mappingB.generatedColumn;
+    if (cmp !== 0 || onlyCompareGenerated) {
+      return cmp;
+    }
+
+    cmp = mappingA.source - mappingB.source;
+    if (cmp !== 0) {
+      return cmp;
+    }
+
+    cmp = mappingA.originalLine - mappingB.originalLine;
+    if (cmp !== 0) {
+      return cmp;
+    }
+
+    cmp = mappingA.originalColumn - mappingB.originalColumn;
+    if (cmp !== 0) {
+      return cmp;
+    }
+
+    return mappingA.name - mappingB.name;
+  };
+  exports.compareByGeneratedPositionsDeflated = compareByGeneratedPositionsDeflated;
+
+  function strcmp(aStr1, aStr2) {
+    if (aStr1 === aStr2) {
+      return 0;
+    }
+
+    if (aStr1 > aStr2) {
+      return 1;
+    }
+
+    return -1;
+  }
+
+  /**
+   * Comparator between two mappings with inflated source and name strings where
+   * the generated positions are compared.
+   */
+  function compareByGeneratedPositionsInflated(mappingA, mappingB) {
+    var cmp = mappingA.generatedLine - mappingB.generatedLine;
+    if (cmp !== 0) {
+      return cmp;
+    }
+
+    cmp = mappingA.generatedColumn - mappingB.generatedColumn;
+    if (cmp !== 0) {
+      return cmp;
+    }
+
+    cmp = strcmp(mappingA.source, mappingB.source);
+    if (cmp !== 0) {
+      return cmp;
+    }
+
+    cmp = mappingA.originalLine - mappingB.originalLine;
+    if (cmp !== 0) {
+      return cmp;
+    }
+
+    cmp = mappingA.originalColumn - mappingB.originalColumn;
+    if (cmp !== 0) {
+      return cmp;
+    }
+
+    return strcmp(mappingA.name, mappingB.name);
+  };
+  exports.compareByGeneratedPositionsInflated = compareByGeneratedPositionsInflated;
+
+});
+
+},{"amdefine":207}],253:[function(require,module,exports){
+/*! tether 1.4.4 */
+
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define([], factory);
+  } else if (typeof exports === 'object') {
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     module.exports = factory();
   } else {
     root.Tether = factory();
   }
+<<<<<<< HEAD
 })(this, function() {
   "use strict";
+=======
+}(this, function() {
+
+'use strict';
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
   var _createClass = (function() {
     function defineProperties(target, props) {
@@ -18860,6 +22941,7 @@ module.exports = require("handlebars/runtime")["default"];
     };
   })();
 
+<<<<<<< HEAD
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
       throw new TypeError("Cannot call a class as a function");
@@ -18877,6 +22959,58 @@ module.exports = require("handlebars/runtime")["default"];
   // if the element lies within a nested document (<frame> or <iframe>-like).
   function getActualBoundingClientRect(node) {
     var boundingRect = node.getBoundingClientRect();
+=======
+var zeroElement = null;
+
+// Same as native getBoundingClientRect, except it takes into account parent <frame> offsets
+// if the element lies within a nested document (<frame> or <iframe>-like).
+function getActualBoundingClientRect(node) {
+  var boundingRect = node.getBoundingClientRect();
+
+  // The original object returned by getBoundingClientRect is immutable, so we clone it
+  // We can't use extend because the properties are not considered part of the object by hasOwnProperty in IE9
+  var rect = {};
+  for (var k in boundingRect) {
+    rect[k] = boundingRect[k];
+  }
+
+  if (node.ownerDocument !== document) {
+    var _frameElement = node.ownerDocument.defaultView.frameElement;
+    if (_frameElement) {
+      var frameRect = getActualBoundingClientRect(_frameElement);
+      rect.top += frameRect.top;
+      rect.bottom += frameRect.top;
+      rect.left += frameRect.left;
+      rect.right += frameRect.left;
+    }
+  }
+
+  return rect;
+}
+
+function getScrollParents(el) {
+  // In firefox if the el is inside an iframe with display: none; window.getComputedStyle() will return null;
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=548397
+  var computedStyle = getComputedStyle(el) || {};
+  var position = computedStyle.position;
+  var parents = [];
+
+  if (position === 'fixed') {
+    return [el];
+  }
+
+  var parent = el;
+  while ((parent = parent.parentNode) && parent && parent.nodeType === 1) {
+    var style = undefined;
+    try {
+      style = getComputedStyle(parent);
+    } catch (err) {}
+
+    if (typeof style === 'undefined' || style === null) {
+      parents.push(parent);
+      return parents;
+    }
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     // The original object returned by getBoundingClientRect is immutable, so we clone it
     // We can't use extend because the properties are not considered part of the object by hasOwnProperty in IE9
@@ -18885,6 +23019,7 @@ module.exports = require("handlebars/runtime")["default"];
       rect[k] = boundingRect[k];
     }
 
+<<<<<<< HEAD
     if (node.ownerDocument !== document) {
       var _frameElement = node.ownerDocument.defaultView.frameElement;
       if (_frameElement) {
@@ -18893,23 +23028,41 @@ module.exports = require("handlebars/runtime")["default"];
         rect.bottom += frameRect.top;
         rect.left += frameRect.left;
         rect.right += frameRect.left;
+=======
+    if (/(auto|scroll|overlay)/.test(overflow + overflowY + overflowX)) {
+      if (position !== 'absolute' || ['relative', 'absolute', 'fixed'].indexOf(style.position) >= 0) {
+        parents.push(parent);
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
       }
     }
 
     return rect;
   }
 
+<<<<<<< HEAD
   function getScrollParents(el) {
     // In firefox if the el is inside an iframe with display: none; window.getComputedStyle() will return null;
     // https://bugzilla.mozilla.org/show_bug.cgi?id=548397
     var computedStyle = getComputedStyle(el) || {};
     var position = computedStyle.position;
     var parents = [];
+=======
+  parents.push(el.ownerDocument.body);
+
+  // If the node is within a frame, account for the parent window scroll
+  if (el.ownerDocument !== document) {
+    parents.push(el.ownerDocument.defaultView);
+  }
+
+  return parents;
+}
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     if (position === "fixed") {
       return [el];
     }
 
+<<<<<<< HEAD
     var parent = el;
     while ((parent = parent.parentNode) && parent && parent.nodeType === 1) {
       var style = undefined;
@@ -18943,6 +23096,32 @@ module.exports = require("handlebars/runtime")["default"];
     if (el.ownerDocument !== document) {
       parents.push(el.ownerDocument.defaultView);
     }
+=======
+var zeroPosCache = {};
+var getOrigin = function getOrigin() {
+  // getBoundingClientRect is unfortunately too accurate.  It introduces a pixel or two of
+  // jitter as the user scrolls that messes with our ability to detect if two positions
+  // are equivilant or not.  We place an element at the top left of the page that will
+  // get the same jitter, so we can cancel the two out.
+  var node = zeroElement;
+  if (!node || !document.body.contains(node)) {
+    node = document.createElement('div');
+    node.setAttribute('data-tether-id', uniqueId());
+    extend(node.style, {
+      top: 0,
+      left: 0,
+      position: 'absolute'
+    });
+
+    document.body.appendChild(node);
+
+    zeroElement = node;
+  }
+
+  var id = node.getAttribute('data-tether-id');
+  if (typeof zeroPosCache[id] === 'undefined') {
+    zeroPosCache[id] = getActualBoundingClientRect(node);
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     return parents;
   }
@@ -18970,11 +23149,30 @@ module.exports = require("handlebars/runtime")["default"];
         position: "absolute"
       });
 
+<<<<<<< HEAD
       document.body.appendChild(node);
+=======
+function removeUtilElements() {
+  if (zeroElement) {
+    document.body.removeChild(zeroElement);
+  }
+  zeroElement = null;
+};
+
+function getBounds(el) {
+  var doc = undefined;
+  if (el === document) {
+    doc = document;
+    el = document.documentElement;
+  } else {
+    doc = el.ownerDocument;
+  }
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
       zeroElement = node;
     }
 
+<<<<<<< HEAD
     var id = node.getAttribute("data-tether-id");
     if (typeof zeroPosCache[id] === "undefined") {
       zeroPosCache[id] = getActualBoundingClientRect(node);
@@ -18984,6 +23182,11 @@ module.exports = require("handlebars/runtime")["default"];
         delete zeroPosCache[id];
       });
     }
+=======
+  var box = getActualBoundingClientRect(el);
+
+  var origin = getOrigin();
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     return zeroPosCache[id];
   };
@@ -19006,7 +23209,18 @@ module.exports = require("handlebars/runtime")["default"];
 
     var docEl = doc.documentElement;
 
+<<<<<<< HEAD
     var box = getActualBoundingClientRect(el);
+=======
+var _scrollBarSize = null;
+function getScrollBarSize() {
+  if (_scrollBarSize) {
+    return _scrollBarSize;
+  }
+  var inner = document.createElement('div');
+  inner.style.width = '100%';
+  inner.style.height = '200px';
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     var origin = getOrigin();
 
@@ -19041,6 +23255,7 @@ module.exports = require("handlebars/runtime")["default"];
     inner.style.width = "100%";
     inner.style.height = "200px";
 
+<<<<<<< HEAD
     var outer = document.createElement("div");
     extend(outer.style, {
       position: "absolute",
@@ -19052,6 +23267,11 @@ module.exports = require("handlebars/runtime")["default"];
       height: "150px",
       overflow: "hidden"
     });
+=======
+  _scrollBarSize = { width: width, height: width };
+  return _scrollBarSize;
+}
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     outer.appendChild(inner);
 
@@ -19094,6 +23314,7 @@ module.exports = require("handlebars/runtime")["default"];
     return out;
   }
 
+<<<<<<< HEAD
   function removeClass(el, name) {
     if (typeof el.classList !== "undefined") {
       name.split(" ").forEach(function(cls) {
@@ -19109,6 +23330,13 @@ module.exports = require("handlebars/runtime")["default"];
       var className = getClassName(el).replace(regex, " ");
       setClassName(el, className);
     }
+=======
+function getClassName(el) {
+  // Can't use just SVGAnimatedString here since nodes within a Frame in IE have
+  // completely separately SVGAnimatedString base classes
+  if (el.className instanceof el.ownerDocument.defaultView.SVGAnimatedString) {
+    return el.className.baseVal;
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
   }
 
   function addClass(el, name) {
@@ -19181,6 +23409,15 @@ module.exports = require("handlebars/runtime")["default"];
     function Evented() {
       _classCallCheck(this, Evented);
     }
+<<<<<<< HEAD
+=======
+  }, {
+    key: 'off',
+    value: function off(event, handler) {
+      if (typeof this.bindings === 'undefined' || typeof this.bindings[event] === 'undefined') {
+        return;
+      }
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     _createClass(Evented, [
       {
@@ -19229,6 +23466,7 @@ module.exports = require("handlebars/runtime")["default"];
             }
           }
         }
+<<<<<<< HEAD
       },
       {
         key: "trigger",
@@ -19245,6 +23483,85 @@ module.exports = require("handlebars/runtime")["default"];
             ) {
               args[_key - 1] = arguments[_key];
             }
+=======
+      }
+    }
+  }]);
+
+  return Evented;
+})();
+
+TetherBase.Utils = {
+  getActualBoundingClientRect: getActualBoundingClientRect,
+  getScrollParents: getScrollParents,
+  getBounds: getBounds,
+  getOffsetParent: getOffsetParent,
+  extend: extend,
+  addClass: addClass,
+  removeClass: removeClass,
+  hasClass: hasClass,
+  updateClasses: updateClasses,
+  defer: defer,
+  flush: flush,
+  uniqueId: uniqueId,
+  Evented: Evented,
+  getScrollBarSize: getScrollBarSize,
+  removeUtilElements: removeUtilElements
+};
+/* globals TetherBase, performance */
+
+'use strict';
+
+var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x6, _x7, _x8) { var _again = true; _function: while (_again) { var object = _x6, property = _x7, receiver = _x8; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x6 = parent; _x7 = property; _x8 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+if (typeof TetherBase === 'undefined') {
+  throw new Error('You must include the utils.js file before tether.js');
+}
+
+var _TetherBase$Utils = TetherBase.Utils;
+var getScrollParents = _TetherBase$Utils.getScrollParents;
+var getBounds = _TetherBase$Utils.getBounds;
+var getOffsetParent = _TetherBase$Utils.getOffsetParent;
+var extend = _TetherBase$Utils.extend;
+var addClass = _TetherBase$Utils.addClass;
+var removeClass = _TetherBase$Utils.removeClass;
+var updateClasses = _TetherBase$Utils.updateClasses;
+var defer = _TetherBase$Utils.defer;
+var flush = _TetherBase$Utils.flush;
+var getScrollBarSize = _TetherBase$Utils.getScrollBarSize;
+var removeUtilElements = _TetherBase$Utils.removeUtilElements;
+
+function within(a, b) {
+  var diff = arguments.length <= 2 || arguments[2] === undefined ? 1 : arguments[2];
+
+  return a + diff >= b && b >= a - diff;
+}
+
+var transformKey = (function () {
+  if (typeof document === 'undefined') {
+    return '';
+  }
+  var el = document.createElement('div');
+
+  var transforms = ['transform', 'WebkitTransform', 'OTransform', 'MozTransform', 'msTransform'];
+  for (var i = 0; i < transforms.length; ++i) {
+    var key = transforms[i];
+    if (el.style[key] !== undefined) {
+      return key;
+    }
+  }
+})();
+
+var tethers = [];
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
             while (i < this.bindings[event].length) {
               var _bindings$event$i = this.bindings[event][i];
@@ -19252,10 +23569,19 @@ module.exports = require("handlebars/runtime")["default"];
               var ctx = _bindings$event$i.ctx;
               var once = _bindings$event$i.once;
 
+<<<<<<< HEAD
               var context = ctx;
               if (typeof context === "undefined") {
                 context = this;
               }
+=======
+function now() {
+  if (typeof performance === 'object' && typeof performance.now === 'function') {
+    return performance.now();
+  }
+  return +new Date();
+}
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
               handler.apply(context, args);
 
@@ -19321,6 +23647,7 @@ module.exports = require("handlebars/runtime")["default"];
       }
       return _arr;
     }
+<<<<<<< HEAD
     return function(arr, i) {
       if (Array.isArray(arr)) {
         return arr;
@@ -19381,13 +23708,26 @@ module.exports = require("handlebars/runtime")["default"];
         }
         return getter.call(receiver);
       }
+=======
+
+    if (pendingTimeout != null) {
+      clearTimeout(pendingTimeout);
+      pendingTimeout = null;
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     }
   };
 
+<<<<<<< HEAD
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
       throw new TypeError("Cannot call a class as a function");
     }
+=======
+  if (typeof window !== 'undefined' && typeof window.addEventListener !== 'undefined') {
+    ['resize', 'scroll', 'touchmove'].forEach(function (event) {
+      window.addEventListener(event, tick);
+    });
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
   }
 
   function _inherits(subClass, superClass) {
@@ -19558,16 +23898,29 @@ module.exports = require("handlebars/runtime")["default"];
     var left = attachment.left;
     var top = attachment.top;
 
+<<<<<<< HEAD
     if (typeof OFFSET_MAP[attachment.left] !== "undefined") {
       left = OFFSET_MAP[attachment.left];
     }
+=======
+var TetherClass = (function (_Evented) {
+  _inherits(TetherClass, _Evented);
+
+  function TetherClass(options) {
+    var _this = this;
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     if (typeof OFFSET_MAP[attachment.top] !== "undefined") {
       top = OFFSET_MAP[attachment.top];
     }
 
+<<<<<<< HEAD
     return { left: left, top: top };
   };
+=======
+    _get(Object.getPrototypeOf(TetherClass.prototype), 'constructor', this).call(this);
+    this.position = this.position.bind(this);
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
   function addOffset() {
     var out = { top: 0, left: 0 };
@@ -19640,6 +23993,7 @@ module.exports = require("handlebars/runtime")["default"];
 
       this.history = [];
 
+<<<<<<< HEAD
       this.setOptions(options, false);
 
       TetherBase.modules.forEach(function(module) {
@@ -19647,6 +24001,17 @@ module.exports = require("handlebars/runtime")["default"];
           module.initialize.call(_this);
         }
       });
+=======
+      if (typeof this.scrollParents !== 'undefined') {
+        this.disable();
+      }
+
+      if (this.targetModifier === 'scroll-handle') {
+        this.scrollParents = [this.target];
+      } else {
+        this.scrollParents = getScrollParents(this.target);
+      }
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
       this.position();
     }
@@ -19750,6 +24115,7 @@ module.exports = require("handlebars/runtime")["default"];
             this.enable(pos);
           }
         }
+<<<<<<< HEAD
       },
       {
         key: "getTargetBounds",
@@ -19765,6 +24131,38 @@ module.exports = require("handlebars/runtime")["default"];
                 };
               } else {
                 var bounds = getBounds(this.target);
+=======
+      } else {
+        return getBounds(this.target);
+      }
+    }
+  }, {
+    key: 'clearCache',
+    value: function clearCache() {
+      this._cache = {};
+    }
+  }, {
+    key: 'cache',
+    value: function cache(k, getter) {
+      // More than one module will often need the same DOM info, so
+      // we keep a cache which is cleared on each position call
+      if (typeof this._cache === 'undefined') {
+        this._cache = {};
+      }
+
+      if (typeof this._cache[k] === 'undefined') {
+        this._cache[k] = getter.call(this);
+      }
+
+      return this._cache[k];
+    }
+  }, {
+    key: 'enable',
+    value: function enable() {
+      var _this3 = this;
+
+      var pos = arguments.length <= 0 || arguments[0] === undefined ? true : arguments[0];
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
                 var out = {
                   height: bounds.height,
@@ -19773,6 +24171,7 @@ module.exports = require("handlebars/runtime")["default"];
                   left: bounds.left
                 };
 
+<<<<<<< HEAD
                 out.height = Math.min(
                   out.height,
                   bounds.height - (pageYOffset - bounds.top)
@@ -19823,16 +24222,65 @@ module.exports = require("handlebars/runtime")["default"];
               }
 
               var style = getComputedStyle(target);
+=======
+      this.scrollParents.forEach(function (parent) {
+        if (parent !== _this3.target.ownerDocument) {
+          parent.addEventListener('scroll', _this3.position);
+        }
+      });
+
+      if (pos) {
+        this.position();
+      }
+    }
+  }, {
+    key: 'disable',
+    value: function disable() {
+      var _this4 = this;
+
+      removeClass(this.target, this.getClass('enabled'));
+      removeClass(this.element, this.getClass('enabled'));
+      this.enabled = false;
+
+      if (typeof this.scrollParents !== 'undefined') {
+        this.scrollParents.forEach(function (parent) {
+          parent.removeEventListener('scroll', _this4.position);
+        });
+      }
+    }
+  }, {
+    key: 'destroy',
+    value: function destroy() {
+      var _this5 = this;
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
               var hasBottomScroll =
                 target.scrollWidth > target.clientWidth ||
                 [style.overflow, style.overflowX].indexOf("scroll") >= 0 ||
                 this.target !== document.body;
 
+<<<<<<< HEAD
               var scrollBottom = 0;
               if (hasBottomScroll) {
                 scrollBottom = 15;
               }
+=======
+      tethers.forEach(function (tether, i) {
+        if (tether === _this5) {
+          tethers.splice(i, 1);
+        }
+      });
+
+      // Remove any elements we were using for convenience from the DOM
+      if (tethers.length === 0) {
+        removeUtilElements();
+      }
+    }
+  }, {
+    key: 'updateAttachClasses',
+    value: function updateAttachClasses(elementAttach, targetAttach) {
+      var _this6 = this;
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
               var height =
                 bounds.height -
@@ -19867,6 +24315,7 @@ module.exports = require("handlebars/runtime")["default"];
                 bounds.top +
                 parseFloat(style.borderTopWidth);
 
+<<<<<<< HEAD
               if (this.target === document.body) {
                 out.height = Math.max(out.height, 24);
               }
@@ -19882,6 +24331,22 @@ module.exports = require("handlebars/runtime")["default"];
         key: "clearCache",
         value: function clearCache() {
           this._cache = {};
+=======
+      var all = [];
+      sides.forEach(function (side) {
+        all.push(_this6.getClass('element-attached') + '-' + side);
+        all.push(_this6.getClass('target-attached') + '-' + side);
+      });
+
+      defer(function () {
+        if (!(typeof _this6._addAttachClasses !== 'undefined')) {
+          return;
+        }
+
+        updateClasses(_this6.element, _this6._addAttachClasses, all);
+        if (!(_this6.options.addTargetClasses === false)) {
+          updateClasses(_this6.target, _this6._addAttachClasses, all);
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
         }
       },
       {
@@ -19893,9 +24358,24 @@ module.exports = require("handlebars/runtime")["default"];
             this._cache = {};
           }
 
+<<<<<<< HEAD
           if (typeof this._cache[k] === "undefined") {
             this._cache[k] = getter.call(this);
           }
+=======
+        delete _this6._addAttachClasses;
+      });
+    }
+  }, {
+    key: 'position',
+    value: function position() {
+      var _this7 = this;
+
+      var flushChanges = arguments.length <= 0 || arguments[0] === undefined ? true : arguments[0];
+
+      // flushChanges commits the changes immediately, leave true unless you are positioning multiple
+      // tethers (in which case call Tether.Utils.flush yourself when you're done)
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
           return this._cache[k];
         }
@@ -19922,6 +24402,7 @@ module.exports = require("handlebars/runtime")["default"];
             }
           });
 
+<<<<<<< HEAD
           if (pos) {
             this.position();
           }
@@ -19931,6 +24412,11 @@ module.exports = require("handlebars/runtime")["default"];
         key: "disable",
         value: function disable() {
           var _this4 = this;
+=======
+      var elementPos = this.cache('element-bounds', function () {
+        return getBounds(_this7.element);
+      });
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
           removeClass(this.target, this.getClass("enabled"));
           removeClass(this.element, this.getClass("enabled"));
@@ -19950,11 +24436,49 @@ module.exports = require("handlebars/runtime")["default"];
 
           this.disable();
 
+<<<<<<< HEAD
           tethers.forEach(function(tether, i) {
             if (tether === _this5) {
               tethers.splice(i, 1);
             }
           });
+=======
+      var targetPos = this.cache('target-bounds', function () {
+        return _this7.getTargetBounds();
+      });
+      var targetSize = targetPos;
+
+      // Get an actual px offset from the attachment
+      var offset = offsetToPx(attachmentToOffset(this.attachment), { width: width, height: height });
+      var targetOffset = offsetToPx(attachmentToOffset(targetAttachment), targetSize);
+
+      var manualOffset = offsetToPx(this.offset, { width: width, height: height });
+      var manualTargetOffset = offsetToPx(this.targetOffset, targetSize);
+
+      // Add the manually provided offset
+      offset = addOffset(offset, manualOffset);
+      targetOffset = addOffset(targetOffset, manualTargetOffset);
+
+      // It's now our goal to make (element position + offset) == (target position + target offset)
+      var left = targetPos.left + targetOffset.left - offset.left;
+      var top = targetPos.top + targetOffset.top - offset.top;
+
+      for (var i = 0; i < TetherBase.modules.length; ++i) {
+        var _module2 = TetherBase.modules[i];
+        var ret = _module2.position.call(this, {
+          left: left,
+          top: top,
+          targetAttachment: targetAttachment,
+          targetPos: targetPos,
+          elementPos: elementPos,
+          offset: offset,
+          targetOffset: targetOffset,
+          manualOffset: manualOffset,
+          manualTargetOffset: manualTargetOffset,
+          scrollbarSize: scrollbarSize,
+          attachment: this.attachment
+        });
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
           // Remove any elements we were using for convenience from the DOM
           if (tethers.length === 0) {
@@ -19986,6 +24510,7 @@ module.exports = require("handlebars/runtime")["default"];
           }
           var add = this._addAttachClasses;
 
+<<<<<<< HEAD
           if (elementAttach.top) {
             add.push(
               this.getClass("element-attached") + "-" + elementAttach.top
@@ -20020,6 +24545,38 @@ module.exports = require("handlebars/runtime")["default"];
             if (!(_this6.options.addTargetClasses === false)) {
               updateClasses(_this6.target, _this6._addAttachClasses, all);
             }
+=======
+      var doc = this.target.ownerDocument;
+      var win = doc.defaultView;
+
+      var scrollbarSize = undefined;
+      if (win.innerHeight > doc.documentElement.clientHeight) {
+        scrollbarSize = this.cache('scrollbar-size', getScrollBarSize);
+        next.viewport.bottom -= scrollbarSize.height;
+      }
+
+      if (win.innerWidth > doc.documentElement.clientWidth) {
+        scrollbarSize = this.cache('scrollbar-size', getScrollBarSize);
+        next.viewport.right -= scrollbarSize.width;
+      }
+
+      if (['', 'static'].indexOf(doc.body.style.position) === -1 || ['', 'static'].indexOf(doc.body.parentElement.style.position) === -1) {
+        // Absolute positioning in the body will be relative to the page, not the 'initial containing block'
+        next.page.bottom = doc.body.scrollHeight - top - height;
+        next.page.right = doc.body.scrollWidth - left - width;
+      }
+
+      if (typeof this.options.optimizations !== 'undefined' && this.options.optimizations.moveElement !== false && !(typeof this.targetModifier !== 'undefined')) {
+        (function () {
+          var offsetParent = _this7.cache('target-offsetparent', function () {
+            return getOffsetParent(_this7.target);
+          });
+          var offsetPosition = _this7.cache('target-offsetparent-bounds', function () {
+            return getBounds(offsetParent);
+          });
+          var offsetParentStyle = getComputedStyle(offsetParent);
+          var offsetParentSize = offsetPosition;
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
             delete _this6._addAttachClasses;
           });
@@ -20030,10 +24587,15 @@ module.exports = require("handlebars/runtime")["default"];
         value: function position() {
           var _this7 = this;
 
+<<<<<<< HEAD
           var flushChanges =
             arguments.length <= 0 || arguments[0] === undefined
               ? true
               : arguments[0];
+=======
+          offsetPosition.right = doc.body.scrollWidth - offsetPosition.left - offsetParentSize.width + offsetBorder.right;
+          offsetPosition.bottom = doc.body.scrollHeight - offsetPosition.top - offsetParentSize.height + offsetBorder.bottom;
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
           // flushChanges commits the changes immediately, leave true unless you are positioning multiple
           // tethers (in which case call Tether.Utils.flush yourself when you're done)
@@ -20066,6 +24628,7 @@ module.exports = require("handlebars/runtime")["default"];
           ) {
             var _lastSize = this.lastSize;
 
+<<<<<<< HEAD
             // We cache the height and width to make it possible to position elements that are
             // getting hidden.
             width = _lastSize.width;
@@ -20073,6 +24636,13 @@ module.exports = require("handlebars/runtime")["default"];
           } else {
             this.lastSize = { width: width, height: height };
           }
+=======
+    // THE ISSUE
+  }, {
+    key: 'move',
+    value: function move(pos) {
+      var _this8 = this;
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
           var targetPos = this.cache("target-bounds", function() {
             return _this7.getTargetBounds();
@@ -20163,6 +24733,7 @@ module.exports = require("handlebars/runtime")["default"];
             next.viewport.right -= scrollbarSize.width;
           }
 
+<<<<<<< HEAD
           if (
             ["", "static"].indexOf(doc.body.style.position) === -1 ||
             ["", "static"].indexOf(doc.body.parentElement.style.position) === -1
@@ -20170,6 +24741,22 @@ module.exports = require("handlebars/runtime")["default"];
             // Absolute positioning in the body will be relative to the page, not the 'initial containing block'
             next.page.bottom = doc.body.scrollHeight - top - height;
             next.page.right = doc.body.scrollWidth - left - width;
+=======
+      var css = { top: '', left: '', right: '', bottom: '' };
+
+      var transcribe = function transcribe(_same, _pos) {
+        var hasOptimizations = typeof _this8.options.optimizations !== 'undefined';
+        var gpu = hasOptimizations ? _this8.options.optimizations.gpu : null;
+        if (gpu !== false) {
+          var yPos = undefined,
+              xPos = undefined;
+          if (_same.top) {
+            css.top = 0;
+            yPos = _pos.top;
+          } else {
+            css.bottom = 0;
+            yPos = -_pos.bottom;
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
           }
 
           if (
@@ -20242,8 +24829,21 @@ module.exports = require("handlebars/runtime")["default"];
             })();
           }
 
+<<<<<<< HEAD
           // We could also travel up the DOM and try each containing context, rather than only
           // looking at the body, but we're gonna get diminishing returns.
+=======
+          if (window.matchMedia) {
+            // HubSpot/tether#207
+            var retina = window.matchMedia('only screen and (min-resolution: 1.3dppx)').matches || window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 1.3)').matches;
+            if (!retina) {
+              xPos = Math.round(xPos);
+              yPos = Math.round(yPos);
+            }
+          }
+
+          css[transformKey] = 'translateX(' + xPos + 'px) translateY(' + yPos + 'px)';
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
           this.move(next);
 
@@ -20260,6 +24860,7 @@ module.exports = require("handlebars/runtime")["default"];
           return true;
         }
 
+<<<<<<< HEAD
         // THE ISSUE
       },
       {
@@ -20269,10 +24870,32 @@ module.exports = require("handlebars/runtime")["default"];
 
           if (!(typeof this.element.parentNode !== "undefined")) {
             return;
+=======
+      var moved = false;
+      if ((same.page.top || same.page.bottom) && (same.page.left || same.page.right)) {
+        css.position = 'absolute';
+        transcribe(same.page, pos.page);
+      } else if ((same.viewport.top || same.viewport.bottom) && (same.viewport.left || same.viewport.right)) {
+        css.position = 'fixed';
+        transcribe(same.viewport, pos.viewport);
+      } else if (typeof same.offset !== 'undefined' && same.offset.top && same.offset.left) {
+        (function () {
+          css.position = 'absolute';
+          var offsetParent = _this8.cache('target-offsetparent', function () {
+            return getOffsetParent(_this8.target);
+          });
+
+          if (getOffsetParent(_this8.element) !== offsetParent) {
+            defer(function () {
+              _this8.element.parentNode.removeChild(_this8.element);
+              offsetParent.appendChild(_this8.element);
+            });
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
           }
 
           var same = {};
 
+<<<<<<< HEAD
           for (var type in pos) {
             same[type] = {};
 
@@ -20289,6 +24912,31 @@ module.exports = require("handlebars/runtime")["default"];
                   break;
                 }
               }
+=======
+      if (!moved) {
+        if (this.options.bodyElement) {
+          if (this.element.parentNode !== this.options.bodyElement) {
+            this.options.bodyElement.appendChild(this.element);
+          }
+        } else {
+          var offsetParentIsBody = true;
+          var currentNode = this.element.parentNode;
+          while (currentNode && currentNode.nodeType === 1 && currentNode.tagName !== 'BODY') {
+            if (getComputedStyle(currentNode).position !== 'static') {
+              offsetParentIsBody = false;
+              break;
+            }
+
+            currentNode = currentNode.parentNode;
+          }
+
+          if (!offsetParentIsBody) {
+            this.element.parentNode.removeChild(this.element);
+            this.element.ownerDocument.body.appendChild(this.element);
+          }
+        }
+      }
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
               if (!found) {
                 same[type][key] = true;
@@ -20296,6 +24944,7 @@ module.exports = require("handlebars/runtime")["default"];
             }
           }
 
+<<<<<<< HEAD
           var css = { top: "", left: "", right: "", bottom: "" };
 
           var transcribe = function transcribe(_same, _pos) {
@@ -20333,6 +24982,25 @@ module.exports = require("handlebars/runtime")["default"];
 
               css[transformKey] =
                 "translateX(" + xPos + "px) translateY(" + yPos + "px)";
+=======
+        if (elVal !== val) {
+          write = true;
+          writeCSS[key] = val;
+        }
+      }
+
+      if (write) {
+        defer(function () {
+          extend(_this8.element.style, writeCSS);
+          _this8.trigger('repositioned');
+        });
+      }
+    }
+  }]);
+
+  return TetherClass;
+})(Evented);
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
               if (transformKey !== "msTransform") {
                 // The Z transform will keep this in the GPU (faster, and prevents artifacts),
@@ -20426,8 +25094,17 @@ module.exports = require("handlebars/runtime")["default"];
                   break;
                 }
 
+<<<<<<< HEAD
                 currentNode = currentNode.parentNode;
               }
+=======
+function getBoundingRect(tether, to) {
+  if (to === 'scrollParent') {
+    to = tether.scrollParents[0];
+  } else if (to === 'window') {
+    to = [pageXOffset, pageYOffset, innerWidth + pageXOffset, innerHeight + pageYOffset];
+  }
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
               if (!offsetParentIsBody) {
                 this.element.parentNode.removeChild(this.element);
@@ -20436,12 +25113,21 @@ module.exports = require("handlebars/runtime")["default"];
             }
           }
 
+<<<<<<< HEAD
           // Any css change will trigger a repaint, so let's avoid one if nothing changed
           var writeCSS = {};
           var write = false;
           for (var key in css) {
             var val = css[key];
             var elVal = this.element.style[key];
+=======
+  if (typeof to.nodeType !== 'undefined') {
+    (function () {
+      var node = to;
+      var size = getBounds(to);
+      var pos = size;
+      var style = getComputedStyle(to);
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
             if (elVal !== val) {
               write = true;
@@ -20449,12 +25135,30 @@ module.exports = require("handlebars/runtime")["default"];
             }
           }
 
+<<<<<<< HEAD
           if (write) {
             defer(function() {
               extend(_this8.element.style, writeCSS);
               _this8.trigger("repositioned");
             });
           }
+=======
+      // Account any parent Frames scroll offset
+      if (node.ownerDocument !== document) {
+        var win = node.ownerDocument.defaultView;
+        to[0] += win.pageXOffset;
+        to[1] += win.pageYOffset;
+        to[2] += win.pageXOffset;
+        to[3] += win.pageYOffset;
+      }
+
+      BOUNDS_FORMAT.forEach(function (side, i) {
+        side = side[0].toUpperCase() + side.substr(1);
+        if (side === 'Top' || side === 'Left') {
+          to[i] += parseFloat(style['border' + side + 'Width']);
+        } else {
+          to[i] -= parseFloat(style['border' + side + 'Width']);
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
         }
       }
     ]);
@@ -20652,6 +25356,7 @@ module.exports = require("handlebars/runtime")["default"];
           changeAttachX = changeAttachY = attachment;
         }
 
+<<<<<<< HEAD
         var bounds = getBoundingRect(_this, to);
 
         if (changeAttachY === "target" || changeAttachY === "both") {
@@ -20713,6 +25418,36 @@ module.exports = require("handlebars/runtime")["default"];
               top += height;
               eAttachment.top = "top";
             }
+=======
+      if (changeAttachY === 'together') {
+        if (tAttachment.top === 'top') {
+          if (eAttachment.top === 'bottom' && top < bounds[1]) {
+            top += targetHeight;
+            tAttachment.top = 'bottom';
+
+            top += height;
+            eAttachment.top = 'top';
+          } else if (eAttachment.top === 'top' && top + height > bounds[3] && top - (height - targetHeight) >= bounds[1]) {
+            top -= height - targetHeight;
+            tAttachment.top = 'bottom';
+
+            eAttachment.top = 'bottom';
+          }
+        }
+
+        if (tAttachment.top === 'bottom') {
+          if (eAttachment.top === 'top' && top + height > bounds[3]) {
+            top -= targetHeight;
+            tAttachment.top = 'top';
+
+            top -= height;
+            eAttachment.top = 'bottom';
+          } else if (eAttachment.top === 'bottom' && top < bounds[1] && top + (height * 2 - targetHeight) <= bounds[3]) {
+            top += height - targetHeight;
+            tAttachment.top = 'top';
+
+            eAttachment.top = 'top';
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
           }
         }
 
@@ -20923,9 +25658,20 @@ module.exports = require("handlebars/runtime")["default"];
   var updateClasses = _TetherBase$Utils.updateClasses;
   var defer = _TetherBase$Utils.defer;
 
+<<<<<<< HEAD
   TetherBase.modules.push({
     position: function position(_ref) {
       var _this = this;
+=======
+      if (tAttachment.top !== targetAttachment.top || tAttachment.left !== targetAttachment.left || eAttachment.top !== _this.attachment.top || eAttachment.left !== _this.attachment.left) {
+        _this.updateAttachClasses(eAttachment, tAttachment);
+        _this.trigger('update', {
+          attachment: eAttachment,
+          targetAttachment: tAttachment
+        });
+      }
+    });
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
       var top = _ref.top;
       var left = _ref.left;
@@ -21075,4 +25821,8 @@ module.exports = require("handlebars/runtime")["default"];
   return Tether;
 });
 
+<<<<<<< HEAD
 },{}]},{},[105]);
+=======
+},{}]},{},[102]);
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb

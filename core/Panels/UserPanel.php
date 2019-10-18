@@ -71,7 +71,11 @@ abstract class UserPanel extends AbstractPanel
         $this->user = $environment->userObj;
         $this->fields = new UserPanelFieldController($this->getBaseId(), $this);
         $savedData = $this->dataProvider->get($this->getBaseId());
+<<<<<<< HEAD
         $this->model = new $this->args['modelClass']($savedData, $this);
+=======
+        $this->model = new PanelModel($savedData, $this);
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
         $this->fields();
         $this->model = $this->prepareModel();
     }
@@ -91,6 +95,32 @@ abstract class UserPanel extends AbstractPanel
         return wp_parse_args($args, $defaults);
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * @return PanelModel
+     */
+    public function prepareModel()
+    {
+        $savedData = $this->model->export();
+        $model = $this->model;
+        if ($this->fields) {
+            $data = array();
+            $config = $this->fields->export();
+            foreach ($config->getFields() as $attrs) {
+                if ($attrs['arrayKey']) {
+                    $data[$attrs['arrayKey']][$attrs['key']] = $attrs['std'];
+                } else {
+                    $data[$attrs['key']] = $attrs['std'];
+                }
+            }
+            $new = wp_parse_args($savedData, $data);
+            $model->set($new);
+        }
+        return $model;
+    }
+
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     abstract public function fields();
 
     /**

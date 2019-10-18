@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*! Kontentblocks DevVersion 2019-10-18 */
+=======
+/*! Kontentblocks DevVersion 2018-09-20 */
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 window.KBF = {
     groupedCallbacks: {},
     initCallbacks: [],

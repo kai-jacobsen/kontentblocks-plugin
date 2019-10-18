@@ -26,7 +26,10 @@ Class FlexibleFields extends Field
 
     public function setValue($data)
     {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
         if (is_array($data) && !empty($data)) {
             foreach ($data as $key => $value) {
                 if (!is_array($value) || !isset($value['_meta'])) {
@@ -79,11 +82,14 @@ Class FlexibleFields extends Field
                 }
 
 
+<<<<<<< HEAD
                 if (!isset($section['_meta']['status'])) {
                     $section['_meta']['status'] = 'visible';
                 } else {
                     $section['_meta']['status'] = filter_var($section['_meta']['status'], FILTER_SANITIZE_STRING);
                 }
+=======
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
                 /** @var Field $field */
                 foreach ($section as $fkey => $field) {
 
@@ -148,6 +154,10 @@ Class FlexibleFields extends Field
             $manager = new FlexFieldsManager($this);
             $manager = call_user_func($this->getArg('fields'), $manager);
             return $this->setArgs(array('fields' => $manager->export()));
+<<<<<<< HEAD
+=======
+
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
         }
         return $this->setArgs(array('fields' => false));
     }

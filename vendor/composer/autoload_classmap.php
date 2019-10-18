@@ -463,6 +463,7 @@ return array(
     'Symfony\\Component\\Yaml\\Parser' => $vendorDir . '/symfony/yaml/Parser.php',
     'Symfony\\Component\\Yaml\\Unescaper' => $vendorDir . '/symfony/yaml/Unescaper.php',
     'Symfony\\Component\\Yaml\\Yaml' => $vendorDir . '/symfony/yaml/Yaml.php',
+    'Symfony\\Polyfill\\Ctype\\Ctype' => $vendorDir . '/symfony/polyfill-ctype/Ctype.php',
     'Symfony\\Polyfill\\Mbstring\\Mbstring' => $vendorDir . '/symfony/polyfill-mbstring/Mbstring.php',
     'Twig_Autoloader' => $vendorDir . '/twig/twig/lib/Twig/Autoloader.php',
     'Twig_BaseNodeVisitor' => $vendorDir . '/twig/twig/lib/Twig/BaseNodeVisitor.php',

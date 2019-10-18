@@ -138,6 +138,29 @@ abstract class Module implements EntityInterface, FieldEntityInterface
     }
 
     /**
+     * @param $data
+     * @return ModuleModel
+     */
+    protected function prepareModel()
+    {
+        $savedData = $this->model->export();
+        if ($this->fields) {
+            $data = array();
+            $config = $this->fields->export();
+            foreach ($config->getFields() as $attrs) {
+                if ($attrs['arrayKey']) {
+                    $data[$attrs['arrayKey']][$attrs['key']] = $attrs['std'];
+                } else {
+                    $data[$attrs['key']] = $attrs['std'];
+                }
+            }
+            $new = wp_parse_args($savedData, $data);
+            $this->model->set($new);
+        }
+        return $this->model;
+    }
+
+    /**
      * Module default settings array
      * @since 0.1.0
      * @return array
@@ -161,7 +184,10 @@ abstract class Module implements EntityInterface, FieldEntityInterface
             'templates' => array(),
             'fieldRenderer' => 'Kontentblocks\Fields\Renderer\FieldRendererTabs',
             'iconclass' => 'dashicons-screenoptions',
+<<<<<<< HEAD
             'cap' => '',
+=======
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
             'subarea' => false
         );
 

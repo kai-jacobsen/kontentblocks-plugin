@@ -112,13 +112,21 @@ Class Select extends Field
                 if (!is_array($new)) {
                     $new = array();
                 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
                 if (is_array($old)) {
                     foreach (array_keys($old) as $index) {
                         if (!isset($new[$index])) {
                             $new[$index] = null;
                         }
                     }
+<<<<<<< HEAD
 //                    return $new;
+=======
+                    return $new;
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
                 }
             }
         }
@@ -127,6 +135,7 @@ Class Select extends Field
             return null;
         }
 
+<<<<<<< HEAD
         if ($taxonomy = $this->getArg('taxonomy', false)) {
             if (!$this->getArg('multiple', false)) {
                 if (!empty($new)) {
@@ -163,6 +172,8 @@ Class Select extends Field
             }
         }
 
+=======
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
         return $new;
     }
 }

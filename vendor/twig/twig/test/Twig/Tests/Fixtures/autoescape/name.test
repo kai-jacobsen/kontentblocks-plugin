@@ -14,5 +14,9 @@ return array('br' => '<br />')
 return array('autoescape' => 'name')
 --EXPECT--
 &lt;br /&gt;
+<<<<<<< HEAD
+=======
+\u003Cbr\u0020\/\u003E
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 &lt;br /&gt;
 <br />

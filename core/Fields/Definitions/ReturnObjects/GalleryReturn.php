@@ -90,4 +90,18 @@ class GalleryReturn
 
     }
 
+    /**
+     * @return bool|mixed
+     */
+    public function getRandomImage()
+    {
+        if (empty($this->images)) {
+            return false;
+        }
+
+        shuffle($this->images);
+        return current($this->images);
+
+    }
+
 }

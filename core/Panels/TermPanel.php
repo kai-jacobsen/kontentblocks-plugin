@@ -74,7 +74,11 @@ abstract class TermPanel extends AbstractPanel
         $this->term = $environment->termObj;
         $this->context = new TermPanelContext($environment->export(), $this);
         $savedData = $this->dataProvider->get(Utilities::buildContextKey($this->baseId));
+<<<<<<< HEAD
         $this->model = new $this->args['modelClass']($savedData, $this);
+=======
+        $this->model = new PanelModel($savedData, $this);
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
         $this->setupFields();
         $this->model = $this->prepareModel();
     }
@@ -110,6 +114,28 @@ abstract class TermPanel extends AbstractPanel
      * @return PanelModel
      */
     public function prepareModel()
+<<<<<<< HEAD
+=======
+    {
+        $savedData = $this->model->export();
+        if ($this->fields) {
+            $data = array();
+            $config = $this->fields->export();
+            foreach ($config->getFields() as $attrs) {
+                if ($attrs['arrayKey']) {
+                    $data[$attrs['arrayKey']][$attrs['key']] = $attrs['std'];
+                } else {
+                    $data[$attrs['key']] = $attrs['std'];
+                }
+            }
+            $new = wp_parse_args($savedData, $data);
+            $this->model->set($new);
+        }
+        return $this->model;
+    }
+
+    public function init()
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     {
         $savedData = $this->model->export();
         if ($this->fields) {

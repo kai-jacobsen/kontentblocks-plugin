@@ -14,6 +14,7 @@ Class OSM extends Field
 
     public static function init()
     {
+<<<<<<< HEAD
 
         add_action('init', function () {
             wp_register_style('leaflet-css', KB_PLUGIN_URL . 'css/assets/' . 'leaflet_incl_geocoder.css');
@@ -32,6 +33,16 @@ Class OSM extends Field
     }
 
 
+=======
+        add_action('admin_enqueue_scripts', function () {
+            wp_register_style('leaflet-css', 'https://unpkg.com/leaflet@1.3.4/dist/leaflet.css');
+            wp_enqueue_style('leaflet-css');
+            wp_register_script('leaflet-js', 'https://unpkg.com/leaflet@1.3.4/dist/leaflet.js');
+            wp_enqueue_script('leaflet-js');
+        });
+    }
+
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     /**
      * When this data is retrieved
      * @param $val

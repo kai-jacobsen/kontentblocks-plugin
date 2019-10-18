@@ -304,10 +304,14 @@ function getPostPanelModel($panelId = null, $postId = null, $setup = true)
 {
     $panel = getPostPanel($panelId, $postId);
     if (is_a($panel, PostPanel::class)) {
+<<<<<<< HEAD
         if ($setup){
             return $panel->setupViewModel();
         }
         return $panel->getModel();
+=======
+        return $panel->setupViewModel();
+>>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     }
     return null;
 }
