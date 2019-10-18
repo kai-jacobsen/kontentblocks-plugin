@@ -253,11 +253,7 @@ jQuery(document).ready(function () {
 //
 //  }
 //});
-<<<<<<< HEAD
 },{"backend/Collections/AreasCollection":2,"backend/Menus":3,"backend/Models/AreaModel":4,"backend/Models/ContextModel":5,"backend/Models/ModuleModel":6,"backend/Models/PanelModel":7,"backend/Views/AreaView":12,"backend/Views/ContextView":21,"backend/Views/ModuleView":33,"backend/Views/PanelView":34,"backend/Views/SystemAreaView":37,"backend/Views/Ui/TabbedEditScreen":49,"common/Autosave":51,"common/Config":53,"common/Index":55,"common/Payload":58,"common/UI":60,"common/Window":62,"fields/FieldControlsCollection":66,"fields/RefieldsController":69,"fieldsAPI/FieldsAPIController":115,"shared/ChangeObserver":143,"shared/Collections/ObjectProxyCollection":144,"shared/ViewsCollection":167}],2:[function(require,module,exports){
-=======
-},{"backend/Collections/AreasCollection":2,"backend/Menus":3,"backend/Models/AreaModel":4,"backend/Models/ContextModel":5,"backend/Models/ModuleModel":6,"backend/Models/PanelModel":7,"backend/Views/AreaView":12,"backend/Views/ContextView":21,"backend/Views/ModuleView":33,"backend/Views/PanelView":34,"backend/Views/SystemAreaView":37,"backend/Views/Ui/TabbedEditScreen":49,"common/Autosave":51,"common/Config":53,"common/Index":55,"common/Payload":58,"common/UI":60,"common/Window":62,"fields/FieldControlsCollection":66,"fields/RefieldsController":69,"fieldsAPI/FieldsAPIController":113,"shared/ChangeObserver":140,"shared/Collections/ObjectProxyCollection":141,"shared/ViewsCollection":164}],2:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports = Backbone.Collection.extend({
   _bycontext: {},
   _globalAreas: {},
@@ -657,11 +653,7 @@ module.exports = Backbone.View.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"backend/Views/AreaControls/AreaControlsView":8,"backend/Views/AreaControls/controls/DetachControl":9,"backend/Views/AreaControls/controls/MoveControl":10,"backend/Views/AreaControls/controls/StatusControl":11,"common/Checks":52,"shared/ModuleBrowser/ModuleBrowserController":145,"templates/backend/area-add-module.hbs":168,"templates/backend/area-item-placeholder.hbs":169}],13:[function(require,module,exports){
-=======
-},{"backend/Views/AreaControls/AreaControlsView":8,"backend/Views/AreaControls/controls/DetachControl":9,"backend/Views/AreaControls/controls/MoveControl":10,"backend/Views/AreaControls/controls/StatusControl":11,"common/Checks":52,"shared/ModuleBrowser/ModuleBrowserController":142,"templates/backend/area-add-module.hbs":165,"templates/backend/area-item-placeholder.hbs":166}],13:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Backend.ModuleMenuItemView
 module.exports = Backbone.View.extend({
   tagName: 'div',
@@ -724,11 +716,7 @@ module.exports = Backbone.View.extend({
     });
   }
 });
-<<<<<<< HEAD
 },{"backend/Views/ContextBrowserAreaView":15,"templates/backend/context-browser.hbs":173}],15:[function(require,module,exports){
-=======
-},{"backend/Views/ContextBrowserAreaView":15,"templates/backend/context-browser.hbs":170}],15:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var tplGlobalAreaItem = require('templates/backend/cb-global-area-item.hbs');
 var Ajax = require('common/Ajax');
 var Config = require('common/Config');
@@ -776,11 +764,7 @@ module.exports = Backbone.View.extend({
     }
   }
 });
-<<<<<<< HEAD
 },{"common/Ajax":50,"common/Config":53,"common/Notice":57,"templates/backend/cb-global-area-item.hbs":171}],16:[function(require,module,exports){
-=======
-},{"common/Ajax":50,"common/Config":53,"common/Notice":57,"templates/backend/cb-global-area-item.hbs":168}],16:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports = Backbone.View.extend({
   initialize: function (options) {
     this.Controller = options.Controller;
@@ -940,11 +924,7 @@ module.exports = Backbone.View.extend({
 });
 
 
-<<<<<<< HEAD
 },{"backend/Views/ContextUi/ContextColumnView":16,"backend/Views/ContextUi/ContextUiView":18,"backend/Views/ContextUi/controls/ColumnControl":19,"backend/Views/ContextUi/controls/ResetControl":20,"templates/backend/context-bar.hbs":172}],18:[function(require,module,exports){
-=======
-},{"backend/Views/ContextUi/ContextColumnView":16,"backend/Views/ContextUi/ContextUiView":18,"backend/Views/ContextUi/controls/ColumnControl":19,"backend/Views/ContextUi/controls/ResetControl":20,"templates/backend/context-bar.hbs":169}],18:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ControlsView = require('backend/Views/ModuleControls/ControlsView');
 module.exports = ControlsView.extend({
   initialize: function () {
@@ -1099,11 +1079,7 @@ module.exports = Backbone.View.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"backend/Views/ContextBrowser":14,"templates/backend/context-header.hbs":174}],22:[function(require,module,exports){
-=======
-},{"backend/Views/ContextBrowser":14,"templates/backend/context-header.hbs":171}],22:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var tplFullscreenInner = require('templates/backend/fullscreen-inner.hbs');
 var TinyMCE = require('common/TinyMCE');
 var UI = require('common/UI');
@@ -1180,11 +1156,7 @@ module.exports = Backbone.View.extend({
     this.trigger('close');
   }
 });
-<<<<<<< HEAD
 },{"common/TinyMCE":59,"common/UI":60,"templates/backend/fullscreen-inner.hbs":175}],23:[function(require,module,exports){
-=======
-},{"common/TinyMCE":59,"common/UI":60,"templates/backend/fullscreen-inner.hbs":172}],23:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /**
  * Creates the individual module-actions menu
  * like: duplicate, delete, status
@@ -1320,11 +1292,7 @@ module.exports = BaseView.extend({
 
   }
 });
-<<<<<<< HEAD
 },{"backend/Views/BaseControlView":13,"common/Ajax":50,"common/Checks":52,"common/Config":53,"common/I18n":54,"common/Notice":57,"common/TinyMCE":59,"common/Window":62,"shared/BatchDelete/BatchDeleteController":142}],25:[function(require,module,exports){
-=======
-},{"backend/Views/BaseControlView":13,"common/Ajax":50,"common/Checks":52,"common/Config":53,"common/I18n":54,"common/Notice":57,"common/TinyMCE":59,"common/Window":62,"shared/BatchDelete/BatchDeleteController":139}],25:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Backend.ModuleDuplicate
 var BaseView = require('backend/Views/BaseControlView');
 var Checks = require('common/Checks');
@@ -1726,11 +1694,7 @@ module.exports = BaseView.extend({
     }
   }
 });
-<<<<<<< HEAD
 },{"backend/Views/BaseControlView":13,"common/Checks":52,"common/I18n":54}],33:[function(require,module,exports){
-=======
-},{"backend/Views/BaseControlView":13,"common/Checks":52}],33:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Backend.ModuleView
 var ModuleControlsView = require('backend/Views/ModuleControls/ControlsView');
 var ModuleUiView = require('backend/Views/ModuleUi/ModuleUiView');
@@ -1940,11 +1904,7 @@ module.exports = Backbone.View.extend({
     return this.open;
   }
 });
-<<<<<<< HEAD
 },{"backend/Views/ModuleControls/ControlsView":23,"backend/Views/ModuleControls/controls/DeleteControl":24,"backend/Views/ModuleControls/controls/DuplicateControl":25,"backend/Views/ModuleControls/controls/SaveControl":26,"backend/Views/ModuleControls/controls/StatusControl":27,"backend/Views/ModuleUi/ModuleUiView":28,"backend/Views/ModuleUi/controls/DisabledControl":29,"backend/Views/ModuleUi/controls/FullscreenControl":30,"backend/Views/ModuleUi/controls/MoveControl":31,"backend/Views/ModuleUi/controls/ToggleControl":32,"common/Ajax":50,"common/Checks":52,"common/Config":53,"common/Payload":58,"common/UI":60,"shared/ModuleStatusBar/ModuleStatusBarView":153,"shared/ModuleStatusBar/status/DraftStatus":154,"shared/ModuleStatusBar/status/LoggedInStatus":155,"shared/ModuleStatusBar/status/OriginalNameStatus":156,"shared/ModuleStatusBar/status/SettingsStatus":164,"shared/ModuleStatusBar/status/TemplateEditorStatus":165,"shared/ModuleStatusBar/status/TemplateStatus":166}],34:[function(require,module,exports){
-=======
-},{"backend/Views/ModuleControls/ControlsView":23,"backend/Views/ModuleControls/controls/DeleteControl":24,"backend/Views/ModuleControls/controls/DuplicateControl":25,"backend/Views/ModuleControls/controls/SaveControl":26,"backend/Views/ModuleControls/controls/StatusControl":27,"backend/Views/ModuleUi/ModuleUiView":28,"backend/Views/ModuleUi/controls/DisabledControl":29,"backend/Views/ModuleUi/controls/FullscreenControl":30,"backend/Views/ModuleUi/controls/MoveControl":31,"backend/Views/ModuleUi/controls/ToggleControl":32,"common/Ajax":50,"common/Checks":52,"common/Config":53,"common/Payload":58,"common/UI":60,"shared/ModuleStatusBar/ModuleStatusBarView":150,"shared/ModuleStatusBar/status/DraftStatus":151,"shared/ModuleStatusBar/status/LoggedInStatus":152,"shared/ModuleStatusBar/status/OriginalNameStatus":153,"shared/ModuleStatusBar/status/SettingsStatus":161,"shared/ModuleStatusBar/status/TemplateEditorStatus":162,"shared/ModuleStatusBar/status/TemplateStatus":163}],34:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Logger = require('common/Logger');
 var FieldsRendererSections = require('backend/Views/Renderer/FieldsRendererSections');
 module.exports = Backbone.View.extend({
@@ -2094,11 +2054,7 @@ module.exports = Backbone.View.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"backend/Views/AreaControls/AreaControlsView":8,"backend/Views/AreaControls/controls/DetachControl":9,"backend/Views/AreaControls/controls/MoveControl":10,"backend/Views/AreaControls/controls/StatusControl":11,"common/Checks":52,"shared/ModuleBrowser/ModuleBrowserController":145,"templates/backend/area-add-module.hbs":168,"templates/backend/area-item-placeholder.hbs":169}],38:[function(require,module,exports){
-=======
-},{"backend/Views/AreaControls/AreaControlsView":8,"backend/Views/AreaControls/controls/DetachControl":9,"backend/Views/AreaControls/controls/MoveControl":10,"backend/Views/AreaControls/controls/StatusControl":11,"common/Checks":52,"shared/ModuleBrowser/ModuleBrowserController":142,"templates/backend/area-add-module.hbs":165,"templates/backend/area-item-placeholder.hbs":166}],38:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Ajax = require('common/Ajax');
 var Config = require('common/Config');
 var ViewsList = require('./ViewsList');
@@ -2106,8 +2062,6 @@ var Controls = require('./Controls');
 var Fields = require('./FieldsList');
 var tplEDitor = require('templates/backend/template-editor/wrap.hbs');
 
-<<<<<<< HEAD
-=======
 module.exports = Backbone.View.extend({
   className: 'kb-codemirror-overlay',
   currentView: null,
@@ -2165,444 +2119,6 @@ module.exports = Backbone.View.extend({
   },
   load: function (viewfile) {
     var that = this;
-
-    if (this.currentView) {
-      this.currentView.deselect();
-    }
-    Ajax.send({
-      viewfile: viewfile.model.toJSON(),
-      action: 'getTemplateString',
-      module: this.moduleModel.toJSON(),
-      _ajax_nonce: Config.getNonce('read')
-    }, function (res) {
-      that.editor.setValue(res.data.string);
-      that.currentView = viewfile;
-      that.currentView.select();
-      that.Fields.setFields(res.data.fields).render();
-    }, this);
-  },
-  getCurrentView: function () {
-    return this.currentView;
-  },
-  prepareViews: function (views) {
-    return _.map(views, function (view) {
-      view.selected = (view.filename === this.moduleModel.get('viewfile')) ? 'selected="selected"' : '';
-      view.isActive = (view.filename === this.moduleModel.get('viewfile'));
-      return view;
-    }, this);
-  }
-
-});
-},{"./Controls":39,"./FieldsList":41,"./ViewsList":43,"common/Ajax":50,"common/Config":53,"templates/backend/template-editor/wrap.hbs":188}],39:[function(require,module,exports){
-var Update = require('backend/Views/TemplateEditor/controls/UpdateControl');
-var Create = require('backend/Views/TemplateEditor/controls/CreateControl');
-var Duplicate = require('backend/Views/TemplateEditor/controls/DuplicateControl');
-var Feedback = require('backend/Views/TemplateEditor/controls/FeedbackControl');
-var Delete = require('backend/Views/TemplateEditor/controls/DeleteControl');
-module.exports = Backbone.View.extend({
-  tagName: 'ul',
-  className: 'kb-tpl-editor-controls',
-  initialize: function (options) {
-    this.$container = options.$container;
-    this.controller = options.controller;
-  },
-  render: function () {
-    this.$container.empty().append(this.$el);
-    this.createControls();
-    return this;
-  },
-  createControls: function () {
-    this.$el.append(new Update({controller: this.controller, controls:this}).render());
-    this.$el.append(new Create({controller: this.controller, controls:this}).render());
-    this.$el.append(new Duplicate({controller: this.controller, controls:this}).render());
-    this.$el.append(new Delete({controller: this.controller, controls:this}).render());
-    this.$el.append(new Feedback({controller: this.controller, controls:this}).render());
-  }
-
-
-});
-},{"backend/Views/TemplateEditor/controls/CreateControl":44,"backend/Views/TemplateEditor/controls/DeleteControl":45,"backend/Views/TemplateEditor/controls/DuplicateControl":46,"backend/Views/TemplateEditor/controls/FeedbackControl":47,"backend/Views/TemplateEditor/controls/UpdateControl":48}],40:[function(require,module,exports){
-var tplFieldItem = require('templates/backend/template-editor/field-item.hbs');
-module.exports = Backbone.View.extend({
-  tagName: 'li',
-  initialize: function (options) {
-    this.controller = options.controller;
-    this.$list = options.$list
-  },
-  render: function () {
-    console.log(this.model.toJSON());
-    this.$el.append(tplFieldItem({data: this.model.toJSON()}));
-    this.$list.append(this.$el);
-  }
-});
-},{"templates/backend/template-editor/field-item.hbs":186}],41:[function(require,module,exports){
-var ListItem = require('backend/Views/TemplateEditor/FieldItem');
-module.exports = Backbone.View.extend({
-  tagName: 'ul',
-  initialize: function (options) {
-    this.$container = options.$container;
-    this.controller = options.controller;
-  },
-  render: function () {
-    this.$container.empty().append(this.$el);
-    this.$el.empty();
-    _.each(this.fields, function (v) {
-      v.render();
-    });
-    return this;
-  },
-  setFields: function (fields) {
-    this.fields = this.createViews(fields);
-    return this;
-  },
-  createViews: function (views) {
-    return _.map(views, function (listItem) {
-      return new ListItem({
-        controller: this.controller,
-        $list: this.$el,
-        model: new Backbone.Model(listItem)
-      });
-    }, this);
-  }
-
-});
-},{"backend/Views/TemplateEditor/FieldItem":40}],42:[function(require,module,exports){
-var tplListItem = require('templates/backend/template-editor/list-item.hbs');
-module.exports = Backbone.View.extend({
-  tagName: 'li',
-  initialize: function (options) {
-    this.controller = options.controller;
-    this.$list = options.$list
-  },
-  events: {
-    'click': 'loadView'
-  },
-  render: function () {
-    this.$el.append(tplListItem({data: this.model.toJSON()}));
-    this.$list.append(this.$el);
-  },
-  loadView: function () {
-    this.controller.load(this)
-  },
-  select: function () {
-    this.$el.addClass('kb-active-template');
-  },
-  deselect: function () {
-    this.$el.removeClass('kb-active-template');
-  }
-});
-},{"templates/backend/template-editor/list-item.hbs":187}],43:[function(require,module,exports){
-var ListItem = require('backend/Views/TemplateEditor/ListItem');
-module.exports = Backbone.View.extend({
-  tagName: 'ul',
-  initialize: function (options) {
-    this.$container = options.$container;
-    this.controller = options.controller;
-    this.views = this.createViews(options.views);
-  },
-  render: function () {
-    this.$container.empty().append(this.$el);
-    _.each(this.views, function (v) {
-      v.render();
-    });
-    return this;
-  },
-  updateViews: function (views) {
-    var prepedViews = this.controller.prepareViews(views);
-    this.views = this.createViews(prepedViews);
-    this.$el.empty();
-    this.render();
-    var tplSelect = this.controller.moduleView.ModuleStatusBar.getView('templates');
-    tplSelect.render(prepedViews);
-
-  },
-  getActiveView: function () {
-    return _.find(this.views, function (view) {
-      return view.model.get('isActive');
-    })
-  },
-  createViews: function (views) {
-    return _.map(views, function (listItem) {
-      return new ListItem({
-        controller: this.controller,
-        $list: this.$el,
-        model: new Backbone.Model(listItem)
-      });
-    }, this);
-  }
-
-});
-},{"backend/Views/TemplateEditor/ListItem":42}],44:[function(require,module,exports){
-var Ajax = require('common/Ajax');
-var Config = require('common/Config');
-var Notice = require('common/Notice');
-
-module.exports = Backbone.View.extend({
-  tagName: 'li',
-  initialize: function (options) {
-    this.controller = options.controller;
-    this.controls = options.controls
-  },
-  events: {
-    'click': 'ask'
-  },
-  render: function () {
-    return this.$el.html('<span class="dashicons dashicons-welcome-add-page"></span> Create new template');
-  },
-  ask: function () {
-    var tplName;
-    Notice.prompt('Template Name', 'Please provide a unique template name', '.twig', function (evt, value) {
-        tplName = value;
-        this.create(tplName);
-      },
-      function (evt, value) {
-      }, this);
-  },
-  create: function (tplName) {
-    var view = this.controller.getCurrentView();
-    Ajax.send({
-      action: 'createModuleViewTemplate',
-      _ajax_nonce: Config.getNonce('update'),
-      module: this.controller.moduleModel.toJSON(),
-      tplstring: '',
-      filename: tplName
-    }, this.success, this);
-  },
-  success: function (res) {
-    if (res.success === false) {
-      Notice.notice(res.message, 'error', 8);
-      return;
-    }
-    this.controller.List.updateViews(res.data.views);
-    this.controller.trigger('broadcast', res.message);
-
-  }
-});
-},{"common/Ajax":50,"common/Config":53,"common/Notice":57}],45:[function(require,module,exports){
-var Ajax = require('common/Ajax');
-var Config = require('common/Config');
-var Notice = require('common/Notice');
-
-module.exports = Backbone.View.extend({
-  tagName: 'li',
-  initialize: function (options) {
-    this.controller = options.controller;
-    this.controls = options.controls
-  },
-  events: {
-    'click': 'ask'
-  },
-  render: function () {
-    return this.$el.html('<span class="dashicons dashicons-trash"></span> Delete loaded template');
-  },
-  ask: function () {
-    Notice.confirm('Template Name', 'Delete template?', function (evt, value) {
-        this.delete();
-      },
-      function (evt, value) {
-      }, this);
-  },
-  delete: function () {
-    var view = this.controller.getCurrentView();
-    Ajax.send({
-      action: 'deleteModuleViewTemplate',
-      _ajax_nonce: Config.getNonce('update'),
-      module: this.controller.moduleModel.toJSON(),
-      view: view.model.toJSON()
-    }, this.success, this);
-  },
-  success: function (res) {
-    if (res.success === false) {
-      Notice.notice(res.message, 'error', 8);
-      this.controller.trigger('broadcast', res.message);
-      return
-    }
-    this.controller.List.updateViews(res.data.views);
-    this.controller.trigger('broadcast', res.message);
-
-  }
-});
-},{"common/Ajax":50,"common/Config":53,"common/Notice":57}],46:[function(require,module,exports){
-var Ajax = require('common/Ajax');
-var Config = require('common/Config');
-var Notice = require('common/Notice');
-
-module.exports = Backbone.View.extend({
-  tagName: 'li',
-  initialize: function (options) {
-    this.controller = options.controller;
-    this.controls = options.controls
-  },
-  events: {
-    'click': 'ask'
-  },
-  render: function () {
-    return this.$el.html('<span class="dashicons dashicons-admin-page"></span> Copy');
-  },
-  ask: function () {
-    var tplName;
-    Notice.prompt('Template Name', 'Please provide a unique template name', '.twig', function (evt, value) {
-        tplName = value;
-        this.create(tplName);
-      },
-      function (evt, value) {
-      }, this);
-  },
-  create: function (tplName) {
-    var view = this.controller.getCurrentView();
-    Ajax.send({
-      action: 'createModuleViewTemplate',
-      _ajax_nonce: Config.getNonce('update'),
-      module: this.controller.moduleModel.toJSON(),
-      filename: tplName,
-      tplstring: this.controller.editor.getValue()
-    }, this.success, this);
-  },
-  success: function (res) {
-    if (res.success === false) {
-      Notice.notice(res.message, 'error', 8);
-      return;
-    }
-    this.controller.List.updateViews(res.data.views);
-    this.controller.trigger('broadcast', res.message);
-
-  }
-});
-},{"common/Ajax":50,"common/Config":53,"common/Notice":57}],47:[function(require,module,exports){
-var Ajax = require('common/Ajax');
-var Config = require('common/Config');
-var Notice = require('common/Notice');
-
-module.exports = Backbone.View.extend({
-  tagName: 'li',
-  className: 'kb-tpled--notice',
-  initialize: function (options) {
-    this.controller = options.controller;
-    this.controls = options.controls;
-    this.listenTo(this.controller, 'broadcast', this.setMessage);
-  },
-  events: {
-    'click': 'update'
-  },
-  render: function () {
-    return this.$el.html('<span class="dashicons dashicons-warning"></span><div class="" data-message></div>');
-  },
-  setMessage: function (msg) {
-    var $msg = this.$('[data-message]');
-    $msg.hide().html(msg).fadeIn(1500);
-    setTimeout(function () {
-      $msg.fadeOut(2000);
-    }, 5000);
-  }
-});
-},{"common/Ajax":50,"common/Config":53,"common/Notice":57}],48:[function(require,module,exports){
-var Ajax = require('common/Ajax');
-var Config = require('common/Config');
-var Notice = require('common/Notice');
-
-module.exports = Backbone.View.extend({
-  tagName: 'li',
-  initialize: function (options) {
-    this.controller = options.controller;
-    this.controls = options.controls
-  },
-  events: {
-    'click': 'update'
-  },
-  render: function () {
-    return this.$el.html('<span class="dashicons dashicons-update"></span> Update');
-  },
-  update: function () {
-    var view = this.controller.getCurrentView();
-    Ajax.send({
-      action: 'updateModuleViewTemplate',
-      _ajax_nonce: Config.getNonce('update'),
-      view: view.model.toJSON(),
-      tplstring: this.controller.editor.getValue(),
-      module: this.controller.moduleModel.toJSON()
-    }, this.success, this);
-  },
-  success: function (res) {
-    if (res.success === false) {
-      Notice.notice(res.message, 'error',8);
-      this.controller.trigger('broadcast', res.message);
-    }
-    this.controller.trigger('broadcast', res.message);
-
-  }
-});
-},{"common/Ajax":50,"common/Config":53,"common/Notice":57}],49:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
-module.exports = Backbone.View.extend({
-  className: 'kb-codemirror-overlay',
-  currentView: null,
-  initialize: function (options) {
-    this.viewfile = options.viewfile;
-    this.moduleView = options.moduleView;
-    this.$wrap = jQuery(tplEDitor()).appendTo(this.$el);
-    this.$sidebar = this.$('.kb-tpled--sidebar');
-    this.$content = this.$('.kb-tpled--content');
-    this.moduleModel = options.module;
-    this.views = this.prepareViews(this.moduleModel.get('views'));
-    this.open();
-  },
-  events: {
-    'click .kb-tpled--close': 'close'
-  },
-  open: function () {
-    this.$backdrop = jQuery('<div class="kb-fullscreen-backdrop"></div>').appendTo('body');
-    // this.$el.width(jQuery(window).width() * 0.9);
-    jQuery('#wpwrap').addClass('module-browser-open');
-    this.$el.appendTo('body');
-    this.trigger('open');
-    this.editor = CodeMirror(document.getElementById('codemirror'), {
-      mode: "twig",
-      theme: 'dracula',
-      lineNumbers: true,
-      lineWrapping: true,
-      tabMode: "indent",
-      indentUnit: 4
-    });
-    this.render();
-  },
-  close: function () {
-    this.$backdrop.remove();
-    jQuery('#wpwrap').removeClass('module-browser-open');
-    this.$el.detach();
-    this.trigger('close');
-
-  },
-  render: function () {
-    this.List = new ViewsList({
-      $container: this.$('[data-views]'),
-      views: this.views,
-      controller: this
-    }).render();
-    this.Controls = new Controls({
-      $container: this.$('[data-controls]'),
-      controller: this
-    }).render();
-    this.Fields = new Fields({
-      $container: this.$('[data-fields]'),
-      controller: this
-    });
-<<<<<<< HEAD
-    this.load(this.List.getActiveView());
-  },
-  load: function (viewfile) {
-    var that = this;
-=======
-  }
-});
-},{}],50:[function(require,module,exports){
-//KB.Ajax
-var Notice = require('common/Notice');
-module.exports =
-{
-  send: function (data, callback, scope, options) {
-    var pid;
-    var addPayload = options || {};
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     if (this.currentView) {
       this.currentView.deselect();
@@ -2672,16 +2188,9 @@ module.exports = Backbone.View.extend({
     this.$el.append(tplFieldItem({data: this.model.toJSON()}));
     this.$list.append(this.$el);
   }
-<<<<<<< HEAD
 });
 },{"templates/backend/template-editor/field-item.hbs":189}],41:[function(require,module,exports){
 var ListItem = require('backend/Views/TemplateEditor/FieldItem');
-=======
-};
-},{"common/Notice":57}],51:[function(require,module,exports){
-var Ajax = require('common/Ajax');
-var Config = require('common/Config');
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports = Backbone.View.extend({
   tagName: 'ul',
   initialize: function (options) {
@@ -2777,12 +2286,8 @@ module.exports = Backbone.View.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"backend/Views/TemplateEditor/ListItem":42}],44:[function(require,module,exports){
 var Ajax = require('common/Ajax');
-=======
-},{"common/Ajax":50,"common/Config":53}],52:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Config = require('common/Config');
 var Notice = require('common/Notice');
 
@@ -4491,11 +3996,7 @@ Fields.registerObject('subarea', require('./controls/subarea'));
 Fields.registerObject('medium', require('./controls/medium'));
 Fields.registerObject('imageselect', require('./controls/imageselect'));
 Fields.registerObject('osm', require('./controls/osm'));
-<<<<<<< HEAD
 },{"./Fields":67,"./controls/checkbox":70,"./controls/code":71,"./controls/color":72,"./controls/cropimage":73,"./controls/date-multiple":74,"./controls/datetime":76,"./controls/editor":77,"./controls/file":80,"./controls/file-multiple":78,"./controls/flexfields":81,"./controls/gallery":87,"./controls/gallery2":90,"./controls/image":93,"./controls/imageselect":94,"./controls/link":95,"./controls/medium":96,"./controls/multiselect":97,"./controls/oembed":98,"./controls/osm":99,"./controls/otimes":100,"./controls/select":101,"./controls/subarea":102,"./controls/tagsinput":109,"./controls/text":112,"./controls/text-multiple":110,"./controls/textarea":113}],70:[function(require,module,exports){
-=======
-},{"./Fields":67,"./controls/checkbox":70,"./controls/code":71,"./controls/color":72,"./controls/cropimage":73,"./controls/date-multiple":74,"./controls/datetime":76,"./controls/editor":77,"./controls/file":78,"./controls/flexfields":79,"./controls/gallery":85,"./controls/gallery2":88,"./controls/image":91,"./controls/imageselect":92,"./controls/link":93,"./controls/medium":94,"./controls/multiselect":95,"./controls/oembed":96,"./controls/osm":97,"./controls/otimes":98,"./controls/select":99,"./controls/subarea":100,"./controls/tagsinput":107,"./controls/text":110,"./controls/text-multiple":108,"./controls/textarea":111}],70:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -4519,69 +4020,6 @@ module.exports = BaseView.extend({
   }
 });
 },{"../FieldControlBaseView":63}],71:[function(require,module,exports){
-<<<<<<< HEAD
-var BaseView = require('../FieldControlBaseView');
-module.exports = BaseView.extend({
-  initialize: function () {
-    this.defaults = {
-      mode: 'htmlmixed',
-      theme: 'dracula',
-      lineNumbers: true,
-      lineWrapping: true,
-      tabMode: "indent",
-      indentUnit: 4,
-      autoCloseBrackets: true,
-      autoCloseTags: true
-    };
-    this.settings = this.model.get('settings') || {};
-    this.render();
-  },
-  render: function () {
-    var that = this;
-    this.$textarea = this.$('textarea');
-    // this.$textarea.on('change', function () {
-    //   that.update(that.$textarea.val());
-    // });
-    this.editor = this.getEditor();
-    this.editor.on('change',function(editor) {
-      editor.save();
-      that.update(editor.getTextArea().value);
-    });
-  },
-  derender: function () {
-    if (this.editor){
-      this.editor.save();
-      this.editor.toTextArea();
-    }
-    this.editor = null;
-    delete this.editor;
-
-
-  },
-  getEditor: function(){
-
-    if (this.editor){
-      return this.editor;
-    }
-
-    var settings = _.extend(this.defaults, this.settings);
-    this.editor = CodeMirror.fromTextArea(this.$textarea.get(0), settings);
-    return this.editor;
-  },
-  update: function (val) {
-    this.model.set('value', val);
-  },
-  toString: function () {
-    if (this.editor){
-      var txt = this.editor.getTextArea().value;
-      return txt;
-    }
-    return this.$textarea.val();
-  }
-});
-},{"../FieldControlBaseView":63}],72:[function(require,module,exports){
-=======
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -5001,7 +4439,6 @@ module.exports = BaseView.extend({
   }
 });
 },{"../FieldControlBaseView":63,"common/TinyMCE":59}],78:[function(require,module,exports){
-<<<<<<< HEAD
 var BaseView = require('../FieldControlBaseView');
 var FileMultipleController = require('fields/controls/file-multiple/FileMultipleController');
 module.exports = BaseView.extend({
@@ -5039,8 +4476,6 @@ module.exports = BaseController.extend({
   type: 'file-multiple'
 });
 },{"fields/MultipleControllerBase":68}],80:[function(require,module,exports){
-=======
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -5121,11 +4556,7 @@ module.exports = BaseView.extend({
   }
 });
 
-<<<<<<< HEAD
 },{"../FieldControlBaseView":63}],81:[function(require,module,exports){
-=======
-},{"../FieldControlBaseView":63}],79:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 var FlexfieldController = require('fields/controls/flexfields/FlexfieldsController');
 module.exports = BaseView.extend({
@@ -5158,20 +4589,12 @@ module.exports = BaseView.extend({
     }
   }
 });
-<<<<<<< HEAD
 },{"../FieldControlBaseView":63,"fields/controls/flexfields/FlexfieldsController":84}],82:[function(require,module,exports){
-=======
-},{"../FieldControlBaseView":63,"fields/controls/flexfields/FlexfieldsController":82}],80:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var FlexFieldModelModal = require('fields/FieldControlModelModal');
 module.exports = Backbone.Collection.extend({
   model: FlexFieldModelModal
 });
-<<<<<<< HEAD
 },{"fields/FieldControlModelModal":65}],83:[function(require,module,exports){
-=======
-},{"fields/FieldControlModelModal":65}],81:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports = Backbone.View.extend({
 
   initialize: function (options) {
@@ -5182,10 +4605,7 @@ module.exports = Backbone.View.extend({
     var uid = obj['_meta'].uid || null;
     var title = obj['_meta'].title || null;
     var type = obj['_meta'].type;
-<<<<<<< HEAD
     var status = obj['_meta'].status || 'visible';
-=======
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     var itemId = uid || _.uniqueId('ff2');
     var text = this.model.get('newitemtext') || 'Enter a title : ';
     var ask = this.model.get('requesttitle') || false;
@@ -5212,10 +4632,7 @@ module.exports = Backbone.View.extend({
           type: field.type
         });
         field.view = KB.FieldsAPI.getRefByType(field.type, itemData);
-<<<<<<< HEAD
 
-=======
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
         if (!fielddata) {
           field.view.setDefaults();
         }
@@ -5226,20 +4643,13 @@ module.exports = Backbone.View.extend({
       itemId: itemId,
       fftype: type,
       title: title,
-<<<<<<< HEAD
       status: status,
-=======
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
       sections: typesections
     }
   }
 
 });
-<<<<<<< HEAD
 },{}],84:[function(require,module,exports){
-=======
-},{}],82:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /**
  * Main Controller
  */
@@ -5274,34 +4684,19 @@ module.exports = Backbone.View.extend({
   initialSetup: function () {
     var data, types;
     data = this.model.get('value'); // model equals FieldControlModel, value equals parent obj data for this field key
-<<<<<<< HEAD
 
-=======
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     types = this.model.get('fields');
     if (!_.isEmpty(data)) {
       _.each(data, function (dataobj, index) {
         if (!dataobj) {
           return;
         }
-<<<<<<< HEAD
         if (!dataobj['_meta'].type) {
           dataobj['_meta'].type = 'default';
         }
         if (!types[dataobj['_meta'].type]) {
           return;
         }
-=======
-
-        if (!dataobj['_meta'].type) {
-          dataobj['_meta'].type = 'default';
-        }
-
-        if (!types[dataobj['_meta'].type]) {
-          return;
-        }
-
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
         // factor item
         var item = this.factory.factorNewItem(data[dataobj['_meta'].uid], dataobj);
         // build view for item
@@ -5379,10 +4774,6 @@ module.exports = Backbone.View.extend({
     this.$addButton = this.$('.kb-flexible-fields--js-add-item');
   },
   addItem: function (e) {
-<<<<<<< HEAD
-=======
-
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     var $btn = jQuery(e.currentTarget);
     var type = $btn.data('kbf-addtype');
     var item = this.factory.factorNewItem(null, {_meta: {type: type}});
@@ -5397,11 +4788,7 @@ module.exports = Backbone.View.extend({
   }
 });
 
-<<<<<<< HEAD
 },{"common/I18n":54,"common/Logger":56,"common/TinyMCE":59,"common/UI":60,"fields/controls/flexfields/FlexFieldsCollection":82,"fields/controls/flexfields/FlexFieldsFactory":83,"fields/controls/flexfields/SectionBoxItem":85,"fields/controls/flexfields/ToggleBoxItem":86,"templates/fields/FlexibleFields/skeleton.hbs":201}],85:[function(require,module,exports){
-=======
-},{"common/I18n":54,"common/Logger":56,"common/TinyMCE":59,"common/UI":60,"fields/controls/flexfields/FlexFieldsCollection":80,"fields/controls/flexfields/FlexFieldsFactory":81,"fields/controls/flexfields/SectionBoxItem":83,"fields/controls/flexfields/ToggleBoxItem":84,"templates/fields/FlexibleFields/skeleton.hbs":197}],83:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ToggleBoxItem =  require('fields/controls/flexfields/ToggleBoxItem');
 var tplSingleSectionBox = require('templates/fields/FlexibleFields/single-section-box.hbs');
 module.exports = ToggleBoxItem.extend({
@@ -5428,23 +4815,15 @@ module.exports = ToggleBoxItem.extend({
       item: item,
       inputName: inputName,
       uid: this.model.get('itemId'),
-<<<<<<< HEAD
       fftype: this.model.get('fftype'),
       visible: true
-=======
-      fftype: this.model.get('fftype')
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     }));
     this.renderTabs($skeleton); // insert the tabs markup
     return $skeleton;
   }
 
 });
-<<<<<<< HEAD
 },{"fields/controls/flexfields/ToggleBoxItem":86,"templates/fields/FlexibleFields/single-section-box.hbs":199}],86:[function(require,module,exports){
-=======
-},{"fields/controls/flexfields/ToggleBoxItem":84,"templates/fields/FlexibleFields/single-section-box.hbs":195}],84:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.FlexibleFields.ItemView
 var Notice = require('common/Notice');
 var tplSingleToggleBox = require('templates/fields/FlexibleFields/single-toggle-box.hbs');
@@ -5501,12 +4880,8 @@ module.exports = Backbone.View.extend({
       item: item,
       inputName: inputName,
       uid: this.model.get('itemId'),
-<<<<<<< HEAD
       fftype: this.model.get('fftype'),
       status: this.model.get('status')
-=======
-      fftype: this.model.get('fftype')
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     }));
     this.renderTabs($skeleton); // insert the tabs markup
     if (this.model.get('status') === 'hidden'){
@@ -5588,11 +4963,7 @@ module.exports = Backbone.View.extend({
     });
   }
 });
-<<<<<<< HEAD
 },{"common/Notice":57,"common/TinyMCE":59,"handlebars":246,"templates/fields/FlexibleFields/single-toggle-box.hbs":200}],87:[function(require,module,exports){
-=======
-},{"common/Notice":57,"common/TinyMCE":59,"handlebars":243,"templates/fields/FlexibleFields/single-toggle-box.hbs":196}],85:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fields/FieldControlBaseView');
 var GalleryController = require('./gallery/GalleryController');
 module.exports = BaseView.extend({
@@ -5676,11 +5047,7 @@ module.exports = BaseView.extend({
 
 
 
-<<<<<<< HEAD
 },{"./gallery/GalleryController":88,"fields/FieldControlBaseView":63}],88:[function(require,module,exports){
-=======
-},{"./gallery/GalleryController":86,"fields/FieldControlBaseView":63}],86:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /**
  * Main Field Controller
  */
@@ -5796,11 +5163,7 @@ module.exports = Backbone.View.extend({
   }
 });
 
-<<<<<<< HEAD
 },{"./ImageView":89,"common/Logger":56}],89:[function(require,module,exports){
-=======
-},{"./ImageView":87,"common/Logger":56}],87:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /**
  * Single Gallery Image View
  */
@@ -5909,11 +5272,7 @@ module.exports = Backbone.View.extend({
 
 });
 
-<<<<<<< HEAD
 },{"common/TinyMCE":59,"common/UI":60,"templates/fields/Gallery/single-image.hbs":202}],90:[function(require,module,exports){
-=======
-},{"common/TinyMCE":59,"common/UI":60,"templates/fields/Gallery/single-image.hbs":198}],88:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fields/FieldControlBaseView');
 var Gallery2Controller = require('./gallery2/Gallery2Controller');
 module.exports = BaseView.extend({
@@ -5942,11 +5301,7 @@ module.exports = BaseView.extend({
 
   }
 });
-<<<<<<< HEAD
 },{"./gallery2/Gallery2Controller":91,"fields/FieldControlBaseView":63}],91:[function(require,module,exports){
-=======
-},{"./gallery2/Gallery2Controller":89,"fields/FieldControlBaseView":63}],89:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /**
  * Main Field Controller
  */
@@ -6129,11 +5484,7 @@ module.exports = Backbone.View.extend({
   }
 });
 
-<<<<<<< HEAD
 },{"./ImageView":92,"common/Logger":56}],92:[function(require,module,exports){
-=======
-},{"./ImageView":90,"common/Logger":56}],90:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var tplSingleImage = require('templates/fields/Gallery2/single-image.hbs');
 module.exports = Backbone.View.extend({
   tagName: 'div',
@@ -6174,11 +5525,7 @@ module.exports = Backbone.View.extend({
   }
 });
 
-<<<<<<< HEAD
 },{"templates/fields/Gallery2/single-image.hbs":203}],93:[function(require,module,exports){
-=======
-},{"templates/fields/Gallery2/single-image.hbs":199}],91:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 var Utilities = require('common/Utilities');
 var Config = require('common/Config');
@@ -6402,11 +5749,7 @@ module.exports = BaseView.extend({
 
   }
 });
-<<<<<<< HEAD
 },{"../FieldControlBaseView":63,"common/Config":53,"common/Utilities":61}],94:[function(require,module,exports){
-=======
-},{"../FieldControlBaseView":63,"common/Config":53,"common/Utilities":61}],92:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -6424,11 +5767,7 @@ module.exports = BaseView.extend({
     this.render();
   }
 });
-<<<<<<< HEAD
 },{"../FieldControlBaseView":63}],95:[function(require,module,exports){
-=======
-},{"../FieldControlBaseView":63}],93:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -6529,11 +5868,7 @@ module.exports = BaseView.extend({
     wpLink.htmlUpdate = window.kb_restore_htmlUpdate;
   }
 });
-<<<<<<< HEAD
 },{"../FieldControlBaseView":63}],96:[function(require,module,exports){
-=======
-},{"../FieldControlBaseView":63}],94:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -6550,11 +5885,7 @@ module.exports = BaseView.extend({
   toString: function(){
   }
 });
-<<<<<<< HEAD
 },{"../FieldControlBaseView":63}],97:[function(require,module,exports){
-=======
-},{"../FieldControlBaseView":63}],95:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -6571,11 +5902,7 @@ module.exports = BaseView.extend({
     this.$("[data-kftype='multiselect']").multipleSelect('refresh');
   }
 });
-<<<<<<< HEAD
 },{"../FieldControlBaseView":63}],98:[function(require,module,exports){
-=======
-},{"../FieldControlBaseView":63}],96:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 var Ajax = require('common/Ajax');
 var Config = require('common/Config');
@@ -6615,11 +5942,7 @@ module.exports = BaseView.extend({
     })
   }
 });
-<<<<<<< HEAD
 },{"../FieldControlBaseView":63,"common/Ajax":50,"common/Config":53}],99:[function(require,module,exports){
-=======
-},{"../FieldControlBaseView":63,"common/Ajax":50,"common/Config":53}],97:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 var Utilities = require('common/Utilities');
 var Config = require('common/Config');
@@ -6639,7 +5962,6 @@ module.exports = BaseView.extend({
     this.$lng = this.$('[data-kb-osm-lng]');
     _.defer(function () {
       that.setupMap();
-<<<<<<< HEAD
       _.defer(function () {
         that.map.invalidateSize();
       });
@@ -6649,9 +5971,6 @@ module.exports = BaseView.extend({
       that.map.invalidateSize();
     })
 
-=======
-    });
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
   },
   updateMarker: function () {
     var lat = this.$lat.val();
@@ -6663,16 +5982,11 @@ module.exports = BaseView.extend({
   },
   setupMap: function () {
     var that = this;
-<<<<<<< HEAD
     this.map = L.map(this.uniq).setView([53.551086, 9.993682], 15);
-=======
-    this.map = L.map(this.uniq).setView([53.551086, 9.993682], 10);
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 18,
     }).addTo(this.map);
-<<<<<<< HEAD
     L.Control.geocoder(
       {
         collapsed: false,
@@ -6682,14 +5996,11 @@ module.exports = BaseView.extend({
       that.map.setView(e.geocode.center, 17);
     })
       .addTo(this.map);
-=======
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     this.map.on('click', function (e) {
       that.setMarker(e.latlng.lat, e.latlng.lng)
     });
     that.updateMarker();
-<<<<<<< HEAD
 
     $('.leaflet-control-geocoder').on('keydown', function (e) {
       if (e.which === 13) {
@@ -6697,8 +6008,6 @@ module.exports = BaseView.extend({
         e.preventDefault();
       }
     })
-=======
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
   },
   setMarker: function (lat, lng) {
     var that = this;
@@ -6709,20 +6018,12 @@ module.exports = BaseView.extend({
     that.marker = L.marker([lat, lng]).addTo(that.map);
     that.$lat.val(lat);
     that.$lng.val(lng);
-<<<<<<< HEAD
-=======
-    console.log(that.marker);
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
   },
   toString: function () {
     return '';
   }
 });
-<<<<<<< HEAD
 },{"../FieldControlBaseView":63,"common/Config":53,"common/Utilities":61}],100:[function(require,module,exports){
-=======
-},{"../FieldControlBaseView":63,"common/Config":53,"common/Utilities":61}],98:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   events: {
@@ -6762,11 +6063,7 @@ module.exports = BaseView.extend({
 });
 
 
-<<<<<<< HEAD
 },{"../FieldControlBaseView":63}],101:[function(require,module,exports){
-=======
-},{"../FieldControlBaseView":63}],99:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -6805,11 +6102,7 @@ module.exports = BaseView.extend({
     }
   }
 });
-<<<<<<< HEAD
 },{"../FieldControlBaseView":63}],102:[function(require,module,exports){
-=======
-},{"../FieldControlBaseView":63}],100:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 var SubareaConroller = require('fields/controls/subarea/SubareaController');
 module.exports = BaseView.extend({
@@ -6843,11 +6136,7 @@ module.exports = BaseView.extend({
     }
   }
 });
-<<<<<<< HEAD
 },{"../FieldControlBaseView":63,"fields/controls/subarea/SubareaController":106}],103:[function(require,module,exports){
-=======
-},{"../FieldControlBaseView":63,"fields/controls/subarea/SubareaController":104}],101:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ModuleBrowser = require('shared/ModuleBrowser/ModuleBrowserController');
 var Checks = require('common/Checks');
 var Config = require('common/Config');
@@ -6893,11 +6182,7 @@ module.exports = ModuleBrowser.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"common/Ajax":50,"common/Checks":52,"common/Config":53,"common/Notice":57,"shared/ModuleBrowser/ModuleBrowserController":145}],104:[function(require,module,exports){
-=======
-},{"common/Ajax":50,"common/Checks":52,"common/Config":53,"common/Notice":57,"shared/ModuleBrowser/ModuleBrowserController":142}],102:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var tplModuleView = require('fields/controls/subarea/templates/module-view.hbs');
 var Ajax = require('common/Ajax');
 var Config = require('common/Config');
@@ -7001,11 +6286,7 @@ module.exports = Backbone.View.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"backend/Views/FullscreenView":22,"common/Ajax":50,"common/Config":53,"common/Payload":58,"common/TinyMCE":59,"common/UI":60,"fields/controls/subarea/templates/module-view.hbs":108}],105:[function(require,module,exports){
-=======
-},{"backend/Views/FullscreenView":22,"common/Ajax":50,"common/Config":53,"common/Payload":58,"common/TinyMCE":59,"common/UI":60,"fields/controls/subarea/templates/module-view.hbs":106}],103:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ModuleBrowser = require('fields/controls/subarea/ModuleBrowser');
 var ModuleView = require('fields/controls/subarea/ModuleView');
 var Ajax = require('common/Ajax');
@@ -7124,11 +6405,7 @@ module.exports = Backbone.View.extend({
     }
   }
 });
-<<<<<<< HEAD
 },{"common/Ajax":50,"common/Config":53,"fields/controls/subarea/ModuleBrowser":103,"fields/controls/subarea/ModuleView":104,"fields/controls/subarea/templates/empty.hbs":107}],106:[function(require,module,exports){
-=======
-},{"common/Ajax":50,"common/Config":53,"fields/controls/subarea/ModuleBrowser":101,"fields/controls/subarea/ModuleView":102,"fields/controls/subarea/templates/empty.hbs":105}],104:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var SlotView = require('fields/controls/subarea/SlotView');
 var Logger = require('common/Logger');
 var ModuleView = require('frontend/Views/ModuleView');
@@ -7323,22 +6600,14 @@ module.exports = Backbone.View.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"common/Config":53,"common/Logger":56,"fields/controls/subarea/SlotView":105,"frontend/Views/ModuleView":141}],107:[function(require,module,exports){
-=======
-},{"common/Config":53,"common/Logger":56,"fields/controls/subarea/SlotView":103,"frontend/Views/ModuleView":138}],105:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div class=\"kb-submodule\">\n    <div class=\"kbsm-empty add-modules\">\n        <div>Modul auswählen</div>\n    </div>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],108:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],106:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -7351,11 +6620,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</div>\n</div>\n<div class=\"kbsm-actions\">\n    <div class=\"kbsm-action kbms-action--open\" data-kbtooltip=\"open form\"><span\n            class=\"dashicons dashicons-admin-generic\"></span></div>\n    <div class=\"kbsm-action kbms-action--delete\" data-kbtooltip=\"delete\"><span\n            class=\"dashicons dashicons-welcome-comments\"></span></div>\n    <div class=\"kbsm-action kbms-action--update\" data-kbtooltip=\"update\"><span\n            class=\"dashicons dashicons-update\"></span></div>\n</div>\n<div class=\"kbsm-inner\">\n    <div class=\"kbsm-button kbms-action--open\">Bearbeiten</div>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],109:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],107:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -7371,11 +6636,7 @@ module.exports = BaseView.extend({
     return '';
   }
 });
-<<<<<<< HEAD
 },{"../FieldControlBaseView":63}],110:[function(require,module,exports){
-=======
-},{"../FieldControlBaseView":63}],108:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 var TextMultipleController = require('fields/controls/text-multiple/TextMultipleController');
 module.exports = BaseView.extend({
@@ -7407,20 +6668,12 @@ module.exports = BaseView.extend({
     }
   }
 });
-<<<<<<< HEAD
 },{"../FieldControlBaseView":63,"fields/controls/text-multiple/TextMultipleController":111}],111:[function(require,module,exports){
-=======
-},{"../FieldControlBaseView":63,"fields/controls/text-multiple/TextMultipleController":109}],109:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseController = require('fields/MultipleControllerBase');
 module.exports = BaseController.extend({
   type: 'text-multiple'
 });
-<<<<<<< HEAD
 },{"fields/MultipleControllerBase":68}],112:[function(require,module,exports){
-=======
-},{"fields/MultipleControllerBase":68}],110:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -7463,11 +6716,7 @@ module.exports = BaseView.extend({
     $charlimit.html(charCount + " chars left");
   }
 });
-<<<<<<< HEAD
 },{"../FieldControlBaseView":63}],113:[function(require,module,exports){
-=======
-},{"../FieldControlBaseView":63}],111:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('../FieldControlBaseView');
 module.exports = BaseView.extend({
   initialize: function () {
@@ -7510,11 +6759,7 @@ module.exports = BaseView.extend({
       $charlimit.html(charCount + " chars left");
     }
 });
-<<<<<<< HEAD
 },{"../FieldControlBaseView":63}],114:[function(require,module,exports){
-=======
-},{"../FieldControlBaseView":63}],112:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports =
 {
   fields: {},
@@ -7529,11 +6774,7 @@ module.exports =
     return new this.fields[type]({model: new Backbone.Model(data)});
   }
 };
-<<<<<<< HEAD
 },{}],115:[function(require,module,exports){
-=======
-},{}],113:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 require('fieldsAPI/hbsHelpers');
 var Collection = require('fieldsAPI/FieldsAPICollection');
 KB.FieldsAPI = Collection;
@@ -7555,11 +6796,7 @@ KB.FieldsAPI.register(require('fieldsAPI/definitions/datetime'));
 KB.FieldsAPI.register(require('fieldsAPI/definitions/radioset'));
 
 
-<<<<<<< HEAD
 },{"fieldsAPI/FieldsAPICollection":114,"fieldsAPI/definitions/checkbox":117,"fieldsAPI/definitions/color":118,"fieldsAPI/definitions/date-multiple":119,"fieldsAPI/definitions/datetime":120,"fieldsAPI/definitions/editor":121,"fieldsAPI/definitions/file":123,"fieldsAPI/definitions/file-multiple":122,"fieldsAPI/definitions/image":124,"fieldsAPI/definitions/link":125,"fieldsAPI/definitions/medium":126,"fieldsAPI/definitions/oembed":127,"fieldsAPI/definitions/radioset":128,"fieldsAPI/definitions/select":129,"fieldsAPI/definitions/text":131,"fieldsAPI/definitions/text-multiple":130,"fieldsAPI/definitions/textarea":132,"fieldsAPI/hbsHelpers":133}],116:[function(require,module,exports){
-=======
-},{"fieldsAPI/FieldsAPICollection":112,"fieldsAPI/definitions/checkbox":115,"fieldsAPI/definitions/color":116,"fieldsAPI/definitions/date-multiple":117,"fieldsAPI/definitions/datetime":118,"fieldsAPI/definitions/editor":119,"fieldsAPI/definitions/file":120,"fieldsAPI/definitions/image":121,"fieldsAPI/definitions/link":122,"fieldsAPI/definitions/medium":123,"fieldsAPI/definitions/oembed":124,"fieldsAPI/definitions/radioset":125,"fieldsAPI/definitions/select":126,"fieldsAPI/definitions/text":128,"fieldsAPI/definitions/text-multiple":127,"fieldsAPI/definitions/textarea":129,"fieldsAPI/hbsHelpers":130}],114:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports = Backbone.View.extend({
   tagName: 'div',
   className: 'kb-dyn-field',
@@ -7618,10 +6855,7 @@ module.exports = Backbone.View.extend({
     return index + this.model.get('fieldId') + this.model.get('primeKey') + this.model.get('type');
   }
 });
-<<<<<<< HEAD
 },{}],117:[function(require,module,exports){
-=======
-},{}],115:[function(require,module,exports){
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/Checkbox',
@@ -7638,29 +6872,7 @@ module.exports = BaseView.extend({
 
 
 
-},{"fieldsAPI/definitions/baseView":114,"templates/fields/Checkbox.hbs":189}],116:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
-var BaseView = require('fieldsAPI/definitions/baseView');
-module.exports = BaseView.extend({
-  templatePath: 'fields/Checkbox',
-  template: require('templates/fields/Checkbox.hbs'),
-  type: 'checkbox',
-  render: function () {
-    return this.template({
-      model: this.model.toJSON()
-    });
-  }
-});
-
-
-
-
-
-<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":116,"templates/fields/Checkbox.hbs":192}],118:[function(require,module,exports){
-=======
-},{"fieldsAPI/definitions/baseView":114,"templates/fields/Color.hbs":190}],117:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/Color',
@@ -7756,49 +6968,7 @@ module.exports = BaseView.extend({
 
 
 
-<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":116,"templates/fields/Datetime.hbs":195}],121:[function(require,module,exports){
-=======
-},{"fieldsAPI/definitions/baseView":114,"templates/fields/DateMultiple.hbs":191}],118:[function(require,module,exports){
-var BaseView = require('fieldsAPI/definitions/baseView');
-module.exports = BaseView.extend({
-  templatePath: 'fields/DateTime',
-  template: require('templates/fields/Datetime.hbs'),
-  type: 'datetime',
-  render: function () {
-    var el = this.template({
-      model: this.model.toJSON()
-    });
-    this.setElement(el);
-    return this.$el;
-  },
-  postRender: function(){
-    var that = this;
-    this.defaults = {
-      format: 'd.m.Y H:i',
-      inline: false,
-      mask: true,
-      lang: 'de',
-      allowBlank: true,
-      onChangeDateTime: function (current, $input) {
-        that.$unixIn.val(current.dateFormat('unixtime'));
-        that.$sqlIn.val(current.dateFormat('Y-m-d H:i:s'));
-      }
-    };
-    this.settings = this.model.get('settings') || {};
-    this.$unixIn = this.$('.kb-datetimepicker--js-unix');
-    this.$sqlIn = this.$('.kb-datetimepicker--js-sql');
-    this.$('.kb-datetimepicker').datetimepicker(_.extend(this.defaults, this.settings));
-  }
-  
-});
-
-
-
-
-
-},{"fieldsAPI/definitions/baseView":114,"templates/fields/Datetime.hbs":192}],119:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var TinyMCE = require('common/TinyMCE');
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
@@ -7843,7 +7013,6 @@ module.exports = BaseView.extend({
 
   }
 });
-<<<<<<< HEAD
 },{"common/TinyMCE":59,"fieldsAPI/definitions/baseView":116,"templates/fields/Editor.hbs":196}],122:[function(require,module,exports){
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
@@ -7954,9 +7123,6 @@ module.exports = BaseView.extend({
 
 
 },{"fieldsAPI/definitions/baseView":116,"templates/fields/FileMultiple.hbs":198}],123:[function(require,module,exports){
-=======
-},{"common/TinyMCE":59,"fieldsAPI/definitions/baseView":114,"templates/fields/Editor.hbs":193}],120:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/File',
@@ -7993,11 +7159,7 @@ module.exports = BaseView.extend({
 
 
 
-<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":116,"templates/fields/File.hbs":197}],124:[function(require,module,exports){
-=======
-},{"fieldsAPI/definitions/baseView":114,"templates/fields/File.hbs":194}],121:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //var Field = require('fields/controls/image');
 var BaseView = require('fieldsAPI/definitions/baseView');
 var Utilities = require('common/Utilities');
@@ -8038,11 +7200,7 @@ module.exports = BaseView.extend({
     }
   }
 });
-<<<<<<< HEAD
 },{"common/Config":53,"common/Utilities":61,"fieldsAPI/definitions/baseView":116,"templates/fields/Image.hbs":204}],125:[function(require,module,exports){
-=======
-},{"common/Config":53,"common/Utilities":61,"fieldsAPI/definitions/baseView":114,"templates/fields/Image.hbs":200}],122:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/Link',
@@ -8062,11 +7220,7 @@ module.exports = BaseView.extend({
     }
   }
 });
-<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":116,"templates/fields/Link.hbs":205}],126:[function(require,module,exports){
-=======
-},{"fieldsAPI/definitions/baseView":114,"templates/fields/Link.hbs":201}],123:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/Medium',
@@ -8089,11 +7243,7 @@ module.exports = BaseView.extend({
 
 
 
-<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":116,"templates/fields/Medium.hbs":206}],127:[function(require,module,exports){
-=======
-},{"fieldsAPI/definitions/baseView":114,"templates/fields/Medium.hbs":202}],124:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/Oembed',
@@ -8113,11 +7263,7 @@ module.exports = BaseView.extend({
 
 
 
-<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":116,"templates/fields/Oembed.hbs":207}],128:[function(require,module,exports){
-=======
-},{"fieldsAPI/definitions/baseView":114,"templates/fields/Oembed.hbs":203}],125:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/Radioset',
@@ -8134,11 +7280,7 @@ module.exports = BaseView.extend({
 
 
 
-<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":116,"templates/fields/Radioset.hbs":208}],129:[function(require,module,exports){
-=======
-},{"fieldsAPI/definitions/baseView":114,"templates/fields/Radioset.hbs":204}],126:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/Text',
@@ -8155,11 +7297,7 @@ module.exports = BaseView.extend({
 
 
 
-<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":116,"templates/fields/Select.hbs":209}],130:[function(require,module,exports){
-=======
-},{"fieldsAPI/definitions/baseView":114,"templates/fields/Select.hbs":205}],127:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/TextMultiple',
@@ -8179,11 +7317,7 @@ module.exports = BaseView.extend({
 
 
 
-<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":116,"templates/fields/TextMultiple.hbs":211}],131:[function(require,module,exports){
-=======
-},{"fieldsAPI/definitions/baseView":114,"templates/fields/TextMultiple.hbs":207}],128:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   templatePath: 'fields/Text',
@@ -8209,11 +7343,7 @@ module.exports = BaseView.extend({
 
 
 
-<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":116,"templates/fields/Text.hbs":210}],132:[function(require,module,exports){
-=======
-},{"fieldsAPI/definitions/baseView":114,"templates/fields/Text.hbs":206}],129:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('fieldsAPI/definitions/baseView');
 module.exports = BaseView.extend({
   type: 'textarea',
@@ -8228,11 +7358,7 @@ module.exports = BaseView.extend({
     return '';
   }
 });
-<<<<<<< HEAD
 },{"fieldsAPI/definitions/baseView":116,"templates/fields/Textarea.hbs":212}],133:[function(require,module,exports){
-=======
-},{"fieldsAPI/definitions/baseView":114,"templates/fields/Textarea.hbs":208}],130:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Handlebars = require("hbsfy/runtime");
 Handlebars.registerHelper("debug", function (optionalValue) {
   console.log("Current Context");
@@ -8284,11 +7410,7 @@ Handlebars.registerHelper('trimString', function(passedString, length) {
 
   return new Handlebars.SafeString(theString)
 });
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],134:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],131:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /**
  * Creates the individual module-actions controls
  * like: sortable, delete, update
@@ -8416,11 +7538,7 @@ module.exports = Backbone.View.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"./modulecontrols/DeleteControl":136,"./modulecontrols/DraftControl":137,"./modulecontrols/EditControl":138,"./modulecontrols/MoveControl":139,"./modulecontrols/UpdateControl":140,"templates/frontend/module-controls.hbs":214}],135:[function(require,module,exports){
-=======
-},{"./modulecontrols/DeleteControl":133,"./modulecontrols/DraftControl":134,"./modulecontrols/EditControl":135,"./modulecontrols/MoveControl":136,"./modulecontrols/UpdateControl":137,"templates/frontend/module-controls.hbs":210}],132:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Frontend.ModuleMenuItemView
 module.exports = Backbone.View.extend({
   tagName: 'div',
@@ -8434,11 +7552,7 @@ module.exports = Backbone.View.extend({
     this.remove();
   }
 });
-<<<<<<< HEAD
 },{}],136:[function(require,module,exports){
-=======
-},{}],133:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Frontend.ModuleDelete
 var ModuleMenuItem = require('frontend/Views/ModuleControls/modulecontrols/ControlsBaseView');
 var Check = require('common/Checks');
@@ -8482,11 +7596,7 @@ module.exports = ModuleMenuItem.extend({
     return Check.userCan('delete_kontentblocks');
   }
 });
-<<<<<<< HEAD
 },{"common/Ajax":50,"common/Checks":52,"common/Config":53,"common/Notice":57,"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":135}],137:[function(require,module,exports){
-=======
-},{"common/Ajax":50,"common/Checks":52,"common/Config":53,"common/Notice":57,"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":132}],134:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Frontend.ModuleMove
 var ModuleMenuItem = require('frontend/Views/ModuleControls/modulecontrols/ControlsBaseView');
 module.exports = ModuleMenuItem.extend({
@@ -8509,11 +7619,7 @@ module.exports = ModuleMenuItem.extend({
     }
   }
 });
-<<<<<<< HEAD
 },{"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":135}],138:[function(require,module,exports){
-=======
-},{"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":132}],135:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ModuleMenuItem = require('frontend/Views/ModuleControls/modulecontrols/ControlsBaseView');
 var Check = require('common/Checks');
 module.exports = ModuleMenuItem.extend({
@@ -8534,11 +7640,7 @@ module.exports = ModuleMenuItem.extend({
     return Check.userCan('edit_kontentblocks');
   }
 });
-<<<<<<< HEAD
 },{"common/Checks":52,"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":135}],139:[function(require,module,exports){
-=======
-},{"common/Checks":52,"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":132}],136:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Frontend.ModuleMove
 var ModuleMenuItem = require('frontend/Views/ModuleControls/modulecontrols/ControlsBaseView');
 var Check = require('common/Checks');
@@ -8555,11 +7657,7 @@ module.exports = ModuleMenuItem.extend({
     return Check.userCan('edit_kontentblocks') && this.Parent.model.Area.get('sortable') && !this.model.get('submodule');
   }
 });
-<<<<<<< HEAD
 },{"common/Checks":52,"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":135}],140:[function(require,module,exports){
-=======
-},{"common/Checks":52,"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":132}],137:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Frontend.ModuleUpdate
 var ModuleMenuItem = require('frontend/Views/ModuleControls/modulecontrols/ControlsBaseView');
 var Check = require('common/Checks');
@@ -8611,11 +7709,7 @@ module.exports = ModuleMenuItem.extend({
     return Check.userCan('edit_kontentblocks');
   }
 });
-<<<<<<< HEAD
 },{"common/Checks":52,"common/Config":53,"common/Notice":57,"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":135}],141:[function(require,module,exports){
-=======
-},{"common/Checks":52,"common/Config":53,"common/Notice":57,"frontend/Views/ModuleControls/modulecontrols/ControlsBaseView":132}],138:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ModuleControlsView = require('frontend/Views/ModuleControls/ModuleControls');
 var Check = require('common/Checks');
 var ModuleStatusBarView = require('shared/ModuleStatusBar/ModuleStatusBarView');
@@ -8764,11 +7858,7 @@ module.exports = Backbone.View.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"common/Checks":52,"frontend/Views/ModuleControls/ModuleControls":134,"shared/ModuleStatusBar/ModuleStatusBarView":153,"shared/ModuleStatusBar/status/PublishStatus":157,"shared/ModuleStatusBar/status/TemplateStatus":166,"templates/frontend/module-placeholder.hbs":215}],142:[function(require,module,exports){
-=======
-},{"common/Checks":52,"frontend/Views/ModuleControls/ModuleControls":131,"shared/ModuleStatusBar/ModuleStatusBarView":150,"shared/ModuleStatusBar/status/PublishStatus":154,"shared/ModuleStatusBar/status/TemplateStatus":163,"templates/frontend/module-placeholder.hbs":211}],139:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var tplBatchDelete = require('templates/backend/batch-delete.hbs');
 var Ajax = require('common/Ajax');
 var Config = require('common/Config');
@@ -8849,11 +7939,7 @@ var BatchDeleteController = Backbone.View.extend({
 });
 
 module.exports = new BatchDeleteController();
-<<<<<<< HEAD
 },{"common/Ajax":50,"common/Config":53,"common/I18n":54,"common/TinyMCE":59,"templates/backend/batch-delete.hbs":170}],143:[function(require,module,exports){
-=======
-},{"common/Ajax":50,"common/Config":53,"common/I18n":54,"common/TinyMCE":59,"templates/backend/batch-delete.hbs":167}],140:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Notice = require('common/Notice');
 var tplChangeObserver = require('templates/frontend/change-observer.hbs');
 var I18n = require('common/I18n');
@@ -8914,11 +8000,7 @@ module.exports = Backbone.View.extend({
 
 
 });
-<<<<<<< HEAD
 },{"common/Config":53,"common/I18n":54,"common/Notice":57,"templates/frontend/change-observer.hbs":213}],144:[function(require,module,exports){
-=======
-},{"common/Config":53,"common/I18n":54,"common/Notice":57,"templates/frontend/change-observer.hbs":209}],141:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports = Backbone.Collection.extend({
 
   initialize: function(){
@@ -8932,11 +8014,7 @@ module.exports = Backbone.Collection.extend({
   }
 
 });
-<<<<<<< HEAD
 },{}],145:[function(require,module,exports){
-=======
-},{}],142:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.ModuleBrowser
 var ModuleDefinitions = require('shared/ModuleBrowser/ModuleBrowserDefinitions');
 var ModuleDefModel = require('shared/ModuleBrowser/ModuleDefinitionModel');
@@ -9182,11 +8260,7 @@ module.exports = Backbone.View.extend({
     return fullDefs;
   }
 });
-<<<<<<< HEAD
 },{"common/Ajax":50,"common/Checks":52,"common/Config":53,"common/Notice":57,"common/Payload":58,"common/TinyMCE":59,"shared/ModuleBrowser/ModuleBrowserDefinitions":146,"shared/ModuleBrowser/ModuleBrowserDescriptions":147,"shared/ModuleBrowser/ModuleBrowserNavigation":150,"shared/ModuleBrowser/ModuleDefinitionModel":152,"templates/backend/modulebrowser/module-browser.hbs":176}],146:[function(require,module,exports){
-=======
-},{"common/Ajax":50,"common/Checks":52,"common/Config":53,"common/Notice":57,"common/Payload":58,"common/TinyMCE":59,"shared/ModuleBrowser/ModuleBrowserDefinitions":143,"shared/ModuleBrowser/ModuleBrowserDescriptions":144,"shared/ModuleBrowser/ModuleBrowserNavigation":147,"shared/ModuleBrowser/ModuleDefinitionModel":149,"templates/backend/modulebrowser/module-browser.hbs":173}],143:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var Payload = require('common/Payload');
 var Checks = require('common/Checks');
 
@@ -9248,11 +8322,7 @@ module.exports = Backbone.Collection.extend({
     return cats;
   }
 });
-<<<<<<< HEAD
 },{"common/Checks":52,"common/Payload":58}],147:[function(require,module,exports){
-=======
-},{"common/Payload":58}],144:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.ModuleBrowserModuleDescription
 var tplModuleTemplateDescription = require('templates/backend/modulebrowser/module-template-description.hbs');
 var tplModuleDescription = require('templates/backend/modulebrowser/module-description.hbs');
@@ -9290,11 +8360,7 @@ module.exports = Backbone.View.extend({
   }
 });
 
-<<<<<<< HEAD
 },{"templates/backend/modulebrowser/module-description.hbs":177,"templates/backend/modulebrowser/module-template-description.hbs":179}],148:[function(require,module,exports){
-=======
-},{"templates/backend/modulebrowser/module-description.hbs":174,"templates/backend/modulebrowser/module-template-description.hbs":176}],145:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.ModuleBrowserModulesList
 var ListItem = require('shared/ModuleBrowser/ModuleBrowserListItem');
 module.exports = Backbone.View.extend({
@@ -9334,11 +8400,7 @@ module.exports = Backbone.View.extend({
   render: function(){
   }
 });
-<<<<<<< HEAD
 },{"shared/ModuleBrowser/ModuleBrowserListItem":149}],149:[function(require,module,exports){
-=======
-},{"shared/ModuleBrowser/ModuleBrowserListItem":146}],146:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.ModuleBrowserListItem
 var tplTemplateListItem = require('templates/backend/modulebrowser/module-template-list-item.hbs');
 var tplListItem = require('templates/backend/modulebrowser/module-list-item.hbs');
@@ -9412,11 +8474,7 @@ module.exports = Backbone.View.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"templates/backend/modulebrowser/module-list-item.hbs":178,"templates/backend/modulebrowser/module-template-list-item.hbs":180,"templates/backend/modulebrowser/poster.hbs":181}],150:[function(require,module,exports){
-=======
-},{"templates/backend/modulebrowser/module-list-item.hbs":175,"templates/backend/modulebrowser/module-template-list-item.hbs":177,"templates/backend/modulebrowser/poster.hbs":178}],147:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ModuleBrowserTabItemView = require('shared/ModuleBrowser/ModuleBrowserTabItemView');
 module.exports = Backbone.View.extend({
   catSet: false,
@@ -9432,11 +8490,7 @@ module.exports = Backbone.View.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"shared/ModuleBrowser/ModuleBrowserTabItemView":151}],151:[function(require,module,exports){
-=======
-},{"shared/ModuleBrowser/ModuleBrowserTabItemView":148}],148:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ModuleBrowserList = require('shared/ModuleBrowser/ModuleBrowserList');
 module.exports = Backbone.View.extend({
   initialize: function (options) {
@@ -9478,11 +8532,7 @@ module.exports = Backbone.View.extend({
     this.listRenderer.update();
   }
 });
-<<<<<<< HEAD
 },{"shared/ModuleBrowser/ModuleBrowserList":148}],152:[function(require,module,exports){
-=======
-},{"shared/ModuleBrowser/ModuleBrowserList":145}],149:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.ModuleDefinition
 module.exports = Backbone.Model.extend({
   initialize: function () {
@@ -9496,11 +8546,7 @@ module.exports = Backbone.Model.extend({
     }());
   }
 });
-<<<<<<< HEAD
 },{}],153:[function(require,module,exports){
-=======
-},{}],150:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var ControlsView = require('backend/Views/ModuleControls/ControlsView');
 
 module.exports = ControlsView.extend({
@@ -9513,11 +8559,7 @@ module.exports = ControlsView.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"backend/Views/ModuleControls/ControlsView":23}],154:[function(require,module,exports){
-=======
-},{"backend/Views/ModuleControls/ControlsView":23}],151:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('backend/Views/BaseControlView');
 var tplDraftStatus = require('templates/backend/status/draft.hbs');
 var Ajax = require('common/Ajax');
@@ -9568,11 +8610,7 @@ module.exports = BaseView.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"backend/Views/BaseControlView":13,"common/Ajax":50,"common/Checks":52,"common/Config":53,"common/I18n":54,"common/Notice":57,"templates/backend/status/draft.hbs":182}],155:[function(require,module,exports){
-=======
-},{"backend/Views/BaseControlView":13,"common/Ajax":50,"common/Config":53,"common/I18n":54,"common/Notice":57,"templates/backend/status/draft.hbs":179}],152:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('backend/Views/BaseControlView');
 var tplLoggedInStatus = require('templates/backend/status/loggedin.hbs');
 var Checks = require('common/Checks');
@@ -9603,11 +8641,7 @@ module.exports = BaseView.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"backend/Views/BaseControlView":13,"common/Checks":52,"templates/backend/status/loggedin.hbs":183}],156:[function(require,module,exports){
-=======
-},{"backend/Views/BaseControlView":13,"templates/backend/status/loggedin.hbs":180}],153:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 //KB.Backbone.Backend.ModuleDelete
 var BaseView = require('backend/Views/BaseControlView');
 module.exports = BaseView.extend({
@@ -9621,11 +8655,7 @@ module.exports = BaseView.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"backend/Views/BaseControlView":13}],157:[function(require,module,exports){
-=======
-},{"backend/Views/BaseControlView":13}],154:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('backend/Views/BaseControlView');
 var tplPublishStatus = require('templates/backend/status/publish.hbs');
 var Ajax = require('common/Ajax');
@@ -9678,11 +8708,7 @@ module.exports = BaseView.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"backend/Views/BaseControlView":13,"common/Ajax":50,"common/Checks":52,"common/Config":53,"common/I18n":54,"templates/backend/status/publish.hbs":184}],158:[function(require,module,exports){
-=======
-},{"backend/Views/BaseControlView":13,"common/Ajax":50,"common/Config":53,"common/I18n":54,"templates/backend/status/publish.hbs":181}],155:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var tplSettingsModal = require('templates/backend/status/settings/modal-inner.hbs');
 var SettingsTabController = require('./SettingsTabsController');
 var LoggedInOnly = require('./controls/LoggedInOnly');
@@ -9774,11 +8800,7 @@ module.exports = Backbone.View.extend({
 
   }
 });
-<<<<<<< HEAD
 },{"./SettingsTabsController":159,"./controls/LoggedInOnly":162,"./controls/WrapperClasses":163,"templates/backend/status/settings/modal-inner.hbs":186}],159:[function(require,module,exports){
-=======
-},{"./SettingsTabsController":156,"./controls/LoggedInOnly":159,"./controls/WrapperClasses":160,"templates/backend/status/settings/modal-inner.hbs":183}],156:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var TabSection = require('./TabSection');
 module.exports = Backbone.View.extend({
 
@@ -9811,11 +8833,7 @@ module.exports = Backbone.View.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"./TabSection":160}],160:[function(require,module,exports){
-=======
-},{"./TabSection":157}],157:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports = Backbone.View.extend({
 
   initialize: function (options) {
@@ -9831,11 +8849,7 @@ module.exports = Backbone.View.extend({
   }
 
 });
-<<<<<<< HEAD
 },{}],161:[function(require,module,exports){
-=======
-},{}],158:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports = Backbone.View.extend({
   className: 'kbms-field-wrap',
   initialize: function (options) {
@@ -9853,11 +8867,7 @@ module.exports = Backbone.View.extend({
     return null;
   }
 });
-<<<<<<< HEAD
 },{}],162:[function(require,module,exports){
-=======
-},{}],159:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var tpl = require('templates/backend/status/settings/loggedInOnly.hbs');
 var ControlView = require('./ControlView');
 module.exports = ControlView.extend({
@@ -9869,11 +8879,7 @@ module.exports = ControlView.extend({
     return this.$('input').is(':checked');
   }
 });
-<<<<<<< HEAD
 },{"./ControlView":161,"templates/backend/status/settings/loggedInOnly.hbs":185}],163:[function(require,module,exports){
-=======
-},{"./ControlView":158,"templates/backend/status/settings/loggedInOnly.hbs":182}],160:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var tpl = require('templates/backend/status/settings/wrapperClasses.hbs');
 var ControlView = require('./ControlView');
 module.exports = ControlView.extend({
@@ -9885,11 +8891,7 @@ module.exports = ControlView.extend({
     return this.$('input').val();
   }
 });
-<<<<<<< HEAD
 },{"./ControlView":161,"templates/backend/status/settings/wrapperClasses.hbs":187}],164:[function(require,module,exports){
-=======
-},{"./ControlView":158,"templates/backend/status/settings/wrapperClasses.hbs":184}],161:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var BaseView = require('backend/Views/BaseControlView');
 var SettingsController = require('shared/ModuleStatusBar/status/Settings/SettingsStatusController');
 var Checks = require('common/Checks');
@@ -9932,19 +8934,12 @@ module.exports = BaseView.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"backend/Views/BaseControlView":13,"common/Checks":52,"shared/ModuleStatusBar/status/Settings/SettingsStatusController":158}],165:[function(require,module,exports){
 var BaseView = require('backend/Views/BaseControlView');
 var CodemirrorOverlay = require('backend/Views/TemplateEditor/CodemirrorOverlay');
 var Config = require('common/Config');
 var Checks = require('common/Checks');
 
-=======
-},{"backend/Views/BaseControlView":13,"shared/ModuleStatusBar/status/Settings/SettingsStatusController":155}],162:[function(require,module,exports){
-var BaseView = require('backend/Views/BaseControlView');
-var CodemirrorOverlay = require('backend/Views/TemplateEditor/CodemirrorOverlay');
-var Config = require('common/Config');
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports = BaseView.extend({
   id: 'templateEditor',
   controller: null,
@@ -9956,7 +8951,6 @@ module.exports = BaseView.extend({
     this.moduleView = options.parent;
   },
   isValid: function () {
-<<<<<<< HEAD
 
     if (!Checks.userCan(this.model.get('settings').cap)){
       return false;
@@ -9965,8 +8959,6 @@ module.exports = BaseView.extend({
     if (this.model.get('class') === "ModuleGlobalModuleProxy"){
       return false;
     }
-=======
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     return Config.get('moduleTemplateEditor');
   },
   render: function () {
@@ -9980,19 +8972,12 @@ module.exports = BaseView.extend({
   }
 
 });
-<<<<<<< HEAD
 },{"backend/Views/BaseControlView":13,"backend/Views/TemplateEditor/CodemirrorOverlay":38,"common/Checks":52,"common/Config":53}],166:[function(require,module,exports){
 var BaseView = require('backend/Views/BaseControlView');
 var tplTemplatesStatus = require('templates/backend/status/templates.hbs');
 var CodemirrorOverlay = require('backend/Views/TemplateEditor/CodemirrorOverlay');
 var Checks = require('common/Checks');
 
-=======
-},{"backend/Views/BaseControlView":13,"backend/Views/TemplateEditor/CodemirrorOverlay":38,"common/Config":53}],163:[function(require,module,exports){
-var BaseView = require('backend/Views/BaseControlView');
-var tplTemplatesStatus = require('templates/backend/status/templates.hbs');
-var CodemirrorOverlay = require('backend/Views/TemplateEditor/CodemirrorOverlay');
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 module.exports = BaseView.extend({
   id: 'templates',
   controller: null,
@@ -10001,22 +8986,16 @@ module.exports = BaseView.extend({
     this.moduleView = options.parent;
     this.views = this.prepareViews(this.model.get('views'));
   },
-<<<<<<< HEAD
   attributes:{
     'aria-label': 'Modultemplate Auswahl'
   },
-=======
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
   events: {
     'dblclick': 'openEditor'
   },
   isValid: function () {
-<<<<<<< HEAD
     if (!Checks.userCan(this.model.get('settings').cap)){
       return false;
     }
-=======
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     return true;
   },
   render: function (views) {
@@ -10035,11 +9014,7 @@ module.exports = BaseView.extend({
     }, this);
   }
 });
-<<<<<<< HEAD
 },{"backend/Views/BaseControlView":13,"backend/Views/TemplateEditor/CodemirrorOverlay":38,"common/Checks":52,"templates/backend/status/templates.hbs":188}],167:[function(require,module,exports){
-=======
-},{"backend/Views/BaseControlView":13,"backend/Views/TemplateEditor/CodemirrorOverlay":38,"templates/backend/status/templates.hbs":185}],164:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /*
  Simple Get/Set implementation to set and get views
  No magic here
@@ -10099,11 +9074,7 @@ KB.ViewsCollection = function () {
 
 _.extend(KB.ViewsCollection.prototype, Backbone.Events);
 module.exports = KB.ViewsCollection;
-<<<<<<< HEAD
 },{}],168:[function(require,module,exports){
-=======
-},{}],165:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -10122,11 +9093,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "\n    </a>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],169:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],166:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10137,11 +9104,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],170:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],167:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10156,11 +9119,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],171:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],168:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10181,7 +9140,6 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</a>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],172:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
@@ -10190,16 +9148,6 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
 },"useData":true});
 
 },{"hbsfy/runtime":259}],173:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],169:[function(require,module,exports){
-// hbsfy compiled Handlebars template
-var HandlebarsCompiler = require('hbsfy/runtime');
-module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div class=\"kb-context-bar grid__col grid__col--12-of-12\">\n    <div class=\"kb-context-bar--actions\">\n\n    </div>\n</div>";
-},"useData":true});
-
-},{"hbsfy/runtime":245}],170:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10210,11 +9158,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</h3>\n        <a class=\"genericon genericon-close-alt close-browser kb-button\"></a>\n    </div>\n    <div class=\"kb-context-browser--body\">\n        <ul class=\"kb-global-areas-list\"></ul>\n    </div>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],174:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],171:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10225,22 +9169,14 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],175:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],172:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div class=\"kb-fullscreen--holder-wrap\">\n    <div class=\"kb-fullscreen--controls\">\n        <div class=\"kb-fullscreen-js-close\"><span class=\"dashicons dashicons-no-alt\"></span></div>\n    </div>\n    <div class=\"kb-nano\">\n        <div class=\"kb-fullscreen--inner kb-nano-content\">\n\n        </div>\n    </div>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],176:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],173:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10251,11 +9187,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\">\n\n    <div class=\"module-browser-header module-categories\">\n        <div class=\"genericon genericon-close-alt close-browser kb-button\"></div>\n        <div class=\"dashicons dashicons-list-view module-browser--switch__list-view kb-hide\"></div>\n        <div class=\"dashicons dashicons-exerpt-view module-browser--switch__excerpt-view kb-hide\"></div>\n        <div class=\"dashicons dashicons-grid-view module-browser--switch__grid-view kb-hide\"></div>\n    </div>\n\n    <div class=\"module-browser__left-column kb-nano\">\n        <div class=\"modules-list kb-nano-content\">\n\n        </div>\n    </div>\n\n    <div class=\"module-browser__right-column kb-nano\">\n        <div class=\"module-description kb-nano-content\">\n\n        </div>\n    </div>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],177:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],174:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10268,11 +9200,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</div>\n</h3>\n";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],178:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],175:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10287,11 +9215,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],179:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],176:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10302,11 +9226,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</h3>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],180:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],177:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10317,11 +9237,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],181:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],178:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10332,11 +9248,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\" >\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],182:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],179:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -10361,11 +9273,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
   return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.draft : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "");
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],183:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],180:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -10390,11 +9298,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
   return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.overrides : stack1)) != null ? stack1.loggedinonly : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "");
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],184:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],181:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -10419,11 +9323,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
   return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.draft : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "");
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],185:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],182:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -10440,22 +9340,14 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "           value=\"true\">\n  </label>\n";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],186:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],183:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div class=\"kb-status-settings-header\">\n    <span class=\"kb-modal-title\">Individual Module Settings</span>\n    <div class=\"kb-modal-close dashicons dashicons-no-alt\"></div>\n</div>\n<div class=\"kb-status-settings-inner\">\n    <div class=\"kb-status-settings--tab-nav\">\n        <ul class=\"kb-status-settings--tab-nav-list\"></ul>\n    </div>\n</div>\n\n";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],187:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],184:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10470,11 +9362,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\">\n</label>\n";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],188:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],185:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -10514,11 +9402,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "\n";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],189:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],186:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10537,11 +9421,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</div>\n    </div>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],190:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],187:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10552,22 +9432,14 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],191:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],188:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div class=\"kb-tpled--wrap\">\n\n    <div class=\"kb-tpled--header\">\n        <div class=\"kb-fullscreen--controls\">\n            <div class=\"kb-tpled--close\"><span class=\"dashicons dashicons-no-alt\"></span></div>\n        </div>\n    </div>\n    <div class=\"kb-tpled--inner kbflexwrap\">\n        <div class=\"kb-tpled--sidebar kbflex\">\n            <div class=\"kb-tpled--views\">\n                <h5>Templates</h5>\n                <div data-views></div>\n            </div>\n            <div class=\"kb-tpled--actions\">\n                <h5>Actions</h5>\n                <div data-controls></div>\n            </div>\n        </div>\n        <div class=\"kb-tpled--content kbflex\">\n            <div id=\"codemirror\"></div>\n\n        </div>\n        <div class=\"kb-tpled--sidebar kb-tpled--sidebar-right kbflex\">\n            <div class=\"kb-tpled--fields\">\n                <h5>Available Datafields</h5>\n                <div data-fields></div>\n            </div>\n        </div>\n    </div>\n    <div class=\"kb-tpled--footer\">\n\n    </div>\n\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],192:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],189:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -10586,11 +9458,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "</p>\n</div>\n";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],193:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],190:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10607,11 +9475,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</p>\n</div>\n";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],194:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],191:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10638,11 +9502,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "'\n           class='kb-datetimepicker--js-sql'>\n    <div data-kbfaction=\"delete\" class=\"kb-field--text-multiple-control kbf-delete\"><span class=\"dashicons dashicons-trash\" ></span></div>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],195:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],192:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10667,11 +9527,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</p>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],196:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],193:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10688,11 +9544,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</p>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],197:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],194:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10731,7 +9583,6 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</p>\n";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],198:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
@@ -10786,9 +9637,6 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
 },"useData":true});
 
 },{"hbsfy/runtime":259}],199:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],195:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10802,26 +9650,18 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + alias4(((helper = (helper = helpers.inputName || (depth0 != null ? depth0.inputName : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"inputName","hash":{},"data":data}) : helper)))
     + "[_meta][type]\" value=\""
     + alias4(((helper = (helper = helpers.fftype || (depth0 != null ? depth0.fftype : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fftype","hash":{},"data":data}) : helper)))
-<<<<<<< HEAD
     + "\">\n<input data-flexfield-visible type=\"hidden\" name=\""
     + alias4(((helper = (helper = helpers.inputName || (depth0 != null ? depth0.inputName : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"inputName","hash":{},"data":data}) : helper)))
     + "[_meta][status]\" value=\""
     + alias4(((helper = (helper = helpers.status || (depth0 != null ? depth0.status : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"status","hash":{},"data":data}) : helper)))
     + "\">\n\n<div class=\"flexible-fields--section-box\">\n    <div class=\"flexible-fields--section-title\">\n        <span class=\"genericon genericon-draggable flexible-fields--js-drag-handle\"></span>\n        <span class=\"dashicons dashicons-trash flexible-fields--js-trash\"></span>\n        <input type=\"text\" value=\""
-=======
-    + "\">\n<div class=\"flexible-fields--section-box\">\n    <div class=\"flexible-fields--section-title\">\n        <span class=\"genericon genericon-draggable flexible-fields--js-drag-handle\"></span>\n        <span class=\"dashicons dashicons-trash flexible-fields--js-trash\"></span>\n        <input type=\"text\" value=\""
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     + alias4(container.lambda(((stack1 = (depth0 != null ? depth0.item : depth0)) != null ? stack1.title : stack1), depth0))
     + "\" name=\""
     + alias4(((helper = (helper = helpers.inputName || (depth0 != null ? depth0.inputName : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"inputName","hash":{},"data":data}) : helper)))
     + "[_meta][title] \">\n    </div>\n    <div class=\"flexible-fields--section-box-inner\">\n\n    </div>\n    <div class=\"kb-field--tabs\">\n        <ul class=\"flexible-field--tab-nav\">\n        </ul>\n    </div>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],200:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],196:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10835,26 +9675,18 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + alias4(((helper = (helper = helpers.inputName || (depth0 != null ? depth0.inputName : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"inputName","hash":{},"data":data}) : helper)))
     + "[_meta][type]\" value=\""
     + alias4(((helper = (helper = helpers.fftype || (depth0 != null ? depth0.fftype : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fftype","hash":{},"data":data}) : helper)))
-<<<<<<< HEAD
     + "\">\n<input data-flexfield-visible type=\"hidden\" name=\""
     + alias4(((helper = (helper = helpers.inputName || (depth0 != null ? depth0.inputName : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"inputName","hash":{},"data":data}) : helper)))
     + "[_meta][status]\" value=\""
     + alias4(((helper = (helper = helpers.status || (depth0 != null ? depth0.status : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"status","hash":{},"data":data}) : helper)))
     + "\">\n<div class=\"flexible-fields--toggle-title\">\n    <h3>\n        <span class=\"genericon genericon-draggable flexible-fields--js-drag-handle\"></span>\n        <span class=\"genericon genericon-expand flexible-fields--js-toggle\" data-flexfields-toggle></span>\n        <span class=\"dashicons dashicons-trash flexible-fields--js-duplicate\"></span>\n        <span class=\"dashicons dashicons-trash flexible-fields--js-trash\"></span>\n        <span class=\"dashicons dashicons-trash flexible-fields--js-visibility\"></span>\n        <input type=\"text\" value=\""
-=======
-    + "\">\n<div class=\"flexible-fields--toggle-title\">\n    <h3>\n        <span class=\"genericon genericon-draggable flexible-fields--js-drag-handle\"></span>\n        <span class=\"genericon genericon-expand flexible-fields--js-toggle\"></span>\n        <span class=\"dashicons dashicons-trash flexible-fields--js-trash\"></span>\n        <input type=\"text\" value=\""
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     + alias4(container.lambda(((stack1 = (depth0 != null ? depth0.item : depth0)) != null ? stack1.title : stack1), depth0))
     + "\" name=\""
     + alias4(((helper = (helper = helpers.inputName || (depth0 != null ? depth0.inputName : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"inputName","hash":{},"data":data}) : helper)))
     + "[_meta][title]\">\n    </h3>\n</div>\n<div class=\"flexible-fields--toggle-box kb-hide\">\n    <div class=\"kb-field--tabs\">\n        <ul class=\"flexible-field--tab-nav\">\n\n        </ul>\n    </div>\n\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],201:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],197:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -10874,11 +9706,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],202:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],198:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10917,11 +9745,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "[remove]\" value=\"\">\n    </div>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],203:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],199:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -10936,11 +9760,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\">\n    </div>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],204:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],200:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -10954,11 +9774,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.lambda, alias3=container.escapeExpression, alias4=helpers.helperMissing;
 
-<<<<<<< HEAD
   return "<div class=\"kb-field kb-field kb-field--image kb-fieldapi-field\">\n    <div class='kb-field-image-wrapper' data-kbfield=\"image\">\n        <div role=\"button\" aria-label=\"Datei auswählen\" tabindex=\"0\" class='kb-js-add-image kb-field-image-container'>\n"
-=======
-  return "<div class=\"kb-field kb-field kb-field--image kb-fieldapi-field\">\n    <div class='kb-field-image-wrapper' data-kbfield=\"image\">\n        <div class='kb-js-add-image kb-field-image-container'>\n"
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.value : stack1)) != null ? stack1.url : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "        </div>\n        <div class=\"kb-field-image-meta "
     + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.hideMeta : stack1),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
@@ -10981,11 +9797,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "'>\n    </div>\n    <div class=\"kb-field-image--footer\">\n        <a class=\"button kb-js-reset-image\">Reset</a>\n    </div>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],205:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],201:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -11056,11 +9868,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "</p>\n\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],206:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],202:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -11077,11 +9885,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</p>\n</div>\n\n";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],207:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],203:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -11098,11 +9902,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</p>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],208:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],204:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data,blockParams,depths) {
@@ -11131,7 +9931,6 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "</p>\n</div>";
 },"useData":true,"useDepths":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],209:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
@@ -11147,24 +9946,10 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
   return "            <option "
     + ((stack1 = (helpers.ifCond || (depth0 && depth0.ifCond) || helpers.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.value : depth0),"==",((stack1 = (depths[1] != null ? depths[1].model : depths[1])) != null ? stack1.value : stack1),{"name":"ifCond","hash":{},"fn":container.program(8, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n                    value=\""
-=======
-},{"hbsfy/runtime":245}],205:[function(require,module,exports){
-// hbsfy compiled Handlebars template
-var HandlebarsCompiler = require('hbsfy/runtime');
-module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
-    return "            <option value=\"\">Auswählen</option>\n";
-},"3":function(container,depth0,helpers,partials,data,blockParams,depths) {
-    var stack1, alias1=container.lambda;
-
-  return "            <option "
-    + ((stack1 = (helpers.ifCond || (depth0 && depth0.ifCond) || helpers.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.value : depth0),"==",((stack1 = (depths[1] != null ? depths[1].model : depths[1])) != null ? stack1.value : stack1),{"name":"ifCond","hash":{},"fn":container.program(4, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "    value=\""
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     + container.escapeExpression(alias1((depth0 != null ? depth0.value : depth0), depth0))
     + "\">"
     + ((stack1 = alias1((depth0 != null ? depth0.name : depth0), depth0)) != null ? stack1 : "")
     + "</option>\n";
-<<<<<<< HEAD
 },"8":function(container,depth0,helpers,partials,data) {
     return "selected=\"selected\"";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
@@ -11180,30 +9965,12 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "    >\n"
     + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.showempty : stack1),{"name":"if","hash":{},"fn":container.program(5, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + ((stack1 = helpers.each.call(alias3,((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.options : stack1),{"name":"each","hash":{},"fn":container.program(7, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-=======
-},"4":function(container,depth0,helpers,partials,data) {
-    return "selected=\"selected\"";
-},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
-    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : (container.nullContext || {});
-
-  return "<div class=\"kb-field kb-js-field field-api-text kb-field--select\">\n    <label class=\"heading\">"
-    + alias2(alias1(((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.label : stack1), depth0))
-    + "</label>\n    <select name=\""
-    + alias2((helpers.fieldName || (depth0 && depth0.fieldName) || helpers.helperMissing).call(alias3,((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.baseId : stack1),((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.index : stack1),((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.primeKey : stack1),{"name":"fieldName","hash":{},"data":data}))
-    + "\">\n"
-    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.showempty : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + ((stack1 = helpers.each.call(alias3,((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.options : stack1),{"name":"each","hash":{},"fn":container.program(3, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     + "    </select>\n    <p class=\"description\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.description : stack1), depth0))
     + "</p>\n</div>";
 },"useData":true,"useDepths":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],210:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],206:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -11230,11 +9997,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "</p>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],211:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],207:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -11247,11 +10010,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\">\n    <div data-kbfaction=\"delete\" class=\"kb-field--text-multiple-control kbf-delete\"><span class=\"dashicons dashicons-trash\" ></span></div>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],212:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],208:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -11268,11 +10027,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</p>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],213:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],209:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -11283,11 +10038,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],214:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],210:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -11306,11 +10057,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "'>\n    <div class=\"kb-controls-wrap\"></div>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],215:[function(require,module,exports){
-=======
-},{"hbsfy/runtime":245}],211:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -11321,7 +10068,6 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "\n    <span>Start here.</span>\n    </p>\n</div>";
 },"useData":true});
 
-<<<<<<< HEAD
 },{"hbsfy/runtime":259}],216:[function(require,module,exports){
 
 },{}],217:[function(require,module,exports){
@@ -11334,323 +10080,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 var _handlebarsRuntime = require('./handlebars.runtime');
 
-=======
-},{"hbsfy/runtime":245}],212:[function(require,module,exports){
-/** vim: et:ts=4:sw=4:sts=4
- * @license amdefine 1.0.1 Copyright (c) 2011-2016, The Dojo Foundation All Rights Reserved.
- * Available via the MIT or new BSD license.
- * see: http://github.com/jrburke/amdefine for details
- */
-
-/*jslint node: true */
-/*global module, process */
-'use strict';
-
-/**
- * Creates a define for node.
- * @param {Object} module the "module" object that is defined by Node for the
- * current module.
- * @param {Function} [requireFn]. Node's require function for the current module.
- * It only needs to be passed in Node versions before 0.5, when module.require
- * did not exist.
- * @returns {Function} a define function that is usable for the current node
- * module.
- */
-function amdefine(module, requireFn) {
-    'use strict';
-    var defineCache = {},
-        loaderCache = {},
-        alreadyCalled = false,
-        path = require('path'),
-        makeRequire, stringRequire;
-
-    /**
-     * Trims the . and .. from an array of path segments.
-     * It will keep a leading path segment if a .. will become
-     * the first path segment, to help with module name lookups,
-     * which act like paths, but can be remapped. But the end result,
-     * all paths that use this function should look normalized.
-     * NOTE: this method MODIFIES the input array.
-     * @param {Array} ary the array of path segments.
-     */
-    function trimDots(ary) {
-        var i, part;
-        for (i = 0; ary[i]; i+= 1) {
-            part = ary[i];
-            if (part === '.') {
-                ary.splice(i, 1);
-                i -= 1;
-            } else if (part === '..') {
-                if (i === 1 && (ary[2] === '..' || ary[0] === '..')) {
-                    //End of the line. Keep at least one non-dot
-                    //path segment at the front so it can be mapped
-                    //correctly to disk. Otherwise, there is likely
-                    //no path mapping for a path starting with '..'.
-                    //This can still fail, but catches the most reasonable
-                    //uses of ..
-                    break;
-                } else if (i > 0) {
-                    ary.splice(i - 1, 2);
-                    i -= 2;
-                }
-            }
-        }
-    }
-
-    function normalize(name, baseName) {
-        var baseParts;
-
-        //Adjust any relative paths.
-        if (name && name.charAt(0) === '.') {
-            //If have a base name, try to normalize against it,
-            //otherwise, assume it is a top-level require that will
-            //be relative to baseUrl in the end.
-            if (baseName) {
-                baseParts = baseName.split('/');
-                baseParts = baseParts.slice(0, baseParts.length - 1);
-                baseParts = baseParts.concat(name.split('/'));
-                trimDots(baseParts);
-                name = baseParts.join('/');
-            }
-        }
-
-        return name;
-    }
-
-    /**
-     * Create the normalize() function passed to a loader plugin's
-     * normalize method.
-     */
-    function makeNormalize(relName) {
-        return function (name) {
-            return normalize(name, relName);
-        };
-    }
-
-    function makeLoad(id) {
-        function load(value) {
-            loaderCache[id] = value;
-        }
-
-        load.fromText = function (id, text) {
-            //This one is difficult because the text can/probably uses
-            //define, and any relative paths and requires should be relative
-            //to that id was it would be found on disk. But this would require
-            //bootstrapping a module/require fairly deeply from node core.
-            //Not sure how best to go about that yet.
-            throw new Error('amdefine does not implement load.fromText');
-        };
-
-        return load;
-    }
-
-    makeRequire = function (systemRequire, exports, module, relId) {
-        function amdRequire(deps, callback) {
-            if (typeof deps === 'string') {
-                //Synchronous, single module require('')
-                return stringRequire(systemRequire, exports, module, deps, relId);
-            } else {
-                //Array of dependencies with a callback.
-
-                //Convert the dependencies to modules.
-                deps = deps.map(function (depName) {
-                    return stringRequire(systemRequire, exports, module, depName, relId);
-                });
-
-                //Wait for next tick to call back the require call.
-                if (callback) {
-                    process.nextTick(function () {
-                        callback.apply(null, deps);
-                    });
-                }
-            }
-        }
-
-        amdRequire.toUrl = function (filePath) {
-            if (filePath.indexOf('.') === 0) {
-                return normalize(filePath, path.dirname(module.filename));
-            } else {
-                return filePath;
-            }
-        };
-
-        return amdRequire;
-    };
-
-    //Favor explicit value, passed in if the module wants to support Node 0.4.
-    requireFn = requireFn || function req() {
-        return module.require.apply(module, arguments);
-    };
-
-    function runFactory(id, deps, factory) {
-        var r, e, m, result;
-
-        if (id) {
-            e = loaderCache[id] = {};
-            m = {
-                id: id,
-                uri: __filename,
-                exports: e
-            };
-            r = makeRequire(requireFn, e, m, id);
-        } else {
-            //Only support one define call per file
-            if (alreadyCalled) {
-                throw new Error('amdefine with no module ID cannot be called more than once per file.');
-            }
-            alreadyCalled = true;
-
-            //Use the real variables from node
-            //Use module.exports for exports, since
-            //the exports in here is amdefine exports.
-            e = module.exports;
-            m = module;
-            r = makeRequire(requireFn, e, m, module.id);
-        }
-
-        //If there are dependencies, they are strings, so need
-        //to convert them to dependency values.
-        if (deps) {
-            deps = deps.map(function (depName) {
-                return r(depName);
-            });
-        }
-
-        //Call the factory with the right dependencies.
-        if (typeof factory === 'function') {
-            result = factory.apply(m.exports, deps);
-        } else {
-            result = factory;
-        }
-
-        if (result !== undefined) {
-            m.exports = result;
-            if (id) {
-                loaderCache[id] = m.exports;
-            }
-        }
-    }
-
-    stringRequire = function (systemRequire, exports, module, id, relId) {
-        //Split the ID by a ! so that
-        var index = id.indexOf('!'),
-            originalId = id,
-            prefix, plugin;
-
-        if (index === -1) {
-            id = normalize(id, relId);
-
-            //Straight module lookup. If it is one of the special dependencies,
-            //deal with it, otherwise, delegate to node.
-            if (id === 'require') {
-                return makeRequire(systemRequire, exports, module, relId);
-            } else if (id === 'exports') {
-                return exports;
-            } else if (id === 'module') {
-                return module;
-            } else if (loaderCache.hasOwnProperty(id)) {
-                return loaderCache[id];
-            } else if (defineCache[id]) {
-                runFactory.apply(null, defineCache[id]);
-                return loaderCache[id];
-            } else {
-                if(systemRequire) {
-                    return systemRequire(originalId);
-                } else {
-                    throw new Error('No module with ID: ' + id);
-                }
-            }
-        } else {
-            //There is a plugin in play.
-            prefix = id.substring(0, index);
-            id = id.substring(index + 1, id.length);
-
-            plugin = stringRequire(systemRequire, exports, module, prefix, relId);
-
-            if (plugin.normalize) {
-                id = plugin.normalize(id, makeNormalize(relId));
-            } else {
-                //Normalize the ID normally.
-                id = normalize(id, relId);
-            }
-
-            if (loaderCache[id]) {
-                return loaderCache[id];
-            } else {
-                plugin.load(id, makeRequire(systemRequire, exports, module, relId), makeLoad(id), {});
-
-                return loaderCache[id];
-            }
-        }
-    };
-
-    //Create a define function specific to the module asking for amdefine.
-    function define(id, deps, factory) {
-        if (Array.isArray(id)) {
-            factory = deps;
-            deps = id;
-            id = undefined;
-        } else if (typeof id !== 'string') {
-            factory = id;
-            id = deps = undefined;
-        }
-
-        if (deps && !Array.isArray(deps)) {
-            factory = deps;
-            deps = undefined;
-        }
-
-        if (!deps) {
-            deps = ['require', 'exports', 'module'];
-        }
-
-        //Set up properties for this module. If an ID, then use
-        //internal cache. If no ID, then use the external variables
-        //for this node module.
-        if (id) {
-            //Put the module in deep freeze until there is a
-            //require call for it.
-            defineCache[id] = [id, deps, factory];
-        } else {
-            runFactory(id, deps, factory);
-        }
-    }
-
-    //define.require, which has access to all the values in the
-    //cache. Useful for AMD modules that all have IDs in the file,
-    //but need to finally export a value to node based on one of those
-    //IDs.
-    define.require = function (id) {
-        if (loaderCache[id]) {
-            return loaderCache[id];
-        }
-
-        if (defineCache[id]) {
-            runFactory.apply(null, defineCache[id]);
-            return loaderCache[id];
-        }
-    };
-
-    define.amd = {};
-
-    return define;
-}
-
-module.exports = amdefine;
-
-},{"path":246}],213:[function(require,module,exports){
-
-},{}],214:[function(require,module,exports){
-'use strict';
-
-exports.__esModule = true;
-// istanbul ignore next
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _handlebarsRuntime = require('./handlebars.runtime');
-
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var _handlebarsRuntime2 = _interopRequireDefault(_handlebarsRuntime);
 
 // Compiler imports
@@ -11708,16 +10137,11 @@ exports['default'] = inst;
 module.exports = exports['default'];
 
 
-<<<<<<< HEAD
 },{"./handlebars.runtime":218,"./handlebars/compiler/ast":220,"./handlebars/compiler/base":221,"./handlebars/compiler/compiler":223,"./handlebars/compiler/javascript-compiler":225,"./handlebars/compiler/visitor":228,"./handlebars/no-conflict":242}],218:[function(require,module,exports){
-=======
-},{"./handlebars.runtime":215,"./handlebars/compiler/ast":217,"./handlebars/compiler/base":218,"./handlebars/compiler/compiler":220,"./handlebars/compiler/javascript-compiler":222,"./handlebars/compiler/visitor":225,"./handlebars/no-conflict":239}],215:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 'use strict';
 
 exports.__esModule = true;
 // istanbul ignore next
-<<<<<<< HEAD
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -11727,17 +10151,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 var _handlebarsBase = require('./handlebars/base');
 
-=======
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-// istanbul ignore next
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-
-var _handlebarsBase = require('./handlebars/base');
-
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var base = _interopRequireWildcard(_handlebarsBase);
 
 // Each of these augment the Handlebars object. No need to setup here.
@@ -11792,11 +10205,7 @@ exports['default'] = inst;
 module.exports = exports['default'];
 
 
-<<<<<<< HEAD
 },{"./handlebars/base":219,"./handlebars/exception":232,"./handlebars/no-conflict":242,"./handlebars/runtime":243,"./handlebars/safe-string":244,"./handlebars/utils":245}],219:[function(require,module,exports){
-=======
-},{"./handlebars/base":216,"./handlebars/exception":229,"./handlebars/no-conflict":239,"./handlebars/runtime":240,"./handlebars/safe-string":241,"./handlebars/utils":242}],216:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 'use strict';
 
 exports.__esModule = true;
@@ -11804,7 +10213,6 @@ exports.HandlebarsEnvironment = HandlebarsEnvironment;
 // istanbul ignore next
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-<<<<<<< HEAD
 
 var _utils = require('./utils');
 
@@ -11821,24 +10229,6 @@ var _logger = require('./logger');
 var _logger2 = _interopRequireDefault(_logger);
 
 var VERSION = '4.1.2';
-=======
-
-var _utils = require('./utils');
-
-var _exception = require('./exception');
-
-var _exception2 = _interopRequireDefault(_exception);
-
-var _helpers = require('./helpers');
-
-var _decorators = require('./decorators');
-
-var _logger = require('./logger');
-
-var _logger2 = _interopRequireDefault(_logger);
-
-var VERSION = '4.0.11';
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 exports.VERSION = VERSION;
 var COMPILER_REVISION = 7;
 
@@ -11921,11 +10311,7 @@ exports.createFrame = _utils.createFrame;
 exports.logger = _logger2['default'];
 
 
-<<<<<<< HEAD
 },{"./decorators":230,"./exception":232,"./helpers":233,"./logger":241,"./utils":245}],220:[function(require,module,exports){
-=======
-},{"./decorators":227,"./exception":229,"./helpers":230,"./logger":238,"./utils":242}],217:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 'use strict';
 
 exports.__esModule = true;
@@ -11958,11 +10344,7 @@ exports['default'] = AST;
 module.exports = exports['default'];
 
 
-<<<<<<< HEAD
 },{}],221:[function(require,module,exports){
-=======
-},{}],218:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 'use strict';
 
 exports.__esModule = true;
@@ -11974,15 +10356,9 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 // istanbul ignore next
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-<<<<<<< HEAD
 
 var _parser = require('./parser');
 
-=======
-
-var _parser = require('./parser');
-
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var _parser2 = _interopRequireDefault(_parser);
 
 var _whitespaceControl = require('./whitespace-control');
@@ -12018,11 +10394,7 @@ function parse(input, options) {
 }
 
 
-<<<<<<< HEAD
 },{"../utils":245,"./helpers":224,"./parser":226,"./whitespace-control":229}],222:[function(require,module,exports){
-=======
-},{"../utils":242,"./helpers":221,"./parser":223,"./whitespace-control":226}],219:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /* global define */
 'use strict';
 
@@ -12190,11 +10562,7 @@ exports['default'] = CodeGen;
 module.exports = exports['default'];
 
 
-<<<<<<< HEAD
 },{"../utils":245,"source-map":257}],223:[function(require,module,exports){
-=======
-},{"../utils":242,"source-map":247}],220:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /* eslint-disable new-cap */
 
 'use strict';
@@ -12284,14 +10652,7 @@ Compiler.prototype = {
       // cause backwards-compatibility issues... It's an old library...
       // eslint-disable-next-line guard-for-in
       for (var _name in knownHelpers) {
-<<<<<<< HEAD
         this.options.knownHelpers[_name] = knownHelpers[_name];
-=======
-        /* istanbul ignore else */
-        if (_name in knownHelpers) {
-          this.options.knownHelpers[_name] = knownHelpers[_name];
-        }
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
       }
     }
 
@@ -12776,11 +11137,7 @@ function transformLiteralToPath(sexpr) {
 }
 
 
-<<<<<<< HEAD
 },{"../exception":232,"../utils":245,"./ast":220}],224:[function(require,module,exports){
-=======
-},{"../exception":229,"../utils":242,"./ast":217}],221:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 'use strict';
 
 exports.__esModule = true;
@@ -12795,19 +11152,11 @@ exports.prepareBlock = prepareBlock;
 exports.prepareProgram = prepareProgram;
 exports.preparePartialBlock = preparePartialBlock;
 // istanbul ignore next
-<<<<<<< HEAD
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _exception = require('../exception');
 
-=======
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _exception = require('../exception');
-
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var _exception2 = _interopRequireDefault(_exception);
 
 function validateClose(open, close) {
@@ -12971,7 +11320,6 @@ function prepareBlock(openBlock, program, inverseAndProgram, close, inverted, lo
     closeStrip: close && close.strip,
     loc: this.locInfo(locInfo)
   };
-<<<<<<< HEAD
 }
 
 function prepareProgram(statements, loc) {
@@ -13020,61 +11368,10 @@ function preparePartialBlock(open, program, close, locInfo) {
 
 
 },{"../exception":232}],225:[function(require,module,exports){
-=======
-}
-
-function prepareProgram(statements, loc) {
-  if (!loc && statements.length) {
-    var firstLoc = statements[0].loc,
-        lastLoc = statements[statements.length - 1].loc;
-
-    /* istanbul ignore else */
-    if (firstLoc && lastLoc) {
-      loc = {
-        source: firstLoc.source,
-        start: {
-          line: firstLoc.start.line,
-          column: firstLoc.start.column
-        },
-        end: {
-          line: lastLoc.end.line,
-          column: lastLoc.end.column
-        }
-      };
-    }
-  }
-
-  return {
-    type: 'Program',
-    body: statements,
-    strip: {},
-    loc: loc
-  };
-}
-
-function preparePartialBlock(open, program, close, locInfo) {
-  validateClose(open, close);
-
-  return {
-    type: 'PartialBlockStatement',
-    name: open.path,
-    params: open.params,
-    hash: open.hash,
-    program: program,
-    openStrip: open.strip,
-    closeStrip: close && close.strip,
-    loc: this.locInfo(locInfo)
-  };
-}
-
-
-},{"../exception":229}],222:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 'use strict';
 
 exports.__esModule = true;
 // istanbul ignore next
-<<<<<<< HEAD
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -13088,21 +11385,6 @@ var _utils = require('../utils');
 
 var _codeGen = require('./code-gen');
 
-=======
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _base = require('../base');
-
-var _exception = require('../exception');
-
-var _exception2 = _interopRequireDefault(_exception);
-
-var _utils = require('../utils');
-
-var _codeGen = require('./code-gen');
-
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 var _codeGen2 = _interopRequireDefault(_codeGen);
 
 function Literal(value) {
@@ -14218,11 +12500,7 @@ exports['default'] = JavaScriptCompiler;
 module.exports = exports['default'];
 
 
-<<<<<<< HEAD
 },{"../base":219,"../exception":232,"../utils":245,"./code-gen":222}],226:[function(require,module,exports){
-=======
-},{"../base":216,"../exception":229,"../utils":242,"./code-gen":219}],223:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 // File ignored in coverage tests via setting in .istanbul.yml
 /* Jison generated parser */
 "use strict";
@@ -14234,12 +12512,7 @@ var handlebars = (function () {
         symbols_: { "error": 2, "root": 3, "program": 4, "EOF": 5, "program_repetition0": 6, "statement": 7, "mustache": 8, "block": 9, "rawBlock": 10, "partial": 11, "partialBlock": 12, "content": 13, "COMMENT": 14, "CONTENT": 15, "openRawBlock": 16, "rawBlock_repetition_plus0": 17, "END_RAW_BLOCK": 18, "OPEN_RAW_BLOCK": 19, "helperName": 20, "openRawBlock_repetition0": 21, "openRawBlock_option0": 22, "CLOSE_RAW_BLOCK": 23, "openBlock": 24, "block_option0": 25, "closeBlock": 26, "openInverse": 27, "block_option1": 28, "OPEN_BLOCK": 29, "openBlock_repetition0": 30, "openBlock_option0": 31, "openBlock_option1": 32, "CLOSE": 33, "OPEN_INVERSE": 34, "openInverse_repetition0": 35, "openInverse_option0": 36, "openInverse_option1": 37, "openInverseChain": 38, "OPEN_INVERSE_CHAIN": 39, "openInverseChain_repetition0": 40, "openInverseChain_option0": 41, "openInverseChain_option1": 42, "inverseAndProgram": 43, "INVERSE": 44, "inverseChain": 45, "inverseChain_option0": 46, "OPEN_ENDBLOCK": 47, "OPEN": 48, "mustache_repetition0": 49, "mustache_option0": 50, "OPEN_UNESCAPED": 51, "mustache_repetition1": 52, "mustache_option1": 53, "CLOSE_UNESCAPED": 54, "OPEN_PARTIAL": 55, "partialName": 56, "partial_repetition0": 57, "partial_option0": 58, "openPartialBlock": 59, "OPEN_PARTIAL_BLOCK": 60, "openPartialBlock_repetition0": 61, "openPartialBlock_option0": 62, "param": 63, "sexpr": 64, "OPEN_SEXPR": 65, "sexpr_repetition0": 66, "sexpr_option0": 67, "CLOSE_SEXPR": 68, "hash": 69, "hash_repetition_plus0": 70, "hashSegment": 71, "ID": 72, "EQUALS": 73, "blockParams": 74, "OPEN_BLOCK_PARAMS": 75, "blockParams_repetition_plus0": 76, "CLOSE_BLOCK_PARAMS": 77, "path": 78, "dataName": 79, "STRING": 80, "NUMBER": 81, "BOOLEAN": 82, "UNDEFINED": 83, "NULL": 84, "DATA": 85, "pathSegments": 86, "SEP": 87, "$accept": 0, "$end": 1 },
         terminals_: { 2: "error", 5: "EOF", 14: "COMMENT", 15: "CONTENT", 18: "END_RAW_BLOCK", 19: "OPEN_RAW_BLOCK", 23: "CLOSE_RAW_BLOCK", 29: "OPEN_BLOCK", 33: "CLOSE", 34: "OPEN_INVERSE", 39: "OPEN_INVERSE_CHAIN", 44: "INVERSE", 47: "OPEN_ENDBLOCK", 48: "OPEN", 51: "OPEN_UNESCAPED", 54: "CLOSE_UNESCAPED", 55: "OPEN_PARTIAL", 60: "OPEN_PARTIAL_BLOCK", 65: "OPEN_SEXPR", 68: "CLOSE_SEXPR", 72: "ID", 73: "EQUALS", 75: "OPEN_BLOCK_PARAMS", 77: "CLOSE_BLOCK_PARAMS", 80: "STRING", 81: "NUMBER", 82: "BOOLEAN", 83: "UNDEFINED", 84: "NULL", 85: "DATA", 87: "SEP" },
         productions_: [0, [3, 2], [4, 1], [7, 1], [7, 1], [7, 1], [7, 1], [7, 1], [7, 1], [7, 1], [13, 1], [10, 3], [16, 5], [9, 4], [9, 4], [24, 6], [27, 6], [38, 6], [43, 2], [45, 3], [45, 1], [26, 3], [8, 5], [8, 5], [11, 5], [12, 3], [59, 5], [63, 1], [63, 1], [64, 5], [69, 1], [71, 3], [74, 3], [20, 1], [20, 1], [20, 1], [20, 1], [20, 1], [20, 1], [20, 1], [56, 1], [56, 1], [79, 2], [78, 1], [86, 3], [86, 1], [6, 0], [6, 2], [17, 1], [17, 2], [21, 0], [21, 2], [22, 0], [22, 1], [25, 0], [25, 1], [28, 0], [28, 1], [30, 0], [30, 2], [31, 0], [31, 1], [32, 0], [32, 1], [35, 0], [35, 2], [36, 0], [36, 1], [37, 0], [37, 1], [40, 0], [40, 2], [41, 0], [41, 1], [42, 0], [42, 1], [46, 0], [46, 1], [49, 0], [49, 2], [50, 0], [50, 1], [52, 0], [52, 2], [53, 0], [53, 1], [57, 0], [57, 2], [58, 0], [58, 1], [61, 0], [61, 2], [62, 0], [62, 1], [66, 0], [66, 2], [67, 0], [67, 1], [70, 1], [70, 2], [76, 1], [76, 2]],
-<<<<<<< HEAD
         performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate, $$, _$) {
-=======
-        performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate, $$, _$
-        /**/) {
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
             var $0 = $$.length - 1;
             switch (yystate) {
@@ -14442,7 +12715,6 @@ var handlebars = (function () {
                     $$[$0 - 1].push($$[$0]);
                     break;
                 case 70:
-<<<<<<< HEAD
                     this.$ = [];
                     break;
                 case 71:
@@ -14463,28 +12735,6 @@ var handlebars = (function () {
                 case 86:
                     this.$ = [];
                     break;
-=======
-                    this.$ = [];
-                    break;
-                case 71:
-                    $$[$0 - 1].push($$[$0]);
-                    break;
-                case 78:
-                    this.$ = [];
-                    break;
-                case 79:
-                    $$[$0 - 1].push($$[$0]);
-                    break;
-                case 82:
-                    this.$ = [];
-                    break;
-                case 83:
-                    $$[$0 - 1].push($$[$0]);
-                    break;
-                case 86:
-                    this.$ = [];
-                    break;
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
                 case 87:
                     $$[$0 - 1].push($$[$0]);
                     break;
@@ -14799,8 +13049,7 @@ var handlebars = (function () {
                 this.begin(condition);
             } };
         lexer.options = {};
-        lexer.performAction = function anonymous(yy, yy_, $avoiding_name_collisions, YY_START
-        /**/) {
+        lexer.performAction = function anonymous(yy, yy_, $avoiding_name_collisions, YY_START) {
 
             function strip(start, end) {
                 return yy_.yytext = yy_.yytext.substring(start, yy_.yyleng - end + start);
@@ -14840,11 +13089,7 @@ var handlebars = (function () {
                     if (this.conditionStack[this.conditionStack.length - 1] === 'raw') {
                         return 15;
                     } else {
-<<<<<<< HEAD
                         strip(5, 9);
-=======
-                        yy_.yytext = yy_.yytext.substr(5, yy_.yyleng - 9);
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
                         return 'END_RAW_BLOCK';
                     }
 
@@ -14994,11 +13239,7 @@ var handlebars = (function () {
 module.exports = exports["default"];
 
 
-<<<<<<< HEAD
 },{}],227:[function(require,module,exports){
-=======
-},{}],224:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /* eslint-disable new-cap */
 'use strict';
 
@@ -15052,8 +13293,6 @@ PrintVisitor.prototype.Program = function (program) {
   for (i = 0, l = body.length; i < l; i++) {
     out += this.accept(body[i]);
   }
-<<<<<<< HEAD
-=======
 
   this.padding--;
 
@@ -15188,7 +13427,7 @@ PrintVisitor.prototype.HashPair = function (pair) {
 /* eslint-enable new-cap */
 
 
-},{"./visitor":225}],225:[function(require,module,exports){
+},{"./visitor":228}],228:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -15330,7 +13569,7 @@ exports['default'] = Visitor;
 module.exports = exports['default'];
 
 
-},{"../exception":229}],226:[function(require,module,exports){
+},{"../exception":232}],229:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -15553,674 +13792,6 @@ exports['default'] = WhitespaceControl;
 module.exports = exports['default'];
 
 
-},{"./visitor":225}],227:[function(require,module,exports){
-'use strict';
-
-exports.__esModule = true;
-exports.registerDefaultDecorators = registerDefaultDecorators;
-// istanbul ignore next
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _decoratorsInline = require('./decorators/inline');
-
-var _decoratorsInline2 = _interopRequireDefault(_decoratorsInline);
-
-function registerDefaultDecorators(instance) {
-  _decoratorsInline2['default'](instance);
-}
-
-
-},{"./decorators/inline":228}],228:[function(require,module,exports){
-'use strict';
-
-exports.__esModule = true;
-
-var _utils = require('../utils');
-
-exports['default'] = function (instance) {
-  instance.registerDecorator('inline', function (fn, props, container, options) {
-    var ret = fn;
-    if (!props.partials) {
-      props.partials = {};
-      ret = function (context, options) {
-        // Create a new partials stack frame prior to exec.
-        var original = container.partials;
-        container.partials = _utils.extend({}, original, props.partials);
-        var ret = fn(context, options);
-        container.partials = original;
-        return ret;
-      };
-    }
-
-    props.partials[options.args[0]] = options.fn;
-
-    return ret;
-  });
-};
-
-module.exports = exports['default'];
-
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
-
-},{"../utils":242}],229:[function(require,module,exports){
-'use strict';
-
-exports.__esModule = true;
-
-<<<<<<< HEAD
-PrintVisitor.prototype.MustacheStatement = function (mustache) {
-  return this.pad('{{ ' + this.SubExpression(mustache) + ' }}');
-};
-PrintVisitor.prototype.Decorator = function (mustache) {
-  return this.pad('{{ DIRECTIVE ' + this.SubExpression(mustache) + ' }}');
-};
-
-PrintVisitor.prototype.BlockStatement = PrintVisitor.prototype.DecoratorBlock = function (block) {
-  var out = '';
-
-  out += this.pad((block.type === 'DecoratorBlock' ? 'DIRECTIVE ' : '') + 'BLOCK:');
-  this.padding++;
-  out += this.pad(this.SubExpression(block));
-  if (block.program) {
-    out += this.pad('PROGRAM:');
-    this.padding++;
-    out += this.accept(block.program);
-    this.padding--;
-  }
-  if (block.inverse) {
-    if (block.program) {
-      this.padding++;
-    }
-    out += this.pad('{{^}}');
-    this.padding++;
-    out += this.accept(block.inverse);
-    this.padding--;
-    if (block.program) {
-      this.padding--;
-    }
-=======
-var errorProps = ['description', 'fileName', 'lineNumber', 'message', 'name', 'number', 'stack'];
-
-function Exception(message, node) {
-  var loc = node && node.loc,
-      line = undefined,
-      column = undefined;
-  if (loc) {
-    line = loc.start.line;
-    column = loc.start.column;
-
-    message += ' - ' + line + ':' + column;
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
-  }
-
-  var tmp = Error.prototype.constructor.call(this, message);
-
-  // Unfortunately errors are not enumerable in Chrome (at least), so `for prop in tmp` doesn't work.
-  for (var idx = 0; idx < errorProps.length; idx++) {
-    this[errorProps[idx]] = tmp[errorProps[idx]];
-  }
-
-  /* istanbul ignore else */
-  if (Error.captureStackTrace) {
-    Error.captureStackTrace(this, Exception);
-  }
-<<<<<<< HEAD
-  return this.pad('{{> ' + content + ' }}');
-};
-PrintVisitor.prototype.PartialBlockStatement = function (partial) {
-  var content = 'PARTIAL BLOCK:' + partial.name.original;
-  if (partial.params[0]) {
-    content += ' ' + this.accept(partial.params[0]);
-  }
-  if (partial.hash) {
-    content += ' ' + this.accept(partial.hash);
-  }
-
-  content += ' ' + this.pad('PROGRAM:');
-  this.padding++;
-  content += this.accept(partial.program);
-  this.padding--;
-
-  return this.pad('{{> ' + content + ' }}');
-};
-
-PrintVisitor.prototype.ContentStatement = function (content) {
-  return this.pad("CONTENT[ '" + content.value + "' ]");
-};
-
-PrintVisitor.prototype.CommentStatement = function (comment) {
-  return this.pad("{{! '" + comment.value + "' }}");
-};
-=======
-
-  try {
-    if (loc) {
-      this.lineNumber = line;
-
-      // Work around issue under safari where we can't directly set the column value
-      /* istanbul ignore next */
-      if (Object.defineProperty) {
-        Object.defineProperty(this, 'column', {
-          value: column,
-          enumerable: true
-        });
-      } else {
-        this.column = column;
-      }
-    }
-  } catch (nop) {
-    /* Ignore if the browser is very particular */
-  }
-}
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
-
-Exception.prototype = new Error();
-
-exports['default'] = Exception;
-module.exports = exports['default'];
-
-
-},{}],230:[function(require,module,exports){
-'use strict';
-
-exports.__esModule = true;
-exports.registerDefaultHelpers = registerDefaultHelpers;
-// istanbul ignore next
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _helpersBlockHelperMissing = require('./helpers/block-helper-missing');
-
-var _helpersBlockHelperMissing2 = _interopRequireDefault(_helpersBlockHelperMissing);
-
-var _helpersEach = require('./helpers/each');
-
-var _helpersEach2 = _interopRequireDefault(_helpersEach);
-
-var _helpersHelperMissing = require('./helpers/helper-missing');
-
-var _helpersHelperMissing2 = _interopRequireDefault(_helpersHelperMissing);
-
-var _helpersIf = require('./helpers/if');
-
-<<<<<<< HEAD
-  return 'HASH{' + joinedPairs.join(', ') + '}';
-};
-PrintVisitor.prototype.HashPair = function (pair) {
-  return pair.key + '=' + this.accept(pair.value);
-};
-/* eslint-enable new-cap */
-
-
-},{"./visitor":228}],228:[function(require,module,exports){
-'use strict';
-
-exports.__esModule = true;
-// istanbul ignore next
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _exception = require('../exception');
-
-var _exception2 = _interopRequireDefault(_exception);
-=======
-var _helpersIf2 = _interopRequireDefault(_helpersIf);
-
-var _helpersLog = require('./helpers/log');
-
-var _helpersLog2 = _interopRequireDefault(_helpersLog);
-
-var _helpersLookup = require('./helpers/lookup');
-
-var _helpersLookup2 = _interopRequireDefault(_helpersLookup);
-
-var _helpersWith = require('./helpers/with');
-
-var _helpersWith2 = _interopRequireDefault(_helpersWith);
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
-
-function registerDefaultHelpers(instance) {
-  _helpersBlockHelperMissing2['default'](instance);
-  _helpersEach2['default'](instance);
-  _helpersHelperMissing2['default'](instance);
-  _helpersIf2['default'](instance);
-  _helpersLog2['default'](instance);
-  _helpersLookup2['default'](instance);
-  _helpersWith2['default'](instance);
-}
-
-
-<<<<<<< HEAD
-  // Visits a given value. If mutating, will replace the value if necessary.
-  acceptKey: function acceptKey(node, name) {
-    var value = this.accept(node[name]);
-    if (this.mutating) {
-      // Hacky sanity check: This may have a few false positives for type for the helper
-      // methods but will generally do the right thing without a lot of overhead.
-      if (value && !Visitor.prototype[value.type]) {
-        throw new _exception2['default']('Unexpected node type "' + value.type + '" found when accepting ' + name + ' on ' + node.type);
-      }
-      node[name] = value;
-    }
-  },
-=======
-},{"./helpers/block-helper-missing":231,"./helpers/each":232,"./helpers/helper-missing":233,"./helpers/if":234,"./helpers/log":235,"./helpers/lookup":236,"./helpers/with":237}],231:[function(require,module,exports){
-'use strict';
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
-
-exports.__esModule = true;
-
-<<<<<<< HEAD
-    if (!node[name]) {
-      throw new _exception2['default'](node.type + ' requires ' + name);
-    }
-  },
-=======
-var _utils = require('../utils');
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
-
-exports['default'] = function (instance) {
-  instance.registerHelper('blockHelperMissing', function (context, options) {
-    var inverse = options.inverse,
-        fn = options.fn;
-
-    if (context === true) {
-      return fn(this);
-    } else if (context === false || context == null) {
-      return inverse(this);
-    } else if (_utils.isArray(context)) {
-      if (context.length > 0) {
-        if (options.ids) {
-          options.ids = [options.name];
-        }
-
-        return instance.helpers.each(context, options);
-      } else {
-        return inverse(this);
-      }
-    } else {
-      if (options.data && options.ids) {
-        var data = _utils.createFrame(options.data);
-        data.contextPath = _utils.appendContextPath(options.data.contextPath, options.name);
-        options = { data: data };
-      }
-
-      return fn(context, options);
-    }
-  });
-};
-
-<<<<<<< HEAD
-    /* istanbul ignore next: Sanity code */
-    if (!this[object.type]) {
-      throw new _exception2['default']('Unknown type: ' + object.type, object);
-    }
-
-    if (this.current) {
-      this.parents.unshift(this.current);
-    }
-    this.current = object;
-=======
-module.exports = exports['default'];
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
-
-
-},{"../utils":242}],232:[function(require,module,exports){
-'use strict';
-
-exports.__esModule = true;
-// istanbul ignore next
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _utils = require('../utils');
-
-var _exception = require('../exception');
-
-var _exception2 = _interopRequireDefault(_exception);
-
-exports['default'] = function (instance) {
-  instance.registerHelper('each', function (context, options) {
-    if (!options) {
-      throw new _exception2['default']('Must pass iterator to #each');
-    }
-
-    var fn = options.fn,
-        inverse = options.inverse,
-        i = 0,
-        ret = '',
-        data = undefined,
-        contextPath = undefined;
-
-<<<<<<< HEAD
-  MustacheStatement: visitSubExpression,
-  Decorator: visitSubExpression,
-
-  BlockStatement: visitBlock,
-  DecoratorBlock: visitBlock,
-
-  PartialStatement: visitPartial,
-  PartialBlockStatement: function PartialBlockStatement(partial) {
-    visitPartial.call(this, partial);
-
-    this.acceptKey(partial, 'program');
-  },
-
-  ContentStatement: function ContentStatement() /* content */{},
-  CommentStatement: function CommentStatement() /* comment */{},
-
-  SubExpression: visitSubExpression,
-
-  PathExpression: function PathExpression() /* path */{},
-
-  StringLiteral: function StringLiteral() /* string */{},
-  NumberLiteral: function NumberLiteral() /* number */{},
-  BooleanLiteral: function BooleanLiteral() /* bool */{},
-  UndefinedLiteral: function UndefinedLiteral() /* literal */{},
-  NullLiteral: function NullLiteral() /* literal */{},
-=======
-    if (options.data && options.ids) {
-      contextPath = _utils.appendContextPath(options.data.contextPath, options.ids[0]) + '.';
-    }
-
-    if (_utils.isFunction(context)) {
-      context = context.call(this);
-    }
-
-    if (options.data) {
-      data = _utils.createFrame(options.data);
-    }
-
-    function execIteration(field, index, last) {
-      if (data) {
-        data.key = field;
-        data.index = index;
-        data.first = index === 0;
-        data.last = !!last;
-
-        if (contextPath) {
-          data.contextPath = contextPath + field;
-        }
-      }
-
-      ret = ret + fn(context[field], {
-        data: data,
-        blockParams: _utils.blockParams([context[field], field], [contextPath + field, null])
-      });
-    }
-
-    if (context && typeof context === 'object') {
-      if (_utils.isArray(context)) {
-        for (var j = context.length; i < j; i++) {
-          if (i in context) {
-            execIteration(i, i, i === context.length - 1);
-          }
-        }
-      } else {
-        var priorKey = undefined;
-
-        for (var key in context) {
-          if (context.hasOwnProperty(key)) {
-            // We're running the iterations one step out of sync so we can detect
-            // the last iteration without have to scan the object twice and create
-            // an itermediate keys array.
-            if (priorKey !== undefined) {
-              execIteration(priorKey, i - 1);
-            }
-            priorKey = key;
-            i++;
-          }
-        }
-        if (priorKey !== undefined) {
-          execIteration(priorKey, i - 1, true);
-        }
-      }
-    }
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
-
-    if (i === 0) {
-      ret = inverse(this);
-    }
-
-    return ret;
-  });
-};
-
-<<<<<<< HEAD
-function visitSubExpression(mustache) {
-  this.acceptRequired(mustache, 'path');
-  this.acceptArray(mustache.params);
-  this.acceptKey(mustache, 'hash');
-}
-function visitBlock(block) {
-  visitSubExpression.call(this, block);
-
-  this.acceptKey(block, 'program');
-  this.acceptKey(block, 'inverse');
-}
-function visitPartial(partial) {
-  this.acceptRequired(partial, 'name');
-  this.acceptArray(partial.params);
-  this.acceptKey(partial, 'hash');
-}
-
-exports['default'] = Visitor;
-module.exports = exports['default'];
-
-
-},{"../exception":232}],229:[function(require,module,exports){
-'use strict';
-
-exports.__esModule = true;
-// istanbul ignore next
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _visitor = require('./visitor');
-
-var _visitor2 = _interopRequireDefault(_visitor);
-
-function WhitespaceControl() {
-  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
-  this.options = options;
-}
-WhitespaceControl.prototype = new _visitor2['default']();
-
-WhitespaceControl.prototype.Program = function (program) {
-  var doStandalone = !this.options.ignoreStandalone;
-
-  var isRoot = !this.isRootSeen;
-  this.isRootSeen = true;
-=======
-module.exports = exports['default'];
-
-
-},{"../exception":229,"../utils":242}],233:[function(require,module,exports){
-'use strict';
-
-exports.__esModule = true;
-// istanbul ignore next
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _exception = require('../exception');
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
-
-var _exception2 = _interopRequireDefault(_exception);
-
-exports['default'] = function (instance) {
-  instance.registerHelper('helperMissing', function () /* [args, ]options */{
-    if (arguments.length === 1) {
-      // A missing field in a {{foo}} construct.
-      return undefined;
-    } else {
-      // Someone is actually trying to call something, blow up.
-      throw new _exception2['default']('Missing helper: "' + arguments[arguments.length - 1].name + '"');
-    }
-  });
-};
-
-module.exports = exports['default'];
-
-
-<<<<<<< HEAD
-    if (doStandalone && inlineStandalone) {
-      omitRight(body, i);
-
-      if (omitLeft(body, i)) {
-        // If we are on a standalone node, save the indent info for partials
-        if (current.type === 'PartialStatement') {
-          // Pull out the whitespace from the final line
-          current.indent = /([ \t]+$)/.exec(body[i - 1].original)[1];
-        }
-      }
-    }
-    if (doStandalone && openStandalone) {
-      omitRight((current.program || current.inverse).body);
-
-      // Strip out the previous content node if it's whitespace only
-      omitLeft(body, i);
-    }
-    if (doStandalone && closeStandalone) {
-      // Always strip the next node
-      omitRight(body, i);
-=======
-},{"../exception":229}],234:[function(require,module,exports){
-'use strict';
-
-exports.__esModule = true;
-
-var _utils = require('../utils');
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
-
-exports['default'] = function (instance) {
-  instance.registerHelper('if', function (conditional, options) {
-    if (_utils.isFunction(conditional)) {
-      conditional = conditional.call(this);
-    }
-<<<<<<< HEAD
-  }
-
-  return program;
-};
-
-WhitespaceControl.prototype.BlockStatement = WhitespaceControl.prototype.DecoratorBlock = WhitespaceControl.prototype.PartialBlockStatement = function (block) {
-  this.accept(block.program);
-  this.accept(block.inverse);
-=======
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
-
-    // Default behavior is to render the positive path if the value is truthy and not empty.
-    // The `includeZero` option may be set to treat the condtional as purely not empty based on the
-    // behavior of isEmpty. Effectively this determines if 0 is handled by the positive path or negative.
-    if (!options.hash.includeZero && !conditional || _utils.isEmpty(conditional)) {
-      return options.inverse(this);
-    } else {
-      return options.fn(this);
-    }
-  });
-
-  instance.registerHelper('unless', function (conditional, options) {
-    return instance.helpers['if'].call(this, conditional, { fn: options.inverse, inverse: options.fn, hash: options.hash });
-  });
-};
-
-module.exports = exports['default'];
-
-
-},{"../utils":242}],235:[function(require,module,exports){
-'use strict';
-
-exports.__esModule = true;
-
-exports['default'] = function (instance) {
-  instance.registerHelper('log', function () /* message, options */{
-    var args = [undefined],
-        options = arguments[arguments.length - 1];
-    for (var i = 0; i < arguments.length - 1; i++) {
-      args.push(arguments[i]);
-    }
-
-<<<<<<< HEAD
-    // Find standalone else statments
-    if (!this.options.ignoreStandalone && isPrevWhitespace(program.body) && isNextWhitespace(firstInverse.body)) {
-      omitLeft(program.body);
-      omitRight(firstInverse.body);
-=======
-    var level = 1;
-    if (options.hash.level != null) {
-      level = options.hash.level;
-    } else if (options.data && options.data.level != null) {
-      level = options.data.level;
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
-    }
-    args[0] = level;
-
-    instance.log.apply(instance, args);
-  });
-};
-
-<<<<<<< HEAD
-WhitespaceControl.prototype.Decorator = WhitespaceControl.prototype.MustacheStatement = function (mustache) {
-  return mustache.strip;
-};
-=======
-module.exports = exports['default'];
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
-
-
-},{}],236:[function(require,module,exports){
-'use strict';
-
-exports.__esModule = true;
-
-exports['default'] = function (instance) {
-  instance.registerHelper('lookup', function (obj, field) {
-    return obj && obj[field];
-  });
-};
-
-module.exports = exports['default'];
-
-
-},{}],237:[function(require,module,exports){
-'use strict';
-
-exports.__esModule = true;
-
-var _utils = require('../utils');
-
-exports['default'] = function (instance) {
-  instance.registerHelper('with', function (context, options) {
-    if (_utils.isFunction(context)) {
-      context = context.call(this);
-    }
-
-    var fn = options.fn;
-
-    if (!_utils.isEmpty(context)) {
-      var data = options.data;
-      if (options.data && options.ids) {
-        data = _utils.createFrame(options.data);
-        data.contextPath = _utils.appendContextPath(options.data.contextPath, options.ids[0]);
-      }
-
-      return fn(context, {
-        data: data,
-        blockParams: _utils.blockParams([context], [data && data.contextPath])
-      });
-    } else {
-      return options.inverse(this);
-    }
-  });
-};
-
-module.exports = exports['default'];
-
-
-<<<<<<< HEAD
 },{"./visitor":228}],230:[function(require,module,exports){
 'use strict';
 
@@ -16271,45 +13842,30 @@ module.exports = exports['default'];
 
 
 },{"../utils":245}],232:[function(require,module,exports){
-=======
-},{"../utils":242}],238:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 'use strict';
 
 exports.__esModule = true;
 
-var _utils = require('./utils');
+var errorProps = ['description', 'fileName', 'lineNumber', 'message', 'name', 'number', 'stack'];
 
-var logger = {
-  methodMap: ['debug', 'info', 'warn', 'error'],
-  level: 'info',
+function Exception(message, node) {
+  var loc = node && node.loc,
+      line = undefined,
+      column = undefined;
+  if (loc) {
+    line = loc.start.line;
+    column = loc.start.column;
 
-  // Maps a given level value to the `methodMap` indexes above.
-  lookupLevel: function lookupLevel(level) {
-    if (typeof level === 'string') {
-      var levelMap = _utils.indexOf(logger.methodMap, level.toLowerCase());
-      if (levelMap >= 0) {
-        level = levelMap;
-      } else {
-        level = parseInt(level, 10);
-      }
-    }
+    message += ' - ' + line + ':' + column;
+  }
 
-    return level;
-  },
+  var tmp = Error.prototype.constructor.call(this, message);
 
-  // Can be overridden in the host environment
-  log: function log(level) {
-    level = logger.lookupLevel(level);
+  // Unfortunately errors are not enumerable in Chrome (at least), so `for prop in tmp` doesn't work.
+  for (var idx = 0; idx < errorProps.length; idx++) {
+    this[errorProps[idx]] = tmp[errorProps[idx]];
+  }
 
-    if (typeof console !== 'undefined' && logger.lookupLevel(logger.level) <= level) {
-      var method = logger.methodMap[level];
-      if (!console[method]) {
-        // eslint-disable-line no-console
-        method = 'log';
-      }
-
-<<<<<<< HEAD
   /* istanbul ignore else */
   if (Error.captureStackTrace) {
     Error.captureStackTrace(this, Exception);
@@ -16332,22 +13888,15 @@ var logger = {
     }
   } catch (nop) {
     /* Ignore if the browser is very particular */
-=======
-      for (var _len = arguments.length, message = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-        message[_key - 1] = arguments[_key];
-      }
-
-      console[method].apply(console, message); // eslint-disable-line no-console
-    }
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
   }
-};
+}
 
-exports['default'] = logger;
+Exception.prototype = new Error();
+
+exports['default'] = Exception;
 module.exports = exports['default'];
 
 
-<<<<<<< HEAD
 },{}],233:[function(require,module,exports){
 'use strict';
 
@@ -16400,96 +13949,6 @@ function registerDefaultHelpers(instance) {
 'use strict';
 
 exports.__esModule = true;
-=======
-},{"./utils":242}],239:[function(require,module,exports){
-/* global window */
-'use strict';
-
-exports.__esModule = true;
-
-exports['default'] = function (Handlebars) {
-  /* istanbul ignore next */
-  var root = typeof global !== 'undefined' ? global : window,
-      $Handlebars = root.Handlebars;
-  /* istanbul ignore next */
-  Handlebars.noConflict = function () {
-    if (root.Handlebars === Handlebars) {
-      root.Handlebars = $Handlebars;
-    }
-    return Handlebars;
-  };
-};
-
-module.exports = exports['default'];
-
-
-},{}],240:[function(require,module,exports){
-'use strict';
-
-exports.__esModule = true;
-exports.checkRevision = checkRevision;
-exports.template = template;
-exports.wrapProgram = wrapProgram;
-exports.resolvePartial = resolvePartial;
-exports.invokePartial = invokePartial;
-exports.noop = noop;
-// istanbul ignore next
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-// istanbul ignore next
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-
-var _utils = require('./utils');
-
-var Utils = _interopRequireWildcard(_utils);
-
-var _exception = require('./exception');
-
-var _exception2 = _interopRequireDefault(_exception);
-
-var _base = require('./base');
-
-function checkRevision(compilerInfo) {
-  var compilerRevision = compilerInfo && compilerInfo[0] || 1,
-      currentRevision = _base.COMPILER_REVISION;
-
-  if (compilerRevision !== currentRevision) {
-    if (compilerRevision < currentRevision) {
-      var runtimeVersions = _base.REVISION_CHANGES[currentRevision],
-          compilerVersions = _base.REVISION_CHANGES[compilerRevision];
-      throw new _exception2['default']('Template was precompiled with an older version of Handlebars than the current runtime. ' + 'Please update your precompiler to a newer version (' + runtimeVersions + ') or downgrade your runtime to an older version (' + compilerVersions + ').');
-    } else {
-      // Use the embedded version info since the runtime doesn't know about this revision yet
-      throw new _exception2['default']('Template was precompiled with a newer version of Handlebars than the current runtime. ' + 'Please update your runtime to a newer version (' + compilerInfo[1] + ').');
-    }
-  }
-}
-
-function template(templateSpec, env) {
-  /* istanbul ignore next */
-  if (!env) {
-    throw new _exception2['default']('No environment passed to template');
-  }
-  if (!templateSpec || !templateSpec.main) {
-    throw new _exception2['default']('Unknown template object: ' + typeof templateSpec);
-  }
-
-  templateSpec.main.decorator = templateSpec.main_d;
-
-  // Note: Using env.VM references rather than local var references throughout this section to allow
-  // for external users to override these as psuedo-supported APIs.
-  env.VM.checkRevision(templateSpec.compiler);
-
-  function invokePartialWrapper(partial, context, options) {
-    if (options.hash) {
-      context = Utils.extend({}, context, options.hash);
-      if (options.ids) {
-        options.ids[0] = true;
-      }
-    }
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
 var _utils = require('../utils');
 
@@ -16513,7 +13972,6 @@ exports['default'] = function (instance) {
         return inverse(this);
       }
     } else {
-<<<<<<< HEAD
       if (options.data && options.ids) {
         var data = _utils.createFrame(options.data);
         data.contextPath = _utils.appendContextPath(options.data.contextPath, options.name);
@@ -16521,39 +13979,13 @@ exports['default'] = function (instance) {
       }
 
       return fn(context, options);
-=======
-      throw new _exception2['default']('The partial ' + options.name + ' could not be compiled when running in runtime-only mode');
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     }
   });
 };
 
-<<<<<<< HEAD
 module.exports = exports['default'];
-=======
-  // Just add water
-  var container = {
-    strict: function strict(obj, name) {
-      if (!(name in obj)) {
-        throw new _exception2['default']('"' + name + '" not defined in ' + obj);
-      }
-      return obj[name];
-    },
-    lookup: function lookup(depths, name) {
-      var len = depths.length;
-      for (var i = 0; i < len; i++) {
-        if (depths[i] && depths[i][name] != null) {
-          return depths[i][name];
-        }
-      }
-    },
-    lambda: function lambda(current, context) {
-      return typeof current === 'function' ? current.call(context) : current;
-    },
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
 
-<<<<<<< HEAD
 },{"../utils":245}],235:[function(require,module,exports){
 'use strict';
 
@@ -17728,523 +15160,7 @@ function recursiveSearch(aLow, aHigh, aNeedle, aHaystack, aCompare, aBias) {
       return aHigh < aHaystack.length ? aHigh : -1;
     } else {
       return mid;
-=======
-    fn: function fn(i) {
-      var ret = templateSpec[i];
-      ret.decorator = templateSpec[i + '_d'];
-      return ret;
-    },
-
-    programs: [],
-    program: function program(i, data, declaredBlockParams, blockParams, depths) {
-      var programWrapper = this.programs[i],
-          fn = this.fn(i);
-      if (data || depths || blockParams || declaredBlockParams) {
-        programWrapper = wrapProgram(this, i, fn, data, declaredBlockParams, blockParams, depths);
-      } else if (!programWrapper) {
-        programWrapper = this.programs[i] = wrapProgram(this, i, fn);
-      }
-      return programWrapper;
-    },
-
-    data: function data(value, depth) {
-      while (value && depth--) {
-        value = value._parent;
-      }
-      return value;
-    },
-    merge: function merge(param, common) {
-      var obj = param || common;
-
-      if (param && common && param !== common) {
-        obj = Utils.extend({}, common, param);
-      }
-
-      return obj;
-    },
-    // An empty object to use as replacement for null-contexts
-    nullContext: Object.seal({}),
-
-    noop: env.VM.noop,
-    compilerInfo: templateSpec.compiler
-  };
-
-  function ret(context) {
-    var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-    var data = options.data;
-
-    ret._setup(options);
-    if (!options.partial && templateSpec.useData) {
-      data = initData(context, data);
     }
-    var depths = undefined,
-        blockParams = templateSpec.useBlockParams ? [] : undefined;
-    if (templateSpec.useDepths) {
-      if (options.depths) {
-        depths = context != options.depths[0] ? [context].concat(options.depths) : options.depths;
-      } else {
-        depths = [context];
-      }
-    }
-
-    function main(context /*, options*/) {
-      return '' + templateSpec.main(container, context, container.helpers, container.partials, data, blockParams, depths);
-    }
-    main = executeDecorators(templateSpec.main, main, container, options.depths || [], data, blockParams);
-    return main(context, options);
-  }
-  ret.isTop = true;
-
-  ret._setup = function (options) {
-    if (!options.partial) {
-      container.helpers = container.merge(options.helpers, env.helpers);
-
-      if (templateSpec.usePartial) {
-        container.partials = container.merge(options.partials, env.partials);
-      }
-      if (templateSpec.usePartial || templateSpec.useDecorators) {
-        container.decorators = container.merge(options.decorators, env.decorators);
-      }
-    } else {
-      container.helpers = options.helpers;
-      container.partials = options.partials;
-      container.decorators = options.decorators;
-    }
-  };
-
-  ret._child = function (i, data, blockParams, depths) {
-    if (templateSpec.useBlockParams && !blockParams) {
-      throw new _exception2['default']('must pass block params');
-    }
-    if (templateSpec.useDepths && !depths) {
-      throw new _exception2['default']('must pass parent depths');
-    }
-
-    return wrapProgram(container, i, templateSpec[i], data, 0, blockParams, depths);
-  };
-  return ret;
-}
-
-function wrapProgram(container, i, fn, data, declaredBlockParams, blockParams, depths) {
-  function prog(context) {
-    var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-    var currentDepths = depths;
-    if (depths && context != depths[0] && !(context === container.nullContext && depths[0] === null)) {
-      currentDepths = [context].concat(depths);
-    }
-
-    return fn(container, context, container.helpers, container.partials, options.data || data, blockParams && [options.blockParams].concat(blockParams), currentDepths);
-  }
-
-  prog = executeDecorators(fn, prog, container, depths, data, blockParams);
-
-  prog.program = i;
-  prog.depth = depths ? depths.length : 0;
-  prog.blockParams = declaredBlockParams || 0;
-  return prog;
-}
-
-function resolvePartial(partial, context, options) {
-  if (!partial) {
-    if (options.name === '@partial-block') {
-      partial = options.data['partial-block'];
-    } else {
-      partial = options.partials[options.name];
-    }
-  } else if (!partial.call && !options.name) {
-    // This is a dynamic partial that returned a string
-    options.name = partial;
-    partial = options.partials[partial];
-  }
-  return partial;
-}
-
-function invokePartial(partial, context, options) {
-  // Use the current closure context to save the partial-block if this partial
-  var currentPartialBlock = options.data && options.data['partial-block'];
-  options.partial = true;
-  if (options.ids) {
-    options.data.contextPath = options.ids[0] || options.data.contextPath;
-  }
-
-  var partialBlock = undefined;
-  if (options.fn && options.fn !== noop) {
-    (function () {
-      options.data = _base.createFrame(options.data);
-      // Wrapper function to get access to currentPartialBlock from the closure
-      var fn = options.fn;
-      partialBlock = options.data['partial-block'] = function partialBlockWrapper(context) {
-        var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-        // Restore the partial-block from the closure for the execution of the block
-        // i.e. the part inside the block of the partial call.
-        options.data = _base.createFrame(options.data);
-        options.data['partial-block'] = currentPartialBlock;
-        return fn(context, options);
-      };
-      if (fn.partials) {
-        options.partials = Utils.extend({}, options.partials, fn.partials);
-      }
-    })();
-  }
-
-  if (partial === undefined && partialBlock) {
-    partial = partialBlock;
-  }
-
-  if (partial === undefined) {
-    throw new _exception2['default']('The partial ' + options.name + ' could not be found');
-  } else if (partial instanceof Function) {
-    return partial(context, options);
-  }
-}
-
-function noop() {
-  return '';
-}
-
-function initData(context, data) {
-  if (!data || !('root' in data)) {
-    data = data ? _base.createFrame(data) : {};
-    data.root = context;
-  }
-  return data;
-}
-
-function executeDecorators(fn, prog, container, depths, data, blockParams) {
-  if (fn.decorator) {
-    var props = {};
-    prog = fn.decorator(prog, props, container, depths && depths[0], data, blockParams, depths);
-    Utils.extend(prog, props);
-  }
-  return prog;
-}
-
-
-},{"./base":216,"./exception":229,"./utils":242}],241:[function(require,module,exports){
-// Build out our basic SafeString type
-'use strict';
-
-exports.__esModule = true;
-function SafeString(string) {
-  this.string = string;
-}
-
-SafeString.prototype.toString = SafeString.prototype.toHTML = function () {
-  return '' + this.string;
-};
-
-exports['default'] = SafeString;
-module.exports = exports['default'];
-
-
-},{}],242:[function(require,module,exports){
-'use strict';
-
-exports.__esModule = true;
-exports.extend = extend;
-exports.indexOf = indexOf;
-exports.escapeExpression = escapeExpression;
-exports.isEmpty = isEmpty;
-exports.createFrame = createFrame;
-exports.blockParams = blockParams;
-exports.appendContextPath = appendContextPath;
-var escape = {
-  '&': '&amp;',
-  '<': '&lt;',
-  '>': '&gt;',
-  '"': '&quot;',
-  "'": '&#x27;',
-  '`': '&#x60;',
-  '=': '&#x3D;'
-};
-
-var badChars = /[&<>"'`=]/g,
-    possible = /[&<>"'`=]/;
-
-function escapeChar(chr) {
-  return escape[chr];
-}
-
-function extend(obj /* , ...source */) {
-  for (var i = 1; i < arguments.length; i++) {
-    for (var key in arguments[i]) {
-      if (Object.prototype.hasOwnProperty.call(arguments[i], key)) {
-        obj[key] = arguments[i][key];
-      }
-    }
-  }
-
-  return obj;
-}
-
-var toString = Object.prototype.toString;
-
-exports.toString = toString;
-// Sourced from lodash
-// https://github.com/bestiejs/lodash/blob/master/LICENSE.txt
-/* eslint-disable func-style */
-var isFunction = function isFunction(value) {
-  return typeof value === 'function';
-};
-// fallback for older versions of Chrome and Safari
-/* istanbul ignore next */
-if (isFunction(/x/)) {
-  exports.isFunction = isFunction = function (value) {
-    return typeof value === 'function' && toString.call(value) === '[object Function]';
-  };
-}
-exports.isFunction = isFunction;
-
-/* eslint-enable func-style */
-
-/* istanbul ignore next */
-var isArray = Array.isArray || function (value) {
-  return value && typeof value === 'object' ? toString.call(value) === '[object Array]' : false;
-};
-
-exports.isArray = isArray;
-// Older IE versions do not directly support indexOf so we must implement our own, sadly.
-
-function indexOf(array, value) {
-  for (var i = 0, len = array.length; i < len; i++) {
-    if (array[i] === value) {
-      return i;
-    }
-  }
-  return -1;
-}
-
-function escapeExpression(string) {
-  if (typeof string !== 'string') {
-    // don't escape SafeStrings, since they're already safe
-    if (string && string.toHTML) {
-      return string.toHTML();
-    } else if (string == null) {
-      return '';
-    } else if (!string) {
-      return string + '';
-    }
-
-    // Force a string conversion as this will be done by the append regardless and
-    // the regex test will do this transparently behind the scenes, causing issues if
-    // an object's to string has escaped characters in it.
-    string = '' + string;
-  }
-
-  if (!possible.test(string)) {
-    return string;
-  }
-  return string.replace(badChars, escapeChar);
-}
-
-function isEmpty(value) {
-  if (!value && value !== 0) {
-    return true;
-  } else if (isArray(value) && value.length === 0) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function createFrame(object) {
-  var frame = extend({}, object);
-  frame._parent = object;
-  return frame;
-}
-
-function blockParams(params, ids) {
-  params.path = ids;
-  return params;
-}
-
-function appendContextPath(contextPath, id) {
-  return (contextPath ? contextPath + '.' : '') + id;
-}
-
-
-},{}],243:[function(require,module,exports){
-// USAGE:
-// var handlebars = require('handlebars');
-/* eslint-disable no-var */
-
-// var local = handlebars.create();
-
-var handlebars = require('../dist/cjs/handlebars')['default'];
-
-var printer = require('../dist/cjs/handlebars/compiler/printer');
-handlebars.PrintVisitor = printer.PrintVisitor;
-handlebars.print = printer.print;
-
-module.exports = handlebars;
-
-// Publish a Node.js require() handler for .handlebars and .hbs files
-function extension(module, filename) {
-  var fs = require('fs');
-  var templateString = fs.readFileSync(filename, 'utf8');
-  module.exports = handlebars.compile(templateString);
-}
-/* istanbul ignore else */
-if (typeof require !== 'undefined' && require.extensions) {
-  require.extensions['.handlebars'] = extension;
-  require.extensions['.hbs'] = extension;
-}
-
-},{"../dist/cjs/handlebars":214,"../dist/cjs/handlebars/compiler/printer":224,"fs":213}],244:[function(require,module,exports){
-// Create a simple path alias to allow browserify to resolve
-// the runtime on a supported path.
-module.exports = require('./dist/cjs/handlebars.runtime')['default'];
-
-},{"./dist/cjs/handlebars.runtime":215}],245:[function(require,module,exports){
-module.exports = require("handlebars/runtime")["default"];
-
-},{"handlebars/runtime":244}],246:[function(require,module,exports){
-// .dirname, .basename, and .extname methods are extracted from Node.js v8.11.1,
-// backported and transplited with Babel, with backwards-compat fixes
-
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-// resolves . and .. elements in a path array with directory names there
-// must be no slashes, empty elements, or device names (c:\) in the array
-// (so also no leading and trailing slashes - it does not distinguish
-// relative and absolute paths)
-function normalizeArray(parts, allowAboveRoot) {
-  // if the path tries to go above the root, `up` ends up > 0
-  var up = 0;
-  for (var i = parts.length - 1; i >= 0; i--) {
-    var last = parts[i];
-    if (last === '.') {
-      parts.splice(i, 1);
-    } else if (last === '..') {
-      parts.splice(i, 1);
-      up++;
-    } else if (up) {
-      parts.splice(i, 1);
-      up--;
-    }
-  }
-
-  // if the path is allowed to go above the root, restore leading ..s
-  if (allowAboveRoot) {
-    for (; up--; up) {
-      parts.unshift('..');
-    }
-  }
-
-  return parts;
-}
-
-// path.resolve([from ...], to)
-// posix version
-exports.resolve = function() {
-  var resolvedPath = '',
-      resolvedAbsolute = false;
-
-  for (var i = arguments.length - 1; i >= -1 && !resolvedAbsolute; i--) {
-    var path = (i >= 0) ? arguments[i] : process.cwd();
-
-    // Skip empty and invalid entries
-    if (typeof path !== 'string') {
-      throw new TypeError('Arguments to path.resolve must be strings');
-    } else if (!path) {
-      continue;
-    }
-
-    resolvedPath = path + '/' + resolvedPath;
-    resolvedAbsolute = path.charAt(0) === '/';
-  }
-
-  // At this point the path should be resolved to a full absolute path, but
-  // handle relative paths to be safe (might happen when process.cwd() fails)
-
-  // Normalize the path
-  resolvedPath = normalizeArray(filter(resolvedPath.split('/'), function(p) {
-    return !!p;
-  }), !resolvedAbsolute).join('/');
-
-  return ((resolvedAbsolute ? '/' : '') + resolvedPath) || '.';
-};
-
-// path.normalize(path)
-// posix version
-exports.normalize = function(path) {
-  var isAbsolute = exports.isAbsolute(path),
-      trailingSlash = substr(path, -1) === '/';
-
-  // Normalize the path
-  path = normalizeArray(filter(path.split('/'), function(p) {
-    return !!p;
-  }), !isAbsolute).join('/');
-
-  if (!path && !isAbsolute) {
-    path = '.';
-  }
-  if (path && trailingSlash) {
-    path += '/';
-  }
-
-  return (isAbsolute ? '/' : '') + path;
-};
-
-// posix version
-exports.isAbsolute = function(path) {
-  return path.charAt(0) === '/';
-};
-
-// posix version
-exports.join = function() {
-  var paths = Array.prototype.slice.call(arguments, 0);
-  return exports.normalize(filter(paths, function(p, index) {
-    if (typeof p !== 'string') {
-      throw new TypeError('Arguments to path.join must be strings');
-    }
-    return p;
-  }).join('/'));
-};
-
-
-// path.relative(from, to)
-// posix version
-exports.relative = function(from, to) {
-  from = exports.resolve(from).substr(1);
-  to = exports.resolve(to).substr(1);
-
-  function trim(arr) {
-    var start = 0;
-    for (; start < arr.length; start++) {
-      if (arr[start] !== '') break;
-    }
-
-    var end = arr.length - 1;
-    for (; end >= 0; end--) {
-      if (arr[end] !== '') break;
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
-    }
-
-    if (start > end) return [];
-    return arr.slice(start, end - start + 1);
   }
   else {
     // Our needle is less than aHaystack[mid].
@@ -18253,7 +15169,6 @@ exports.relative = function(from, to) {
       return recursiveSearch(aLow, mid, aNeedle, aHaystack, aCompare, aBias);
     }
 
-<<<<<<< HEAD
     // we are in termination case (3) or (2) and return the appropriate thing.
     if (aBias == exports.LEAST_UPPER_BOUND) {
       return mid;
@@ -18298,54 +15213,9 @@ exports.search = function search(aNeedle, aHaystack, aCompare, aBias) {
   while (index - 1 >= 0) {
     if (aCompare(aHaystack[index], aHaystack[index - 1], true) !== 0) {
       break;
-=======
-  var fromParts = trim(from.split('/'));
-  var toParts = trim(to.split('/'));
-
-  var length = Math.min(fromParts.length, toParts.length);
-  var samePartsLength = length;
-  for (var i = 0; i < length; i++) {
-    if (fromParts[i] !== toParts[i]) {
-      samePartsLength = i;
-      break;
-    }
-  }
-
-  var outputParts = [];
-  for (var i = samePartsLength; i < fromParts.length; i++) {
-    outputParts.push('..');
-  }
-
-  outputParts = outputParts.concat(toParts.slice(samePartsLength));
-
-  return outputParts.join('/');
-};
-
-exports.sep = '/';
-exports.delimiter = ':';
-
-exports.dirname = function (path) {
-  if (typeof path !== 'string') path = path + '';
-  if (path.length === 0) return '.';
-  var code = path.charCodeAt(0);
-  var hasRoot = code === 47 /*/*/;
-  var end = -1;
-  var matchedSlash = true;
-  for (var i = path.length - 1; i >= 1; --i) {
-    code = path.charCodeAt(i);
-    if (code === 47 /*/*/) {
-        if (!matchedSlash) {
-          end = i;
-          break;
-        }
-      } else {
-      // We saw the first non-path separator
-      matchedSlash = false;
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     }
     --index;
   }
-<<<<<<< HEAD
 
   return index;
 };
@@ -18542,138 +15412,12 @@ function doQuickSort(ary, comparator, p, r) {
  *        An array to sort.
  * @param {function} comparator
  *        Function to use to compare two items.
-=======
-
-  if (end === -1) return hasRoot ? '/' : '.';
-  if (hasRoot && end === 1) {
-    // return '//';
-    // Backwards-compat fix:
-    return '/';
-  }
-  return path.slice(0, end);
-};
-
-function basename(path) {
-  if (typeof path !== 'string') path = path + '';
-
-  var start = 0;
-  var end = -1;
-  var matchedSlash = true;
-  var i;
-
-  for (i = path.length - 1; i >= 0; --i) {
-    if (path.charCodeAt(i) === 47 /*/*/) {
-        // If we reached a path separator that was not part of a set of path
-        // separators at the end of the string, stop now
-        if (!matchedSlash) {
-          start = i + 1;
-          break;
-        }
-      } else if (end === -1) {
-      // We saw the first non-path separator, mark this as the end of our
-      // path component
-      matchedSlash = false;
-      end = i + 1;
-    }
-  }
-
-  if (end === -1) return '';
-  return path.slice(start, end);
-}
-
-// Uses a mixed approach for backwards-compatibility, as ext behavior changed
-// in new Node.js versions, so only basename() above is backported here
-exports.basename = function (path, ext) {
-  var f = basename(path);
-  if (ext && f.substr(-1 * ext.length) === ext) {
-    f = f.substr(0, f.length - ext.length);
-  }
-  return f;
-};
-
-exports.extname = function (path) {
-  if (typeof path !== 'string') path = path + '';
-  var startDot = -1;
-  var startPart = 0;
-  var end = -1;
-  var matchedSlash = true;
-  // Track the state of characters (if any) we see before our first dot and
-  // after any path separator we find
-  var preDotState = 0;
-  for (var i = path.length - 1; i >= 0; --i) {
-    var code = path.charCodeAt(i);
-    if (code === 47 /*/*/) {
-        // If we reached a path separator that was not part of a set of path
-        // separators at the end of the string, stop now
-        if (!matchedSlash) {
-          startPart = i + 1;
-          break;
-        }
-        continue;
-      }
-    if (end === -1) {
-      // We saw the first non-path separator, mark this as the end of our
-      // extension
-      matchedSlash = false;
-      end = i + 1;
-    }
-    if (code === 46 /*.*/) {
-        // If this is our first dot, mark it as the start of our extension
-        if (startDot === -1)
-          startDot = i;
-        else if (preDotState !== 1)
-          preDotState = 1;
-    } else if (startDot !== -1) {
-      // We saw a non-dot and non-path separator before our dot, so we should
-      // have a good chance at having a non-empty extension
-      preDotState = -1;
-    }
-  }
-
-  if (startDot === -1 || end === -1 ||
-      // We saw a non-dot character immediately before the dot
-      preDotState === 0 ||
-      // The (right-most) trimmed path component is exactly '..'
-      preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) {
-    return '';
-  }
-  return path.slice(startDot, end);
-};
-
-function filter (xs, f) {
-    if (xs.filter) return xs.filter(f);
-    var res = [];
-    for (var i = 0; i < xs.length; i++) {
-        if (f(xs[i], i, xs)) res.push(xs[i]);
-    }
-    return res;
-}
-
-// String.prototype.substr - negative index don't work in IE8
-var substr = 'ab'.substr(-1) === 'b'
-    ? function (str, start, len) { return str.substr(start, len) }
-    : function (str, start, len) {
-        if (start < 0) start = str.length + start;
-        return str.substr(start, len);
-    }
-;
-
-},{}],247:[function(require,module,exports){
-/*
- * Copyright 2009-2011 Mozilla Foundation and contributors
- * Licensed under the New BSD license. See LICENSE.txt or:
- * http://opensource.org/licenses/BSD-3-Clause
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
  */
 exports.quickSort = function (ary, comparator) {
   doQuickSort(ary, comparator, 0, ary.length - 1);
 };
 
-<<<<<<< HEAD
 },{}],253:[function(require,module,exports){
-=======
-},{"./source-map/source-map-consumer":254,"./source-map/source-map-generator":255,"./source-map/source-node":256}],248:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -18698,7 +15442,6 @@ function SourceMapConsumer(aSourceMap, aSourceMapURL) {
     : new BasicSourceMapConsumer(sourceMap, aSourceMapURL);
 }
 
-<<<<<<< HEAD
 SourceMapConsumer.fromSourceMap = function(aSourceMap, aSourceMapURL) {
   return BasicSourceMapConsumer.fromSourceMap(aSourceMap, aSourceMapURL);
 }
@@ -18745,28 +15488,6 @@ Object.defineProperty(SourceMapConsumer.prototype, '_generatedMappings', {
   get: function () {
     if (!this.__generatedMappings) {
       this._parseMappings(this._mappings, this.sourceRoot);
-=======
-  /**
-   * Return how many unique items are in this ArraySet. If duplicates have been
-   * added, than those do not count towards the size.
-   *
-   * @returns Number
-   */
-  ArraySet.prototype.size = function ArraySet_size() {
-    return Object.getOwnPropertyNames(this._set).length;
-  };
-
-  /**
-   * Add the given string to this set.
-   *
-   * @param String aStr
-   */
-  ArraySet.prototype.add = function ArraySet_add(aStr, aAllowDuplicates) {
-    var isDuplicate = this.has(aStr);
-    var idx = this._array.length;
-    if (!isDuplicate || aAllowDuplicates) {
-      this._array.push(aStr);
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     }
 
     return this.__generatedMappings;
@@ -18911,7 +15632,6 @@ SourceMapConsumer.prototype.allGeneratedPositionsFor =
       if (aArgs.column === undefined) {
         var originalLine = mapping.originalLine;
 
-<<<<<<< HEAD
         // Iterate until either we run out of mappings, or we run into
         // a mapping for a different line than the one we found. Since
         // mappings are sorted, this is guaranteed to find all mappings for
@@ -18955,14 +15675,6 @@ exports.SourceMapConsumer = SourceMapConsumer;
  * A BasicSourceMapConsumer instance represents a parsed source map which we can
  * query for information about the original file positions by giving it a file
  * position in the generated source.
-=======
-},{"./util":257,"amdefine":212}],249:[function(require,module,exports){
-/* -*- Mode: js; js-indent-level: 2; -*- */
-/*
- * Copyright 2011 Mozilla Foundation and contributors
- * Licensed under the New BSD license. See LICENSE or:
- * http://opensource.org/licenses/BSD-3-Clause
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
  *
  * The first parameter is the raw source map (either as a JSON string, or
  * already parsed to an object). According to the spec, source maps have the
@@ -19111,41 +15823,9 @@ BasicSourceMapConsumer.fromSourceMap =
     // a copy of the entry or else bad things happen. Shared mutable state
     // strikes again! See github issue #191.
 
-<<<<<<< HEAD
     var generatedMappings = aSourceMap._mappings.toArray().slice();
     var destGeneratedMappings = smc.__generatedMappings = [];
     var destOriginalMappings = smc.__originalMappings = [];
-=======
-  /**
-   * Decodes the next base 64 VLQ value from the given string and returns the
-   * value and the rest of the string via the out parameter.
-   */
-  exports.decode = function base64VLQ_decode(aStr, aIndex, aOutParam) {
-    var strLen = aStr.length;
-    var result = 0;
-    var shift = 0;
-    var continuation, digit;
-
-    do {
-      if (aIndex >= strLen) {
-        throw new Error("Expected more digits in base 64 VLQ value.");
-      }
-
-      digit = base64.decode(aStr.charCodeAt(aIndex++));
-      if (digit === -1) {
-        throw new Error("Invalid base64 digit: " + aStr.charAt(aIndex - 1));
-      }
-
-      continuation = !!(digit & VLQ_CONTINUATION_BIT);
-      digit &= VLQ_BASE_MASK;
-      result = result + (digit << shift);
-      shift += VLQ_BASE_SHIFT;
-    } while (continuation);
-
-    aOutParam.value = fromVLQSigned(result);
-    aOutParam.rest = aIndex;
-  };
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     for (var i = 0, length = generatedMappings.length; i < length; i++) {
       var srcMapping = generatedMappings[i];
@@ -19153,7 +15833,6 @@ BasicSourceMapConsumer.fromSourceMap =
       destMapping.generatedLine = srcMapping.generatedLine;
       destMapping.generatedColumn = srcMapping.generatedColumn;
 
-<<<<<<< HEAD
       if (srcMapping.source) {
         destMapping.source = sources.indexOf(srcMapping.source);
         destMapping.originalLine = srcMapping.originalLine;
@@ -19167,83 +15846,11 @@ BasicSourceMapConsumer.fromSourceMap =
       }
 
       destGeneratedMappings.push(destMapping);
-=======
-},{"./base64":250,"amdefine":212}],250:[function(require,module,exports){
-/* -*- Mode: js; js-indent-level: 2; -*- */
-/*
- * Copyright 2011 Mozilla Foundation and contributors
- * Licensed under the New BSD license. See LICENSE or:
- * http://opensource.org/licenses/BSD-3-Clause
- */
-if (typeof define !== 'function') {
-    var define = require('amdefine')(module, require);
-}
-define(function (require, exports, module) {
-
-  var intToCharMap = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'.split('');
-
-  /**
-   * Encode an integer in the range of 0 to 63 to a single base 64 digit.
-   */
-  exports.encode = function (number) {
-    if (0 <= number && number < intToCharMap.length) {
-      return intToCharMap[number];
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     }
 
-<<<<<<< HEAD
     quickSort(smc.__originalMappings, util.compareByOriginalPositions);
 
     return smc;
-=======
-  /**
-   * Decode a single base 64 character code digit to an integer. Returns -1 on
-   * failure.
-   */
-  exports.decode = function (charCode) {
-    var bigA = 65;     // 'A'
-    var bigZ = 90;     // 'Z'
-
-    var littleA = 97;  // 'a'
-    var littleZ = 122; // 'z'
-
-    var zero = 48;     // '0'
-    var nine = 57;     // '9'
-
-    var plus = 43;     // '+'
-    var slash = 47;    // '/'
-
-    var littleOffset = 26;
-    var numberOffset = 52;
-
-    // 0 - 25: ABCDEFGHIJKLMNOPQRSTUVWXYZ
-    if (bigA <= charCode && charCode <= bigZ) {
-      return (charCode - bigA);
-    }
-
-    // 26 - 51: abcdefghijklmnopqrstuvwxyz
-    if (littleA <= charCode && charCode <= littleZ) {
-      return (charCode - littleA + littleOffset);
-    }
-
-    // 52 - 61: 0123456789
-    if (zero <= charCode && charCode <= nine) {
-      return (charCode - zero + numberOffset);
-    }
-
-    // 62: +
-    if (charCode == plus) {
-      return 62;
-    }
-
-    // 63: /
-    if (charCode == slash) {
-      return 63;
-    }
-
-    // Invalid base64 digit.
-    return -1;
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
   };
 
 /**
@@ -19260,17 +15867,8 @@ Object.defineProperty(BasicSourceMapConsumer.prototype, 'sources', {
   }
 });
 
-<<<<<<< HEAD
 /**
  * Provide the JIT with a nice shape / hidden class.
-=======
-},{"amdefine":212}],251:[function(require,module,exports){
-/* -*- Mode: js; js-indent-level: 2; -*- */
-/*
- * Copyright 2011 Mozilla Foundation and contributors
- * Licensed under the New BSD license. See LICENSE or:
- * http://opensource.org/licenses/BSD-3-Clause
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
  */
 function Mapping() {
   this.generatedLine = 0;
@@ -19281,7 +15879,6 @@ function Mapping() {
   this.name = null;
 }
 
-<<<<<<< HEAD
 /**
  * Parse the mappings in a string in to a data structure which we can easily
  * query (the ordered arrays in the `this.__generatedMappings` and
@@ -19383,117 +15980,10 @@ BasicSourceMapConsumer.prototype._parseMappings =
         }
       }
     }
-=======
-  exports.GREATEST_LOWER_BOUND = 1;
-  exports.LEAST_UPPER_BOUND = 2;
-
-  /**
-   * Recursive implementation of binary search.
-   *
-   * @param aLow Indices here and lower do not contain the needle.
-   * @param aHigh Indices here and higher do not contain the needle.
-   * @param aNeedle The element being searched for.
-   * @param aHaystack The non-empty array being searched.
-   * @param aCompare Function which takes two elements and returns -1, 0, or 1.
-   * @param aBias Either 'binarySearch.GREATEST_LOWER_BOUND' or
-   *     'binarySearch.LEAST_UPPER_BOUND'. Specifies whether to return the
-   *     closest element that is smaller than or greater than the one we are
-   *     searching for, respectively, if the exact element cannot be found.
-   */
-  function recursiveSearch(aLow, aHigh, aNeedle, aHaystack, aCompare, aBias) {
-    // This function terminates when one of the following is true:
-    //
-    //   1. We find the exact element we are looking for.
-    //
-    //   2. We did not find the exact element, but we can return the index of
-    //      the next-closest element.
-    //
-    //   3. We did not find the exact element, and there is no next-closest
-    //      element than the one we are searching for, so we return -1.
-    var mid = Math.floor((aHigh - aLow) / 2) + aLow;
-    var cmp = aCompare(aNeedle, aHaystack[mid], true);
-    if (cmp === 0) {
-      // Found the element we are looking for.
-      return mid;
-    }
-    else if (cmp > 0) {
-      // Our needle is greater than aHaystack[mid].
-      if (aHigh - mid > 1) {
-        // The element is in the upper half.
-        return recursiveSearch(mid, aHigh, aNeedle, aHaystack, aCompare, aBias);
-      }
-
-      // The exact needle element was not found in this haystack. Determine if
-      // we are in termination case (3) or (2) and return the appropriate thing.
-      if (aBias == exports.LEAST_UPPER_BOUND) {
-        return aHigh < aHaystack.length ? aHigh : -1;
-      } else {
-        return mid;
-      }
-    }
-    else {
-      // Our needle is less than aHaystack[mid].
-      if (mid - aLow > 1) {
-        // The element is in the lower half.
-        return recursiveSearch(aLow, mid, aNeedle, aHaystack, aCompare, aBias);
-      }
-
-      // we are in termination case (3) or (2) and return the appropriate thing.
-      if (aBias == exports.LEAST_UPPER_BOUND) {
-        return mid;
-      } else {
-        return aLow < 0 ? -1 : aLow;
-      }
-    }
-  }
-
-  /**
-   * This is an implementation of binary search which will always try and return
-   * the index of the closest element if there is no exact hit. This is because
-   * mappings between original and generated line/col pairs are single points,
-   * and there is an implicit region between each of them, so a miss just means
-   * that you aren't on the very start of a region.
-   *
-   * @param aNeedle The element you are looking for.
-   * @param aHaystack The array that is being searched.
-   * @param aCompare A function which takes the needle and an element in the
-   *     array and returns -1, 0, or 1 depending on whether the needle is less
-   *     than, equal to, or greater than the element, respectively.
-   * @param aBias Either 'binarySearch.GREATEST_LOWER_BOUND' or
-   *     'binarySearch.LEAST_UPPER_BOUND'. Specifies whether to return the
-   *     closest element that is smaller than or greater than the one we are
-   *     searching for, respectively, if the exact element cannot be found.
-   *     Defaults to 'binarySearch.GREATEST_LOWER_BOUND'.
-   */
-  exports.search = function search(aNeedle, aHaystack, aCompare, aBias) {
-    if (aHaystack.length === 0) {
-      return -1;
-    }
-
-    var index = recursiveSearch(-1, aHaystack.length, aNeedle, aHaystack,
-                                aCompare, aBias || exports.GREATEST_LOWER_BOUND);
-    if (index < 0) {
-      return -1;
-    }
-
-    // We have found either the exact element, or the next-closest element than
-    // the one we are searching for. However, there may be more than one such
-    // element. Make sure we always return the smallest of these.
-    while (index - 1 >= 0) {
-      if (aCompare(aHaystack[index], aHaystack[index - 1], true) !== 0) {
-        break;
-      }
-      --index;
-    }
-
-    return index;
-  };
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     quickSort(generatedMappings, util.compareByGeneratedPositionsDeflated);
     this.__generatedMappings = generatedMappings;
 
-<<<<<<< HEAD
     quickSort(originalMappings, util.compareByOriginalPositions);
     this.__originalMappings = originalMappings;
   };
@@ -19501,14 +15991,6 @@ BasicSourceMapConsumer.prototype._parseMappings =
 /**
  * Find the mapping that best matches the hypothetical "needle" mapping that
  * we are searching for in the given "haystack" of mappings.
-=======
-},{"amdefine":212}],252:[function(require,module,exports){
-/* -*- Mode: js; js-indent-level: 2; -*- */
-/*
- * Copyright 2014 Mozilla Foundation and contributors
- * Licensed under the New BSD license. See LICENSE or:
- * http://opensource.org/licenses/BSD-3-Clause
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
  */
 BasicSourceMapConsumer.prototype._findMapping =
   function SourceMapConsumer_findMapping(aNeedle, aMappings, aLineName,
@@ -19527,24 +16009,8 @@ BasicSourceMapConsumer.prototype._findMapping =
                           + aNeedle[aColumnName]);
     }
 
-<<<<<<< HEAD
     return binarySearch.search(aNeedle, aMappings, aComparator, aBias);
   };
-=======
-  /**
-   * Determine whether mappingB is after mappingA with respect to generated
-   * position.
-   */
-  function generatedPositionAfter(mappingA, mappingB) {
-    // Optimized for most common case
-    var lineA = mappingA.generatedLine;
-    var lineB = mappingB.generatedLine;
-    var columnA = mappingA.generatedColumn;
-    var columnB = mappingB.generatedColumn;
-    return lineB > lineA || lineB == lineA && columnB >= columnA ||
-           util.compareByGeneratedPositionsInflated(mappingA, mappingB) <= 0;
-  }
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
 /**
  * Compute the last column for each generated mapping. The last column is
@@ -19634,7 +16100,6 @@ BasicSourceMapConsumer.prototype.originalPositionFor =
         };
       }
     }
-<<<<<<< HEAD
 
     return {
       source: null,
@@ -19695,443 +16160,6 @@ BasicSourceMapConsumer.prototype.sourceContentFor =
           && this._sources.has("/" + relativeSource)) {
         return this.sourcesContent[this._sources.indexOf("/" + relativeSource)];
       }
-=======
-  };
-
-  /**
-   * Returns the flat, sorted array of mappings. The mappings are sorted by
-   * generated position.
-   *
-   * WARNING: This method returns internal data without copying, for
-   * performance. The return value must NOT be mutated, and should be treated as
-   * an immutable borrow. If you want to take ownership, you must make your own
-   * copy.
-   */
-  MappingList.prototype.toArray = function MappingList_toArray() {
-    if (!this._sorted) {
-      this._array.sort(util.compareByGeneratedPositionsInflated);
-      this._sorted = true;
-    }
-    return this._array;
-  };
-
-  exports.MappingList = MappingList;
-
-});
-
-},{"./util":257,"amdefine":212}],253:[function(require,module,exports){
-/* -*- Mode: js; js-indent-level: 2; -*- */
-/*
- * Copyright 2011 Mozilla Foundation and contributors
- * Licensed under the New BSD license. See LICENSE or:
- * http://opensource.org/licenses/BSD-3-Clause
- */
-if (typeof define !== 'function') {
-    var define = require('amdefine')(module, require);
-}
-define(function (require, exports, module) {
-
-  // It turns out that some (most?) JavaScript engines don't self-host
-  // `Array.prototype.sort`. This makes sense because C++ will likely remain
-  // faster than JS when doing raw CPU-intensive sorting. However, when using a
-  // custom comparator function, calling back and forth between the VM's C++ and
-  // JIT'd JS is rather slow *and* loses JIT type information, resulting in
-  // worse generated code for the comparator function than would be optimal. In
-  // fact, when sorting with a comparator, these costs outweigh the benefits of
-  // sorting in C++. By using our own JS-implemented Quick Sort (below), we get
-  // a ~3500ms mean speed-up in `bench/bench.html`.
-
-  /**
-   * Swap the elements indexed by `x` and `y` in the array `ary`.
-   *
-   * @param {Array} ary
-   *        The array.
-   * @param {Number} x
-   *        The index of the first item.
-   * @param {Number} y
-   *        The index of the second item.
-   */
-  function swap(ary, x, y) {
-    var temp = ary[x];
-    ary[x] = ary[y];
-    ary[y] = temp;
-  }
-
-  /**
-   * Returns a random integer within the range `low .. high` inclusive.
-   *
-   * @param {Number} low
-   *        The lower bound on the range.
-   * @param {Number} high
-   *        The upper bound on the range.
-   */
-  function randomIntInRange(low, high) {
-    return Math.round(low + (Math.random() * (high - low)));
-  }
-
-  /**
-   * The Quick Sort algorithm.
-   *
-   * @param {Array} ary
-   *        An array to sort.
-   * @param {function} comparator
-   *        Function to use to compare two items.
-   * @param {Number} p
-   *        Start index of the array
-   * @param {Number} r
-   *        End index of the array
-   */
-  function doQuickSort(ary, comparator, p, r) {
-    // If our lower bound is less than our upper bound, we (1) partition the
-    // array into two pieces and (2) recurse on each half. If it is not, this is
-    // the empty array and our base case.
-
-    if (p < r) {
-      // (1) Partitioning.
-      //
-      // The partitioning chooses a pivot between `p` and `r` and moves all
-      // elements that are less than or equal to the pivot to the before it, and
-      // all the elements that are greater than it after it. The effect is that
-      // once partition is done, the pivot is in the exact place it will be when
-      // the array is put in sorted order, and it will not need to be moved
-      // again. This runs in O(n) time.
-
-      // Always choose a random pivot so that an input array which is reverse
-      // sorted does not cause O(n^2) running time.
-      var pivotIndex = randomIntInRange(p, r);
-      var i = p - 1;
-
-      swap(ary, pivotIndex, r);
-      var pivot = ary[r];
-
-      // Immediately after `j` is incremented in this loop, the following hold
-      // true:
-      //
-      //   * Every element in `ary[p .. i]` is less than or equal to the pivot.
-      //
-      //   * Every element in `ary[i+1 .. j-1]` is greater than the pivot.
-      for (var j = p; j < r; j++) {
-        if (comparator(ary[j], pivot) <= 0) {
-          i += 1;
-          swap(ary, i, j);
-        }
-      }
-
-      swap(ary, i + 1, j);
-      var q = i + 1;
-
-      // (2) Recurse on each half.
-
-      doQuickSort(ary, comparator, p, q - 1);
-      doQuickSort(ary, comparator, q + 1, r);
-    }
-  }
-
-  /**
-   * Sort the given array in-place with the given comparator function.
-   *
-   * @param {Array} ary
-   *        An array to sort.
-   * @param {function} comparator
-   *        Function to use to compare two items.
-   */
-  exports.quickSort = function (ary, comparator) {
-    doQuickSort(ary, comparator, 0, ary.length - 1);
-  };
-
-});
-
-},{"amdefine":212}],254:[function(require,module,exports){
-/* -*- Mode: js; js-indent-level: 2; -*- */
-/*
- * Copyright 2011 Mozilla Foundation and contributors
- * Licensed under the New BSD license. See LICENSE or:
- * http://opensource.org/licenses/BSD-3-Clause
- */
-if (typeof define !== 'function') {
-    var define = require('amdefine')(module, require);
-}
-define(function (require, exports, module) {
-
-  var util = require('./util');
-  var binarySearch = require('./binary-search');
-  var ArraySet = require('./array-set').ArraySet;
-  var base64VLQ = require('./base64-vlq');
-  var quickSort = require('./quick-sort').quickSort;
-
-  function SourceMapConsumer(aSourceMap) {
-    var sourceMap = aSourceMap;
-    if (typeof aSourceMap === 'string') {
-      sourceMap = JSON.parse(aSourceMap.replace(/^\)\]\}'/, ''));
-    }
-
-    return sourceMap.sections != null
-      ? new IndexedSourceMapConsumer(sourceMap)
-      : new BasicSourceMapConsumer(sourceMap);
-  }
-
-  SourceMapConsumer.fromSourceMap = function(aSourceMap) {
-    return BasicSourceMapConsumer.fromSourceMap(aSourceMap);
-  }
-
-  /**
-   * The version of the source mapping spec that we are consuming.
-   */
-  SourceMapConsumer.prototype._version = 3;
-
-  // `__generatedMappings` and `__originalMappings` are arrays that hold the
-  // parsed mapping coordinates from the source map's "mappings" attribute. They
-  // are lazily instantiated, accessed via the `_generatedMappings` and
-  // `_originalMappings` getters respectively, and we only parse the mappings
-  // and create these arrays once queried for a source location. We jump through
-  // these hoops because there can be many thousands of mappings, and parsing
-  // them is expensive, so we only want to do it if we must.
-  //
-  // Each object in the arrays is of the form:
-  //
-  //     {
-  //       generatedLine: The line number in the generated code,
-  //       generatedColumn: The column number in the generated code,
-  //       source: The path to the original source file that generated this
-  //               chunk of code,
-  //       originalLine: The line number in the original source that
-  //                     corresponds to this chunk of generated code,
-  //       originalColumn: The column number in the original source that
-  //                       corresponds to this chunk of generated code,
-  //       name: The name of the original symbol which generated this chunk of
-  //             code.
-  //     }
-  //
-  // All properties except for `generatedLine` and `generatedColumn` can be
-  // `null`.
-  //
-  // `_generatedMappings` is ordered by the generated positions.
-  //
-  // `_originalMappings` is ordered by the original positions.
-
-  SourceMapConsumer.prototype.__generatedMappings = null;
-  Object.defineProperty(SourceMapConsumer.prototype, '_generatedMappings', {
-    get: function () {
-      if (!this.__generatedMappings) {
-        this._parseMappings(this._mappings, this.sourceRoot);
-      }
-
-      return this.__generatedMappings;
-    }
-  });
-
-  SourceMapConsumer.prototype.__originalMappings = null;
-  Object.defineProperty(SourceMapConsumer.prototype, '_originalMappings', {
-    get: function () {
-      if (!this.__originalMappings) {
-        this._parseMappings(this._mappings, this.sourceRoot);
-      }
-
-      return this.__originalMappings;
-    }
-  });
-
-  SourceMapConsumer.prototype._charIsMappingSeparator =
-    function SourceMapConsumer_charIsMappingSeparator(aStr, index) {
-      var c = aStr.charAt(index);
-      return c === ";" || c === ",";
-    };
-
-  /**
-   * Parse the mappings in a string in to a data structure which we can easily
-   * query (the ordered arrays in the `this.__generatedMappings` and
-   * `this.__originalMappings` properties).
-   */
-  SourceMapConsumer.prototype._parseMappings =
-    function SourceMapConsumer_parseMappings(aStr, aSourceRoot) {
-      throw new Error("Subclasses must implement _parseMappings");
-    };
-
-  SourceMapConsumer.GENERATED_ORDER = 1;
-  SourceMapConsumer.ORIGINAL_ORDER = 2;
-
-  SourceMapConsumer.GREATEST_LOWER_BOUND = 1;
-  SourceMapConsumer.LEAST_UPPER_BOUND = 2;
-
-  /**
-   * Iterate over each mapping between an original source/line/column and a
-   * generated line/column in this source map.
-   *
-   * @param Function aCallback
-   *        The function that is called with each mapping.
-   * @param Object aContext
-   *        Optional. If specified, this object will be the value of `this` every
-   *        time that `aCallback` is called.
-   * @param aOrder
-   *        Either `SourceMapConsumer.GENERATED_ORDER` or
-   *        `SourceMapConsumer.ORIGINAL_ORDER`. Specifies whether you want to
-   *        iterate over the mappings sorted by the generated file's line/column
-   *        order or the original's source/line/column order, respectively. Defaults to
-   *        `SourceMapConsumer.GENERATED_ORDER`.
-   */
-  SourceMapConsumer.prototype.eachMapping =
-    function SourceMapConsumer_eachMapping(aCallback, aContext, aOrder) {
-      var context = aContext || null;
-      var order = aOrder || SourceMapConsumer.GENERATED_ORDER;
-
-      var mappings;
-      switch (order) {
-      case SourceMapConsumer.GENERATED_ORDER:
-        mappings = this._generatedMappings;
-        break;
-      case SourceMapConsumer.ORIGINAL_ORDER:
-        mappings = this._originalMappings;
-        break;
-      default:
-        throw new Error("Unknown order of iteration.");
-      }
-
-      var sourceRoot = this.sourceRoot;
-      mappings.map(function (mapping) {
-        var source = mapping.source === null ? null : this._sources.at(mapping.source);
-        if (source != null && sourceRoot != null) {
-          source = util.join(sourceRoot, source);
-        }
-        return {
-          source: source,
-          generatedLine: mapping.generatedLine,
-          generatedColumn: mapping.generatedColumn,
-          originalLine: mapping.originalLine,
-          originalColumn: mapping.originalColumn,
-          name: mapping.name === null ? null : this._names.at(mapping.name)
-        };
-      }, this).forEach(aCallback, context);
-    };
-
-  /**
-   * Returns all generated line and column information for the original source,
-   * line, and column provided. If no column is provided, returns all mappings
-   * corresponding to a either the line we are searching for or the next
-   * closest line that has any mappings. Otherwise, returns all mappings
-   * corresponding to the given line and either the column we are searching for
-   * or the next closest column that has any offsets.
-   *
-   * The only argument is an object with the following properties:
-   *
-   *   - source: The filename of the original source.
-   *   - line: The line number in the original source.
-   *   - column: Optional. the column number in the original source.
-   *
-   * and an array of objects is returned, each with the following properties:
-   *
-   *   - line: The line number in the generated source, or null.
-   *   - column: The column number in the generated source, or null.
-   */
-  SourceMapConsumer.prototype.allGeneratedPositionsFor =
-    function SourceMapConsumer_allGeneratedPositionsFor(aArgs) {
-      var line = util.getArg(aArgs, 'line');
-
-      // When there is no exact match, BasicSourceMapConsumer.prototype._findMapping
-      // returns the index of the closest mapping less than the needle. By
-      // setting needle.originalColumn to 0, we thus find the last mapping for
-      // the given line, provided such a mapping exists.
-      var needle = {
-        source: util.getArg(aArgs, 'source'),
-        originalLine: line,
-        originalColumn: util.getArg(aArgs, 'column', 0)
-      };
-
-      if (this.sourceRoot != null) {
-        needle.source = util.relative(this.sourceRoot, needle.source);
-      }
-      if (!this._sources.has(needle.source)) {
-        return [];
-      }
-      needle.source = this._sources.indexOf(needle.source);
-
-      var mappings = [];
-
-      var index = this._findMapping(needle,
-                                    this._originalMappings,
-                                    "originalLine",
-                                    "originalColumn",
-                                    util.compareByOriginalPositions,
-                                    binarySearch.LEAST_UPPER_BOUND);
-      if (index >= 0) {
-        var mapping = this._originalMappings[index];
-
-        if (aArgs.column === undefined) {
-          var originalLine = mapping.originalLine;
-
-          // Iterate until either we run out of mappings, or we run into
-          // a mapping for a different line than the one we found. Since
-          // mappings are sorted, this is guaranteed to find all mappings for
-          // the line we found.
-          while (mapping && mapping.originalLine === originalLine) {
-            mappings.push({
-              line: util.getArg(mapping, 'generatedLine', null),
-              column: util.getArg(mapping, 'generatedColumn', null),
-              lastColumn: util.getArg(mapping, 'lastGeneratedColumn', null)
-            });
-
-            mapping = this._originalMappings[++index];
-          }
-        } else {
-          var originalColumn = mapping.originalColumn;
-
-          // Iterate until either we run out of mappings, or we run into
-          // a mapping for a different line than the one we were searching for.
-          // Since mappings are sorted, this is guaranteed to find all mappings for
-          // the line we are searching for.
-          while (mapping &&
-                 mapping.originalLine === line &&
-                 mapping.originalColumn == originalColumn) {
-            mappings.push({
-              line: util.getArg(mapping, 'generatedLine', null),
-              column: util.getArg(mapping, 'generatedColumn', null),
-              lastColumn: util.getArg(mapping, 'lastGeneratedColumn', null)
-            });
-
-            mapping = this._originalMappings[++index];
-          }
-        }
-      }
-
-      return mappings;
-    };
-
-  exports.SourceMapConsumer = SourceMapConsumer;
-
-  /**
-   * A BasicSourceMapConsumer instance represents a parsed source map which we can
-   * query for information about the original file positions by giving it a file
-   * position in the generated source.
-   *
-   * The only parameter is the raw source map (either as a JSON string, or
-   * already parsed to an object). According to the spec, source maps have the
-   * following attributes:
-   *
-   *   - version: Which version of the source map spec this map is following.
-   *   - sources: An array of URLs to the original source files.
-   *   - names: An array of identifiers which can be referrenced by individual mappings.
-   *   - sourceRoot: Optional. The URL root from which all sources are relative.
-   *   - sourcesContent: Optional. An array of contents of the original source files.
-   *   - mappings: A string of base64 VLQs which contain the actual mappings.
-   *   - file: Optional. The generated file this source map is associated with.
-   *
-   * Here is an example source map, taken from the source map spec[0]:
-   *
-   *     {
-   *       version : 3,
-   *       file: "out.js",
-   *       sourceRoot : "",
-   *       sources: ["foo.js", "bar.js"],
-   *       names: ["src", "maps", "are", "fun"],
-   *       mappings: "AA,AB;;ABCDE;"
-   *     }
-   *
-   * [0]: https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit?pli=1#
-   */
-  function BasicSourceMapConsumer(aSourceMap) {
-    var sourceMap = aSourceMap;
-    if (typeof aSourceMap === 'string') {
-      sourceMap = JSON.parse(aSourceMap.replace(/^\)\]\}'/, ''));
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     }
 
     // This function is used recursively from
@@ -20199,7 +16227,6 @@ BasicSourceMapConsumer.prototype.generatedPositionFor =
     if (index >= 0) {
       var mapping = this._originalMappings[index];
 
-<<<<<<< HEAD
       if (mapping.source === needle.source) {
         return {
           line: util.getArg(mapping, 'generatedLine', null),
@@ -20311,82 +16338,10 @@ function IndexedSourceMapConsumer(aSourceMap, aSourceMapURL) {
         generatedColumn: offsetColumn + 1
       },
       consumer: new SourceMapConsumer(util.getArg(s, 'map'), aSourceMapURL)
-=======
-  BasicSourceMapConsumer.prototype = Object.create(SourceMapConsumer.prototype);
-  BasicSourceMapConsumer.prototype.consumer = SourceMapConsumer;
-
-  /**
-   * Create a BasicSourceMapConsumer from a SourceMapGenerator.
-   *
-   * @param SourceMapGenerator aSourceMap
-   *        The source map that will be consumed.
-   * @returns BasicSourceMapConsumer
-   */
-  BasicSourceMapConsumer.fromSourceMap =
-    function SourceMapConsumer_fromSourceMap(aSourceMap) {
-      var smc = Object.create(BasicSourceMapConsumer.prototype);
-
-      var names = smc._names = ArraySet.fromArray(aSourceMap._names.toArray(), true);
-      var sources = smc._sources = ArraySet.fromArray(aSourceMap._sources.toArray(), true);
-      smc.sourceRoot = aSourceMap._sourceRoot;
-      smc.sourcesContent = aSourceMap._generateSourcesContent(smc._sources.toArray(),
-                                                              smc.sourceRoot);
-      smc.file = aSourceMap._file;
-
-      // Because we are modifying the entries (by converting string sources and
-      // names to indices into the sources and names ArraySets), we have to make
-      // a copy of the entry or else bad things happen. Shared mutable state
-      // strikes again! See github issue #191.
-
-      var generatedMappings = aSourceMap._mappings.toArray().slice();
-      var destGeneratedMappings = smc.__generatedMappings = [];
-      var destOriginalMappings = smc.__originalMappings = [];
-
-      for (var i = 0, length = generatedMappings.length; i < length; i++) {
-        var srcMapping = generatedMappings[i];
-        var destMapping = new Mapping;
-        destMapping.generatedLine = srcMapping.generatedLine;
-        destMapping.generatedColumn = srcMapping.generatedColumn;
-
-        if (srcMapping.source) {
-          destMapping.source = sources.indexOf(srcMapping.source);
-          destMapping.originalLine = srcMapping.originalLine;
-          destMapping.originalColumn = srcMapping.originalColumn;
-
-          if (srcMapping.name) {
-            destMapping.name = names.indexOf(srcMapping.name);
-          }
-
-          destOriginalMappings.push(destMapping);
-        }
-
-        destGeneratedMappings.push(destMapping);
-      }
-
-      quickSort(smc.__originalMappings, util.compareByOriginalPositions);
-
-      return smc;
-    };
-
-  /**
-   * The version of the source mapping spec that we are consuming.
-   */
-  BasicSourceMapConsumer.prototype._version = 3;
-
-  /**
-   * The list of original sources.
-   */
-  Object.defineProperty(BasicSourceMapConsumer.prototype, 'sources', {
-    get: function () {
-      return this._sources.toArray().map(function (s) {
-        return this.sourceRoot != null ? util.join(this.sourceRoot, s) : s;
-      }, this);
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     }
   });
 }
 
-<<<<<<< HEAD
 IndexedSourceMapConsumer.prototype = Object.create(SourceMapConsumer.prototype);
 IndexedSourceMapConsumer.prototype.constructor = SourceMapConsumer;
 
@@ -20394,140 +16349,6 @@ IndexedSourceMapConsumer.prototype.constructor = SourceMapConsumer;
  * The version of the source mapping spec that we are consuming.
  */
 IndexedSourceMapConsumer.prototype._version = 3;
-=======
-  /**
-   * Provide the JIT with a nice shape / hidden class.
-   */
-  function Mapping() {
-    this.generatedLine = 0;
-    this.generatedColumn = 0;
-    this.source = null;
-    this.originalLine = null;
-    this.originalColumn = null;
-    this.name = null;
-  }
-
-  /**
-   * Parse the mappings in a string in to a data structure which we can easily
-   * query (the ordered arrays in the `this.__generatedMappings` and
-   * `this.__originalMappings` properties).
-   */
-  BasicSourceMapConsumer.prototype._parseMappings =
-    function SourceMapConsumer_parseMappings(aStr, aSourceRoot) {
-      var generatedLine = 1;
-      var previousGeneratedColumn = 0;
-      var previousOriginalLine = 0;
-      var previousOriginalColumn = 0;
-      var previousSource = 0;
-      var previousName = 0;
-      var length = aStr.length;
-      var index = 0;
-      var cachedSegments = {};
-      var temp = {};
-      var originalMappings = [];
-      var generatedMappings = [];
-      var mapping, str, segment, end, value;
-
-      while (index < length) {
-        if (aStr.charAt(index) === ';') {
-          generatedLine++;
-          index++;
-          previousGeneratedColumn = 0;
-        }
-        else if (aStr.charAt(index) === ',') {
-          index++;
-        }
-        else {
-          mapping = new Mapping();
-          mapping.generatedLine = generatedLine;
-
-          // Because each offset is encoded relative to the previous one,
-          // many segments often have the same encoding. We can exploit this
-          // fact by caching the parsed variable length fields of each segment,
-          // allowing us to avoid a second parse if we encounter the same
-          // segment again.
-          for (end = index; end < length; end++) {
-            if (this._charIsMappingSeparator(aStr, end)) {
-              break;
-            }
-          }
-          str = aStr.slice(index, end);
-
-          segment = cachedSegments[str];
-          if (segment) {
-            index += str.length;
-          } else {
-            segment = [];
-            while (index < end) {
-              base64VLQ.decode(aStr, index, temp);
-              value = temp.value;
-              index = temp.rest;
-              segment.push(value);
-            }
-
-            if (segment.length === 2) {
-              throw new Error('Found a source, but no line and column');
-            }
-
-            if (segment.length === 3) {
-              throw new Error('Found a source and line, but no column');
-            }
-
-            cachedSegments[str] = segment;
-          }
-
-          // Generated column.
-          mapping.generatedColumn = previousGeneratedColumn + segment[0];
-          previousGeneratedColumn = mapping.generatedColumn;
-
-          if (segment.length > 1) {
-            // Original source.
-            mapping.source = previousSource + segment[1];
-            previousSource += segment[1];
-
-            // Original line.
-            mapping.originalLine = previousOriginalLine + segment[2];
-            previousOriginalLine = mapping.originalLine;
-            // Lines are stored 0-based
-            mapping.originalLine += 1;
-
-            // Original column.
-            mapping.originalColumn = previousOriginalColumn + segment[3];
-            previousOriginalColumn = mapping.originalColumn;
-
-            if (segment.length > 4) {
-              // Original name.
-              mapping.name = previousName + segment[4];
-              previousName += segment[4];
-            }
-          }
-
-          generatedMappings.push(mapping);
-          if (typeof mapping.originalLine === 'number') {
-            originalMappings.push(mapping);
-          }
-        }
-      }
-
-      quickSort(generatedMappings, util.compareByGeneratedPositionsDeflated);
-      this.__generatedMappings = generatedMappings;
-
-      quickSort(originalMappings, util.compareByOriginalPositions);
-      this.__originalMappings = originalMappings;
-    };
-
-  /**
-   * Find the mapping that best matches the hypothetical "needle" mapping that
-   * we are searching for in the given "haystack" of mappings.
-   */
-  BasicSourceMapConsumer.prototype._findMapping =
-    function SourceMapConsumer_findMapping(aNeedle, aMappings, aLineName,
-                                           aColumnName, aComparator, aBias) {
-      // To return the position we are searching for, we must first find the
-      // mapping for the given position and then return the opposite position it
-      // points to. Because the mappings are sorted, we can use binary search to
-      // find the best mapping.
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
 /**
  * The list of original sources.
@@ -20544,7 +16365,6 @@ Object.defineProperty(IndexedSourceMapConsumer.prototype, 'sources', {
   }
 });
 
-<<<<<<< HEAD
 /**
  * Returns the original source, line, and column information for the generated
  * source's line and column positions provided. The only argument is an object
@@ -20584,97 +16404,6 @@ IndexedSourceMapConsumer.prototype.originalPositionFor =
                 section.generatedOffset.generatedColumn);
       });
     var section = this._sections[sectionIndex];
-=======
-      return binarySearch.search(aNeedle, aMappings, aComparator, aBias);
-    };
-
-  /**
-   * Compute the last column for each generated mapping. The last column is
-   * inclusive.
-   */
-  BasicSourceMapConsumer.prototype.computeColumnSpans =
-    function SourceMapConsumer_computeColumnSpans() {
-      for (var index = 0; index < this._generatedMappings.length; ++index) {
-        var mapping = this._generatedMappings[index];
-
-        // Mappings do not contain a field for the last generated columnt. We
-        // can come up with an optimistic estimate, however, by assuming that
-        // mappings are contiguous (i.e. given two consecutive mappings, the
-        // first mapping ends where the second one starts).
-        if (index + 1 < this._generatedMappings.length) {
-          var nextMapping = this._generatedMappings[index + 1];
-
-          if (mapping.generatedLine === nextMapping.generatedLine) {
-            mapping.lastGeneratedColumn = nextMapping.generatedColumn - 1;
-            continue;
-          }
-        }
-
-        // The last mapping for each line spans the entire line.
-        mapping.lastGeneratedColumn = Infinity;
-      }
-    };
-
-  /**
-   * Returns the original source, line, and column information for the generated
-   * source's line and column positions provided. The only argument is an object
-   * with the following properties:
-   *
-   *   - line: The line number in the generated source.
-   *   - column: The column number in the generated source.
-   *   - bias: Either 'SourceMapConsumer.GREATEST_LOWER_BOUND' or
-   *     'SourceMapConsumer.LEAST_UPPER_BOUND'. Specifies whether to return the
-   *     closest element that is smaller than or greater than the one we are
-   *     searching for, respectively, if the exact element cannot be found.
-   *     Defaults to 'SourceMapConsumer.GREATEST_LOWER_BOUND'.
-   *
-   * and an object is returned with the following properties:
-   *
-   *   - source: The original source file, or null.
-   *   - line: The line number in the original source, or null.
-   *   - column: The column number in the original source, or null.
-   *   - name: The original identifier, or null.
-   */
-  BasicSourceMapConsumer.prototype.originalPositionFor =
-    function SourceMapConsumer_originalPositionFor(aArgs) {
-      var needle = {
-        generatedLine: util.getArg(aArgs, 'line'),
-        generatedColumn: util.getArg(aArgs, 'column')
-      };
-
-      var index = this._findMapping(
-        needle,
-        this._generatedMappings,
-        "generatedLine",
-        "generatedColumn",
-        util.compareByGeneratedPositionsDeflated,
-        util.getArg(aArgs, 'bias', SourceMapConsumer.GREATEST_LOWER_BOUND)
-      );
-
-      if (index >= 0) {
-        var mapping = this._generatedMappings[index];
-
-        if (mapping.generatedLine === needle.generatedLine) {
-          var source = util.getArg(mapping, 'source', null);
-          if (source !== null) {
-            source = this._sources.at(source);
-            if (this.sourceRoot != null) {
-              source = util.join(this.sourceRoot, source);
-            }
-          }
-          var name = util.getArg(mapping, 'name', null);
-          if (name !== null) {
-            name = this._names.at(name);
-          }
-          return {
-            source: source,
-            line: util.getArg(mapping, 'originalLine', null),
-            column: util.getArg(mapping, 'originalColumn', null),
-            name: name
-          };
-        }
-      }
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     if (!section) {
       return {
@@ -20683,39 +16412,7 @@ IndexedSourceMapConsumer.prototype.originalPositionFor =
         column: null,
         name: null
       };
-<<<<<<< HEAD
     }
-=======
-    };
-
-  /**
-   * Return true if we have the source content for every source in the source
-   * map, false otherwise.
-   */
-  BasicSourceMapConsumer.prototype.hasContentsOfAllSources =
-    function BasicSourceMapConsumer_hasContentsOfAllSources() {
-      if (!this.sourcesContent) {
-        return false;
-      }
-      return this.sourcesContent.length >= this._sources.size() &&
-        !this.sourcesContent.some(function (sc) { return sc == null; });
-    };
-
-  /**
-   * Returns the original source content. The only argument is the url of the
-   * original source file. Returns null if no original source content is
-   * availible.
-   */
-  BasicSourceMapConsumer.prototype.sourceContentFor =
-    function SourceMapConsumer_sourceContentFor(aSource, nullOnMissing) {
-      if (!this.sourcesContent) {
-        return null;
-      }
-
-      if (this.sourceRoot != null) {
-        aSource = util.relative(this.sourceRoot, aSource);
-      }
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     return section.consumer.originalPositionFor({
       line: needle.generatedLine -
@@ -20753,7 +16450,6 @@ IndexedSourceMapConsumer.prototype.sourceContentFor =
       if (content) {
         return content;
       }
-<<<<<<< HEAD
     }
     if (nullOnMissing) {
       return null;
@@ -20802,80 +16498,6 @@ IndexedSourceMapConsumer.prototype.generatedPositionFor =
              : 0)
         };
         return ret;
-=======
-
-      // This function is used recursively from
-      // IndexedSourceMapConsumer.prototype.sourceContentFor. In that case, we
-      // don't want to throw if we can't find the source - we just want to
-      // return null, so we provide a flag to exit gracefully.
-      if (nullOnMissing) {
-        return null;
-      }
-      else {
-        throw new Error('"' + aSource + '" is not in the SourceMap.');
-      }
-    };
-
-  /**
-   * Returns the generated line and column information for the original source,
-   * line, and column positions provided. The only argument is an object with
-   * the following properties:
-   *
-   *   - source: The filename of the original source.
-   *   - line: The line number in the original source.
-   *   - column: The column number in the original source.
-   *   - bias: Either 'SourceMapConsumer.GREATEST_LOWER_BOUND' or
-   *     'SourceMapConsumer.LEAST_UPPER_BOUND'. Specifies whether to return the
-   *     closest element that is smaller than or greater than the one we are
-   *     searching for, respectively, if the exact element cannot be found.
-   *     Defaults to 'SourceMapConsumer.GREATEST_LOWER_BOUND'.
-   *
-   * and an object is returned with the following properties:
-   *
-   *   - line: The line number in the generated source, or null.
-   *   - column: The column number in the generated source, or null.
-   */
-  BasicSourceMapConsumer.prototype.generatedPositionFor =
-    function SourceMapConsumer_generatedPositionFor(aArgs) {
-      var source = util.getArg(aArgs, 'source');
-      if (this.sourceRoot != null) {
-        source = util.relative(this.sourceRoot, source);
-      }
-      if (!this._sources.has(source)) {
-        return {
-          line: null,
-          column: null,
-          lastColumn: null
-        };
-      }
-      source = this._sources.indexOf(source);
-
-      var needle = {
-        source: source,
-        originalLine: util.getArg(aArgs, 'line'),
-        originalColumn: util.getArg(aArgs, 'column')
-      };
-
-      var index = this._findMapping(
-        needle,
-        this._originalMappings,
-        "originalLine",
-        "originalColumn",
-        util.compareByOriginalPositions,
-        util.getArg(aArgs, 'bias', SourceMapConsumer.GREATEST_LOWER_BOUND)
-      );
-
-      if (index >= 0) {
-        var mapping = this._originalMappings[index];
-
-        if (mapping.source === needle.source) {
-          return {
-            line: util.getArg(mapping, 'generatedLine', null),
-            column: util.getArg(mapping, 'generatedColumn', null),
-            lastColumn: util.getArg(mapping, 'lastGeneratedColumn', null)
-          };
-        }
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
       }
     }
 
@@ -20885,7 +16507,6 @@ IndexedSourceMapConsumer.prototype.generatedPositionFor =
     };
   };
 
-<<<<<<< HEAD
 /**
  * Parse the mappings in a string in to a data structure which we can easily
  * query (the ordered arrays in the `this.__generatedMappings` and
@@ -20936,327 +16557,14 @@ IndexedSourceMapConsumer.prototype._parseMappings =
         }
       }
     }
-=======
-  exports.BasicSourceMapConsumer = BasicSourceMapConsumer;
-
-  /**
-   * An IndexedSourceMapConsumer instance represents a parsed source map which
-   * we can query for information. It differs from BasicSourceMapConsumer in
-   * that it takes "indexed" source maps (i.e. ones with a "sections" field) as
-   * input.
-   *
-   * The only parameter is a raw source map (either as a JSON string, or already
-   * parsed to an object). According to the spec for indexed source maps, they
-   * have the following attributes:
-   *
-   *   - version: Which version of the source map spec this map is following.
-   *   - file: Optional. The generated file this source map is associated with.
-   *   - sections: A list of section definitions.
-   *
-   * Each value under the "sections" field has two fields:
-   *   - offset: The offset into the original specified at which this section
-   *       begins to apply, defined as an object with a "line" and "column"
-   *       field.
-   *   - map: A source map definition. This source map could also be indexed,
-   *       but doesn't have to be.
-   *
-   * Instead of the "map" field, it's also possible to have a "url" field
-   * specifying a URL to retrieve a source map from, but that's currently
-   * unsupported.
-   *
-   * Here's an example source map, taken from the source map spec[0], but
-   * modified to omit a section which uses the "url" field.
-   *
-   *  {
-   *    version : 3,
-   *    file: "app.js",
-   *    sections: [{
-   *      offset: {line:100, column:10},
-   *      map: {
-   *        version : 3,
-   *        file: "section.js",
-   *        sources: ["foo.js", "bar.js"],
-   *        names: ["src", "maps", "are", "fun"],
-   *        mappings: "AAAA,E;;ABCDE;"
-   *      }
-   *    }],
-   *  }
-   *
-   * [0]: https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit#heading=h.535es3xeprgt
-   */
-  function IndexedSourceMapConsumer(aSourceMap) {
-    var sourceMap = aSourceMap;
-    if (typeof aSourceMap === 'string') {
-      sourceMap = JSON.parse(aSourceMap.replace(/^\)\]\}'/, ''));
-    }
-
-    var version = util.getArg(sourceMap, 'version');
-    var sections = util.getArg(sourceMap, 'sections');
-
-    if (version != this._version) {
-      throw new Error('Unsupported version: ' + version);
-    }
-
-    this._sources = new ArraySet();
-    this._names = new ArraySet();
-
-    var lastOffset = {
-      line: -1,
-      column: 0
-    };
-    this._sections = sections.map(function (s) {
-      if (s.url) {
-        // The url field will require support for asynchronicity.
-        // See https://github.com/mozilla/source-map/issues/16
-        throw new Error('Support for url field in sections not implemented.');
-      }
-      var offset = util.getArg(s, 'offset');
-      var offsetLine = util.getArg(offset, 'line');
-      var offsetColumn = util.getArg(offset, 'column');
-
-      if (offsetLine < lastOffset.line ||
-          (offsetLine === lastOffset.line && offsetColumn < lastOffset.column)) {
-        throw new Error('Section offsets must be ordered and non-overlapping.');
-      }
-      lastOffset = offset;
-
-      return {
-        generatedOffset: {
-          // The offset fields are 0-based, but we use 1-based indices when
-          // encoding/decoding from VLQ.
-          generatedLine: offsetLine + 1,
-          generatedColumn: offsetColumn + 1
-        },
-        consumer: new SourceMapConsumer(util.getArg(s, 'map'))
-      }
-    });
-  }
-
-  IndexedSourceMapConsumer.prototype = Object.create(SourceMapConsumer.prototype);
-  IndexedSourceMapConsumer.prototype.constructor = SourceMapConsumer;
-
-  /**
-   * The version of the source mapping spec that we are consuming.
-   */
-  IndexedSourceMapConsumer.prototype._version = 3;
-
-  /**
-   * The list of original sources.
-   */
-  Object.defineProperty(IndexedSourceMapConsumer.prototype, 'sources', {
-    get: function () {
-      var sources = [];
-      for (var i = 0; i < this._sections.length; i++) {
-        for (var j = 0; j < this._sections[i].consumer.sources.length; j++) {
-          sources.push(this._sections[i].consumer.sources[j]);
-        }
-      };
-      return sources;
-    }
-  });
-
-  /**
-   * Returns the original source, line, and column information for the generated
-   * source's line and column positions provided. The only argument is an object
-   * with the following properties:
-   *
-   *   - line: The line number in the generated source.
-   *   - column: The column number in the generated source.
-   *
-   * and an object is returned with the following properties:
-   *
-   *   - source: The original source file, or null.
-   *   - line: The line number in the original source, or null.
-   *   - column: The column number in the original source, or null.
-   *   - name: The original identifier, or null.
-   */
-  IndexedSourceMapConsumer.prototype.originalPositionFor =
-    function IndexedSourceMapConsumer_originalPositionFor(aArgs) {
-      var needle = {
-        generatedLine: util.getArg(aArgs, 'line'),
-        generatedColumn: util.getArg(aArgs, 'column')
-      };
-
-      // Find the section containing the generated position we're trying to map
-      // to an original position.
-      var sectionIndex = binarySearch.search(needle, this._sections,
-        function(needle, section) {
-          var cmp = needle.generatedLine - section.generatedOffset.generatedLine;
-          if (cmp) {
-            return cmp;
-          }
-
-          return (needle.generatedColumn -
-                  section.generatedOffset.generatedColumn);
-        });
-      var section = this._sections[sectionIndex];
-
-      if (!section) {
-        return {
-          source: null,
-          line: null,
-          column: null,
-          name: null
-        };
-      }
-
-      return section.consumer.originalPositionFor({
-        line: needle.generatedLine -
-          (section.generatedOffset.generatedLine - 1),
-        column: needle.generatedColumn -
-          (section.generatedOffset.generatedLine === needle.generatedLine
-           ? section.generatedOffset.generatedColumn - 1
-           : 0),
-        bias: aArgs.bias
-      });
-    };
-
-  /**
-   * Return true if we have the source content for every source in the source
-   * map, false otherwise.
-   */
-  IndexedSourceMapConsumer.prototype.hasContentsOfAllSources =
-    function IndexedSourceMapConsumer_hasContentsOfAllSources() {
-      return this._sections.every(function (s) {
-        return s.consumer.hasContentsOfAllSources();
-      });
-    };
-
-  /**
-   * Returns the original source content. The only argument is the url of the
-   * original source file. Returns null if no original source content is
-   * available.
-   */
-  IndexedSourceMapConsumer.prototype.sourceContentFor =
-    function IndexedSourceMapConsumer_sourceContentFor(aSource, nullOnMissing) {
-      for (var i = 0; i < this._sections.length; i++) {
-        var section = this._sections[i];
-
-        var content = section.consumer.sourceContentFor(aSource, true);
-        if (content) {
-          return content;
-        }
-      }
-      if (nullOnMissing) {
-        return null;
-      }
-      else {
-        throw new Error('"' + aSource + '" is not in the SourceMap.');
-      }
-    };
-
-  /**
-   * Returns the generated line and column information for the original source,
-   * line, and column positions provided. The only argument is an object with
-   * the following properties:
-   *
-   *   - source: The filename of the original source.
-   *   - line: The line number in the original source.
-   *   - column: The column number in the original source.
-   *
-   * and an object is returned with the following properties:
-   *
-   *   - line: The line number in the generated source, or null.
-   *   - column: The column number in the generated source, or null.
-   */
-  IndexedSourceMapConsumer.prototype.generatedPositionFor =
-    function IndexedSourceMapConsumer_generatedPositionFor(aArgs) {
-      for (var i = 0; i < this._sections.length; i++) {
-        var section = this._sections[i];
-
-        // Only consider this section if the requested source is in the list of
-        // sources of the consumer.
-        if (section.consumer.sources.indexOf(util.getArg(aArgs, 'source')) === -1) {
-          continue;
-        }
-        var generatedPosition = section.consumer.generatedPositionFor(aArgs);
-        if (generatedPosition) {
-          var ret = {
-            line: generatedPosition.line +
-              (section.generatedOffset.generatedLine - 1),
-            column: generatedPosition.column +
-              (section.generatedOffset.generatedLine === generatedPosition.line
-               ? section.generatedOffset.generatedColumn - 1
-               : 0)
-          };
-          return ret;
-        }
-      }
-
-      return {
-        line: null,
-        column: null
-      };
-    };
-
-  /**
-   * Parse the mappings in a string in to a data structure which we can easily
-   * query (the ordered arrays in the `this.__generatedMappings` and
-   * `this.__originalMappings` properties).
-   */
-  IndexedSourceMapConsumer.prototype._parseMappings =
-    function IndexedSourceMapConsumer_parseMappings(aStr, aSourceRoot) {
-      this.__generatedMappings = [];
-      this.__originalMappings = [];
-      for (var i = 0; i < this._sections.length; i++) {
-        var section = this._sections[i];
-        var sectionMappings = section.consumer._generatedMappings;
-        for (var j = 0; j < sectionMappings.length; j++) {
-          var mapping = sectionMappings[i];
-
-          var source = section.consumer._sources.at(mapping.source);
-          if (section.consumer.sourceRoot !== null) {
-            source = util.join(section.consumer.sourceRoot, source);
-          }
-          this._sources.add(source);
-          source = this._sources.indexOf(source);
-
-          var name = section.consumer._names.at(mapping.name);
-          this._names.add(name);
-          name = this._names.indexOf(name);
-
-          // The mappings coming from the consumer for the section have
-          // generated positions relative to the start of the section, so we
-          // need to offset them to be relative to the start of the concatenated
-          // generated file.
-          var adjustedMapping = {
-            source: source,
-            generatedLine: mapping.generatedLine +
-              (section.generatedOffset.generatedLine - 1),
-            generatedColumn: mapping.column +
-              (section.generatedOffset.generatedLine === mapping.generatedLine)
-              ? section.generatedOffset.generatedColumn - 1
-              : 0,
-            originalLine: mapping.originalLine,
-            originalColumn: mapping.originalColumn,
-            name: name
-          };
-
-          this.__generatedMappings.push(adjustedMapping);
-          if (typeof adjustedMapping.originalLine === 'number') {
-            this.__originalMappings.push(adjustedMapping);
-          }
-        };
-      };
-
-      quickSort(this.__generatedMappings, util.compareByGeneratedPositionsDeflated);
-      quickSort(this.__originalMappings, util.compareByOriginalPositions);
-    };
-
-  exports.IndexedSourceMapConsumer = IndexedSourceMapConsumer;
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     quickSort(this.__generatedMappings, util.compareByGeneratedPositionsDeflated);
     quickSort(this.__originalMappings, util.compareByOriginalPositions);
   };
 
-<<<<<<< HEAD
 exports.IndexedSourceMapConsumer = IndexedSourceMapConsumer;
 
 },{"./array-set":247,"./base64-vlq":248,"./binary-search":250,"./quick-sort":252,"./util":256}],254:[function(require,module,exports){
-=======
-},{"./array-set":248,"./base64-vlq":249,"./binary-search":251,"./quick-sort":253,"./util":257,"amdefine":212}],255:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -21513,7 +16821,6 @@ SourceMapGenerator.prototype.applySourceMap =
     }, this);
   };
 
-<<<<<<< HEAD
 /**
  * A mapping can have one of the three levels of data:
  *
@@ -21598,40 +16905,6 @@ SourceMapGenerator.prototype._serializeMappings =
         if (i > 0) {
           if (!util.compareByGeneratedPositionsInflated(mapping, mappings[i - 1])) {
             continue;
-=======
-  /**
-   * Serialize the accumulated mappings in to the stream of base 64 VLQs
-   * specified by the source map format.
-   */
-  SourceMapGenerator.prototype._serializeMappings =
-    function SourceMapGenerator_serializeMappings() {
-      var previousGeneratedColumn = 0;
-      var previousGeneratedLine = 1;
-      var previousOriginalColumn = 0;
-      var previousOriginalLine = 0;
-      var previousName = 0;
-      var previousSource = 0;
-      var result = '';
-      var mapping;
-
-      var mappings = this._mappings.toArray();
-      for (var i = 0, len = mappings.length; i < len; i++) {
-        mapping = mappings[i];
-
-        if (mapping.generatedLine !== previousGeneratedLine) {
-          previousGeneratedColumn = 0;
-          while (mapping.generatedLine !== previousGeneratedLine) {
-            result += ';';
-            previousGeneratedLine++;
-          }
-        }
-        else {
-          if (i > 0) {
-            if (!util.compareByGeneratedPositionsInflated(mapping, mappings[i - 1])) {
-              continue;
-            }
-            result += ',';
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
           }
           next += ',';
         }
@@ -21705,18 +16978,8 @@ SourceMapGenerator.prototype.toJSON =
       map.sourcesContent = this._generateSourcesContent(map.sources, map.sourceRoot);
     }
 
-<<<<<<< HEAD
     return map;
   };
-=======
-  /**
-   * Render the source map being generated to a string.
-   */
-  SourceMapGenerator.prototype.toString =
-    function SourceMapGenerator_toString() {
-      return JSON.stringify(this.toJSON());
-    };
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
 /**
  * Render the source map being generated to a string.
@@ -21728,11 +16991,7 @@ SourceMapGenerator.prototype.toString =
 
 exports.SourceMapGenerator = SourceMapGenerator;
 
-<<<<<<< HEAD
 },{"./array-set":247,"./base64-vlq":248,"./mapping-list":251,"./util":256}],255:[function(require,module,exports){
-=======
-},{"./array-set":248,"./base64-vlq":249,"./mapping-list":252,"./util":257,"amdefine":212}],256:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -22147,11 +17406,7 @@ SourceNode.prototype.toStringWithSourceMap = function SourceNode_toStringWithSou
 
 exports.SourceNode = SourceNode;
 
-<<<<<<< HEAD
 },{"./source-map-generator":254,"./util":256}],256:[function(require,module,exports){
-=======
-},{"./source-map-generator":255,"./util":257,"amdefine":212}],257:[function(require,module,exports){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -22312,7 +17567,6 @@ function join(aRoot, aPath) {
     }
     return urlGenerate(aPathUrl);
   }
-<<<<<<< HEAD
 
   if (aPathUrl || aPath.match(dataUrlRegexp)) {
     return aPath;
@@ -22661,192 +17915,3 @@ module.exports = require('./dist/cjs/handlebars.runtime')['default'];
 module.exports = require("handlebars/runtime")["default"];
 
 },{"handlebars/runtime":258}]},{},[1]);
-=======
-  exports.join = join;
-
-  /**
-   * Make a path relative to a URL or another path.
-   *
-   * @param aRoot The root path or URL.
-   * @param aPath The path or URL to be made relative to aRoot.
-   */
-  function relative(aRoot, aPath) {
-    if (aRoot === "") {
-      aRoot = ".";
-    }
-
-    aRoot = aRoot.replace(/\/$/, '');
-
-    // It is possible for the path to be above the root. In this case, simply
-    // checking whether the root is a prefix of the path won't work. Instead, we
-    // need to remove components from the root one by one, until either we find
-    // a prefix that fits, or we run out of components to remove.
-    var level = 0;
-    while (aPath.indexOf(aRoot + '/') !== 0) {
-      var index = aRoot.lastIndexOf("/");
-      if (index < 0) {
-        return aPath;
-      }
-
-      // If the only part of the root that is left is the scheme (i.e. http://,
-      // file:///, etc.), one or more slashes (/), or simply nothing at all, we
-      // have exhausted all components, so the path is not relative to the root.
-      aRoot = aRoot.slice(0, index);
-      if (aRoot.match(/^([^\/]+:\/)?\/*$/)) {
-        return aPath;
-      }
-
-      ++level;
-    }
-
-    // Make sure we add a "../" for each component we removed from the root.
-    return Array(level + 1).join("../") + aPath.substr(aRoot.length + 1);
-  }
-  exports.relative = relative;
-
-  /**
-   * Because behavior goes wacky when you set `__proto__` on objects, we
-   * have to prefix all the strings in our set with an arbitrary character.
-   *
-   * See https://github.com/mozilla/source-map/pull/31 and
-   * https://github.com/mozilla/source-map/issues/30
-   *
-   * @param String aStr
-   */
-  function toSetString(aStr) {
-    return '$' + aStr;
-  }
-  exports.toSetString = toSetString;
-
-  function fromSetString(aStr) {
-    return aStr.substr(1);
-  }
-  exports.fromSetString = fromSetString;
-
-  /**
-   * Comparator between two mappings where the original positions are compared.
-   *
-   * Optionally pass in `true` as `onlyCompareGenerated` to consider two
-   * mappings with the same original source/line/column, but different generated
-   * line and column the same. Useful when searching for a mapping with a
-   * stubbed out mapping.
-   */
-  function compareByOriginalPositions(mappingA, mappingB, onlyCompareOriginal) {
-    var cmp = mappingA.source - mappingB.source;
-    if (cmp !== 0) {
-      return cmp;
-    }
-
-    cmp = mappingA.originalLine - mappingB.originalLine;
-    if (cmp !== 0) {
-      return cmp;
-    }
-
-    cmp = mappingA.originalColumn - mappingB.originalColumn;
-    if (cmp !== 0 || onlyCompareOriginal) {
-      return cmp;
-    }
-
-    cmp = mappingA.generatedColumn - mappingB.generatedColumn;
-    if (cmp !== 0) {
-      return cmp;
-    }
-
-    cmp = mappingA.generatedLine - mappingB.generatedLine;
-    if (cmp !== 0) {
-      return cmp;
-    }
-
-    return mappingA.name - mappingB.name;
-  };
-  exports.compareByOriginalPositions = compareByOriginalPositions;
-
-  /**
-   * Comparator between two mappings with deflated source and name indices where
-   * the generated positions are compared.
-   *
-   * Optionally pass in `true` as `onlyCompareGenerated` to consider two
-   * mappings with the same generated line and column, but different
-   * source/name/original line and column the same. Useful when searching for a
-   * mapping with a stubbed out mapping.
-   */
-  function compareByGeneratedPositionsDeflated(mappingA, mappingB, onlyCompareGenerated) {
-    var cmp = mappingA.generatedLine - mappingB.generatedLine;
-    if (cmp !== 0) {
-      return cmp;
-    }
-
-    cmp = mappingA.generatedColumn - mappingB.generatedColumn;
-    if (cmp !== 0 || onlyCompareGenerated) {
-      return cmp;
-    }
-
-    cmp = mappingA.source - mappingB.source;
-    if (cmp !== 0) {
-      return cmp;
-    }
-
-    cmp = mappingA.originalLine - mappingB.originalLine;
-    if (cmp !== 0) {
-      return cmp;
-    }
-
-    cmp = mappingA.originalColumn - mappingB.originalColumn;
-    if (cmp !== 0) {
-      return cmp;
-    }
-
-    return mappingA.name - mappingB.name;
-  };
-  exports.compareByGeneratedPositionsDeflated = compareByGeneratedPositionsDeflated;
-
-  function strcmp(aStr1, aStr2) {
-    if (aStr1 === aStr2) {
-      return 0;
-    }
-
-    if (aStr1 > aStr2) {
-      return 1;
-    }
-
-    return -1;
-  }
-
-  /**
-   * Comparator between two mappings with inflated source and name strings where
-   * the generated positions are compared.
-   */
-  function compareByGeneratedPositionsInflated(mappingA, mappingB) {
-    var cmp = mappingA.generatedLine - mappingB.generatedLine;
-    if (cmp !== 0) {
-      return cmp;
-    }
-
-    cmp = mappingA.generatedColumn - mappingB.generatedColumn;
-    if (cmp !== 0) {
-      return cmp;
-    }
-
-    cmp = strcmp(mappingA.source, mappingB.source);
-    if (cmp !== 0) {
-      return cmp;
-    }
-
-    cmp = mappingA.originalLine - mappingB.originalLine;
-    if (cmp !== 0) {
-      return cmp;
-    }
-
-    cmp = mappingA.originalColumn - mappingB.originalColumn;
-    if (cmp !== 0) {
-      return cmp;
-    }
-
-    return strcmp(mappingA.name, mappingB.name);
-  };
-  exports.compareByGeneratedPositionsInflated = compareByGeneratedPositionsInflated;
-
-});
-
-},{"amdefine":212}]},{},[1]);
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb

@@ -15,10 +15,6 @@ class OpeningTimesReturn extends StandardFieldReturn
      * @var array Original field data
      */
     public $value;
-<<<<<<< HEAD
-=======
-
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     /**
      * @var \Kontentblocks\Fields\Definitions\OpeningTimes
      */
@@ -26,12 +22,7 @@ class OpeningTimesReturn extends StandardFieldReturn
     /**
      * @var array Prepared extended data
      */
-<<<<<<< HEAD
     protected $prepared;
-=======
-    public $field;
-
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
 
     /**
      * Constructor
@@ -51,57 +42,6 @@ class OpeningTimesReturn extends StandardFieldReturn
     }
 
     /**
-<<<<<<< HEAD
-=======
-     * Default View
-     * @return bool|string
-     */
-    public function tableView()
-    {
-        $tpl = new FieldView(
-            'otimes/otimes-def-table.twig', array(
-                'field' => $this,
-                'value' => $this->getDays()
-            )
-        );
-        return $tpl->render(true);
-    }
-
-
-    /**
-     * Return prepared data
-     * @return array
-     */
-    public function getDays()
-    {
-        return $this->prepared;
-    }
-
-    /**
-     * @return array
-     */
-    public function getValidDays()
-    {
-        return array_filter($this->prepared,function ($day){
-            return $day['valid'];
-        });
-    }
-
-
-    /**
-     * (PHP 5 &gt;= 5.4.0)<br/>
-     * Specify data which should be serialized to JSON
-     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
-     */
-    function jsonSerialize()
-    {
-        return $this->prepared;
-    }
-
-    /**
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
      * Check if input data is as expected
      * @return bool
      */
@@ -132,46 +72,12 @@ class OpeningTimesReturn extends StandardFieldReturn
 
     }
 
-<<<<<<< HEAD
-=======
-    public function getToday()
-    {
-        $day = date('N', time());
-        return array_values($this->prepared)[absint($day) - 1];
-    }
-
-    public function nowOpen()
-    {
-        $day = $this->getToday();
-        $now = current_time('timestamp', 0);
-        $date = date('d-m-Y ', $now);
-        $open = false;
-        if ($day['valid']) {
-            $open = ($now > strtotime($date . $day[0]['open']) && $now < strtotime($date . $day[0]['close']));
-            if ($day['split'] && !$open) {
-                $open = ($now > strtotime($date . $day[1]['open']) && $now < strtotime($date . $day[1]['close']));
-            }
-        }
-        return $open;
-
-    }
-
-    public function getDay($day)
-    {
-        if (isset($this->value[$day])) {
-            return $this->value[$day];
-        }
-        return false;
-    }
-
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     /**
      * Extend original data
      * @return array
      */
     private function mapDays()
     {
-<<<<<<< HEAD
         $today = date('N', time());
         $i18n = I18n::getPackages('Refields.otimes');
         $value = $this->getValue();
@@ -179,15 +85,6 @@ class OpeningTimesReturn extends StandardFieldReturn
         $count = 1;
         array_walk($value,
             function (&$v, $day) use ($i18n, $now, &$count, $today) {
-=======
-
-        $i18n = I18n::getPackages('Refields.otimes');
-        $value = $this->getValue();
-        $now = current_time('d-m-Y ');
-        array_walk($value,
-            function (&$v, $day) use ($i18n, $now) {
-
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
                 $d = $i18n[$day];
                 $v['day']['short'] = $d['short'];
                 $v['day']['long'] = $d['long'];
@@ -198,11 +95,8 @@ class OpeningTimesReturn extends StandardFieldReturn
 
                 $t2 = $v[1];
 
-<<<<<<< HEAD
                 $v['isToday'] = false;
                 $v['closed'] = (isset($v['closed'])) ? $v['closed'] : '';
-=======
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
                 if (!empty($t2['open']) || !empty($t2['close'])) {
                     $v['split'] = true;
                 } else {

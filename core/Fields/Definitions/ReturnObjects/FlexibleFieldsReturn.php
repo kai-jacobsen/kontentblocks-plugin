@@ -82,15 +82,12 @@ class FlexibleFieldsReturn implements InterfaceFieldReturn
                 continue;
             }
 
+
             $item = array();
             foreach ($fields as $key => $conf) {
                 /** @var \Kontentblocks\Fields\Field $field */
 
-<<<<<<< HEAD
                 if (!isset($data[$conf['key']])) {
-=======
-                if (!isset($data[$conf['key']])){
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
                     continue;
                 }
                 $field = $registry->getField($conf['type'], $this->entityId, $index, $key);

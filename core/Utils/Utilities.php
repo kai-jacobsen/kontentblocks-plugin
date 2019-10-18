@@ -656,7 +656,6 @@ class Utilities
         return new NullField('nullfield', null, 'nullkey', $args);
     }
 
-<<<<<<< HEAD
     public static function extractFieldValue($val)
     {
 
@@ -664,14 +663,5 @@ class Utilities
             return $val->value;
         }
         return $val;
-=======
-    public static function extractFieldValue($val){
-
-        if (is_a($val, StandardFieldReturn::class)){
-            return $val->value;
-        }
-        return $val;
-
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     }
 }

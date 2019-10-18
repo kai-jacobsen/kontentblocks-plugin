@@ -428,12 +428,9 @@ class ImageReturn extends StandardFieldReturn
         return $value;
     }
 
-<<<<<<< HEAD
     /**
      * @return string
      */
-=======
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     public function __toString()
     {
         if (is_array($this->attachment) && isset($this->attachment['url'])){

@@ -40,7 +40,6 @@ abstract class PostPanel extends AbstractPanel implements FormInterface
      * @var bool
      */
     public $saveAsSingle = false;
-<<<<<<< HEAD
 
     /**
      * @var PanelModel
@@ -57,11 +56,6 @@ abstract class PostPanel extends AbstractPanel implements FormInterface
      */
     public $dataProvider;
 
-=======
-    public $model;
-    public $args;
-    public $dataProvider;
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
     /**
      * meta box args
      * @var array|null
@@ -108,11 +102,7 @@ abstract class PostPanel extends AbstractPanel implements FormInterface
         $this->args = $this->parseDefaults($args);
         $this->setupArgs($this->args);
         $savedData = $this->dataProvider->get(Utilities::buildContextKey($this->baseId));
-<<<<<<< HEAD
         $this->model = new $this->args['modelClass']($savedData, $this);
-=======
-        $this->model = new PanelModel($savedData, $this);
->>>>>>> 206e700976eb3b082c0b018e598c85cc801f80eb
         $this->setupFields();
         $this->model = $this->prepareModel();
     }
