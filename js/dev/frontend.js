@@ -1371,17 +1371,17 @@ var Ui = {
         $(this).find('.ui-tabs-nav').css('display', 'none');
       }
 
-      $window.on('hashchange', function () {
-        if (!location.hash) {
-          selector.tabs('option', 'active', 0);
-          return;
-        }
-        $('ul > li > a', selector).each(function (index,a) {
-          if ($(a).attr('href') === location.hash){
-            selector.tabs('option', 'active', index);
-          }
-        })
-      })
+      // $window.on('hashchange', function () {
+      //   if (!location.hash) {
+      //     selector.tabs('option', 'active', 0);
+      //     return;
+      //   }
+      //   $('ul > li > a', selector).each(function (index,a) {
+      //     if ($(a).attr('href') === location.hash){
+      //       selector.tabs('option', 'active', index);
+      //     }
+      //   })
+      // })
 
     });
 
