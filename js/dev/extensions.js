@@ -81,6 +81,7 @@ module.exports = {
       var check = jQuery.inArray(c, Config.get('caps'));
       return check !== -1;
     })
+    return true;
     return valid.length ===  cap.length;
 
   }
