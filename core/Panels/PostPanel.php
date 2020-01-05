@@ -177,6 +177,18 @@ abstract class PostPanel extends AbstractPanel implements FormInterface
     {
         if (is_admin()) {
             $postType = $this->environment->getPostType();
+            if (function_exists('get_current_screen')) {
+                $currentScreen = get_current_screen();
+                if (property_exists($currentScreen, 'post_type')) {
+                    $postType = $currentScreen->post_type;
+                }
+            }
+
+            if (is_array($this->args['postTypes']) && !in_array($postType, $this->args['postTypes'])) {
+                return;
+            }
+
+
             if (!post_type_supports($postType, 'kontentblocks')) {
                 return null;
             }
@@ -225,9 +237,10 @@ abstract class PostPanel extends AbstractPanel implements FormInterface
         $renderId = $this->fields->getFieldRenderClass()->getIdString();
 
         echo "<div id='{$elementId}' data-kbpuid='{$this->uid}' class='postbox {$class} {$renderId}' data-kb-field-renderer='{$renderId}'>
-                <div class='kb-custom-wrapper'>
-                <div class='inside'>" .
+                <div class='kb-custom-wrapper'> 
+                <div class='inside'>";
              wp_nonce_field($this->getBaseId() . '_save', $this->getBaseId() . '_nc', true, true);
+
     }
 
     /**
@@ -275,7 +288,6 @@ abstract class PostPanel extends AbstractPanel implements FormInterface
 
         return $args;
     }
-
 
 
     /**

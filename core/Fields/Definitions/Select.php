@@ -26,7 +26,30 @@ Class Select extends Field
                 $options = [];
             }
             $this->setArgs(array('options' => $options));
+        }
 
+        if ($this->getArg('taxonomy', false)) {
+            $terms = get_terms(['taxonomy' => $this->getArg('taxonomy'), 'hide_empty' => false]);
+            $options = [];
+            foreach ($terms as $term) {
+                $options[] = [
+                    'name' => $term->name,
+                    'value' => $term->term_id
+                ];
+            }
+            $this->setArgs(['options' => $options]);
+        }
+
+        if ($this->getArg('postType', false)) {
+            $posts = get_posts(['post_type' => $this->getArg('postType'), 'posts_per_page' => -1]);
+            $options = [];
+            foreach ($posts as $post) {
+                $options[] = [
+                    'name' => $post->post_title,
+                    'value' => $post->ID
+                ];
+            }
+            $this->setArgs(['options' => $options]);
         }
 
         return $data;
@@ -44,7 +67,6 @@ Class Select extends Field
         } else if (is_string($val)) {
             return filter_var($val, FILTER_SANITIZE_STRING);
         }
-
         $options = $this->getArg('options', []);
         if (is_callable($options)) {
             $options = call_user_func($options, $this);
@@ -108,7 +130,7 @@ Class Select extends Field
                             $new[$index] = null;
                         }
                     }
-                    return $new;
+//                    return $new;
                 }
             }
         }
@@ -117,6 +139,40 @@ Class Select extends Field
             return null;
         }
 
+        if ($taxonomy = $this->getArg('taxonomy', false)) {
+            if (!$this->getArg('multiple', false)) {
+                if (!empty($new)) {
+                    $new = [$new];
+                }
+            }
+            if (!is_array($new)) {
+                $new = [];
+            }
+            foreach ($new as $index => $maybeId) {
+                if (!is_numeric($maybeId)) {
+                    $newTerm = wp_insert_term($maybeId, $taxonomy);
+                    if (is_wp_error($newTerm)) {
+                        $term = get_term_by('slug', $maybeId, $taxonomy);
+                        if (is_a($term, \WP_Term::class)) {
+                            $new[$index] = $term->term_id;
+                        }
+                    }
+                    if (is_array($newTerm) && isset($newTerm['term_id'])) {
+                        $new[$index] = $newTerm['term_id'];
+                    }
+                }
+
+                if (is_numeric($maybeId)) {
+                    $new[$index] = absint($maybeId);
+                }
+            }
+
+            if (!$this->getArg('multiple', false)) {
+                if (is_array($new)) {
+                    $new = current($new);
+                }
+            }
+        }
         return $new;
     }
 }

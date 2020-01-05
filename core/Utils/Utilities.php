@@ -29,8 +29,8 @@ class Utilities
     /**
      * @param null $storageId
      * @param null $actualPostId
-     * @deprecated use getPostEnvironment instead
      * @return PostEnvironment
+     * @deprecated use getPostEnvironment instead
      */
     public static function getEnvironment($storageId = null, $actualPostId = null)
     {
@@ -113,8 +113,12 @@ class Utilities
     {
         global $kbHiddenEditorCalled;
 
-
         if (!$kbHiddenEditorCalled) {
+            wp_enqueue_editor();
+            /** @var JSONTransport $jsonTransport */
+            $jsonTransport = Kontentblocks()->getService('utility.jsontransport');
+            $jsonTransport->registerData('tinymce', 'settings', self::editorDefaultSettings());
+
             echo "<div style='display: none;'>";
             self::editor('ghost', '', 'ghost', true, array('tinymce' => array('wp_skip_init' => false)));
             echo '</div>';
@@ -124,14 +128,7 @@ class Utilities
         $kbHiddenEditorCalled = true;
     }
 
-    /**
-     * @param string $id editors unique id
-     * @param string $data | initial content of the editor
-     * @param null $name
-     * @param bool $media | whether to render media buttons or not
-     * @param array $args | additional args
-     */
-    static public function editor($id, $data, $name = null, $media = false, $args = array())
+    public static function editorDefaultSettings()
     {
         global $wp_version;
 
@@ -162,6 +159,7 @@ class Utilities
             )
         );
 
+
         /*
          * autoresize behaviour is new from version 4
          */
@@ -182,9 +180,9 @@ class Utilities
         $settings = array(
             'wpautop' => true,
             // use wpautop?
-            'media_buttons' => $media,
+            'media_buttons' => false,
             // show insert/upload button(s)
-            'textarea_name' => $name,
+//            'textarea_name' => $name,
             // set the textarea name to something different, square brackets [] can be used here
             'tabindex' => '',
             'editor_css' => '',
@@ -214,12 +212,26 @@ class Utilities
 
         );
 
+        $settings = apply_filters('kb.tinymce.global.settings', $settings);
+        return $settings;
+
+    }
+
+    /**
+     * @param string $id editors unique id
+     * @param string $data | initial content of the editor
+     * @param null $name
+     * @param bool $media | whether to render media buttons or not
+     * @param array $args | additional args
+     */
+    static public function editor($id, $data, $name = null, $media = false, $args = array())
+    {
+        $settings = self::editorDefaultSettings();
+        $settings['textarea_name'] = $name;
+        $settings['media_buttons'] = $media;
         if (!empty($args)) {
             $settings = Utilities::arrayMergeRecursive($args, $settings);
         }
-
-        $settings = apply_filters('kb.tinymce.global.settings', $settings);
-
         wp_editor($data, $id . 'editor', $settings);
 
     }
@@ -246,6 +258,7 @@ class Utilities
                     if (array_key_exists($key, $merged) && isset($merged[$key]) && $merged[$key] !== null) {
                         // key exists and is not null, dig further into the array until actual values are reached
                         $merged[$key] = self::arrayMergeRecursive($merged[$key], $old[$key]);
+
                     } elseif (array_key_exists($key, $merged) && $merged[$key] === null) {
                         unset($merged[$key]);
                     } else {
@@ -257,7 +270,6 @@ class Utilities
                         // key was set to null on purpose, and gets removed finally
                         unset($merged[$key]);
                     } elseif (!isset($merged[$key])) {
-
                         // there is something missing in current(new) data, add it
                         $merged[$key] = $val;
                     }
@@ -478,6 +490,7 @@ class Utilities
 
         $url = add_query_arg('concat', 'true', $base);
         $url = add_query_arg('contime', time(), $url);
+
         if ($url !== false) {
             $args = wp_parse_args($args, array('timeout' => 5, 'blocking' => $blocking));
             $args = apply_filters('kb.remote.concat.args', $args, $url);
