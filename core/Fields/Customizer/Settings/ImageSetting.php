@@ -25,7 +25,6 @@ class ImageSetting extends \WP_Customize_Setting
 
     public function preview(){
         $value = $this->post_value();
-
         if ($value) {
             $post_id = attachment_url_to_postid( $value );
             if ($post_id) {

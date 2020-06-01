@@ -247,7 +247,7 @@ Class Image extends Field
         $customizeManager->add_setting(
             new ImageSetting($customizeManager, $integration->getSettingName($this), array(
                 'default' => $this->getArg('std'),
-                'type' => 'option',
+                'type' => 'theme_mod',
                 'field' => $this
             ))
         );
