@@ -55,17 +55,17 @@
     },
     {
         "name": "monolog/monolog",
-        "version": "1.25.4",
-        "version_normalized": "1.25.4.0",
+        "version": "1.25.5",
+        "version_normalized": "1.25.5.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "3022efff205e2448b560c833c6fbbf91c3139168"
+            "reference": "1817faadd1846cd08be9a49e905dc68823bc38c0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/3022efff205e2448b560c833c6fbbf91c3139168",
-            "reference": "3022efff205e2448b560c833c6fbbf91c3139168",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1817faadd1846cd08be9a49e905dc68823bc38c0",
+            "reference": "1817faadd1846cd08be9a49e905dc68823bc38c0",
             "shasum": ""
         },
         "require": {
@@ -100,7 +100,7 @@
             "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
             "sentry/sentry": "Allow sending log messages to a Sentry server"
         },
-        "time": "2020-05-22T07:31:27+00:00",
+        "time": "2020-07-23T08:35:51+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -144,27 +144,27 @@
     },
     {
         "name": "pimple/pimple",
-        "version": "v3.3.0",
-        "version_normalized": "3.3.0.0",
+        "version": "v3.3.1",
+        "version_normalized": "3.3.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/silexphp/Pimple.git",
-            "reference": "e55d12f9d6a0e7f9c85992b73df1267f46279930"
+            "reference": "21e45061c3429b1e06233475cc0e1f6fc774d5b0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/silexphp/Pimple/zipball/e55d12f9d6a0e7f9c85992b73df1267f46279930",
-            "reference": "e55d12f9d6a0e7f9c85992b73df1267f46279930",
+            "url": "https://api.github.com/repos/silexphp/Pimple/zipball/21e45061c3429b1e06233475cc0e1f6fc774d5b0",
+            "reference": "21e45061c3429b1e06233475cc0e1f6fc774d5b0",
             "shasum": ""
         },
         "require": {
-            "php": "^7.2.5",
+            "php": ">=7.2.5",
             "psr/container": "^1.0"
         },
         "require-dev": {
-            "symfony/phpunit-bridge": "^3.4|^4.4|^5.0"
+            "symfony/phpunit-bridge": "^5.0"
         },
-        "time": "2020-03-03T09:12:48+00:00",
+        "time": "2020-11-24T20:35:42+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -350,105 +350,35 @@
         "homepage": "https://symfony.com"
     },
     {
-        "name": "symfony/polyfill-ctype",
-        "version": "v1.17.0",
-        "version_normalized": "1.17.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/polyfill-ctype.git",
-            "reference": "e94c8b1bbe2bc77507a1056cdb06451c75b427f9"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e94c8b1bbe2bc77507a1056cdb06451c75b427f9",
-            "reference": "e94c8b1bbe2bc77507a1056cdb06451c75b427f9",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "suggest": {
-            "ext-ctype": "For best performance"
-        },
-        "time": "2020-05-12T16:14:59+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.17-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Polyfill\\Ctype\\": ""
-            },
-            "files": [
-                "bootstrap.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Gert de Pagter",
-                "email": "BackEndTea@gmail.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony polyfill for ctype functions",
-        "homepage": "https://symfony.com",
-        "keywords": [
-            "compatibility",
-            "ctype",
-            "polyfill",
-            "portable"
-        ],
-        "funding": [
-            {
-                "url": "https://symfony.com/sponsor",
-                "type": "custom"
-            },
-            {
-                "url": "https://github.com/fabpot",
-                "type": "github"
-            },
-            {
-                "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                "type": "tidelift"
-            }
-        ]
-    },
-    {
         "name": "symfony/polyfill-mbstring",
-        "version": "v1.17.0",
-        "version_normalized": "1.17.0.0",
+        "version": "v1.20.0",
+        "version_normalized": "1.20.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/polyfill-mbstring.git",
-            "reference": "fa79b11539418b02fc5e1897267673ba2c19419c"
+            "reference": "39d483bdf39be819deabf04ec872eb0b2410b531"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/fa79b11539418b02fc5e1897267673ba2c19419c",
-            "reference": "fa79b11539418b02fc5e1897267673ba2c19419c",
+            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/39d483bdf39be819deabf04ec872eb0b2410b531",
+            "reference": "39d483bdf39be819deabf04ec872eb0b2410b531",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3.3"
+            "php": ">=7.1"
         },
         "suggest": {
             "ext-mbstring": "For best performance"
         },
-        "time": "2020-05-12T16:47:27+00:00",
+        "time": "2020-10-23T14:02:19+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.17-dev"
+                "dev-main": "1.20-dev"
+            },
+            "thanks": {
+                "name": "symfony/polyfill",
+                "url": "https://github.com/symfony/polyfill"
             }
         },
         "installation-source": "dist",
@@ -551,66 +481,46 @@
     },
     {
         "name": "twig/twig",
-        "version": "v1.42.5",
-        "version_normalized": "1.42.5.0",
+        "version": "1.6.5",
+        "version_normalized": "1.6.5.0",
         "source": {
             "type": "git",
             "url": "https://github.com/twigphp/Twig.git",
-            "reference": "87b2ea9d8f6fd014d0621ca089bb1b3769ea3f8e"
+            "reference": "97ade38d5c0b095f8ed9fadb61f71ab79f13d7af"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twigphp/Twig/zipball/87b2ea9d8f6fd014d0621ca089bb1b3769ea3f8e",
-            "reference": "87b2ea9d8f6fd014d0621ca089bb1b3769ea3f8e",
+            "url": "https://api.github.com/repos/twigphp/Twig/zipball/97ade38d5c0b095f8ed9fadb61f71ab79f13d7af",
+            "reference": "97ade38d5c0b095f8ed9fadb61f71ab79f13d7af",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.5.0",
-            "symfony/polyfill-ctype": "^1.8"
+            "php": ">=5.2.4"
         },
-        "require-dev": {
-            "psr/container": "^1.0",
-            "symfony/phpunit-bridge": "^4.4|^5.0"
-        },
-        "time": "2020-02-11T05:59:23+00:00",
+        "time": "2012-04-11T09:00:38+00:00",
         "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.42-dev"
-            }
-        },
         "installation-source": "dist",
         "autoload": {
             "psr-0": {
                 "Twig_": "lib/"
-            },
-            "psr-4": {
-                "Twig\\": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
-            "BSD-3-Clause"
+            "BSD"
         ],
         "authors": [
             {
                 "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": "http://fabien.potencier.org",
-                "role": "Lead Developer"
-            },
-            {
-                "name": "Twig Team",
-                "role": "Contributors"
+                "email": "fabien@symfony.com"
             },
             {
                 "name": "Armin Ronacher",
-                "email": "armin.ronacher@active-4.com",
-                "role": "Project Founder"
+                "email": "armin.ronacher@active-4.com"
             }
         ],
         "description": "Twig, the flexible, fast, and secure template language for PHP",
-        "homepage": "https://twig.symfony.com",
+        "homepage": "http://twig.sensiolabs.org",
         "keywords": [
             "templating"
         ]

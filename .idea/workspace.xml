@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7d4cd394-0f39-4f30-8fec-b24e7f977b98" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/kontentblocks-plugin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kontentblocks-plugin.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Customizer/CustomizerIntegration.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Customizer/CustomizerIntegration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Fields/Definitions/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Fields/Definitions/File.php" afterDir="false" />
-    </list>
+    <list default="true" id="7d4cd394-0f39-4f30-8fec-b24e7f977b98" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,6 +103,7 @@
       <workItem from="1571400759738" duration="2937000" />
       <workItem from="1590434608759" duration="1674000" />
       <workItem from="1591025372054" duration="70000" />
+      <workItem from="1591027317852" duration="154000" />
     </task>
     <servers />
   </component>

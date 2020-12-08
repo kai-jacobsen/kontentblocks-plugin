@@ -185,7 +185,6 @@ module.exports = {
     _.each(this.strings, function(string){
       res = res + string + '\n';
     });
-
     return res;
 
   }
@@ -642,6 +641,8 @@ var LayoutConfigurations =
 module.exports = LayoutConfigurations;
 },{"common/Ajax":2,"common/Config":4,"common/Logger":7,"common/Notice":8,"templates/backend/extensions/layout-item.hbs":26}],15:[function(require,module,exports){
 var Index = require('common/Index');
+
+
 KBFieldContent = function () {
   var that = this;
   YoastSEO.app.registerPlugin('kbfieldcontent', {status: 'ready'});
@@ -670,11 +671,13 @@ KBFieldContent.prototype.contentModification = function (data) {
   return data + Index.concatStrings();
 };
 
-jQuery(document).ready(function () {
-  if (window.YoastSEO) {
+jQuery(window).on(
+  "YoastSEO:ready",
+  function () {
     new KBFieldContent();
   }
-});
+);
+
 
 },{"common/Index":6}],16:[function(require,module,exports){
 var ModuleBrowserList = require('shared/ModuleBrowser/ModuleBrowserList');

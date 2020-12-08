@@ -3,22 +3,17 @@
 /*
  * This file is part of Twig.
  *
- * (c) Fabien Potencier
+ * (c) 2010 Fabien Potencier
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-use Twig\Node\Node;
-
 /**
  * Represents a template filter.
  *
- * Use \Twig\TwigFilter instead.
- *
- * @author Fabien Potencier <fabien@symfony.com>
- *
- * @deprecated since 1.12 (to be removed in 2.0)
+ * @package    twig
+ * @author     Fabien Potencier <fabien@symfony.com>
  */
 interface Twig_FilterInterface
 {
@@ -27,19 +22,17 @@ interface Twig_FilterInterface
      *
      * @return string The PHP code for the filter
      */
-    public function compile();
+    function compile();
 
-    public function needsEnvironment();
+    function needsEnvironment();
 
-    public function needsContext();
+    function needsContext();
 
-    public function getSafe(Node $filterArgs);
+    function getSafe(Twig_Node $filterArgs);
 
-    public function getPreservesSafety();
+    function getPreEscape();
 
-    public function getPreEscape();
+    function setArguments($arguments);
 
-    public function setArguments($arguments);
-
-    public function getArguments();
+    function getArguments();
 }

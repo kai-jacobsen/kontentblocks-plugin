@@ -4,11 +4,11 @@ KB.Events = {};
 _.extend(KB, Backbone.Events);
 _.extend(KB.Events, Backbone.Events);
 
+
 KB.currentModule = {};
 KB.currentArea = {};
 if (typeof global == 'undefined') { global = window }
 // requires
-
 var ViewsCollection = require('shared/ViewsCollection');
 var FieldControlsCollection = require('fields/FieldControlsCollection');
 var AreasCollection = require('backend/Collections/AreasCollection');
@@ -2722,7 +2722,6 @@ module.exports = {
     _.each(this.strings, function(string){
       res = res + string + '\n';
     });
-
     return res;
 
   }
@@ -4407,7 +4406,7 @@ module.exports = BaseView.extend({
           var limit = settings.settings.charlimit;
           var $charlimit = that.$('.char-limit');
           editor.on('keyDown SetContent', function (ed, e) {
-            var content = this.getContent();
+            var content = this.getContent({format: 'text'});
             var max = limit;
             var len = content.length;
             var rest = len - max;
