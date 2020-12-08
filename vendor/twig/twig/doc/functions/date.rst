@@ -9,25 +9,25 @@
 
 Converts an argument to a date to allow date comparison:
 
-.. code-block:: jinja
+.. code-block:: twig
 
-    {% if date(user.created_at) < date('+2days') %}
+    {% if date(user.created_at) < date('-2days') %}
         {# do something #}
     {% endif %}
 
-The argument must be in a format supported by the `date`_ function.
+The argument must be in one of PHP’s supported `date and time formats`_.
 
 You can pass a timezone as the second argument:
 
-.. code-block:: jinja
+.. code-block:: twig
 
-    {% if date(user.created_at) < date('+2days', 'Europe/Paris') %}
+    {% if date(user.created_at) < date('-2days', 'Europe/Paris') %}
         {# do something #}
     {% endif %}
 
 If no argument is passed, the function returns the current date:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% if date(user.created_at) < date() %}
         {# always! #}
@@ -40,7 +40,16 @@ If no argument is passed, the function returns the current date:
 
     .. code-block:: php
 
-        $twig = new Twig_Environment($loader);
+        $twig = new \Twig\Environment($loader);
+        $twig->getExtension('\Twig\Extension\CoreExtension')->setTimezone('Europe/Paris');
+
+        // before Twig 1.26
         $twig->getExtension('core')->setTimezone('Europe/Paris');
 
-.. _`date`: http://www.php.net/date
+Arguments
+---------
+
+* ``date``:     The date
+* ``timezone``: The timezone
+
+.. _`date and time formats`: https://secure.php.net/manual/en/datetime.formats.php

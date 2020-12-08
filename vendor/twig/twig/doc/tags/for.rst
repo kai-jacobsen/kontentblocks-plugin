@@ -4,7 +4,7 @@
 Loop over each item in a sequence. For example, to display a list of users
 provided in a variable called ``users``:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     <h1>Members</h1>
     <ul>
@@ -21,7 +21,7 @@ provided in a variable called ``users``:
 If you do need to iterate over a sequence of numbers, you can use the ``..``
 operator:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% for i in 0..10 %}
         * {{ i }}
@@ -31,7 +31,7 @@ The above snippet of code would print all numbers from 0 to 10.
 
 It can be also useful with letters:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% for letter in 'a'..'z' %}
         * {{ letter }}
@@ -39,7 +39,7 @@ It can be also useful with letters:
 
 The ``..`` operator can take any expression at both sides:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% for letter in 'a'|upper..'z'|upper %}
         * {{ letter }}
@@ -68,11 +68,18 @@ Variable              Description
 ``loop.parent``       The parent context
 ===================== =============================================================
 
+.. code-block:: twig
+
+    {% for user in users %}
+        {{ loop.index }} - {{ user.username }}
+    {% endfor %}
+
 .. note::
 
     The ``loop.length``, ``loop.revindex``, ``loop.revindex0``, and
     ``loop.last`` variables are only available for PHP arrays, or objects that
-    implement the ``Countable`` interface.
+    implement the ``Countable`` interface. They are also not available when
+    looping with a condition.
 
 .. versionadded:: 1.2
     The ``if`` modifier support has been added in Twig 1.2.
@@ -80,11 +87,18 @@ Variable              Description
 Adding a condition
 ------------------
 
+.. tip::
+
+    As of Twig 1.41, use the :doc:`filter <../filters/filter>` filter instead,
+    or an ``if`` condition inside the ``for`` body (if your condition depends on
+    a variable updated inside the loop and you are not using the ``loop``
+    variable).
+
 Unlike in PHP, it's not possible to ``break`` or ``continue`` in a loop. You
 can however filter the sequence during iteration which allows you to skip
 items. The following example skips all the users which are not active:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     <ul>
         {% for user in users if user.active %}
@@ -93,7 +107,8 @@ items. The following example skips all the users which are not active:
     </ul>
 
 The advantage is that the special loop variable will count correctly thus not
-counting the users not iterated over.
+counting the users not iterated over. Keep in mind that properties like
+``loop.last`` will not be defined when using loop conditions.
 
 .. note::
 
@@ -109,7 +124,7 @@ The `else` Clause
 If no iteration took place because the sequence was empty, you can render a
 replacement block by using ``else``:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     <ul>
         {% for user in users %}
@@ -125,7 +140,7 @@ Iterating over Keys
 By default, a loop iterates over the values of the sequence. You can iterate
 on keys by using the ``keys`` filter:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     <h1>Members</h1>
     <ul>
@@ -139,11 +154,26 @@ Iterating over Keys and Values
 
 You can also access both keys and values:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     <h1>Members</h1>
     <ul>
         {% for key, user in users %}
             <li>{{ key }}: {{ user.username|e }}</li>
+        {% endfor %}
+    </ul>
+
+Iterating over a Subset
+-----------------------
+
+You might want to iterate over a subset of values. This can be achieved using
+the :doc:`slice <../filters/slice>` filter:
+
+.. code-block:: twig
+
+    <h1>Top Ten Members</h1>
+    <ul>
+        {% for user in users|slice(0, 10) %}
+            <li>{{ user.username|e }}</li>
         {% endfor %}
     </ul>
