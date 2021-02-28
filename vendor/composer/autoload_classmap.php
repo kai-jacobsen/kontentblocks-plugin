@@ -126,6 +126,7 @@ return array(
     'Kontentblocks\\Fields\\Definitions\\FlexibleFields' => $baseDir . '/core/Fields/Definitions/FlexibleFields.php',
     'Kontentblocks\\Fields\\Definitions\\Gallery' => $baseDir . '/core/Fields/Definitions/Gallery.php',
     'Kontentblocks\\Fields\\Definitions\\Gallery2' => $baseDir . '/core/Fields/Definitions/Gallery2.php',
+    'Kontentblocks\\Fields\\Definitions\\GalleryExt' => $baseDir . '/core/Fields/Definitions/GalleryExt.php',
     'Kontentblocks\\Fields\\Definitions\\Image' => $baseDir . '/core/Fields/Definitions/Image.php',
     'Kontentblocks\\Fields\\Definitions\\Imageselect' => $baseDir . '/core/Fields/Definitions/Imageselect.php',
     'Kontentblocks\\Fields\\Definitions\\Link' => $baseDir . '/core/Fields/Definitions/Link.php',

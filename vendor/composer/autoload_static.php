@@ -222,6 +222,7 @@ class ComposerStaticInit0922041970df0fd9e519fb6eea6e70ec
         'Kontentblocks\\Fields\\Definitions\\FlexibleFields' => __DIR__ . '/../..' . '/core/Fields/Definitions/FlexibleFields.php',
         'Kontentblocks\\Fields\\Definitions\\Gallery' => __DIR__ . '/../..' . '/core/Fields/Definitions/Gallery.php',
         'Kontentblocks\\Fields\\Definitions\\Gallery2' => __DIR__ . '/../..' . '/core/Fields/Definitions/Gallery2.php',
+        'Kontentblocks\\Fields\\Definitions\\GalleryExt' => __DIR__ . '/../..' . '/core/Fields/Definitions/GalleryExt.php',
         'Kontentblocks\\Fields\\Definitions\\Image' => __DIR__ . '/../..' . '/core/Fields/Definitions/Image.php',
         'Kontentblocks\\Fields\\Definitions\\Imageselect' => __DIR__ . '/../..' . '/core/Fields/Definitions/Imageselect.php',
         'Kontentblocks\\Fields\\Definitions\\Link' => __DIR__ . '/../..' . '/core/Fields/Definitions/Link.php',
