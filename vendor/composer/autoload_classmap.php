@@ -151,6 +151,7 @@ return array(
     'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\FieldCollection' => $baseDir . '/core/Fields/Definitions/ReturnObjects/FieldCollection.php',
     'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\FileMultipleReturn' => $baseDir . '/core/Fields/Definitions/ReturnObjects/FileMultipleReturn.php',
     'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\FlexibleFieldsReturn' => $baseDir . '/core/Fields/Definitions/ReturnObjects/FlexibleFieldsReturn.php',
+    'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\GalleryExtReturn' => $baseDir . '/core/Fields/Definitions/ReturnObjects/GalleryExtReturn.php',
     'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\GalleryReturn' => $baseDir . '/core/Fields/Definitions/ReturnObjects/GalleryReturn.php',
     'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\ImageReturn' => $baseDir . '/core/Fields/Definitions/ReturnObjects/ImageReturn.php',
     'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\InterfaceEditableFieldReturn' => $baseDir . '/core/Fields/Definitions/ReturnObjects/InterfaceEditableFieldReturn.php',

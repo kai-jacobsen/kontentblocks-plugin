@@ -11,7 +11,7 @@ class GalleryExt extends Field
     // Defaults
     public static $settings = array(
         'type' => 'gallery-ext',
-        'returnObj' => 'GalleryReturn'
+        'returnObj' => 'GalleryExtReturn'
     );
 
 

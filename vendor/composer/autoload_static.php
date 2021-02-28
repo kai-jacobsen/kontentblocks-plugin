@@ -247,6 +247,7 @@ class ComposerStaticInit0922041970df0fd9e519fb6eea6e70ec
         'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\FieldCollection' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/FieldCollection.php',
         'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\FileMultipleReturn' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/FileMultipleReturn.php',
         'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\FlexibleFieldsReturn' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/FlexibleFieldsReturn.php',
+        'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\GalleryExtReturn' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/GalleryExtReturn.php',
         'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\GalleryReturn' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/GalleryReturn.php',
         'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\ImageReturn' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/ImageReturn.php',
         'Kontentblocks\\Fields\\Definitions\\ReturnObjects\\InterfaceEditableFieldReturn' => __DIR__ . '/../..' . '/core/Fields/Definitions/ReturnObjects/InterfaceEditableFieldReturn.php',
