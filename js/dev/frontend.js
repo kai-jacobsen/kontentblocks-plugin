@@ -3343,9 +3343,11 @@ module.exports = Backbone.View.extend({
     }, this);
   },
   add: function (model) {
-    var meta = '';
+    var meta = '', caption='';
     if (this.data.hasOwnProperty(model.id)) meta = this.data[model.id].meta;
     model.set('meta', meta);
+    if (this.data.hasOwnProperty(model.id)) caption = this.data[model.id].caption;
+    model.set('caption', caption);
     var imageView = new ImageView({model: model, Controller: this});
     this.subviews[model.get('id')] = imageView;
     var $image = imageView.render();
@@ -3419,7 +3421,6 @@ module.exports = Backbone.View.extend({
     delete this.$el;
   },
   render: function () {
-    console.log(this);
     var inputName = this.createInputName(this.model);
     var item = this.model.toJSON();
 
@@ -11009,8 +11010,12 @@ module.exports = HandlebarsCompiler.template({"compiler":[8,">= 4.3.0"],"main":f
     + alias2(((helper = (helper = lookupProperty(helpers,"inputName") || (depth0 != null ? lookupProperty(depth0,"inputName") : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"inputName","hash":{},"data":data,"loc":{"start":{"line":5,"column":42},"end":{"line":5,"column":57}}}) : helper)))
     + "[meta]\" rows=\"2\">"
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"image") : depth0)) != null ? lookupProperty(stack1,"meta") : stack1), depth0))
+    + "</textarea>\n        </label>\n        <label> Beschreibung\n            <textarea type=\"hidden\" name=\""
+    + alias2(((helper = (helper = lookupProperty(helpers,"inputName") || (depth0 != null ? lookupProperty(depth0,"inputName") : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"inputName","hash":{},"data":data,"loc":{"start":{"line":8,"column":42},"end":{"line":8,"column":57}}}) : helper)))
+    + "[caption]\" rows=\"2\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"image") : depth0)) != null ? lookupProperty(stack1,"caption") : stack1), depth0))
     + "</textarea>\n        </label>\n        <input type=\"hidden\" name=\""
-    + alias2(((helper = (helper = lookupProperty(helpers,"inputName") || (depth0 != null ? lookupProperty(depth0,"inputName") : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"inputName","hash":{},"data":data,"loc":{"start":{"line":7,"column":35},"end":{"line":7,"column":50}}}) : helper)))
+    + alias2(((helper = (helper = lookupProperty(helpers,"inputName") || (depth0 != null ? lookupProperty(depth0,"inputName") : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"inputName","hash":{},"data":data,"loc":{"start":{"line":10,"column":35},"end":{"line":10,"column":50}}}) : helper)))
     + "[id]\" value=\""
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"image") : depth0)) != null ? lookupProperty(stack1,"id") : stack1), depth0))
     + "\">\n    </div>\n</div>";
