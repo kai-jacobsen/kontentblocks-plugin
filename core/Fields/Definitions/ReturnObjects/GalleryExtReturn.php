@@ -71,6 +71,7 @@ class GalleryExtReturn
                 $field->setArgs(['index' => $k, 'arrayKey' => $this->field->getKey() . '.images']);
                 $return = new ImageReturn(array('id' => $attId['id']), $field, null);
                 $return->meta = $attId['meta'];
+                $return->customCaption = $attId['caption'];
                 array_push($images, $return);
             }
         }
