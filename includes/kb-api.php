@@ -2,7 +2,6 @@
 
 namespace Kontentblocks;
 
-use function foo\func;
 use Kontentblocks\Backend\EditScreens\Layouts\EditScreenLayoutsRegistry;
 use Kontentblocks\Common\Data\EntityModel;
 use Kontentblocks\Common\Data\ValueObject;
@@ -141,7 +140,7 @@ function renderSideAreas($postId, $areaSettings = array(), $moduleSettings = arr
  * @param $postId
  * @param array $areaSettings
  * @param array $moduleSettings
- * @return array
+ * @return null
  */
 function renderContext($context, $postId, $areaSettings = array(), $moduleSettings = array())
 {

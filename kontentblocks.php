@@ -45,7 +45,7 @@ use Pimple;
  * Class Kontentblocks
  * @package Kontentblocks
  */
-Class Kontentblocks
+final Class Kontentblocks
 {
 
     const VERSION = '0.11.17';

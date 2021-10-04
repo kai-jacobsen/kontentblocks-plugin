@@ -1,7 +1,195 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4cd394-0f39-4f30-8fec-b24e7f977b98" name="Default" comment="" />
+    <list default="true" id="7d4cd394-0f39-4f30-8fec-b24e7f977b98" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/kontentblocks-plugin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kontentblocks-plugin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/Areas/AreaSettingsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Areas/AreaSettingsModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/Utils/Utilities.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Utils/Utilities.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/kb-api.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/kb-api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kontentblocks.php" beforeDir="false" afterPath="$PROJECT_DIR$/kontentblocks.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib/Mobile_Detect.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib/Mobile_Detect.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib/Mobile_Detect.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib/Mobile_Detect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib/docs/KNOWN_LIMITATIONS.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib/docs/KNOWN_LIMITATIONS.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/ErrorHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/ErrorHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/DynamoDbHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/DynamoDbHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/FirePHPHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/FirePHPHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/GelfHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/GelfHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/HipChatHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/HipChatHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/RavenHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/RavenHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/RedisHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/RedisHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Logger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Processor/PsrLogMessageProcessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Processor/PsrLogMessageProcessor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Utils.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/monolog/monolog/src/Monolog/Utils.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/pimple/pimple/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/pimple/pimple/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/pimple/pimple/CHANGELOG" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/pimple/pimple/CHANGELOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/pimple/pimple/README.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/pimple/pimple/README.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/pimple/pimple/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/pimple/pimple/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/pimple/pimple/src/Pimple/Psr11/Container.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/pimple/pimple/src/Pimple/Psr11/Container.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/pimple/pimple/src/Pimple/Psr11/ServiceLocator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/pimple/pimple/src/Pimple/Psr11/ServiceLocator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/container/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/psr/container/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/container/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/psr/container/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/container/src/ContainerExceptionInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/psr/container/src/ContainerExceptionInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/container/src/ContainerInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/psr/container/src/ContainerInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/container/src/NotFoundExceptionInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/psr/container/src/NotFoundExceptionInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/AbstractLogger.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/AbstractLogger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/LoggerAwareTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/LoggerAwareTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/log/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/psr/log/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/bootstrap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Mbstring.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Mbstring.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Resources/unidata/lowerCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Resources/unidata/lowerCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Resources/unidata/upperCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Resources/unidata/upperCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/bootstrap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/.php_cs.dist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/CHANGELOG" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/CHANGELOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/README.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/README.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/advanced.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/advanced.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/advanced_legacy.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/api.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/api.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/abs.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/abs.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/batch.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/batch.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/convert_encoding.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/convert_encoding.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/date.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/date.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/date_modify.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/date_modify.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/default.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/default.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/escape.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/escape.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/filter.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/filter.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/first.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/first.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/format.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/format.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/join.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/join.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/json_encode.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/json_encode.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/last.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/last.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/length.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/length.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/map.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/map.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/merge.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/merge.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/nl2br.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/nl2br.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/number_format.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/number_format.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/raw.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/raw.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/reduce.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/reduce.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/replace.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/replace.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/reverse.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/reverse.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/round.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/round.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/slice.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/slice.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/sort.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/sort.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/spaceless.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/spaceless.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/split.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/split.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/striptags.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/striptags.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/trim.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/trim.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/url_encode.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/filters/url_encode.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/attribute.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/attribute.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/block.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/block.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/constant.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/constant.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/date.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/date.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/dump.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/dump.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/include.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/include.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/max.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/max.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/min.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/min.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/parent.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/parent.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/random.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/random.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/range.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/range.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/source.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/source.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/template_from_string.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/functions/template_from_string.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/installation.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/installation.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/internals.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/internals.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/intro.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/intro.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/recipes.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/recipes.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/apply.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/apply.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/autoescape.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/autoescape.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/block.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/block.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/deprecated.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/deprecated.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/do.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/do.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/embed.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/embed.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/extends.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/extends.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/filter.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/filter.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/flush.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/flush.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/for.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/for.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/if.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/if.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/include.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/include.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/macro.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/macro.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/set.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/set.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/spaceless.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/spaceless.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/use.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/use.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/verbatim.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/verbatim.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/with.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tags/with.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/templates.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/templates.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tests/constant.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tests/constant.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tests/divisibleby.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tests/divisibleby.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tests/even.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tests/even.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tests/iterable.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tests/iterable.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tests/odd.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tests/odd.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/doc/tests/sameas.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/doc/tests/sameas.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/drupal_test.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/ext/twig/config.m4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/ext/twig/config.w32" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/ext/twig/php_twig.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/ext/twig/twig.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Autoloader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Autoloader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Filter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Filter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Filter/Function.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Filter/Function.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Filter/Method.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Filter/Method.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Filter/Node.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Filter/Node.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Function.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Function.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Function/Function.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Function/Function.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Function/Method.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Function/Method.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Function/Node.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Function/Node.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Loader/String.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Loader/String.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Node/Expression/ExtensionReference.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Node/Expression/ExtensionReference.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/TemplateInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/TemplateInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Test.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Test/Function.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Test/Function.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Test/Method.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Test/Method.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Test/Node.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Test/Node.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/TokenParserBroker.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/lib/Twig/TokenParserBroker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Cache/FilesystemCache.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Cache/FilesystemCache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Compiler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Compiler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Environment.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Environment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Error/Error.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Error/Error.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/ExpressionParser.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/ExpressionParser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Extension/CoreExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Extension/CoreExtension.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Extension/EscaperExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Extension/EscaperExtension.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Extension/StagingExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Extension/StagingExtension.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/FileExtensionEscapingStrategy.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/FileExtensionEscapingStrategy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Lexer.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Lexer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Loader/ArrayLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Loader/ArrayLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Loader/ChainLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Loader/ChainLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Loader/FilesystemLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Loader/FilesystemLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Markup.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Markup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Node/Expression/BlockReferenceExpression.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Node/Expression/BlockReferenceExpression.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Node/Expression/GetAttrExpression.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Node/Expression/GetAttrExpression.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Node/Expression/Test/OddTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Node/Expression/Test/OddTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Node/MacroNode.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Node/MacroNode.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Node/ModuleNode.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Node/ModuleNode.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Node/Node.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Node/Node.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/NodeVisitor/OptimizerNodeVisitor.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/NodeVisitor/OptimizerNodeVisitor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Parser.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Parser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Profiler/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Profiler/Profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Template.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Template.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Test/IntegrationTestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Test/IntegrationTestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Token.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Token.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/TokenParser/AutoEscapeTokenParser.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/TokenParser/AutoEscapeTokenParser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/TokenStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/TokenStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/twig/twig/src/Util/DeprecationCollector.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/twig/twig/src/Util/DeprecationCollector.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,6 +212,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="PhpDebugGeneral" break_at_first_line="true" notify_if_session_was_finished_without_being_paused="false" />
   <component name="PhpWorkspaceProjectConfiguration">
@@ -63,6 +259,11 @@
       <path value="$PROJECT_DIR$/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/vendor/pimple/pimple" />
       <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan" />
+      <path value="$PROJECT_DIR$/vendor/php-stubs/wordpress-stubs" />
+      <path value="$PROJECT_DIR$/vendor/szepeviktor/phpstan-wordpress" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/extension-installer" />
     </include_path>
   </component>
   <component name="ProjectId" id="1cPeMXcVCYx2GY2OEKraCcpEQSv" />
@@ -107,6 +308,7 @@
       <workItem from="1591025372054" duration="70000" />
       <workItem from="1591027317852" duration="154000" />
       <workItem from="1614505536262" duration="791000" />
+      <workItem from="1633339706377" duration="1623000" />
     </task>
     <servers />
   </component>
@@ -138,11 +340,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1590434761065">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1590434761065" />
   </component>
 </project>

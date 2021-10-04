@@ -302,6 +302,8 @@ namespace Kontentblocks\Utils {
 
 namespace {
 
+    use Kontentblocks\Utils\ImageResize;
+
     if (!function_exists('aq_resize')) {
 
         /**
