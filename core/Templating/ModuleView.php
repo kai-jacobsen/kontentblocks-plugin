@@ -78,16 +78,18 @@ class ModuleView implements \JsonSerializable
 
     /**
      * @param bool $echo
-     * @return void
+     * @return bool
      */
     public function render($echo = false)
     {
+
         $this->data = $this->setupData($this->model->getAll(), $this->addData);
         if ($echo) {
             $this->engine->display($this->tplFile->filename, $this->data);
         } else {
             return $this->engine->render($this->tplFile->filename, $this->data);
         }
+
     }
 
     /**

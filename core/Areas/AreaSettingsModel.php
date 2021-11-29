@@ -21,10 +21,6 @@ class AreaSettingsModel implements \JsonSerializable
      * @var array
      */
     protected $settings = array();
-    /**
-     * @var AreaProperties
-     */
-    public $area;
 
     /**
      * @var DataProvider

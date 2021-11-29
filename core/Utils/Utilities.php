@@ -78,19 +78,16 @@ class Utilities
      */
     public static function getTermEnvironment($termId, $taxonomy = null)
     {
-        $environment = null;
         if ($termId && is_numeric($termId) && $termId !== -1) {
             if (isset(self::$termEnvironments[$termId])) {
                 _K::info("cached TermEnvironment found for post ID {$termId}");
-                $environment = self::$termEnvironments[$termId];
+                return self::$termEnvironments[$termId];
             } else {
                 $termObj = get_term($termId, $taxonomy);
                 _K::info("new TermEnvironment built for post ID {$termId}");
-                self::$termEnvironments[$termId] = new TermEnvironment($termId, $termObj);
-                $environment = self::$termEnvironments[$termId];
+                return self::$termEnvironments[$termId] = new TermEnvironment($termId, $termObj);
             }
         }
-        return $environment;
     }
 
     /**
@@ -100,15 +97,13 @@ class Utilities
      */
     public static function getUserEnvironment($userId, \WP_User $user)
     {
-        $environment = null;
         if ($userId && is_numeric($userId) && $userId !== 0) {
             if (isset(self::$userEnvironments[$userId])) {
-                $environment = self::$userEnvironments[$userId];
+                return self::$userEnvironments[$userId];
             } else {
-                $environment = self::$userEnvironments[$userId] = new UserEnvironment($userId, $user);
+                return self::$userEnvironments[$userId] = new UserEnvironment($userId, $user);
             }
         }
-        return $environment;
     }
 
     /**
