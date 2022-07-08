@@ -1,17 +1,17 @@
 [
     {
         "name": "mobiledetect/mobiledetectlib",
-        "version": "2.8.37",
-        "version_normalized": "2.8.37.0",
+        "version": "2.8.39",
+        "version_normalized": "2.8.39.0",
         "source": {
             "type": "git",
             "url": "https://github.com/serbanghita/Mobile-Detect.git",
-            "reference": "9841e3c46f5bd0739b53aed8ac677fa712943df7"
+            "reference": "0fd6753003fc870f6e229bae869cc1337c99bc45"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/serbanghita/Mobile-Detect/zipball/9841e3c46f5bd0739b53aed8ac677fa712943df7",
-            "reference": "9841e3c46f5bd0739b53aed8ac677fa712943df7",
+            "url": "https://api.github.com/repos/serbanghita/Mobile-Detect/zipball/0fd6753003fc870f6e229bae869cc1337c99bc45",
+            "reference": "0fd6753003fc870f6e229bae869cc1337c99bc45",
             "shasum": ""
         },
         "require": {
@@ -20,16 +20,16 @@
         "require-dev": {
             "phpunit/phpunit": "~4.8.35||~5.7"
         },
-        "time": "2021-02-19T21:22:57+00:00",
+        "time": "2022-02-17T19:24:25+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
-            "classmap": [
-                "Mobile_Detect.php"
-            ],
             "psr-0": {
                 "Detection": "namespaced/"
-            }
+            },
+            "classmap": [
+                "Mobile_Detect.php"
+            ]
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
@@ -51,27 +51,21 @@
             "mobile detect",
             "mobile detector",
             "php mobile detect"
-        ],
-        "funding": [
-            {
-                "url": "https://github.com/serbanghita",
-                "type": "github"
-            }
         ]
     },
     {
         "name": "monolog/monolog",
-        "version": "1.26.1",
-        "version_normalized": "1.26.1.0",
+        "version": "1.27.1",
+        "version_normalized": "1.27.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "c6b00f05152ae2c9b04a448f99c7590beb6042f5"
+            "reference": "904713c5929655dc9b97288b69cfeedad610c9a1"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c6b00f05152ae2c9b04a448f99c7590beb6042f5",
-            "reference": "c6b00f05152ae2c9b04a448f99c7590beb6042f5",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/904713c5929655dc9b97288b69cfeedad610c9a1",
+            "reference": "904713c5929655dc9b97288b69cfeedad610c9a1",
             "shasum": ""
         },
         "require": {
@@ -106,7 +100,7 @@
             "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
             "sentry/sentry": "Allow sending log messages to a Sentry server"
         },
-        "time": "2021-05-28T08:32:12+00:00",
+        "time": "2022-06-09T08:53:42+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -297,31 +291,32 @@
     },
     {
         "name": "symfony/http-foundation",
-        "version": "v3.0.9",
-        "version_normalized": "3.0.9.0",
+        "version": "v3.4.45",
+        "version_normalized": "3.4.45.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/http-foundation.git",
-            "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82"
+            "reference": "2264e389995997d2786c1eeb0a45db8e77dac132"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/http-foundation/zipball/49ba00f8ede742169cb6b70abe33243f4d673f82",
-            "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82",
+            "url": "https://api.github.com/repos/symfony/http-foundation/zipball/2264e389995997d2786c1eeb0a45db8e77dac132",
+            "reference": "2264e389995997d2786c1eeb0a45db8e77dac132",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.5.9",
-            "symfony/polyfill-mbstring": "~1.1"
+            "php": "^5.5.9|>=7.0.8",
+            "symfony/polyfill-mbstring": "~1.1",
+            "symfony/polyfill-php70": "~1.6"
         },
         "require-dev": {
-            "symfony/expression-language": "~2.8|~3.0"
+            "symfony/expression-language": "~2.8|~3.0|~4.0"
         },
-        "time": "2016-07-17T13:54:30+00:00",
+        "time": "2020-09-12T20:41:00+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "3.0-dev"
+                "dev-master": "3.4-dev"
             }
         },
         "installation-source": "dist",
@@ -348,34 +343,51 @@
             }
         ],
         "description": "Symfony HttpFoundation Component",
-        "homepage": "https://symfony.com"
+        "homepage": "https://symfony.com",
+        "funding": [
+            {
+                "url": "https://symfony.com/sponsor",
+                "type": "custom"
+            },
+            {
+                "url": "https://github.com/fabpot",
+                "type": "github"
+            },
+            {
+                "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                "type": "tidelift"
+            }
+        ]
     },
     {
         "name": "symfony/polyfill-ctype",
-        "version": "v1.23.0",
-        "version_normalized": "1.23.0.0",
+        "version": "v1.26.0",
+        "version_normalized": "1.26.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/polyfill-ctype.git",
-            "reference": "46cd95797e9df938fdd2b03693b5fca5e64b01ce"
+            "reference": "6fd1b9a79f6e3cf65f9e679b23af304cd9e010d4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/46cd95797e9df938fdd2b03693b5fca5e64b01ce",
-            "reference": "46cd95797e9df938fdd2b03693b5fca5e64b01ce",
+            "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/6fd1b9a79f6e3cf65f9e679b23af304cd9e010d4",
+            "reference": "6fd1b9a79f6e3cf65f9e679b23af304cd9e010d4",
             "shasum": ""
         },
         "require": {
             "php": ">=7.1"
         },
+        "provide": {
+            "ext-ctype": "*"
+        },
         "suggest": {
             "ext-ctype": "For best performance"
         },
-        "time": "2021-02-19T12:13:01+00:00",
+        "time": "2022-05-24T11:49:31+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-main": "1.23-dev"
+                "dev-main": "1.26-dev"
             },
             "thanks": {
                 "name": "symfony/polyfill",
@@ -384,12 +396,12 @@
         },
         "installation-source": "dist",
         "autoload": {
-            "psr-4": {
-                "Symfony\\Polyfill\\Ctype\\": ""
-            },
             "files": [
                 "bootstrap.php"
-            ]
+            ],
+            "psr-4": {
+                "Symfony\\Polyfill\\Ctype\\": ""
+            }
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
@@ -430,30 +442,33 @@
     },
     {
         "name": "symfony/polyfill-mbstring",
-        "version": "v1.23.1",
-        "version_normalized": "1.23.1.0",
+        "version": "v1.26.0",
+        "version_normalized": "1.26.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/polyfill-mbstring.git",
-            "reference": "9174a3d80210dca8daa7f31fec659150bbeabfc6"
+            "reference": "9344f9cb97f3b19424af1a21a3b0e75b0a7d8d7e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/9174a3d80210dca8daa7f31fec659150bbeabfc6",
-            "reference": "9174a3d80210dca8daa7f31fec659150bbeabfc6",
+            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/9344f9cb97f3b19424af1a21a3b0e75b0a7d8d7e",
+            "reference": "9344f9cb97f3b19424af1a21a3b0e75b0a7d8d7e",
             "shasum": ""
         },
         "require": {
             "php": ">=7.1"
         },
+        "provide": {
+            "ext-mbstring": "*"
+        },
         "suggest": {
             "ext-mbstring": "For best performance"
         },
-        "time": "2021-05-27T12:26:48+00:00",
+        "time": "2022-05-24T11:49:31+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-main": "1.23-dev"
+                "dev-main": "1.26-dev"
             },
             "thanks": {
                 "name": "symfony/polyfill",
@@ -462,12 +477,12 @@
         },
         "installation-source": "dist",
         "autoload": {
-            "psr-4": {
-                "Symfony\\Polyfill\\Mbstring\\": ""
-            },
             "files": [
                 "bootstrap.php"
-            ]
+            ],
+            "psr-4": {
+                "Symfony\\Polyfill\\Mbstring\\": ""
+            }
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
@@ -488,6 +503,72 @@
         "keywords": [
             "compatibility",
             "mbstring",
+            "polyfill",
+            "portable",
+            "shim"
+        ],
+        "funding": [
+            {
+                "url": "https://symfony.com/sponsor",
+                "type": "custom"
+            },
+            {
+                "url": "https://github.com/fabpot",
+                "type": "github"
+            },
+            {
+                "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                "type": "tidelift"
+            }
+        ]
+    },
+    {
+        "name": "symfony/polyfill-php70",
+        "version": "v1.20.0",
+        "version_normalized": "1.20.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-php70.git",
+            "reference": "5f03a781d984aae42cebd18e7912fa80f02ee644"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/5f03a781d984aae42cebd18e7912fa80f02ee644",
+            "reference": "5f03a781d984aae42cebd18e7912fa80f02ee644",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.1"
+        },
+        "time": "2020-10-23T14:02:19+00:00",
+        "type": "metapackage",
+        "extra": {
+            "branch-alias": {
+                "dev-main": "1.20-dev"
+            },
+            "thanks": {
+                "name": "symfony/polyfill",
+                "url": "https://github.com/symfony/polyfill"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony polyfill backporting some PHP 7.0+ features to lower PHP versions",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
             "polyfill",
             "portable",
             "shim"
