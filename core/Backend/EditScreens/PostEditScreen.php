@@ -166,13 +166,17 @@ Class PostEditScreen
             $environment->save($postId, $postObj);
         }
 
-        $parentId = wp_is_post_revision($postId);
-        if ($parentId) {
-            if (post_type_supports(get_post_type($parentId), 'kontentblocks')) {
-                $saveRevision = new SaveRevision($postId, $parentId);
-                $saveRevision->save();
+        if (apply_filters('kb.save.revisions', false)){
+            $parentId = wp_is_post_revision($postId);
+            if ($parentId) {
+                if (post_type_supports(get_post_type($parentId), 'kontentblocks')) {
+                    $saveRevision = new SaveRevision($postId, $parentId);
+                    $saveRevision->save();
+                }
             }
         }
+
+
 
     }
 

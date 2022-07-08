@@ -67,6 +67,7 @@ Class Multiselect extends Field
             $new = array();
         }
 
+
         if (is_array($old)) {
             foreach ($old as $index => $val) {
                 if (!isset($new[$index])) {

@@ -200,10 +200,8 @@ abstract class AbstractPanel implements EntityInterface, FieldEntityInterface
      */
     public function setupViewModel($forcenew = false)
     {
-        if (!is_null($this->frontendModel)) {
-            if ($forcenew === false) {
-                return $this->frontendModel;
-            }
+        if (!is_null($this->frontendModel) && $forcenew === false) {
+            return $this->frontendModel;
         }
 
         $prepData = [];

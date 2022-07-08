@@ -105,7 +105,7 @@ class AreaBackendRenderer implements RendererInterface, ModuleLookAheadInterface
     {
         $active = $this->area->settings->get('active') ? 'active' : 'inactive';
         $out = "<div id='{$this->area->id}-kb-container' class='kb-area__wrap klearfix cf kb-area-status-{$active}' >";
-        $headerClass = ($this->context == 'side' or $this->context == 'normal') ? 'minimized reduced' : null;
+        $headerClass = ($this->context == 'side' || $this->context == 'normal') ? 'minimized reduced' : null;
 
         $tpl = new CoreView(
             'edit-screen/area-header.twig',

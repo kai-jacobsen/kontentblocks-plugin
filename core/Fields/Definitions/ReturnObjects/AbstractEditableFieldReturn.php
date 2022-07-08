@@ -204,9 +204,9 @@ abstract class AbstractEditableFieldReturn implements InterfaceFieldReturn, Inte
      */
     public function removeClass( $class )
     {
-        $key = array_search( $class, $this->classes );
-        if ($key) {
-            unset( $this->classes[$key] );
+        $needle = array_search( $class, $this->classes );
+        if ($needle) {
+            unset( $this->classes[$needle] );
         }
 
         return $this;

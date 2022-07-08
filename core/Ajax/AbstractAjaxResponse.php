@@ -29,7 +29,11 @@ abstract class AbstractAjaxResponse implements \JsonSerializable
         $this->message = $message;
         $this->data = $data;
         // unit tests may suppress output
-        $send = !filter_var(getenv('SILENT'), FILTER_VALIDATE_BOOLEAN);
+        $overwrite = !filter_var(getenv('SILENT'), FILTER_VALIDATE_BOOLEAN);
+
+        if (is_bool($overwrite)) {
+            $send = $overwrite;
+        }
 
         if ($send) {
             $this->sendJson();

@@ -10,7 +10,7 @@ use Kontentblocks\Kontentblocks;
  * Class Gallery
  * @package Kontentblocks\Fields\Returnobjects
  */
-class GalleryReturn
+class GalleryReturn implements InterfaceFieldReturn
 {
 
     public $images = null;
@@ -90,4 +90,8 @@ class GalleryReturn
 
     }
 
+    public function getValue()
+    {
+        return $this->value;
+    }
 }

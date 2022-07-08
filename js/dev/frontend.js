@@ -2364,27 +2364,25 @@ module.exports = BaseView.extend({
     if (preselected !== undefined) {
       queryargs.post__in = [this.model.get('value').id];
     }
-console.log(queryargs);
     wp.media.query(queryargs) // set the query
       .more() // execute the query, this will return an deferred object
       .done(function () { // attach callback, executes after the ajax call succeeded
         // inside the callback 'this' refers to the result collection
         // there should be only one model, assign it to a var
-        var attachment = this.first();
-        that.attachment = attachment;
-        // this is a bit odd: if you want to access the 'sizes' in the modal
-        // and if you need access to the image editor / replace image function
+        var attachment = that.attachment
 
-        // attachment_id must be set.
-        // see media-models.js, Line ~370 / PostImage
-        if (attachment) {
+        if (attachment && attachment.get('id', false)) {
           attachment.set('attachment_id', attachment.get('id'));
-          metadata = that.attachment.toJSON();
+          // metadata = attachment.toJSON();
+          metadata = {};
         } else {
           metadata = {};
+          that.defaultFrame = 'select';
+          that.defaultState = 'library';
         }
 
         frameoptions = {
+          metadata: metadata,
           cropOptions: {
             maxWidth: that.model.get('width') || 300, //target width
             maxHeight: that.model.get('height') || 300 // target height
@@ -2673,6 +2671,7 @@ module.exports = BaseView.extend({
   initialize: function () {
     this.createController();
     this.render();
+    console.log('asd');
   },
   render: function () {
     var that = this;
@@ -4090,7 +4089,7 @@ module.exports = BaseView.extend({
         // and if you need access to the image editor / replace image function
 
         // attachment_id must be set.
-        // see media-models.js, Line ~370 / PostImage
+        // see media-models.js, Line ~370 / PostImage PeterPotter
         var attachment = that.attachment
 
         if (attachment && attachment.get('id', false)) {
@@ -4110,10 +4109,6 @@ module.exports = BaseView.extend({
           imageEditView: that,
           uploadedTo: 0,
           type: 'image',
-          library: {
-            type: 'image',
-            cache: false
-          }
         });
         that.frame.on('update', function (attachmentObj) { // bind callback to 'update'
           that.update(attachmentObj);
@@ -4126,9 +4121,8 @@ module.exports = BaseView.extend({
           })
           .on('ready', function () {
             that.ready(that);
-            let selection = that.frame.state().get('selection');
+            var selection = that.frame.state().get('selection');
             selection.add(that.attachment);
-            console.log(selection);
           }).on('replace', function () {
           that.replace(that.frame.image.attachment);
         }).on('select', function (what) {
@@ -5742,7 +5736,7 @@ module.exports = BaseView.extend({
     var queryargs = {};
     var that = this;
     var id = this.model.get('value').id;
-    if (typeof id === 'number'){
+    if (typeof id === 'number') {
       id = id.toString();
     }
     if (id) {

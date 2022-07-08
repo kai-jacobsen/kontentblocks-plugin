@@ -245,7 +245,8 @@ class FieldFormRenderer
 
         // custom method on field instance level wins over class method
         if ($this->field->getCallback('form.value')) {
-            $this->field->setValue(call_user_func($this->field->getCallback('form.value'), $value));
+            $prepped = $this->field->setValue($this->field->prepareFormValue($value));
+            $this->field->setValue(call_user_func($this->field->getCallback('form.value'), $prepped));
         } // custom method on field class level
         else {
             $this->field->setValue($this->field->prepareFormValue($value));

@@ -1,4 +1,4 @@
-/*! Kontentblocks DevVersion 2021-11-29 */
+/*! Kontentblocks DevVersion 2022-03-10 */
 
 !function(a) {
     "use strict";
@@ -27368,8 +27368,8 @@ if (!("classList" in document.createElement("_"))) {
                 tolerance: "pointer",
                 stop: function() {
                     $($(ul).find(".select2-selection__choice").get().reverse()).each(function() {
-                        var id = $(this).data("data").id;
-                        var option = select.find('option[value="' + id + '"]')[0];
+                        var attr = $(this).attr("title");
+                        var option = select.find("option:contains(" + attr + ")")[0];
                         $(select).prepend(option);
                     });
                 }
