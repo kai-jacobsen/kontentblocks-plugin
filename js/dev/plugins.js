@@ -1,142 +1,57 @@
-/*! Kontentblocks DevVersion 2022-03-10 */
+/*! Kontentblocks DevVersion 2022-07-08 */
 
-!function(a) {
+(function(window) {
     "use strict";
-    function b(a, b) {
-        a.className += " " + b;
-    }
-    function c(a, b) {
-        for (var c = b.split(" "), d = 0; d < c.length; d += 1) a.className = a.className.replace(" " + c[d], "");
-    }
-    function d() {
-        return "rtl" === a.getComputedStyle(document.body).direction;
-    }
-    function e() {
-        return document.documentElement && document.documentElement.scrollTop || document.body.scrollTop;
-    }
-    function f() {
-        return document.documentElement && document.documentElement.scrollLeft || document.body.scrollLeft;
-    }
-    function g(a) {
-        for (;a.lastChild; ) a.removeChild(a.lastChild);
-    }
-    function h(a, b) {
-        return function() {
-            if (arguments.length > 0) {
-                for (var c = [], d = 0; d < arguments.length; d += 1) c.push(arguments[d]);
-                return c.push(a), b.apply(a, c);
-            }
-            return b.apply(a, [ null, a ]);
-        };
-    }
-    function i(a, b) {
-        return {
-            index: a,
-            button: b,
-            cancel: !1
-        };
-    }
-    function j() {
-        function a(a, b) {
-            for (var c in b) b.hasOwnProperty(c) && (a[c] = b[c]);
-            return a;
-        }
-        function b(a) {
-            var b = d[a].dialog;
-            return b && "function" == typeof b.__init && b.__init(b), b;
-        }
-        function c(b, c, e, f) {
-            var g = {
-                dialog: null,
-                factory: c
-            };
-            return void 0 !== f && (g.factory = function() {
-                return a(new d[f].factory(), new c());
-            }), e || (g.dialog = a(new g.factory(), q)), d[b] = g;
-        }
-        var d = {};
-        return {
-            defaults: l,
-            dialog: function(d, e, f, g) {
-                if ("function" != typeof e) return b(d);
-                if (this.hasOwnProperty(d)) throw new Error("alertify.dialog: name already exists");
-                var h = c(d, e, f, g);
-                f ? this[d] = function() {
-                    if (0 === arguments.length) return h.dialog;
-                    var b = a(new h.factory(), q);
-                    return b && "function" == typeof b.__init && b.__init(b), b.main.apply(b, arguments), 
-                    b.show.apply(b);
-                } : this[d] = function() {
-                    if (h.dialog && "function" == typeof h.dialog.__init && h.dialog.__init(h.dialog), 
-                    0 === arguments.length) return h.dialog;
-                    var a = h.dialog;
-                    return a.main.apply(h.dialog, arguments), a.show.apply(h.dialog);
-                };
-            },
-            closeAll: function(a) {
-                for (var b = m.slice(0), c = 0; c < b.length; c += 1) {
-                    var d = b[c];
-                    (void 0 === a || a !== d) && d.close();
-                }
-            },
-            setting: function(a, c, d) {
-                if ("notifier" === a) return r.setting(c, d);
-                var e = b(a);
-                return e ? e.setting(c, d) : void 0;
-            },
-            set: function(a, b, c) {
-                return this.setting(a, b, c);
-            },
-            get: function(a, b) {
-                return this.setting(a, b);
-            },
-            notify: function(a, b, c, d) {
-                return r.create(b, d).push(a, c);
-            },
-            message: function(a, b, c) {
-                return r.create(null, c).push(a, b);
-            },
-            success: function(a, b, c) {
-                return r.create("success", c).push(a, b);
-            },
-            error: function(a, b, c) {
-                return r.create("error", c).push(a, b);
-            },
-            warning: function(a, b, c) {
-                return r.create("warning", c).push(a, b);
-            },
-            dismissAll: function() {
-                r.dismissAll();
-            }
-        };
-    }
-    var k = {
+    var NOT_DISABLED_NOT_RESET = ":not(:disabled):not(.ajs-reset)";
+    var keys = {
         ENTER: 13,
         ESC: 27,
         F1: 112,
         F12: 123,
         LEFT: 37,
-        RIGHT: 39
-    }, l = {
-        modal: !0,
-        basic: !1,
-        frameless: !1,
-        movable: !0,
-        resizable: !0,
-        closable: !0,
-        closableByDimmer: !0,
-        maximizable: !0,
-        startMaximized: !1,
-        pinnable: !0,
-        pinned: !0,
-        padding: !0,
-        overflow: !0,
-        maintainFocus: !0,
+        RIGHT: 39,
+        TAB: 9
+    };
+    var defaults = {
+        autoReset: true,
+        basic: false,
+        closable: true,
+        closableByDimmer: true,
+        invokeOnCloseOff: false,
+        frameless: false,
+        defaultFocusOff: false,
+        maintainFocus: true,
+        maximizable: true,
+        modal: true,
+        movable: true,
+        moveBounded: false,
+        overflow: true,
+        padding: true,
+        pinnable: true,
+        pinned: true,
+        preventBodyShift: false,
+        resizable: true,
+        startMaximized: false,
         transition: "pulse",
-        autoReset: !0,
+        transitionOff: false,
+        tabbable: [ "button", "[href]", "input", "select", "textarea", '[tabindex]:not([tabindex^="-"])' + NOT_DISABLED_NOT_RESET ].join(NOT_DISABLED_NOT_RESET + ","),
         notifier: {
             delay: 5,
-            position: "bottom-right"
+            position: "bottom-right",
+            closeButton: false,
+            classes: {
+                base: "alertify-notifier",
+                prefix: "ajs-",
+                message: "ajs-message",
+                top: "ajs-top",
+                right: "ajs-right",
+                bottom: "ajs-bottom",
+                left: "ajs-left",
+                center: "ajs-center",
+                visible: "ajs-visible",
+                hidden: "ajs-hidden",
+                close: "ajs-close"
+            }
         },
         glossary: {
             title: "AlertifyJS",
@@ -154,548 +69,156 @@
             input: "ajs-input",
             ok: "ajs-ok",
             cancel: "ajs-cancel"
+        },
+        hooks: {
+            preinit: function() {},
+            postinit: function() {}
         }
-    }, m = [], n = function() {
-        return document.addEventListener ? function(a, b, c, d) {
-            a.addEventListener(b, c, d === !0);
-        } : document.attachEvent ? function(a, b, c) {
-            a.attachEvent("on" + b, c);
-        } : void 0;
-    }(), o = function() {
-        return document.removeEventListener ? function(a, b, c, d) {
-            a.removeEventListener(b, c, d === !0);
-        } : document.detachEvent ? function(a, b, c) {
-            a.detachEvent("on" + b, c);
-        } : void 0;
-    }(), p = function() {
-        var a, b, c = !1, d = {
+    };
+    var openDialogs = [];
+    function addClass(element, classNames) {
+        element.className += " " + classNames;
+    }
+    function removeClass(element, classNames) {
+        var original = element.className.split(" ");
+        var toBeRemoved = classNames.split(" ");
+        for (var x = 0; x < toBeRemoved.length; x += 1) {
+            var index = original.indexOf(toBeRemoved[x]);
+            if (index > -1) {
+                original.splice(index, 1);
+            }
+        }
+        element.className = original.join(" ");
+    }
+    function isRightToLeft() {
+        return window.getComputedStyle(document.body).direction === "rtl";
+    }
+    function getScrollTop() {
+        return document.documentElement && document.documentElement.scrollTop || document.body.scrollTop;
+    }
+    function getScrollLeft() {
+        return document.documentElement && document.documentElement.scrollLeft || document.body.scrollLeft;
+    }
+    function clearContents(element) {
+        while (element.lastChild) {
+            element.removeChild(element.lastChild);
+        }
+    }
+    function copy(src) {
+        if (null === src) {
+            return src;
+        }
+        var cpy;
+        if (Array.isArray(src)) {
+            cpy = [];
+            for (var x = 0; x < src.length; x += 1) {
+                cpy.push(copy(src[x]));
+            }
+            return cpy;
+        }
+        if (src instanceof Date) {
+            return new Date(src.getTime());
+        }
+        if (src instanceof RegExp) {
+            cpy = new RegExp(src.source);
+            cpy.global = src.global;
+            cpy.ignoreCase = src.ignoreCase;
+            cpy.multiline = src.multiline;
+            cpy.lastIndex = src.lastIndex;
+            return cpy;
+        }
+        if (typeof src === "object") {
+            cpy = {};
+            for (var prop in src) {
+                if (src.hasOwnProperty(prop)) {
+                    cpy[prop] = copy(src[prop]);
+                }
+            }
+            return cpy;
+        }
+        return src;
+    }
+    function destruct(instance, initialize) {
+        if (instance.elements) {
+            var root = instance.elements.root;
+            root.parentNode.removeChild(root);
+            delete instance.elements;
+            instance.settings = copy(instance.__settings);
+            instance.__init = initialize;
+            delete instance.__internal;
+        }
+    }
+    var IsPassiveSupported = false;
+    try {
+        var options = Object.defineProperty({}, "passive", {
+            get: function() {
+                IsPassiveSupported = true;
+            }
+        });
+        window.addEventListener("test", options, options);
+        window.removeEventListener("test", options, options);
+    } catch (e) {}
+    var on = function(el, event, fn, useCapture, passive) {
+        el.addEventListener(event, fn, IsPassiveSupported ? {
+            capture: useCapture,
+            passive: passive
+        } : useCapture === true);
+    };
+    var off = function(el, event, fn, useCapture, passive) {
+        el.removeEventListener(event, fn, IsPassiveSupported ? {
+            capture: useCapture,
+            passive: passive
+        } : useCapture === true);
+    };
+    var transition = function() {
+        var t, type;
+        var supported = false;
+        var transitions = {
             animation: "animationend",
             OAnimation: "oAnimationEnd oanimationend",
             msAnimation: "MSAnimationEnd",
             MozAnimation: "animationend",
             WebkitAnimation: "webkitAnimationEnd"
         };
-        for (a in d) if (void 0 !== document.documentElement.style[a]) {
-            b = d[a], c = !0;
-            break;
+        for (t in transitions) {
+            if (document.documentElement.style[t] !== undefined) {
+                type = transitions[t];
+                supported = true;
+                break;
+            }
         }
         return {
-            type: b,
-            supported: c
+            type: type,
+            supported: supported
         };
-    }(), q = function() {
-        function j(a) {
-            if (!a.__internal) {
-                delete a.__init, null === ua && document.body.setAttribute("tabindex", "0");
-                var c;
-                "function" == typeof a.setup ? (c = a.setup(), c.options = c.options || {}, c.focus = c.focus || {}) : c = {
-                    buttons: [],
-                    focus: {
-                        element: null,
-                        select: !1
-                    },
-                    options: {}
-                }, "object" != typeof a.hooks && (a.hooks = {});
-                var d = [];
-                if (Array.isArray(c.buttons)) for (var e = 0; e < c.buttons.length; e += 1) {
-                    var f = c.buttons[e], g = {};
-                    for (var i in f) f.hasOwnProperty(i) && (g[i] = f[i]);
-                    d.push(g);
+    }();
+    function delegate(context, method) {
+        return function() {
+            if (arguments.length > 0) {
+                var args = [];
+                for (var x = 0; x < arguments.length; x += 1) {
+                    args.push(arguments[x]);
                 }
-                var j = a.__internal = {
-                    isOpen: !1,
-                    activeElement: document.body,
-                    timerIn: void 0,
-                    timerOut: void 0,
-                    buttons: d,
-                    focus: c.focus,
-                    options: {
-                        title: void 0,
-                        modal: void 0,
-                        basic: void 0,
-                        frameless: void 0,
-                        pinned: void 0,
-                        movable: void 0,
-                        resizable: void 0,
-                        autoReset: void 0,
-                        closable: void 0,
-                        closableByDimmer: void 0,
-                        maximizable: void 0,
-                        startMaximized: void 0,
-                        pinnable: void 0,
-                        transition: void 0,
-                        padding: void 0,
-                        overflow: void 0,
-                        onshow: void 0,
-                        onclose: void 0,
-                        onfocus: void 0
-                    },
-                    resetHandler: void 0,
-                    beginMoveHandler: void 0,
-                    beginResizeHandler: void 0,
-                    bringToFrontHandler: void 0,
-                    modalClickHandler: void 0,
-                    buttonsClickHandler: void 0,
-                    commandsClickHandler: void 0,
-                    transitionInHandler: void 0,
-                    transitionOutHandler: void 0
-                }, k = {};
-                k.root = document.createElement("div"), k.root.className = xa.base + " " + xa.hidden + " ", 
-                k.root.innerHTML = wa.dimmer + wa.modal, k.dimmer = k.root.firstChild, k.modal = k.root.lastChild, 
-                k.modal.innerHTML = wa.dialog, k.dialog = k.modal.firstChild, k.dialog.innerHTML = wa.reset + wa.commands + wa.header + wa.body + wa.footer + wa.resizeHandle + wa.reset, 
-                k.reset = [], k.reset.push(k.dialog.firstChild), k.reset.push(k.dialog.lastChild), 
-                k.commands = {}, k.commands.container = k.reset[0].nextSibling, k.commands.pin = k.commands.container.firstChild, 
-                k.commands.maximize = k.commands.pin.nextSibling, k.commands.close = k.commands.maximize.nextSibling, 
-                k.header = k.commands.container.nextSibling, k.body = k.header.nextSibling, k.body.innerHTML = wa.content, 
-                k.content = k.body.firstChild, k.footer = k.body.nextSibling, k.footer.innerHTML = wa.buttons.auxiliary + wa.buttons.primary, 
-                k.resizeHandle = k.footer.nextSibling, k.buttons = {}, k.buttons.auxiliary = k.footer.firstChild, 
-                k.buttons.primary = k.buttons.auxiliary.nextSibling, k.buttons.primary.innerHTML = wa.button, 
-                k.buttonTemplate = k.buttons.primary.firstChild, k.buttons.primary.removeChild(k.buttonTemplate);
-                for (var l = 0; l < a.__internal.buttons.length; l += 1) {
-                    var m = a.__internal.buttons[l];
-                    ta.indexOf(m.key) < 0 && ta.push(m.key), m.element = k.buttonTemplate.cloneNode(), 
-                    m.element.innerHTML = m.text, "string" == typeof m.className && "" !== m.className && b(m.element, m.className);
-                    for (var n in m.attrs) "className" !== n && m.attrs.hasOwnProperty(n) && m.element.setAttribute(n, m.attrs[n]);
-                    "auxiliary" === m.scope ? k.buttons.auxiliary.appendChild(m.element) : k.buttons.primary.appendChild(m.element);
-                }
-                a.elements = k, j.resetHandler = h(a, T), j.beginMoveHandler = h(a, X), j.beginResizeHandler = h(a, ba), 
-                j.bringToFrontHandler = h(a, x), j.modalClickHandler = h(a, N), j.buttonsClickHandler = h(a, P), 
-                j.commandsClickHandler = h(a, B), j.transitionInHandler = h(a, U), j.transitionOutHandler = h(a, V), 
-                a.set("title", void 0 === c.options.title ? s.defaults.glossary.title : c.options.title), 
-                a.set("modal", void 0 === c.options.modal ? s.defaults.modal : c.options.modal), 
-                a.set("basic", void 0 === c.options.basic ? s.defaults.basic : c.options.basic), 
-                a.set("frameless", void 0 === c.options.frameless ? s.defaults.frameless : c.options.frameless), 
-                a.set("movable", void 0 === c.options.movable ? s.defaults.movable : c.options.movable), 
-                a.set("resizable", void 0 === c.options.resizable ? s.defaults.resizable : c.options.resizable), 
-                a.set("autoReset", void 0 === c.options.autoReset ? s.defaults.autoReset : c.options.autoReset), 
-                a.set("closable", void 0 === c.options.closable ? s.defaults.closable : c.options.closable), 
-                a.set("closableByDimmer", void 0 === c.options.closableByDimmer ? s.defaults.closableByDimmer : c.options.closableByDimmer), 
-                a.set("maximizable", void 0 === c.options.maximizable ? s.defaults.maximizable : c.options.maximizable), 
-                a.set("startMaximized", void 0 === c.options.startMaximized ? s.defaults.startMaximized : c.options.startMaximized), 
-                a.set("pinnable", void 0 === c.options.pinnable ? s.defaults.pinnable : c.options.pinnable), 
-                a.set("pinned", void 0 === c.options.pinned ? s.defaults.pinned : c.options.pinned), 
-                a.set("transition", void 0 === c.options.transition ? s.defaults.transition : c.options.transition), 
-                a.set("padding", void 0 === c.options.padding ? s.defaults.padding : c.options.padding), 
-                a.set("overflow", void 0 === c.options.overflow ? s.defaults.overflow : c.options.overflow), 
-                "function" == typeof a.build && a.build();
+                args.push(context);
+                return method.apply(context, args);
             }
-            document.body.appendChild(a.elements.root);
+            return method.apply(context, [ null, context ]);
+        };
+    }
+    function createCloseEvent(index, button) {
+        return {
+            index: index,
+            button: button,
+            cancel: false
+        };
+    }
+    function dispatchEvent(eventType, instance) {
+        if (typeof instance.get(eventType) === "function") {
+            return instance.get(eventType).call(instance);
         }
-        function l() {
-            ra = a.scrollX, sa = a.scrollY;
-        }
-        function q() {
-            a.scrollTo(ra, sa);
-        }
-        function r() {
-            for (var a = 0, d = 0; d < m.length; d += 1) {
-                var e = m[d];
-                (e.isModal() || e.isMaximized()) && (a += 1);
-            }
-            0 === a ? c(document.body, xa.noOverflow) : a > 0 && document.body.className.indexOf(xa.noOverflow) < 0 && b(document.body, xa.noOverflow);
-        }
-        function t(a, d, e) {
-            "string" == typeof e && c(a.elements.root, xa.prefix + e), b(a.elements.root, xa.prefix + d), 
-            ua = a.elements.root.offsetWidth;
-        }
-        function u(a) {
-            a.get("modal") ? (c(a.elements.root, xa.modeless), a.isOpen() && (ka(a), J(a), r())) : (b(a.elements.root, xa.modeless), 
-            a.isOpen() && (ja(a), J(a), r()));
-        }
-        function v(a) {
-            a.get("basic") ? b(a.elements.root, xa.basic) : c(a.elements.root, xa.basic);
-        }
-        function w(a) {
-            a.get("frameless") ? b(a.elements.root, xa.frameless) : c(a.elements.root, xa.frameless);
-        }
-        function x(a, b) {
-            for (var c = m.indexOf(b), d = c + 1; d < m.length; d += 1) if (m[d].isModal()) return;
-            return document.body.lastChild !== b.elements.root && (document.body.appendChild(b.elements.root), 
-            m.splice(m.indexOf(b), 1), m.push(b), S(b)), !1;
-        }
-        function y(a, d, e, f) {
-            switch (d) {
-              case "title":
-                a.setHeader(f);
-                break;
-
-              case "modal":
-                u(a);
-                break;
-
-              case "basic":
-                v(a);
-                break;
-
-              case "frameless":
-                w(a);
-                break;
-
-              case "pinned":
-                K(a);
-                break;
-
-              case "closable":
-                M(a);
-                break;
-
-              case "maximizable":
-                L(a);
-                break;
-
-              case "pinnable":
-                G(a);
-                break;
-
-              case "movable":
-                _(a);
-                break;
-
-              case "resizable":
-                fa(a);
-                break;
-
-              case "transition":
-                t(a, f, e);
-                break;
-
-              case "padding":
-                f ? c(a.elements.root, xa.noPadding) : a.elements.root.className.indexOf(xa.noPadding) < 0 && b(a.elements.root, xa.noPadding);
-                break;
-
-              case "overflow":
-                f ? c(a.elements.root, xa.noOverflow) : a.elements.root.className.indexOf(xa.noOverflow) < 0 && b(a.elements.root, xa.noOverflow);
-                break;
-
-              case "transition":
-                t(a, f, e);
-            }
-            "function" == typeof a.hooks.onupdate && a.hooks.onupdate.call(a, d, e, f);
-        }
-        function z(a, b, c, d, e) {
-            var f = {
-                op: void 0,
-                items: []
-            };
-            if ("undefined" == typeof e && "string" == typeof d) f.op = "get", b.hasOwnProperty(d) ? (f.found = !0, 
-            f.value = b[d]) : (f.found = !1, f.value = void 0); else {
-                var g;
-                if (f.op = "set", "object" == typeof d) {
-                    var h = d;
-                    for (var i in h) b.hasOwnProperty(i) ? (b[i] !== h[i] && (g = b[i], b[i] = h[i], 
-                    c.call(a, i, g, h[i])), f.items.push({
-                        key: i,
-                        value: h[i],
-                        found: !0
-                    })) : f.items.push({
-                        key: i,
-                        value: h[i],
-                        found: !1
-                    });
-                } else {
-                    if ("string" != typeof d) throw new Error("args must be a string or object");
-                    b.hasOwnProperty(d) ? (b[d] !== e && (g = b[d], b[d] = e, c.call(a, d, g, e)), f.items.push({
-                        key: d,
-                        value: e,
-                        found: !0
-                    })) : f.items.push({
-                        key: d,
-                        value: e,
-                        found: !1
-                    });
-                }
-            }
-            return f;
-        }
-        function A(a) {
-            var b;
-            O(a, function(a) {
-                return b = a.invokeOnClose === !0;
-            }), !b && a.isOpen() && a.close();
-        }
-        function B(a, b) {
-            var c = a.srcElement || a.target;
-            switch (c) {
-              case b.elements.commands.pin:
-                b.isPinned() ? D(b) : C(b);
-                break;
-
-              case b.elements.commands.maximize:
-                b.isMaximized() ? F(b) : E(b);
-                break;
-
-              case b.elements.commands.close:
-                A(b);
-            }
-            return !1;
-        }
-        function C(a) {
-            a.set("pinned", !0);
-        }
-        function D(a) {
-            a.set("pinned", !1);
-        }
-        function E(a) {
-            b(a.elements.root, xa.maximized), a.isOpen() && r();
-        }
-        function F(a) {
-            c(a.elements.root, xa.maximized), a.isOpen() && r();
-        }
-        function G(a) {
-            a.get("pinnable") ? b(a.elements.root, xa.pinnable) : c(a.elements.root, xa.pinnable);
-        }
-        function H(a) {
-            var b = f();
-            a.elements.modal.style.marginTop = e() + "px", a.elements.modal.style.marginLeft = b + "px", 
-            a.elements.modal.style.marginRight = -b + "px";
-        }
-        function I(a) {
-            var b = parseInt(a.elements.modal.style.marginTop, 10), c = parseInt(a.elements.modal.style.marginLeft, 10);
-            if (a.elements.modal.style.marginTop = "", a.elements.modal.style.marginLeft = "", 
-            a.elements.modal.style.marginRight = "", a.isOpen()) {
-                var d = 0, g = 0;
-                "" !== a.elements.dialog.style.top && (d = parseInt(a.elements.dialog.style.top, 10)), 
-                a.elements.dialog.style.top = d + (b - e()) + "px", "" !== a.elements.dialog.style.left && (g = parseInt(a.elements.dialog.style.left, 10)), 
-                a.elements.dialog.style.left = g + (c - f()) + "px";
-            }
-        }
-        function J(a) {
-            a.get("modal") || a.get("pinned") ? I(a) : H(a);
-        }
-        function K(a) {
-            a.get("pinned") ? (c(a.elements.root, xa.unpinned), a.isOpen() && I(a)) : (b(a.elements.root, xa.unpinned), 
-            a.isOpen() && !a.isModal() && H(a));
-        }
-        function L(a) {
-            a.get("maximizable") ? b(a.elements.root, xa.maximizable) : c(a.elements.root, xa.maximizable);
-        }
-        function M(a) {
-            a.get("closable") ? (b(a.elements.root, xa.closable), pa(a)) : (c(a.elements.root, xa.closable), 
-            qa(a));
-        }
-        function N(a, b) {
-            var c = a.srcElement || a.target;
-            return ya || c !== b.elements.modal || b.get("closableByDimmer") !== !0 || A(b), 
-            ya = !1, !1;
-        }
-        function O(a, b) {
-            for (var c = 0; c < a.__internal.buttons.length; c += 1) {
-                var d = a.__internal.buttons[c];
-                if (!d.element.disabled && b(d)) {
-                    var e = i(c, d);
-                    "function" == typeof a.callback && a.callback.apply(a, [ e ]), e.cancel === !1 && a.close();
-                    break;
-                }
-            }
-        }
-        function P(a, b) {
-            var c = a.srcElement || a.target;
-            O(b, function(a) {
-                return a.element === c && (za = !0);
-            });
-        }
-        function Q(a) {
-            if (za) return void (za = !1);
-            var b = m[m.length - 1], c = a.keyCode;
-            return 0 === b.__internal.buttons.length && c === k.ESC && b.get("closable") === !0 ? (A(b), 
-            !1) : ta.indexOf(c) > -1 ? (O(b, function(a) {
-                return a.key === c;
-            }), !1) : void 0;
-        }
-        function R(a) {
-            var b = m[m.length - 1], c = a.keyCode;
-            if (c === k.LEFT || c === k.RIGHT) {
-                for (var d = b.__internal.buttons, e = 0; e < d.length; e += 1) if (document.activeElement === d[e].element) switch (c) {
-                  case k.LEFT:
-                    return void d[(e || d.length) - 1].element.focus();
-
-                  case k.RIGHT:
-                    return void d[(e + 1) % d.length].element.focus();
-                }
-            } else if (c < k.F12 + 1 && c > k.F1 - 1 && ta.indexOf(c) > -1) return a.preventDefault(), 
-            a.stopPropagation(), O(b, function(a) {
-                return a.key === c;
-            }), !1;
-        }
-        function S(a, b) {
-            if (b) b.focus(); else {
-                var c = a.__internal.focus, d = c.element;
-                switch (typeof c.element) {
-                  case "number":
-                    a.__internal.buttons.length > c.element && (d = a.get("basic") === !0 ? a.elements.reset[0] : a.__internal.buttons[c.element].element);
-                    break;
-
-                  case "string":
-                    d = a.elements.body.querySelector(c.element);
-                    break;
-
-                  case "function":
-                    d = c.element.call(a);
-                }
-                "undefined" != typeof d && null !== d || 0 !== a.__internal.buttons.length || (d = a.elements.reset[0]), 
-                d && d.focus && (d.focus(), c.select && d.select && d.select());
-            }
-        }
-        function T(a, b) {
-            if (!b) for (var c = m.length - 1; c > -1; c -= 1) if (m[c].isModal()) {
-                b = m[c];
-                break;
-            }
-            if (b && b.isModal()) {
-                var d, e = a.srcElement || a.target, f = e === b.elements.reset[1] || 0 === b.__internal.buttons.length && e === document.body;
-                f && (b.get("maximizable") ? d = b.elements.commands.maximize : b.get("closable") && (d = b.elements.commands.close)), 
-                void 0 === d && ("number" == typeof b.__internal.focus.element ? e === b.elements.reset[0] ? d = b.elements.buttons.auxiliary.firstChild || b.elements.buttons.primary.firstChild : f && (d = b.elements.reset[0]) : e === b.elements.reset[0] && (d = b.elements.buttons.primary.lastChild || b.elements.buttons.auxiliary.lastChild)), 
-                S(b, d);
-            }
-        }
-        function U(a, b) {
-            clearTimeout(b.__internal.timerIn), S(b), q(), za = !1, "function" == typeof b.get("onfocus") && b.get("onfocus").call(b), 
-            o(b.elements.dialog, p.type, b.__internal.transitionInHandler), c(b.elements.root, xa.animationIn);
-        }
-        function V(a, b) {
-            clearTimeout(b.__internal.timerOut), o(b.elements.dialog, p.type, b.__internal.transitionOutHandler), 
-            $(b), ea(b), b.isMaximized() && !b.get("startMaximized") && F(b), s.defaults.maintainFocus && b.__internal.activeElement && (b.__internal.activeElement.focus(), 
-            b.__internal.activeElement = null);
-        }
-        function W(a, b) {
-            b.style.left = a[Da] - Ba + "px", b.style.top = a[Ea] - Ca + "px";
-        }
-        function X(a, c) {
-            if (null === Fa && !c.isMaximized() && c.get("movable")) {
-                var d;
-                if ("touchstart" === a.type ? (a.preventDefault(), d = a.targetTouches[0], Da = "clientX", 
-                Ea = "clientY") : 0 === a.button && (d = a), d) {
-                    Aa = c, Ba = d[Da], Ca = d[Ea];
-                    var e = c.elements.dialog;
-                    return b(e, xa.capture), e.style.left && (Ba -= parseInt(e.style.left, 10)), e.style.top && (Ca -= parseInt(e.style.top, 10)), 
-                    W(d, e), b(document.body, xa.noSelection), !1;
-                }
-            }
-        }
-        function Y(a) {
-            if (Aa) {
-                var b;
-                "touchmove" === a.type ? (a.preventDefault(), b = a.targetTouches[0]) : 0 === a.button && (b = a), 
-                b && W(b, Aa.elements.dialog);
-            }
-        }
-        function Z() {
-            if (Aa) {
-                var a = Aa.elements.dialog;
-                Aa = null, c(document.body, xa.noSelection), c(a, xa.capture);
-            }
-        }
-        function $(a) {
-            Aa = null;
-            var b = a.elements.dialog;
-            b.style.left = b.style.top = "";
-        }
-        function _(a) {
-            a.get("movable") ? (b(a.elements.root, xa.movable), a.isOpen() && la(a)) : ($(a), 
-            c(a.elements.root, xa.movable), a.isOpen() && ma(a));
-        }
-        function aa(a, b, c) {
-            var e = b, f = 0, g = 0;
-            do {
-                f += e.offsetLeft, g += e.offsetTop;
-            } while (e = e.offsetParent);
-            var h, i;
-            c === !0 ? (h = a.pageX, i = a.pageY) : (h = a.clientX, i = a.clientY);
-            var j = d();
-            if (j && (h = document.body.offsetWidth - h, isNaN(Ga) || (f = document.body.offsetWidth - f - b.offsetWidth)), 
-            b.style.height = i - g + Ja + "px", b.style.width = h - f + Ja + "px", !isNaN(Ga)) {
-                var k = .5 * Math.abs(b.offsetWidth - Ha);
-                j && (k *= -1), b.offsetWidth > Ha ? b.style.left = Ga + k + "px" : b.offsetWidth >= Ia && (b.style.left = Ga - k + "px");
-            }
-        }
-        function ba(a, c) {
-            if (!c.isMaximized()) {
-                var d;
-                if ("touchstart" === a.type ? (a.preventDefault(), d = a.targetTouches[0]) : 0 === a.button && (d = a), 
-                d) {
-                    Fa = c, Ja = c.elements.resizeHandle.offsetHeight / 2;
-                    var e = c.elements.dialog;
-                    return b(e, xa.capture), Ga = parseInt(e.style.left, 10), e.style.height = e.offsetHeight + "px", 
-                    e.style.minHeight = c.elements.header.offsetHeight + c.elements.footer.offsetHeight + "px", 
-                    e.style.width = (Ha = e.offsetWidth) + "px", "none" !== e.style.maxWidth && (e.style.minWidth = (Ia = e.offsetWidth) + "px"), 
-                    e.style.maxWidth = "none", b(document.body, xa.noSelection), !1;
-                }
-            }
-        }
-        function ca(a) {
-            if (Fa) {
-                var b;
-                "touchmove" === a.type ? (a.preventDefault(), b = a.targetTouches[0]) : 0 === a.button && (b = a), 
-                b && aa(b, Fa.elements.dialog, !Fa.get("modal") && !Fa.get("pinned"));
-            }
-        }
-        function da() {
-            if (Fa) {
-                var a = Fa.elements.dialog;
-                Fa = null, c(document.body, xa.noSelection), c(a, xa.capture), ya = !0;
-            }
-        }
-        function ea(a) {
-            Fa = null;
-            var b = a.elements.dialog;
-            "none" === b.style.maxWidth && (b.style.maxWidth = b.style.minWidth = b.style.width = b.style.height = b.style.minHeight = b.style.left = "", 
-            Ga = Number.Nan, Ha = Ia = Ja = 0);
-        }
-        function fa(a) {
-            a.get("resizable") ? (b(a.elements.root, xa.resizable), a.isOpen() && na(a)) : (ea(a), 
-            c(a.elements.root, xa.resizable), a.isOpen() && oa(a));
-        }
-        function ga() {
-            for (var a = 0; a < m.length; a += 1) {
-                var b = m[a];
-                b.get("autoReset") && ($(b), ea(b));
-            }
-        }
-        function ha(b) {
-            1 === m.length && (n(a, "resize", ga), n(document.body, "keyup", Q), n(document.body, "keydown", R), 
-            n(document.body, "focus", T), n(document.documentElement, "mousemove", Y), n(document.documentElement, "touchmove", Y), 
-            n(document.documentElement, "mouseup", Z), n(document.documentElement, "touchend", Z), 
-            n(document.documentElement, "mousemove", ca), n(document.documentElement, "touchmove", ca), 
-            n(document.documentElement, "mouseup", da), n(document.documentElement, "touchend", da)), 
-            n(b.elements.commands.container, "click", b.__internal.commandsClickHandler), n(b.elements.footer, "click", b.__internal.buttonsClickHandler), 
-            n(b.elements.reset[0], "focus", b.__internal.resetHandler), n(b.elements.reset[1], "focus", b.__internal.resetHandler), 
-            za = !0, n(b.elements.dialog, p.type, b.__internal.transitionInHandler), b.get("modal") || ja(b), 
-            b.get("resizable") && na(b), b.get("movable") && la(b);
-        }
-        function ia(b) {
-            1 === m.length && (o(a, "resize", ga), o(document.body, "keyup", Q), o(document.body, "keydown", R), 
-            o(document.body, "focus", T), o(document.documentElement, "mousemove", Y), o(document.documentElement, "mouseup", Z), 
-            o(document.documentElement, "mousemove", ca), o(document.documentElement, "mouseup", da)), 
-            o(b.elements.commands.container, "click", b.__internal.commandsClickHandler), o(b.elements.footer, "click", b.__internal.buttonsClickHandler), 
-            o(b.elements.reset[0], "focus", b.__internal.resetHandler), o(b.elements.reset[1], "focus", b.__internal.resetHandler), 
-            n(b.elements.dialog, p.type, b.__internal.transitionOutHandler), b.get("modal") || ka(b), 
-            b.get("movable") && ma(b), b.get("resizable") && oa(b);
-        }
-        function ja(a) {
-            n(a.elements.dialog, "focus", a.__internal.bringToFrontHandler, !0);
-        }
-        function ka(a) {
-            o(a.elements.dialog, "focus", a.__internal.bringToFrontHandler, !0);
-        }
-        function la(a) {
-            n(a.elements.header, "mousedown", a.__internal.beginMoveHandler), n(a.elements.header, "touchstart", a.__internal.beginMoveHandler);
-        }
-        function ma(a) {
-            o(a.elements.header, "mousedown", a.__internal.beginMoveHandler), o(a.elements.header, "touchstart", a.__internal.beginMoveHandler);
-        }
-        function na(a) {
-            n(a.elements.resizeHandle, "mousedown", a.__internal.beginResizeHandler), n(a.elements.resizeHandle, "touchstart", a.__internal.beginResizeHandler);
-        }
-        function oa(a) {
-            o(a.elements.resizeHandle, "mousedown", a.__internal.beginResizeHandler), o(a.elements.resizeHandle, "touchstart", a.__internal.beginResizeHandler);
-        }
-        function pa(a) {
-            n(a.elements.modal, "click", a.__internal.modalClickHandler);
-        }
-        function qa(a) {
-            o(a.elements.modal, "click", a.__internal.modalClickHandler);
-        }
-        var ra, sa, ta = [], ua = null, va = a.navigator.userAgent.indexOf("Safari") > -1 && a.navigator.userAgent.indexOf("Chrome") < 0, wa = {
+    }
+    var dialog = function() {
+        var usedKeys = [], reflow = null, tabindex = false, isSafari = window.navigator.userAgent.indexOf("Safari") > -1 && window.navigator.userAgent.indexOf("Chrome") < 0, templates = {
             dimmer: '<div class="ajs-dimmer"></div>',
             modal: '<div class="ajs-modal" tabindex="0"></div>',
             dialog: '<div class="ajs-dialog" tabindex="0"></div>',
@@ -711,430 +234,1832 @@
             },
             button: '<button class="ajs-button"></button>',
             resizeHandle: '<div class="ajs-handle"></div>'
-        }, xa = {
+        }, classes = {
+            animationIn: "ajs-in",
+            animationOut: "ajs-out",
             base: "alertify",
-            prefix: "ajs-",
+            basic: "ajs-basic",
+            capture: "ajs-capture",
+            closable: "ajs-closable",
+            fixed: "ajs-fixed",
+            frameless: "ajs-frameless",
             hidden: "ajs-hidden",
+            maximize: "ajs-maximize",
+            maximized: "ajs-maximized",
+            maximizable: "ajs-maximizable",
+            modeless: "ajs-modeless",
+            movable: "ajs-movable",
             noSelection: "ajs-no-selection",
             noOverflow: "ajs-no-overflow",
             noPadding: "ajs-no-padding",
-            modeless: "ajs-modeless",
-            movable: "ajs-movable",
-            resizable: "ajs-resizable",
-            capture: "ajs-capture",
-            fixed: "ajs-fixed",
-            closable: "ajs-closable",
-            maximizable: "ajs-maximizable",
-            maximize: "ajs-maximize",
-            restore: "ajs-restore",
-            pinnable: "ajs-pinnable",
-            unpinned: "ajs-unpinned",
             pin: "ajs-pin",
-            maximized: "ajs-maximized",
-            animationIn: "ajs-in",
-            animationOut: "ajs-out",
+            pinnable: "ajs-pinnable",
+            prefix: "ajs-",
+            resizable: "ajs-resizable",
+            restore: "ajs-restore",
             shake: "ajs-shake",
-            basic: "ajs-basic",
-            frameless: "ajs-frameless"
-        }, ya = !1, za = !1, Aa = null, Ba = 0, Ca = 0, Da = "pageX", Ea = "pageY", Fa = null, Ga = Number.Nan, Ha = 0, Ia = 0, Ja = 0;
+            unpinned: "ajs-unpinned",
+            noTransition: "ajs-no-transition"
+        };
+        function initialize(instance) {
+            if (!instance.__internal) {
+                alertify.defaults.hooks.preinit(instance);
+                delete instance.__init;
+                if (!instance.__settings) {
+                    instance.__settings = copy(instance.settings);
+                }
+                var setup;
+                if (typeof instance.setup === "function") {
+                    setup = instance.setup();
+                    setup.options = setup.options || {};
+                    setup.focus = setup.focus || {};
+                } else {
+                    setup = {
+                        buttons: [],
+                        focus: {
+                            element: null,
+                            select: false
+                        },
+                        options: {}
+                    };
+                }
+                if (typeof instance.hooks !== "object") {
+                    instance.hooks = {};
+                }
+                var buttonsDefinition = [];
+                if (Array.isArray(setup.buttons)) {
+                    for (var b = 0; b < setup.buttons.length; b += 1) {
+                        var ref = setup.buttons[b], cpy = {};
+                        for (var i in ref) {
+                            if (ref.hasOwnProperty(i)) {
+                                cpy[i] = ref[i];
+                            }
+                        }
+                        buttonsDefinition.push(cpy);
+                    }
+                }
+                var internal = instance.__internal = {
+                    isOpen: false,
+                    activeElement: document.body,
+                    timerIn: undefined,
+                    timerOut: undefined,
+                    buttons: buttonsDefinition,
+                    focus: setup.focus,
+                    options: {
+                        title: undefined,
+                        modal: undefined,
+                        basic: undefined,
+                        frameless: undefined,
+                        defaultFocusOff: undefined,
+                        pinned: undefined,
+                        movable: undefined,
+                        moveBounded: undefined,
+                        resizable: undefined,
+                        autoReset: undefined,
+                        closable: undefined,
+                        closableByDimmer: undefined,
+                        invokeOnCloseOff: undefined,
+                        maximizable: undefined,
+                        startMaximized: undefined,
+                        pinnable: undefined,
+                        transition: undefined,
+                        transitionOff: undefined,
+                        padding: undefined,
+                        overflow: undefined,
+                        onshow: undefined,
+                        onclosing: undefined,
+                        onclose: undefined,
+                        onfocus: undefined,
+                        onmove: undefined,
+                        onmoved: undefined,
+                        onresize: undefined,
+                        onresized: undefined,
+                        onmaximize: undefined,
+                        onmaximized: undefined,
+                        onrestore: undefined,
+                        onrestored: undefined
+                    },
+                    resetHandler: undefined,
+                    beginMoveHandler: undefined,
+                    beginResizeHandler: undefined,
+                    bringToFrontHandler: undefined,
+                    modalClickHandler: undefined,
+                    buttonsClickHandler: undefined,
+                    commandsClickHandler: undefined,
+                    transitionInHandler: undefined,
+                    transitionOutHandler: undefined,
+                    destroy: undefined
+                };
+                var elements = {};
+                elements.root = document.createElement("div");
+                elements.root.style.display = "none";
+                elements.root.className = classes.base + " " + classes.hidden + " ";
+                elements.root.innerHTML = templates.dimmer + templates.modal;
+                elements.dimmer = elements.root.firstChild;
+                elements.modal = elements.root.lastChild;
+                elements.modal.innerHTML = templates.dialog;
+                elements.dialog = elements.modal.firstChild;
+                elements.dialog.innerHTML = templates.reset + templates.commands + templates.header + templates.body + templates.footer + templates.resizeHandle + templates.reset;
+                elements.reset = [];
+                elements.reset.push(elements.dialog.firstChild);
+                elements.reset.push(elements.dialog.lastChild);
+                elements.commands = {};
+                elements.commands.container = elements.reset[0].nextSibling;
+                elements.commands.pin = elements.commands.container.firstChild;
+                elements.commands.maximize = elements.commands.pin.nextSibling;
+                elements.commands.close = elements.commands.maximize.nextSibling;
+                elements.header = elements.commands.container.nextSibling;
+                elements.body = elements.header.nextSibling;
+                elements.body.innerHTML = templates.content;
+                elements.content = elements.body.firstChild;
+                elements.footer = elements.body.nextSibling;
+                elements.footer.innerHTML = templates.buttons.auxiliary + templates.buttons.primary;
+                elements.resizeHandle = elements.footer.nextSibling;
+                elements.buttons = {};
+                elements.buttons.auxiliary = elements.footer.firstChild;
+                elements.buttons.primary = elements.buttons.auxiliary.nextSibling;
+                elements.buttons.primary.innerHTML = templates.button;
+                elements.buttonTemplate = elements.buttons.primary.firstChild;
+                elements.buttons.primary.removeChild(elements.buttonTemplate);
+                for (var x = 0; x < instance.__internal.buttons.length; x += 1) {
+                    var button = instance.__internal.buttons[x];
+                    if (usedKeys.indexOf(button.key) < 0) {
+                        usedKeys.push(button.key);
+                    }
+                    button.element = elements.buttonTemplate.cloneNode();
+                    button.element.innerHTML = button.text;
+                    if (typeof button.className === "string" && button.className !== "") {
+                        addClass(button.element, button.className);
+                    }
+                    for (var key in button.attrs) {
+                        if (key !== "className" && button.attrs.hasOwnProperty(key)) {
+                            button.element.setAttribute(key, button.attrs[key]);
+                        }
+                    }
+                    if (button.scope === "auxiliary") {
+                        elements.buttons.auxiliary.appendChild(button.element);
+                    } else {
+                        elements.buttons.primary.appendChild(button.element);
+                    }
+                }
+                instance.elements = elements;
+                internal.resetHandler = delegate(instance, onReset);
+                internal.beginMoveHandler = delegate(instance, beginMove);
+                internal.beginResizeHandler = delegate(instance, beginResize);
+                internal.bringToFrontHandler = delegate(instance, bringToFront);
+                internal.modalClickHandler = delegate(instance, modalClickHandler);
+                internal.buttonsClickHandler = delegate(instance, buttonsClickHandler);
+                internal.commandsClickHandler = delegate(instance, commandsClickHandler);
+                internal.transitionInHandler = delegate(instance, handleTransitionInEvent);
+                internal.transitionOutHandler = delegate(instance, handleTransitionOutEvent);
+                for (var opKey in internal.options) {
+                    if (setup.options[opKey] !== undefined) {
+                        instance.set(opKey, setup.options[opKey]);
+                    } else if (alertify.defaults.hasOwnProperty(opKey)) {
+                        instance.set(opKey, alertify.defaults[opKey]);
+                    } else if (opKey === "title") {
+                        instance.set(opKey, alertify.defaults.glossary[opKey]);
+                    }
+                }
+                if (typeof instance.build === "function") {
+                    instance.build();
+                }
+                alertify.defaults.hooks.postinit(instance);
+            }
+            document.body.appendChild(instance.elements.root);
+        }
+        var scrollX, scrollY;
+        function saveScrollPosition() {
+            scrollX = getScrollLeft();
+            scrollY = getScrollTop();
+        }
+        function restoreScrollPosition() {
+            window.scrollTo(scrollX, scrollY);
+        }
+        function ensureNoOverflow() {
+            var requiresNoOverflow = 0;
+            for (var x = 0; x < openDialogs.length; x += 1) {
+                var instance = openDialogs[x];
+                if (instance.isModal() || instance.isMaximized()) {
+                    requiresNoOverflow += 1;
+                }
+            }
+            if (requiresNoOverflow === 0 && document.body.className.indexOf(classes.noOverflow) >= 0) {
+                removeClass(document.body, classes.noOverflow);
+                preventBodyShift(false);
+            } else if (requiresNoOverflow > 0 && document.body.className.indexOf(classes.noOverflow) < 0) {
+                preventBodyShift(true);
+                addClass(document.body, classes.noOverflow);
+            }
+        }
+        var top = "", topScroll = 0;
+        function preventBodyShift(add) {
+            if (alertify.defaults.preventBodyShift) {
+                if (add && document.documentElement.scrollHeight > document.documentElement.clientHeight) {
+                    topScroll = scrollY;
+                    top = window.getComputedStyle(document.body).top;
+                    addClass(document.body, classes.fixed);
+                    document.body.style.top = -scrollY + "px";
+                } else if (!add) {
+                    scrollY = topScroll;
+                    document.body.style.top = top;
+                    removeClass(document.body, classes.fixed);
+                    restoreScrollPosition();
+                }
+            }
+        }
+        function updateTransition(instance, value, oldValue) {
+            if (typeof oldValue === "string") {
+                removeClass(instance.elements.root, classes.prefix + oldValue);
+            }
+            addClass(instance.elements.root, classes.prefix + value);
+            reflow = instance.elements.root.offsetWidth;
+        }
+        function updateTransitionOff(instance) {
+            if (instance.get("transitionOff")) {
+                addClass(instance.elements.root, classes.noTransition);
+            } else {
+                removeClass(instance.elements.root, classes.noTransition);
+            }
+        }
+        function updateDisplayMode(instance) {
+            if (instance.get("modal")) {
+                removeClass(instance.elements.root, classes.modeless);
+                if (instance.isOpen()) {
+                    unbindModelessEvents(instance);
+                    updateAbsPositionFix(instance);
+                    ensureNoOverflow();
+                }
+            } else {
+                addClass(instance.elements.root, classes.modeless);
+                if (instance.isOpen()) {
+                    bindModelessEvents(instance);
+                    updateAbsPositionFix(instance);
+                    ensureNoOverflow();
+                }
+            }
+        }
+        function updateBasicMode(instance) {
+            if (instance.get("basic")) {
+                addClass(instance.elements.root, classes.basic);
+            } else {
+                removeClass(instance.elements.root, classes.basic);
+            }
+        }
+        function updateFramelessMode(instance) {
+            if (instance.get("frameless")) {
+                addClass(instance.elements.root, classes.frameless);
+            } else {
+                removeClass(instance.elements.root, classes.frameless);
+            }
+        }
+        function bringToFront(event, instance) {
+            var index = openDialogs.indexOf(instance);
+            for (var x = index + 1; x < openDialogs.length; x += 1) {
+                if (openDialogs[x].isModal()) {
+                    return;
+                }
+            }
+            if (document.body.lastChild !== instance.elements.root) {
+                document.body.appendChild(instance.elements.root);
+                openDialogs.splice(openDialogs.indexOf(instance), 1);
+                openDialogs.push(instance);
+                setFocus(instance);
+            }
+            return false;
+        }
+        function optionUpdated(instance, option, oldValue, newValue) {
+            switch (option) {
+              case "title":
+                instance.setHeader(newValue);
+                break;
+
+              case "modal":
+                updateDisplayMode(instance);
+                break;
+
+              case "basic":
+                updateBasicMode(instance);
+                break;
+
+              case "frameless":
+                updateFramelessMode(instance);
+                break;
+
+              case "pinned":
+                updatePinned(instance);
+                break;
+
+              case "closable":
+                updateClosable(instance);
+                break;
+
+              case "maximizable":
+                updateMaximizable(instance);
+                break;
+
+              case "pinnable":
+                updatePinnable(instance);
+                break;
+
+              case "movable":
+                updateMovable(instance);
+                break;
+
+              case "resizable":
+                updateResizable(instance);
+                break;
+
+              case "padding":
+                if (newValue) {
+                    removeClass(instance.elements.root, classes.noPadding);
+                } else if (instance.elements.root.className.indexOf(classes.noPadding) < 0) {
+                    addClass(instance.elements.root, classes.noPadding);
+                }
+                break;
+
+              case "overflow":
+                if (newValue) {
+                    removeClass(instance.elements.root, classes.noOverflow);
+                } else if (instance.elements.root.className.indexOf(classes.noOverflow) < 0) {
+                    addClass(instance.elements.root, classes.noOverflow);
+                }
+                break;
+
+              case "transition":
+                updateTransition(instance, newValue, oldValue);
+                break;
+
+              case "transitionOff":
+                updateTransitionOff(instance);
+                break;
+            }
+            if (typeof instance.hooks.onupdate === "function") {
+                instance.hooks.onupdate.call(instance, option, oldValue, newValue);
+            }
+        }
+        function update(instance, obj, callback, key, value) {
+            var result = {
+                op: undefined,
+                items: []
+            };
+            if (typeof value === "undefined" && typeof key === "string") {
+                result.op = "get";
+                if (obj.hasOwnProperty(key)) {
+                    result.found = true;
+                    result.value = obj[key];
+                } else {
+                    result.found = false;
+                    result.value = undefined;
+                }
+            } else {
+                var old;
+                result.op = "set";
+                if (typeof key === "object") {
+                    var args = key;
+                    for (var prop in args) {
+                        if (obj.hasOwnProperty(prop)) {
+                            if (obj[prop] !== args[prop]) {
+                                old = obj[prop];
+                                obj[prop] = args[prop];
+                                callback.call(instance, prop, old, args[prop]);
+                            }
+                            result.items.push({
+                                key: prop,
+                                value: args[prop],
+                                found: true
+                            });
+                        } else {
+                            result.items.push({
+                                key: prop,
+                                value: args[prop],
+                                found: false
+                            });
+                        }
+                    }
+                } else if (typeof key === "string") {
+                    if (obj.hasOwnProperty(key)) {
+                        if (obj[key] !== value) {
+                            old = obj[key];
+                            obj[key] = value;
+                            callback.call(instance, key, old, value);
+                        }
+                        result.items.push({
+                            key: key,
+                            value: value,
+                            found: true
+                        });
+                    } else {
+                        result.items.push({
+                            key: key,
+                            value: value,
+                            found: false
+                        });
+                    }
+                } else {
+                    throw new Error("args must be a string or object");
+                }
+            }
+            return result;
+        }
+        function triggerClose(instance) {
+            var found;
+            triggerCallback(instance, function(button) {
+                return found = instance.get("invokeOnCloseOff") !== true && button.invokeOnClose === true;
+            });
+            if (!found && instance.isOpen()) {
+                instance.close();
+            }
+        }
+        function commandsClickHandler(event, instance) {
+            var target = event.srcElement || event.target;
+            switch (target) {
+              case instance.elements.commands.pin:
+                if (!instance.isPinned()) {
+                    pin(instance);
+                } else {
+                    unpin(instance);
+                }
+                break;
+
+              case instance.elements.commands.maximize:
+                if (!instance.isMaximized()) {
+                    maximize(instance);
+                } else {
+                    restore(instance);
+                }
+                break;
+
+              case instance.elements.commands.close:
+                triggerClose(instance);
+                break;
+            }
+            return false;
+        }
+        function pin(instance) {
+            instance.set("pinned", true);
+        }
+        function unpin(instance) {
+            instance.set("pinned", false);
+        }
+        function maximize(instance) {
+            dispatchEvent("onmaximize", instance);
+            addClass(instance.elements.root, classes.maximized);
+            if (instance.isOpen()) {
+                ensureNoOverflow();
+            }
+            dispatchEvent("onmaximized", instance);
+        }
+        function restore(instance) {
+            dispatchEvent("onrestore", instance);
+            removeClass(instance.elements.root, classes.maximized);
+            if (instance.isOpen()) {
+                ensureNoOverflow();
+            }
+            dispatchEvent("onrestored", instance);
+        }
+        function updatePinnable(instance) {
+            if (instance.get("pinnable")) {
+                addClass(instance.elements.root, classes.pinnable);
+            } else {
+                removeClass(instance.elements.root, classes.pinnable);
+            }
+        }
+        function addAbsPositionFix(instance) {
+            var scrollLeft = getScrollLeft();
+            instance.elements.modal.style.marginTop = getScrollTop() + "px";
+            instance.elements.modal.style.marginLeft = scrollLeft + "px";
+            instance.elements.modal.style.marginRight = -scrollLeft + "px";
+        }
+        function removeAbsPositionFix(instance) {
+            var marginTop = parseInt(instance.elements.modal.style.marginTop, 10);
+            var marginLeft = parseInt(instance.elements.modal.style.marginLeft, 10);
+            instance.elements.modal.style.marginTop = "";
+            instance.elements.modal.style.marginLeft = "";
+            instance.elements.modal.style.marginRight = "";
+            if (instance.isOpen()) {
+                var top = 0, left = 0;
+                if (instance.elements.dialog.style.top !== "") {
+                    top = parseInt(instance.elements.dialog.style.top, 10);
+                }
+                instance.elements.dialog.style.top = top + (marginTop - getScrollTop()) + "px";
+                if (instance.elements.dialog.style.left !== "") {
+                    left = parseInt(instance.elements.dialog.style.left, 10);
+                }
+                instance.elements.dialog.style.left = left + (marginLeft - getScrollLeft()) + "px";
+            }
+        }
+        function updateAbsPositionFix(instance) {
+            if (!instance.get("modal") && !instance.get("pinned")) {
+                addAbsPositionFix(instance);
+            } else {
+                removeAbsPositionFix(instance);
+            }
+        }
+        function updatePinned(instance) {
+            if (instance.get("pinned")) {
+                removeClass(instance.elements.root, classes.unpinned);
+                if (instance.isOpen()) {
+                    removeAbsPositionFix(instance);
+                }
+            } else {
+                addClass(instance.elements.root, classes.unpinned);
+                if (instance.isOpen() && !instance.isModal()) {
+                    addAbsPositionFix(instance);
+                }
+            }
+        }
+        function updateMaximizable(instance) {
+            if (instance.get("maximizable")) {
+                addClass(instance.elements.root, classes.maximizable);
+            } else {
+                removeClass(instance.elements.root, classes.maximizable);
+            }
+        }
+        function updateClosable(instance) {
+            if (instance.get("closable")) {
+                addClass(instance.elements.root, classes.closable);
+                bindClosableEvents(instance);
+            } else {
+                removeClass(instance.elements.root, classes.closable);
+                unbindClosableEvents(instance);
+            }
+        }
+        var cancelClick = false, modalClickHandlerTS = 0;
+        function modalClickHandler(event, instance) {
+            if (event.timeStamp - modalClickHandlerTS > 200 && (modalClickHandlerTS = event.timeStamp) && !cancelClick) {
+                var target = event.srcElement || event.target;
+                if (instance.get("closableByDimmer") === true && target === instance.elements.modal) {
+                    triggerClose(instance);
+                }
+            }
+            cancelClick = false;
+        }
+        var callbackTS = 0;
+        var cancelKeyup = false;
+        function triggerCallback(instance, check) {
+            if (Date.now() - callbackTS > 200 && (callbackTS = Date.now())) {
+                for (var idx = 0; idx < instance.__internal.buttons.length; idx += 1) {
+                    var button = instance.__internal.buttons[idx];
+                    if (!button.element.disabled && check(button)) {
+                        var closeEvent = createCloseEvent(idx, button);
+                        if (typeof instance.callback === "function") {
+                            instance.callback.apply(instance, [ closeEvent ]);
+                        }
+                        if (closeEvent.cancel === false) {
+                            instance.close();
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+        function buttonsClickHandler(event, instance) {
+            var target = event.srcElement || event.target;
+            triggerCallback(instance, function(button) {
+                return button.element === target && (cancelKeyup = true);
+            });
+        }
+        function keyupHandler(event) {
+            if (cancelKeyup) {
+                cancelKeyup = false;
+                return;
+            }
+            var instance = openDialogs[openDialogs.length - 1];
+            var keyCode = event.keyCode;
+            if (instance.__internal.buttons.length === 0 && keyCode === keys.ESC && instance.get("closable") === true) {
+                triggerClose(instance);
+                return false;
+            } else if (usedKeys.indexOf(keyCode) > -1) {
+                triggerCallback(instance, function(button) {
+                    return button.key === keyCode;
+                });
+                return false;
+            }
+        }
+        function keydownHandler(event) {
+            var instance = openDialogs[openDialogs.length - 1];
+            var keyCode = event.keyCode;
+            if (keyCode === keys.LEFT || keyCode === keys.RIGHT) {
+                var buttons = instance.__internal.buttons;
+                for (var x = 0; x < buttons.length; x += 1) {
+                    if (document.activeElement === buttons[x].element) {
+                        switch (keyCode) {
+                          case keys.LEFT:
+                            buttons[(x || buttons.length) - 1].element.focus();
+                            return;
+
+                          case keys.RIGHT:
+                            buttons[(x + 1) % buttons.length].element.focus();
+                            return;
+                        }
+                    }
+                }
+            } else if (keyCode < keys.F12 + 1 && keyCode > keys.F1 - 1 && usedKeys.indexOf(keyCode) > -1) {
+                event.preventDefault();
+                event.stopPropagation();
+                triggerCallback(instance, function(button) {
+                    return button.key === keyCode;
+                });
+                return false;
+            }
+        }
+        function setFocus(instance, resetTarget) {
+            if (resetTarget) {
+                resetTarget.focus();
+            } else {
+                var focus = instance.__internal.focus;
+                var element = focus.element;
+                switch (typeof focus.element) {
+                  case "number":
+                    if (instance.__internal.buttons.length > focus.element) {
+                        if (instance.get("basic") === true) {
+                            element = instance.elements.reset[0];
+                        } else {
+                            element = instance.__internal.buttons[focus.element].element;
+                        }
+                    }
+                    break;
+
+                  case "string":
+                    element = instance.elements.body.querySelector(focus.element);
+                    break;
+
+                  case "function":
+                    element = focus.element.call(instance);
+                    break;
+                }
+                if (instance.get("defaultFocusOff") === true || (typeof element === "undefined" || element === null) && instance.__internal.buttons.length === 0) {
+                    element = instance.elements.reset[0];
+                }
+                if (element && element.focus) {
+                    element.focus();
+                    if (focus.select && element.select) {
+                        element.select();
+                    }
+                }
+            }
+        }
+        function onReset(event, instance) {
+            if (!instance) {
+                for (var x = openDialogs.length - 1; x > -1; x -= 1) {
+                    if (openDialogs[x].isModal()) {
+                        instance = openDialogs[x];
+                        break;
+                    }
+                }
+            }
+            if (instance) {
+                if (instance.isModal()) {
+                    var firstReset = instance.elements.reset[0], lastReset = instance.elements.reset[1], lastFocusedElement = event.relatedTarget, within = instance.elements.root.contains(lastFocusedElement), target = event.srcElement || event.target, resetTarget;
+                    if (target === firstReset && !within || target === lastReset && lastFocusedElement === firstReset) {
+                        return;
+                    } else if (target === lastReset || target === document.body) {
+                        resetTarget = firstReset;
+                    } else if (target === firstReset && lastFocusedElement === lastReset) {
+                        resetTarget = findTabbable(instance);
+                    } else if (target === firstReset && within) {
+                        resetTarget = findTabbable(instance, true);
+                    }
+                    setFocus(instance, resetTarget);
+                }
+            }
+        }
+        function findTabbable(instance, last) {
+            var tabbables = [].slice.call(instance.elements.dialog.querySelectorAll(defaults.tabbable));
+            if (last) {
+                tabbables.reverse();
+            }
+            for (var x = 0; x < tabbables.length; x += 1) {
+                var tabbable = tabbables[x];
+                if (!!(tabbable.offsetParent || tabbable.offsetWidth || tabbable.offsetHeight || tabbable.getClientRects().length)) {
+                    return tabbable;
+                }
+            }
+        }
+        function recycleTab(event) {
+            var instance = openDialogs[openDialogs.length - 1];
+            if (instance && event.shiftKey && event.keyCode === keys.TAB) {
+                instance.elements.reset[1].focus();
+            }
+        }
+        function handleTransitionInEvent(event, instance) {
+            clearTimeout(instance.__internal.timerIn);
+            setFocus(instance);
+            cancelKeyup = false;
+            dispatchEvent("onfocus", instance);
+            off(instance.elements.dialog, transition.type, instance.__internal.transitionInHandler);
+            removeClass(instance.elements.root, classes.animationIn);
+        }
+        function handleTransitionOutEvent(event, instance) {
+            clearTimeout(instance.__internal.timerOut);
+            off(instance.elements.dialog, transition.type, instance.__internal.transitionOutHandler);
+            resetMove(instance);
+            resetResize(instance);
+            if (instance.isMaximized() && !instance.get("startMaximized")) {
+                restore(instance);
+            }
+            if (typeof instance.__internal.destroy === "function") {
+                instance.__internal.destroy.apply(instance);
+            }
+        }
+        var movable = null, offsetX = 0, offsetY = 0, xProp = "pageX", yProp = "pageY", bounds = null, refreshTop = false, moveDelegate = null;
+        function moveElement(event, element) {
+            var left = event[xProp] - offsetX, top = event[yProp] - offsetY;
+            if (refreshTop) {
+                top -= document.body.scrollTop;
+            }
+            element.style.left = left + "px";
+            element.style.top = top + "px";
+        }
+        function moveElementBounded(event, element) {
+            var left = event[xProp] - offsetX, top = event[yProp] - offsetY;
+            if (refreshTop) {
+                top -= document.body.scrollTop;
+            }
+            element.style.left = Math.min(bounds.maxLeft, Math.max(bounds.minLeft, left)) + "px";
+            if (refreshTop) {
+                element.style.top = Math.min(bounds.maxTop, Math.max(bounds.minTop, top)) + "px";
+            } else {
+                element.style.top = Math.max(bounds.minTop, top) + "px";
+            }
+        }
+        function beginMove(event, instance) {
+            if (resizable === null && !instance.isMaximized() && instance.get("movable")) {
+                var eventSrc, left = 0, top = 0;
+                if (event.type === "touchstart") {
+                    event.preventDefault();
+                    eventSrc = event.targetTouches[0];
+                    xProp = "clientX";
+                    yProp = "clientY";
+                } else if (event.button === 0) {
+                    eventSrc = event;
+                }
+                if (eventSrc) {
+                    var element = instance.elements.dialog;
+                    addClass(element, classes.capture);
+                    if (element.style.left) {
+                        left = parseInt(element.style.left, 10);
+                    }
+                    if (element.style.top) {
+                        top = parseInt(element.style.top, 10);
+                    }
+                    offsetX = eventSrc[xProp] - left;
+                    offsetY = eventSrc[yProp] - top;
+                    if (instance.isModal()) {
+                        offsetY += instance.elements.modal.scrollTop;
+                    } else if (instance.isPinned()) {
+                        offsetY -= document.body.scrollTop;
+                    }
+                    if (instance.get("moveBounded")) {
+                        var current = element, offsetLeft = -left, offsetTop = -top;
+                        do {
+                            offsetLeft += current.offsetLeft;
+                            offsetTop += current.offsetTop;
+                        } while (current = current.offsetParent);
+                        bounds = {
+                            maxLeft: offsetLeft,
+                            minLeft: -offsetLeft,
+                            maxTop: document.documentElement.clientHeight - element.clientHeight - offsetTop,
+                            minTop: -offsetTop
+                        };
+                        moveDelegate = moveElementBounded;
+                    } else {
+                        bounds = null;
+                        moveDelegate = moveElement;
+                    }
+                    dispatchEvent("onmove", instance);
+                    refreshTop = !instance.isModal() && instance.isPinned();
+                    movable = instance;
+                    moveDelegate(eventSrc, element);
+                    addClass(document.body, classes.noSelection);
+                    return false;
+                }
+            }
+        }
+        function move(event) {
+            if (movable) {
+                var eventSrc;
+                if (event.type === "touchmove") {
+                    event.preventDefault();
+                    eventSrc = event.targetTouches[0];
+                } else if (event.button === 0) {
+                    eventSrc = event;
+                }
+                if (eventSrc) {
+                    moveDelegate(eventSrc, movable.elements.dialog);
+                }
+            }
+        }
+        function endMove() {
+            if (movable) {
+                var instance = movable;
+                movable = bounds = null;
+                removeClass(document.body, classes.noSelection);
+                removeClass(instance.elements.dialog, classes.capture);
+                dispatchEvent("onmoved", instance);
+            }
+        }
+        function resetMove(instance) {
+            movable = null;
+            var element = instance.elements.dialog;
+            element.style.left = element.style.top = "";
+        }
+        function updateMovable(instance) {
+            if (instance.get("movable")) {
+                addClass(instance.elements.root, classes.movable);
+                if (instance.isOpen()) {
+                    bindMovableEvents(instance);
+                }
+            } else {
+                resetMove(instance);
+                removeClass(instance.elements.root, classes.movable);
+                if (instance.isOpen()) {
+                    unbindMovableEvents(instance);
+                }
+            }
+        }
+        var resizable = null, startingLeft = Number.Nan, startingWidth = 0, minWidth = 0, handleOffset = 0;
+        function resizeElement(event, element, pageRelative) {
+            var current = element;
+            var offsetLeft = 0;
+            var offsetTop = 0;
+            do {
+                offsetLeft += current.offsetLeft;
+                offsetTop += current.offsetTop;
+            } while (current = current.offsetParent);
+            var X, Y;
+            if (pageRelative === true) {
+                X = event.pageX;
+                Y = event.pageY;
+            } else {
+                X = event.clientX;
+                Y = event.clientY;
+            }
+            var isRTL = isRightToLeft();
+            if (isRTL) {
+                X = document.body.offsetWidth - X;
+                if (!isNaN(startingLeft)) {
+                    offsetLeft = document.body.offsetWidth - offsetLeft - element.offsetWidth;
+                }
+            }
+            element.style.height = Y - offsetTop + handleOffset + "px";
+            element.style.width = X - offsetLeft + handleOffset + "px";
+            if (!isNaN(startingLeft)) {
+                var diff = Math.abs(element.offsetWidth - startingWidth) * .5;
+                if (isRTL) {
+                    diff *= -1;
+                }
+                if (element.offsetWidth > startingWidth) {
+                    element.style.left = startingLeft + diff + "px";
+                } else if (element.offsetWidth >= minWidth) {
+                    element.style.left = startingLeft - diff + "px";
+                }
+            }
+        }
+        function beginResize(event, instance) {
+            if (!instance.isMaximized()) {
+                var eventSrc;
+                if (event.type === "touchstart") {
+                    event.preventDefault();
+                    eventSrc = event.targetTouches[0];
+                } else if (event.button === 0) {
+                    eventSrc = event;
+                }
+                if (eventSrc) {
+                    dispatchEvent("onresize", instance);
+                    resizable = instance;
+                    handleOffset = instance.elements.resizeHandle.offsetHeight / 2;
+                    var element = instance.elements.dialog;
+                    addClass(element, classes.capture);
+                    startingLeft = parseInt(element.style.left, 10);
+                    element.style.height = element.offsetHeight + "px";
+                    element.style.minHeight = instance.elements.header.offsetHeight + instance.elements.footer.offsetHeight + "px";
+                    element.style.width = (startingWidth = element.offsetWidth) + "px";
+                    if (element.style.maxWidth !== "none") {
+                        element.style.minWidth = (minWidth = element.offsetWidth) + "px";
+                    }
+                    element.style.maxWidth = "none";
+                    addClass(document.body, classes.noSelection);
+                    return false;
+                }
+            }
+        }
+        function resize(event) {
+            if (resizable) {
+                var eventSrc;
+                if (event.type === "touchmove") {
+                    event.preventDefault();
+                    eventSrc = event.targetTouches[0];
+                } else if (event.button === 0) {
+                    eventSrc = event;
+                }
+                if (eventSrc) {
+                    resizeElement(eventSrc, resizable.elements.dialog, !resizable.get("modal") && !resizable.get("pinned"));
+                }
+            }
+        }
+        function endResize() {
+            if (resizable) {
+                var instance = resizable;
+                resizable = null;
+                removeClass(document.body, classes.noSelection);
+                removeClass(instance.elements.dialog, classes.capture);
+                cancelClick = true;
+                dispatchEvent("onresized", instance);
+            }
+        }
+        function resetResize(instance) {
+            resizable = null;
+            var element = instance.elements.dialog;
+            if (element.style.maxWidth === "none") {
+                element.style.maxWidth = element.style.minWidth = element.style.width = element.style.height = element.style.minHeight = element.style.left = "";
+                startingLeft = Number.Nan;
+                startingWidth = minWidth = handleOffset = 0;
+            }
+        }
+        function updateResizable(instance) {
+            if (instance.get("resizable")) {
+                addClass(instance.elements.root, classes.resizable);
+                if (instance.isOpen()) {
+                    bindResizableEvents(instance);
+                }
+            } else {
+                resetResize(instance);
+                removeClass(instance.elements.root, classes.resizable);
+                if (instance.isOpen()) {
+                    unbindResizableEvents(instance);
+                }
+            }
+        }
+        function windowResize() {
+            for (var x = 0; x < openDialogs.length; x += 1) {
+                var instance = openDialogs[x];
+                if (instance.get("autoReset")) {
+                    resetMove(instance);
+                    resetResize(instance);
+                }
+            }
+        }
+        function bindEvents(instance) {
+            if (openDialogs.length === 1) {
+                on(window, "resize", windowResize);
+                on(document.body, "keyup", keyupHandler);
+                on(document.body, "keydown", keydownHandler);
+                on(document.body, "focus", onReset);
+                on(document.documentElement, "mousemove", move);
+                on(document.documentElement, "touchmove", move, false, false);
+                on(document.documentElement, "mouseup", endMove);
+                on(document.documentElement, "touchend", endMove);
+                on(document.documentElement, "mousemove", resize);
+                on(document.documentElement, "touchmove", resize, false, false);
+                on(document.documentElement, "mouseup", endResize);
+                on(document.documentElement, "touchend", endResize);
+            }
+            on(instance.elements.commands.container, "click", instance.__internal.commandsClickHandler);
+            on(instance.elements.footer, "click", instance.__internal.buttonsClickHandler);
+            on(instance.elements.reset[0], "focusin", instance.__internal.resetHandler);
+            on(instance.elements.reset[0], "keydown", recycleTab);
+            on(instance.elements.reset[1], "focusin", instance.__internal.resetHandler);
+            cancelKeyup = true;
+            on(instance.elements.dialog, transition.type, instance.__internal.transitionInHandler);
+            if (!instance.get("modal")) {
+                bindModelessEvents(instance);
+            }
+            if (instance.get("resizable")) {
+                bindResizableEvents(instance);
+            }
+            if (instance.get("movable")) {
+                bindMovableEvents(instance);
+            }
+        }
+        function unbindEvents(instance) {
+            if (openDialogs.length === 1) {
+                off(window, "resize", windowResize);
+                off(document.body, "keyup", keyupHandler);
+                off(document.body, "keydown", keydownHandler);
+                off(document.body, "focus", onReset);
+                off(document.documentElement, "mousemove", move);
+                off(document.documentElement, "mouseup", endMove);
+                off(document.documentElement, "mousemove", resize);
+                off(document.documentElement, "mouseup", endResize);
+            }
+            off(instance.elements.commands.container, "click", instance.__internal.commandsClickHandler);
+            off(instance.elements.footer, "click", instance.__internal.buttonsClickHandler);
+            off(instance.elements.reset[0], "focusin", instance.__internal.resetHandler);
+            off(instance.elements.reset[0], "keydown", recycleTab);
+            off(instance.elements.reset[1], "focusin", instance.__internal.resetHandler);
+            on(instance.elements.dialog, transition.type, instance.__internal.transitionOutHandler);
+            if (!instance.get("modal")) {
+                unbindModelessEvents(instance);
+            }
+            if (instance.get("movable")) {
+                unbindMovableEvents(instance);
+            }
+            if (instance.get("resizable")) {
+                unbindResizableEvents(instance);
+            }
+        }
+        function bindModelessEvents(instance) {
+            on(instance.elements.dialog, "focus", instance.__internal.bringToFrontHandler, true);
+        }
+        function unbindModelessEvents(instance) {
+            off(instance.elements.dialog, "focus", instance.__internal.bringToFrontHandler, true);
+        }
+        function bindMovableEvents(instance) {
+            on(instance.elements.header, "mousedown", instance.__internal.beginMoveHandler);
+            on(instance.elements.header, "touchstart", instance.__internal.beginMoveHandler, false, false);
+        }
+        function unbindMovableEvents(instance) {
+            off(instance.elements.header, "mousedown", instance.__internal.beginMoveHandler);
+            off(instance.elements.header, "touchstart", instance.__internal.beginMoveHandler, false, false);
+        }
+        function bindResizableEvents(instance) {
+            on(instance.elements.resizeHandle, "mousedown", instance.__internal.beginResizeHandler);
+            on(instance.elements.resizeHandle, "touchstart", instance.__internal.beginResizeHandler, false, false);
+        }
+        function unbindResizableEvents(instance) {
+            off(instance.elements.resizeHandle, "mousedown", instance.__internal.beginResizeHandler);
+            off(instance.elements.resizeHandle, "touchstart", instance.__internal.beginResizeHandler, false, false);
+        }
+        function bindClosableEvents(instance) {
+            on(instance.elements.modal, "click", instance.__internal.modalClickHandler);
+        }
+        function unbindClosableEvents(instance) {
+            off(instance.elements.modal, "click", instance.__internal.modalClickHandler);
+        }
         return {
-            __init: j,
+            __init: initialize,
             isOpen: function() {
                 return this.__internal.isOpen;
             },
             isModal: function() {
-                return this.elements.root.className.indexOf(xa.modeless) < 0;
+                return this.elements.root.className.indexOf(classes.modeless) < 0;
             },
             isMaximized: function() {
-                return this.elements.root.className.indexOf(xa.maximized) > -1;
+                return this.elements.root.className.indexOf(classes.maximized) > -1;
             },
             isPinned: function() {
-                return this.elements.root.className.indexOf(xa.unpinned) < 0;
+                return this.elements.root.className.indexOf(classes.unpinned) < 0;
             },
             maximize: function() {
-                return this.isMaximized() || E(this), this;
+                if (!this.isMaximized()) {
+                    maximize(this);
+                }
+                return this;
             },
             restore: function() {
-                return this.isMaximized() && F(this), this;
+                if (this.isMaximized()) {
+                    restore(this);
+                }
+                return this;
             },
             pin: function() {
-                return this.isPinned() || C(this), this;
+                if (!this.isPinned()) {
+                    pin(this);
+                }
+                return this;
             },
             unpin: function() {
-                return this.isPinned() && D(this), this;
+                if (this.isPinned()) {
+                    unpin(this);
+                }
+                return this;
             },
-            moveTo: function(a, b) {
-                if (!isNaN(a) && !isNaN(b)) {
-                    var c = this.elements.dialog, e = c, f = 0, g = 0;
-                    c.style.left && (f -= parseInt(c.style.left, 10)), c.style.top && (g -= parseInt(c.style.top, 10));
+            bringToFront: function() {
+                bringToFront(null, this);
+                return this;
+            },
+            moveTo: function(x, y) {
+                if (!isNaN(x) && !isNaN(y)) {
+                    dispatchEvent("onmove", this);
+                    var element = this.elements.dialog, current = element, offsetLeft = 0, offsetTop = 0;
+                    if (element.style.left) {
+                        offsetLeft -= parseInt(element.style.left, 10);
+                    }
+                    if (element.style.top) {
+                        offsetTop -= parseInt(element.style.top, 10);
+                    }
                     do {
-                        f += e.offsetLeft, g += e.offsetTop;
-                    } while (e = e.offsetParent);
-                    var h = a - f, i = b - g;
-                    d() && (h *= -1), c.style.left = h + "px", c.style.top = i + "px";
+                        offsetLeft += current.offsetLeft;
+                        offsetTop += current.offsetTop;
+                    } while (current = current.offsetParent);
+                    var left = x - offsetLeft;
+                    var top = y - offsetTop;
+                    if (isRightToLeft()) {
+                        left *= -1;
+                    }
+                    element.style.left = left + "px";
+                    element.style.top = top + "px";
+                    dispatchEvent("onmoved", this);
                 }
                 return this;
             },
-            resizeTo: function(a, b) {
-                var c = parseFloat(a), d = parseFloat(b), e = /(\d*\.\d+|\d+)%/;
-                if (!isNaN(c) && !isNaN(d) && this.get("resizable") === !0) {
-                    ("" + a).match(e) && (c = c / 100 * document.documentElement.clientWidth), ("" + b).match(e) && (d = d / 100 * document.documentElement.clientHeight);
-                    var f = this.elements.dialog;
-                    "none" !== f.style.maxWidth && (f.style.minWidth = (Ia = f.offsetWidth) + "px"), 
-                    f.style.maxWidth = "none", f.style.minHeight = this.elements.header.offsetHeight + this.elements.footer.offsetHeight + "px", 
-                    f.style.width = c + "px", f.style.height = d + "px";
+            resizeTo: function(width, height) {
+                var w = parseFloat(width), h = parseFloat(height), regex = /(\d*\.\d+|\d+)%/;
+                if (!isNaN(w) && !isNaN(h) && this.get("resizable") === true) {
+                    dispatchEvent("onresize", this);
+                    if (("" + width).match(regex)) {
+                        w = w / 100 * document.documentElement.clientWidth;
+                    }
+                    if (("" + height).match(regex)) {
+                        h = h / 100 * document.documentElement.clientHeight;
+                    }
+                    var element = this.elements.dialog;
+                    if (element.style.maxWidth !== "none") {
+                        element.style.minWidth = (minWidth = element.offsetWidth) + "px";
+                    }
+                    element.style.maxWidth = "none";
+                    element.style.minHeight = this.elements.header.offsetHeight + this.elements.footer.offsetHeight + "px";
+                    element.style.width = w + "px";
+                    element.style.height = h + "px";
+                    dispatchEvent("onresized", this);
                 }
                 return this;
             },
-            setting: function(a, b) {
-                var c = this, d = z(this, this.__internal.options, function(a, b, d) {
-                    y(c, a, b, d);
-                }, a, b);
-                if ("get" === d.op) return d.found ? d.value : "undefined" != typeof this.settings ? z(this, this.settings, this.settingUpdated || function() {}, a, b).value : void 0;
-                if ("set" === d.op) {
-                    if (d.items.length > 0) for (var e = this.settingUpdated || function() {}, f = 0; f < d.items.length; f += 1) {
-                        var g = d.items[f];
-                        g.found || "undefined" == typeof this.settings || z(this, this.settings, e, g.key, g.value);
+            setting: function(key, value) {
+                var self = this;
+                var result = update(this, this.__internal.options, function(k, o, n) {
+                    optionUpdated(self, k, o, n);
+                }, key, value);
+                if (result.op === "get") {
+                    if (result.found) {
+                        return result.value;
+                    } else if (typeof this.settings !== "undefined") {
+                        return update(this, this.settings, this.settingUpdated || function() {}, key, value).value;
+                    } else {
+                        return undefined;
+                    }
+                } else if (result.op === "set") {
+                    if (result.items.length > 0) {
+                        var callback = this.settingUpdated || function() {};
+                        for (var x = 0; x < result.items.length; x += 1) {
+                            var item = result.items[x];
+                            if (!item.found && typeof this.settings !== "undefined") {
+                                update(this, this.settings, callback, item.key, item.value);
+                            }
+                        }
                     }
                     return this;
                 }
             },
-            set: function(a, b) {
-                return this.setting(a, b), this;
+            set: function(key, value) {
+                this.setting(key, value);
+                return this;
             },
-            get: function(a) {
-                return this.setting(a);
+            get: function(key) {
+                return this.setting(key);
             },
-            setHeader: function(b) {
-                return "string" == typeof b ? (g(this.elements.header), this.elements.header.innerHTML = b) : b instanceof a.HTMLElement && this.elements.header.firstChild !== b && (g(this.elements.header), 
-                this.elements.header.appendChild(b)), this;
+            setHeader: function(content) {
+                if (typeof content === "string") {
+                    clearContents(this.elements.header);
+                    this.elements.header.innerHTML = content;
+                } else if (content instanceof window.HTMLElement && this.elements.header.firstChild !== content) {
+                    clearContents(this.elements.header);
+                    this.elements.header.appendChild(content);
+                }
+                return this;
             },
-            setContent: function(b) {
-                return "string" == typeof b ? (g(this.elements.content), this.elements.content.innerHTML = b) : b instanceof a.HTMLElement && this.elements.content.firstChild !== b && (g(this.elements.content), 
-                this.elements.content.appendChild(b)), this;
+            setContent: function(content) {
+                if (typeof content === "string") {
+                    clearContents(this.elements.content);
+                    this.elements.content.innerHTML = content;
+                } else if (content instanceof window.HTMLElement && this.elements.content.firstChild !== content) {
+                    clearContents(this.elements.content);
+                    this.elements.content.appendChild(content);
+                }
+                return this;
             },
-            showModal: function(a) {
-                return this.show(!0, a);
+            showModal: function(className) {
+                return this.show(true, className);
             },
-            show: function(a, d) {
-                if (j(this), this.__internal.isOpen) {
-                    $(this), ea(this), b(this.elements.dialog, xa.shake);
-                    var e = this;
-                    setTimeout(function() {
-                        c(e.elements.dialog, xa.shake);
-                    }, 200);
-                } else {
-                    if (this.__internal.isOpen = !0, m.push(this), s.defaults.maintainFocus && (this.__internal.activeElement = document.activeElement), 
-                    "function" == typeof this.prepare && this.prepare(), ha(this), void 0 !== a && this.set("modal", a), 
-                    l(), r(), "string" == typeof d && "" !== d && (this.__internal.className = d, b(this.elements.root, d)), 
-                    this.get("startMaximized") ? this.maximize() : this.isMaximized() && F(this), J(this), 
-                    c(this.elements.root, xa.animationOut), b(this.elements.root, xa.animationIn), clearTimeout(this.__internal.timerIn), 
-                    this.__internal.timerIn = setTimeout(this.__internal.transitionInHandler, p.supported ? 1e3 : 100), 
-                    va) {
-                        var f = this.elements.root;
-                        f.style.display = "none", setTimeout(function() {
-                            f.style.display = "block";
+            show: function(modal, className) {
+                initialize(this);
+                if (!this.__internal.isOpen) {
+                    this.__internal.isOpen = true;
+                    openDialogs.push(this);
+                    if (alertify.defaults.maintainFocus) {
+                        this.__internal.activeElement = document.activeElement;
+                    }
+                    if (!document.body.hasAttribute("tabindex")) {
+                        document.body.setAttribute("tabindex", tabindex = "0");
+                    }
+                    if (typeof this.prepare === "function") {
+                        this.prepare();
+                    }
+                    bindEvents(this);
+                    if (modal !== undefined) {
+                        this.set("modal", modal);
+                    }
+                    saveScrollPosition();
+                    ensureNoOverflow();
+                    if (typeof className === "string" && className !== "") {
+                        this.__internal.className = className;
+                        addClass(this.elements.root, className);
+                    }
+                    if (this.get("startMaximized")) {
+                        this.maximize();
+                    } else if (this.isMaximized()) {
+                        restore(this);
+                    }
+                    updateAbsPositionFix(this);
+                    this.elements.root.removeAttribute("style");
+                    removeClass(this.elements.root, classes.animationOut);
+                    addClass(this.elements.root, classes.animationIn);
+                    clearTimeout(this.__internal.timerIn);
+                    this.__internal.timerIn = setTimeout(this.__internal.transitionInHandler, transition.supported ? 1e3 : 100);
+                    if (isSafari) {
+                        var root = this.elements.root;
+                        root.style.display = "none";
+                        setTimeout(function() {
+                            root.style.display = "block";
                         }, 0);
                     }
-                    ua = this.elements.root.offsetWidth, c(this.elements.root, xa.hidden), "function" == typeof this.hooks.onshow && this.hooks.onshow.call(this), 
-                    "function" == typeof this.get("onshow") && this.get("onshow").call(this);
+                    reflow = this.elements.root.offsetWidth;
+                    removeClass(this.elements.root, classes.hidden);
+                    restoreScrollPosition();
+                    if (typeof this.hooks.onshow === "function") {
+                        this.hooks.onshow.call(this);
+                    }
+                    dispatchEvent("onshow", this);
+                } else {
+                    resetMove(this);
+                    resetResize(this);
+                    addClass(this.elements.dialog, classes.shake);
+                    var self = this;
+                    setTimeout(function() {
+                        removeClass(self.elements.dialog, classes.shake);
+                    }, 200);
                 }
                 return this;
             },
             close: function() {
-                return this.__internal.isOpen && (ia(this), c(this.elements.root, xa.animationIn), 
-                b(this.elements.root, xa.animationOut), clearTimeout(this.__internal.timerOut), 
-                this.__internal.timerOut = setTimeout(this.__internal.transitionOutHandler, p.supported ? 1e3 : 100), 
-                b(this.elements.root, xa.hidden), ua = this.elements.modal.offsetWidth, "undefined" != typeof this.__internal.className && "" !== this.__internal.className && c(this.elements.root, this.__internal.className), 
-                "function" == typeof this.hooks.onclose && this.hooks.onclose.call(this), "function" == typeof this.get("onclose") && this.get("onclose").call(this), 
-                m.splice(m.indexOf(this), 1), this.__internal.isOpen = !1, r()), this;
+                if (this.__internal.isOpen) {
+                    if (dispatchEvent("onclosing", this) !== false) {
+                        unbindEvents(this);
+                        removeClass(this.elements.root, classes.animationIn);
+                        addClass(this.elements.root, classes.animationOut);
+                        clearTimeout(this.__internal.timerOut);
+                        this.__internal.timerOut = setTimeout(this.__internal.transitionOutHandler, transition.supported ? 1e3 : 100);
+                        addClass(this.elements.root, classes.hidden);
+                        reflow = this.elements.modal.offsetWidth;
+                        if (alertify.defaults.maintainFocus && this.__internal.activeElement) {
+                            this.__internal.activeElement.focus();
+                            this.__internal.activeElement = null;
+                        }
+                        if (typeof this.__internal.className !== "undefined" && this.__internal.className !== "") {
+                            removeClass(this.elements.root, this.__internal.className);
+                        }
+                        if (typeof this.hooks.onclose === "function") {
+                            this.hooks.onclose.call(this);
+                        }
+                        dispatchEvent("onclose", this);
+                        openDialogs.splice(openDialogs.indexOf(this), 1);
+                        this.__internal.isOpen = false;
+                        ensureNoOverflow();
+                    }
+                }
+                if (!openDialogs.length && tabindex === "0") {
+                    document.body.removeAttribute("tabindex");
+                }
+                return this;
             },
             closeOthers: function() {
-                return s.closeAll(this), this;
+                alertify.closeAll(this);
+                return this;
+            },
+            destroy: function() {
+                if (this.__internal) {
+                    if (this.__internal.isOpen) {
+                        this.__internal.destroy = function() {
+                            destruct(this, initialize);
+                        };
+                        this.close();
+                    } else if (!this.__internal.destroy) {
+                        destruct(this, initialize);
+                    }
+                }
+                return this;
             }
         };
-    }(), r = function() {
-        function d(a) {
-            a.__internal || (a.__internal = {
-                position: s.defaults.notifier.position,
-                delay: s.defaults.notifier.delay
-            }, l = document.createElement("DIV"), i(a)), l.parentNode !== document.body && document.body.appendChild(l);
+    }();
+    var notifier = function() {
+        var reflow, element, openInstances = [], classes = defaults.notifier.classes, baseClass = classes.base;
+        function initialize(instance) {
+            if (!instance.__internal) {
+                instance.__internal = {
+                    position: alertify.defaults.notifier.position,
+                    delay: alertify.defaults.notifier.delay
+                };
+                element = document.createElement("DIV");
+                var transitionOff = "transitionOff" in defaults.notifier ? defaults.notifier.transitionOff : defaults.transitionOff;
+                if (transitionOff) {
+                    baseClass = classes.base + " ajs-no-transition";
+                }
+                updatePosition(instance);
+            }
+            if (element.parentNode !== document.body) {
+                document.body.appendChild(element);
+            }
         }
-        function e(a) {
-            a.__internal.pushed = !0, m.push(a);
+        function pushInstance(instance) {
+            instance.__internal.pushed = true;
+            openInstances.push(instance);
         }
-        function f(a) {
-            m.splice(m.indexOf(a), 1), a.__internal.pushed = !1;
+        function popInstance(instance) {
+            openInstances.splice(openInstances.indexOf(instance), 1);
+            instance.__internal.pushed = false;
         }
-        function i(a) {
-            switch (l.className = q.base, a.__internal.position) {
+        function updatePosition(instance) {
+            element.className = baseClass;
+            switch (instance.__internal.position) {
               case "top-right":
-                b(l, q.top + " " + q.right);
+                addClass(element, classes.top + " " + classes.right);
                 break;
 
               case "top-left":
-                b(l, q.top + " " + q.left);
+                addClass(element, classes.top + " " + classes.left);
+                break;
+
+              case "top-center":
+                addClass(element, classes.top + " " + classes.center);
                 break;
 
               case "bottom-left":
-                b(l, q.bottom + " " + q.left);
+                addClass(element, classes.bottom + " " + classes.left);
+                break;
+
+              case "bottom-center":
+                addClass(element, classes.bottom + " " + classes.center);
                 break;
 
               default:
               case "bottom-right":
-                b(l, q.bottom + " " + q.right);
+                addClass(element, classes.bottom + " " + classes.right);
+                break;
             }
         }
-        function j(d, i) {
-            function j(a, b) {
-                b.dismiss(!0);
+        function create(div, callback) {
+            function clickDelegate(event, instance) {
+                if (!instance.__internal.closeButton || event.target.getAttribute("data-close") === "true") {
+                    instance.dismiss(true);
+                }
             }
-            function m(a, b) {
-                o(b.element, p.type, m), l.removeChild(b.element);
+            function transitionDone(event, instance) {
+                off(instance.element, transition.type, transitionDone);
+                element.removeChild(instance.element);
             }
-            function s(a) {
-                return a.__internal || (a.__internal = {
-                    pushed: !1,
-                    delay: void 0,
-                    timer: void 0,
-                    clickHandler: void 0,
-                    transitionEndHandler: void 0,
-                    transitionTimeout: void 0
-                }, a.__internal.clickHandler = h(a, j), a.__internal.transitionEndHandler = h(a, m)), 
-                a;
+            function initialize(instance) {
+                if (!instance.__internal) {
+                    instance.__internal = {
+                        pushed: false,
+                        delay: undefined,
+                        timer: undefined,
+                        clickHandler: undefined,
+                        transitionEndHandler: undefined,
+                        transitionTimeout: undefined
+                    };
+                    instance.__internal.clickHandler = delegate(instance, clickDelegate);
+                    instance.__internal.transitionEndHandler = delegate(instance, transitionDone);
+                }
+                return instance;
             }
-            function t(a) {
-                clearTimeout(a.__internal.timer), clearTimeout(a.__internal.transitionTimeout);
+            function clearTimers(instance) {
+                clearTimeout(instance.__internal.timer);
+                clearTimeout(instance.__internal.transitionTimeout);
             }
-            return s({
-                element: d,
-                push: function(a, c) {
+            return initialize({
+                element: div,
+                push: function(_content, _wait) {
                     if (!this.__internal.pushed) {
-                        e(this), t(this);
-                        var d, f;
+                        pushInstance(this);
+                        clearTimers(this);
+                        var content, wait;
                         switch (arguments.length) {
                           case 0:
-                            f = this.__internal.delay;
+                            wait = this.__internal.delay;
                             break;
 
                           case 1:
-                            "number" == typeof a ? f = a : (d = a, f = this.__internal.delay);
+                            if (typeof _content === "number") {
+                                wait = _content;
+                            } else {
+                                content = _content;
+                                wait = this.__internal.delay;
+                            }
                             break;
 
                           case 2:
-                            d = a, f = c;
+                            content = _content;
+                            wait = _wait;
+                            break;
                         }
-                        return "undefined" != typeof d && this.setContent(d), r.__internal.position.indexOf("top") < 0 ? l.appendChild(this.element) : l.insertBefore(this.element, l.firstChild), 
-                        k = this.element.offsetWidth, b(this.element, q.visible), n(this.element, "click", this.__internal.clickHandler), 
-                        this.delay(f);
+                        this.__internal.closeButton = alertify.defaults.notifier.closeButton;
+                        if (typeof content !== "undefined") {
+                            this.setContent(content);
+                        }
+                        if (notifier.__internal.position.indexOf("top") < 0) {
+                            element.appendChild(this.element);
+                        } else {
+                            element.insertBefore(this.element, element.firstChild);
+                        }
+                        reflow = this.element.offsetWidth;
+                        addClass(this.element, classes.visible);
+                        on(this.element, "click", this.__internal.clickHandler);
+                        return this.delay(wait);
                     }
                     return this;
                 },
                 ondismiss: function() {},
-                callback: i,
-                dismiss: function(a) {
-                    return this.__internal.pushed && (t(this), ("function" != typeof this.ondismiss || this.ondismiss.call(this) !== !1) && (o(this.element, "click", this.__internal.clickHandler), 
-                    "undefined" != typeof this.element && this.element.parentNode === l && (this.__internal.transitionTimeout = setTimeout(this.__internal.transitionEndHandler, p.supported ? 1e3 : 100), 
-                    c(this.element, q.visible), "function" == typeof this.callback && this.callback.call(this, a)), 
-                    f(this))), this;
-                },
-                delay: function(a) {
-                    if (t(this), this.__internal.delay = "undefined" == typeof a || isNaN(+a) ? r.__internal.delay : +a, 
-                    this.__internal.delay > 0) {
-                        var b = this;
-                        this.__internal.timer = setTimeout(function() {
-                            b.dismiss();
-                        }, 1e3 * this.__internal.delay);
+                callback: callback,
+                dismiss: function(clicked) {
+                    if (this.__internal.pushed) {
+                        clearTimers(this);
+                        if (!(typeof this.ondismiss === "function" && this.ondismiss.call(this) === false)) {
+                            off(this.element, "click", this.__internal.clickHandler);
+                            if (typeof this.element !== "undefined" && this.element.parentNode === element) {
+                                this.__internal.transitionTimeout = setTimeout(this.__internal.transitionEndHandler, transition.supported ? 1e3 : 100);
+                                removeClass(this.element, classes.visible);
+                                if (typeof this.callback === "function") {
+                                    this.callback.call(this, clicked);
+                                }
+                            }
+                            popInstance(this);
+                        }
                     }
                     return this;
                 },
-                setContent: function(b) {
-                    return "string" == typeof b ? (g(this.element), this.element.innerHTML = b) : b instanceof a.HTMLElement && this.element.firstChild !== b && (g(this.element), 
-                    this.element.appendChild(b)), this;
+                delay: function(wait) {
+                    clearTimers(this);
+                    this.__internal.delay = typeof wait !== "undefined" && !isNaN(+wait) ? +wait : notifier.__internal.delay;
+                    if (this.__internal.delay > 0) {
+                        var self = this;
+                        this.__internal.timer = setTimeout(function() {
+                            self.dismiss();
+                        }, this.__internal.delay * 1e3);
+                    }
+                    return this;
+                },
+                setContent: function(content) {
+                    if (typeof content === "string") {
+                        clearContents(this.element);
+                        this.element.innerHTML = content;
+                    } else if (content instanceof window.HTMLElement && this.element.firstChild !== content) {
+                        clearContents(this.element);
+                        this.element.appendChild(content);
+                    }
+                    if (this.__internal.closeButton) {
+                        var close = document.createElement("span");
+                        addClass(close, classes.close);
+                        close.setAttribute("data-close", true);
+                        this.element.appendChild(close);
+                    }
+                    return this;
                 },
                 dismissOthers: function() {
-                    return r.dismissAll(this), this;
+                    notifier.dismissAll(this);
+                    return this;
                 }
             });
         }
-        var k, l, m = [], q = {
-            base: "alertify-notifier",
-            message: "ajs-message",
-            top: "ajs-top",
-            right: "ajs-right",
-            bottom: "ajs-bottom",
-            left: "ajs-left",
-            visible: "ajs-visible",
-            hidden: "ajs-hidden"
-        };
         return {
-            setting: function(a, b) {
-                if (d(this), "undefined" == typeof b) return this.__internal[a];
-                switch (a) {
-                  case "position":
-                    this.__internal.position = b, i(this);
-                    break;
+            setting: function(key, value) {
+                initialize(this);
+                if (typeof value === "undefined") {
+                    return this.__internal[key];
+                } else {
+                    switch (key) {
+                      case "position":
+                        this.__internal.position = value;
+                        updatePosition(this);
+                        break;
 
-                  case "delay":
-                    this.__internal.delay = b;
+                      case "delay":
+                        this.__internal.delay = value;
+                        break;
+                    }
                 }
                 return this;
             },
-            set: function(a, b) {
-                return this.setting(a, b), this;
+            set: function(key, value) {
+                this.setting(key, value);
+                return this;
             },
-            get: function(a) {
-                return this.setting(a);
+            get: function(key) {
+                return this.setting(key);
             },
-            create: function(a, b) {
-                d(this);
-                var c = document.createElement("div");
-                return c.className = q.message + ("string" == typeof a && "" !== a ? " ajs-" + a : ""), 
-                j(c, b);
+            create: function(type, callback) {
+                initialize(this);
+                var div = document.createElement("div");
+                div.className = classes.message + (typeof type === "string" && type !== "" ? " " + classes.prefix + type : "");
+                return create(div, callback);
             },
-            dismissAll: function(a) {
-                for (var b = m.slice(0), c = 0; c < b.length; c += 1) {
-                    var d = b[c];
-                    (void 0 === a || a !== d) && d.dismiss();
+            dismissAll: function(except) {
+                var clone = openInstances.slice(0);
+                for (var x = 0; x < clone.length; x += 1) {
+                    var instance = clone[x];
+                    if (except === undefined || except !== instance) {
+                        instance.dismiss();
+                    }
                 }
             }
         };
-    }(), s = new j();
-    s.dialog("alert", function() {
+    }();
+    function Alertify() {
+        var dialogs = {};
+        function extend(sub, base) {
+            for (var prop in base) {
+                if (base.hasOwnProperty(prop)) {
+                    sub[prop] = base[prop];
+                }
+            }
+            return sub;
+        }
+        function get_dialog(name) {
+            var dialog = dialogs[name].dialog;
+            if (dialog && typeof dialog.__init === "function") {
+                dialog.__init(dialog);
+            }
+            return dialog;
+        }
+        function register(name, Factory, transient, base) {
+            var definition = {
+                dialog: null,
+                factory: Factory
+            };
+            if (base !== undefined) {
+                definition.factory = function() {
+                    return extend(new dialogs[base].factory(), new Factory());
+                };
+            }
+            if (!transient) {
+                definition.dialog = extend(new definition.factory(), dialog);
+            }
+            return dialogs[name] = definition;
+        }
         return {
-            main: function(a, b, c) {
-                var d, e, f;
+            defaults: defaults,
+            dialog: function(name, Factory, transient, base) {
+                if (typeof Factory !== "function") {
+                    return get_dialog(name);
+                }
+                if (this.hasOwnProperty(name)) {
+                    throw new Error("alertify.dialog: name already exists");
+                }
+                var definition = register(name, Factory, transient, base);
+                if (transient) {
+                    this[name] = function() {
+                        if (arguments.length === 0) {
+                            return definition.dialog;
+                        } else {
+                            var instance = extend(new definition.factory(), dialog);
+                            if (instance && typeof instance.__init === "function") {
+                                instance.__init(instance);
+                            }
+                            instance["main"].apply(instance, arguments);
+                            return instance["show"].apply(instance);
+                        }
+                    };
+                } else {
+                    this[name] = function() {
+                        if (definition.dialog && typeof definition.dialog.__init === "function") {
+                            definition.dialog.__init(definition.dialog);
+                        }
+                        if (arguments.length === 0) {
+                            return definition.dialog;
+                        } else {
+                            var dialog = definition.dialog;
+                            dialog["main"].apply(definition.dialog, arguments);
+                            return dialog["show"].apply(definition.dialog);
+                        }
+                    };
+                }
+            },
+            closeAll: function(except) {
+                var clone = openDialogs.slice(0);
+                for (var x = 0; x < clone.length; x += 1) {
+                    var instance = clone[x];
+                    if (except === undefined || except !== instance) {
+                        instance.close();
+                    }
+                }
+            },
+            setting: function(name, key, value) {
+                if (name === "notifier") {
+                    return notifier.setting(key, value);
+                }
+                var dialog = get_dialog(name);
+                if (dialog) {
+                    return dialog.setting(key, value);
+                }
+            },
+            set: function(name, key, value) {
+                return this.setting(name, key, value);
+            },
+            get: function(name, key) {
+                return this.setting(name, key);
+            },
+            notify: function(message, type, wait, callback) {
+                return notifier.create(type, callback).push(message, wait);
+            },
+            message: function(message, wait, callback) {
+                return notifier.create(null, callback).push(message, wait);
+            },
+            success: function(message, wait, callback) {
+                return notifier.create("success", callback).push(message, wait);
+            },
+            error: function(message, wait, callback) {
+                return notifier.create("error", callback).push(message, wait);
+            },
+            warning: function(message, wait, callback) {
+                return notifier.create("warning", callback).push(message, wait);
+            },
+            dismissAll: function() {
+                notifier.dismissAll();
+            }
+        };
+    }
+    var alertify = new Alertify();
+    alertify.dialog("alert", function() {
+        return {
+            main: function(_title, _message, _onok) {
+                var title, message, onok;
                 switch (arguments.length) {
                   case 1:
-                    e = a;
+                    message = _title;
                     break;
 
                   case 2:
-                    "function" == typeof b ? (e = a, f = b) : (d = a, e = b);
+                    if (typeof _message === "function") {
+                        message = _title;
+                        onok = _message;
+                    } else {
+                        title = _title;
+                        message = _message;
+                    }
                     break;
 
                   case 3:
-                    d = a, e = b, f = c;
+                    title = _title;
+                    message = _message;
+                    onok = _onok;
+                    break;
                 }
-                return this.set("title", d), this.set("message", e), this.set("onok", f), this;
+                this.set("title", title);
+                this.set("message", message);
+                this.set("onok", onok);
+                return this;
             },
             setup: function() {
                 return {
                     buttons: [ {
-                        text: s.defaults.glossary.ok,
-                        key: k.ESC,
-                        invokeOnClose: !0,
-                        className: s.defaults.theme.ok
+                        text: alertify.defaults.glossary.ok,
+                        key: keys.ESC,
+                        invokeOnClose: true,
+                        className: alertify.defaults.theme.ok
                     } ],
                     focus: {
                         element: 0,
-                        select: !1
+                        select: false
                     },
                     options: {
-                        maximizable: !1,
-                        resizable: !1
+                        maximizable: false,
+                        resizable: false
                     }
                 };
             },
             build: function() {},
             prepare: function() {},
-            setMessage: function(a) {
-                this.setContent(a);
+            setMessage: function(message) {
+                this.setContent(message);
             },
             settings: {
-                message: void 0,
-                onok: void 0,
-                label: void 0
+                message: undefined,
+                onok: undefined,
+                label: undefined
             },
-            settingUpdated: function(a, b, c) {
-                switch (a) {
+            settingUpdated: function(key, oldValue, newValue) {
+                switch (key) {
                   case "message":
-                    this.setMessage(c);
+                    this.setMessage(newValue);
                     break;
 
                   case "label":
-                    this.__internal.buttons[0].element && (this.__internal.buttons[0].element.innerHTML = c);
+                    if (this.__internal.buttons[0].element) {
+                        this.__internal.buttons[0].element.innerHTML = newValue;
+                    }
+                    break;
                 }
             },
-            callback: function(a) {
-                if ("function" == typeof this.get("onok")) {
-                    var b = this.get("onok").call(this, a);
-                    "undefined" != typeof b && (a.cancel = !b);
+            callback: function(closeEvent) {
+                if (typeof this.get("onok") === "function") {
+                    var returnValue = this.get("onok").call(this, closeEvent);
+                    if (typeof returnValue !== "undefined") {
+                        closeEvent.cancel = !returnValue;
+                    }
                 }
             }
         };
-    }), s.dialog("confirm", function() {
-        function a(a) {
-            null !== c.timer && (clearInterval(c.timer), c.timer = null, a.__internal.buttons[c.index].element.innerHTML = c.text);
-        }
-        function b(b, d, e) {
-            a(b), c.duration = e, c.index = d, c.text = b.__internal.buttons[d].element.innerHTML, 
-            c.timer = setInterval(h(b, c.task), 1e3), c.task(null, b);
-        }
-        var c = {
+    });
+    alertify.dialog("confirm", function() {
+        var autoConfirm = {
             timer: null,
             index: null,
             text: null,
             duration: null,
-            task: function(b, d) {
-                if (d.isOpen()) {
-                    if (d.__internal.buttons[c.index].element.innerHTML = c.text + " (&#8207;" + c.duration + "&#8207;) ", 
-                    c.duration -= 1, -1 === c.duration) {
-                        a(d);
-                        var e = d.__internal.buttons[c.index], f = i(c.index, e);
-                        "function" == typeof d.callback && d.callback.apply(d, [ f ]), f.close !== !1 && d.close();
+            task: function(event, self) {
+                if (self.isOpen()) {
+                    self.__internal.buttons[autoConfirm.index].element.innerHTML = autoConfirm.text + " (&#8207;" + autoConfirm.duration + "&#8207;) ";
+                    autoConfirm.duration -= 1;
+                    if (autoConfirm.duration === -1) {
+                        clearAutoConfirm(self);
+                        var button = self.__internal.buttons[autoConfirm.index];
+                        var closeEvent = createCloseEvent(autoConfirm.index, button);
+                        if (typeof self.callback === "function") {
+                            self.callback.apply(self, [ closeEvent ]);
+                        }
+                        if (closeEvent.close !== false) {
+                            self.close();
+                        }
                     }
-                } else a(d);
+                } else {
+                    clearAutoConfirm(self);
+                }
             }
         };
+        function clearAutoConfirm(self) {
+            if (autoConfirm.timer !== null) {
+                clearInterval(autoConfirm.timer);
+                autoConfirm.timer = null;
+                self.__internal.buttons[autoConfirm.index].element.innerHTML = autoConfirm.text;
+            }
+        }
+        function startAutoConfirm(self, index, duration) {
+            clearAutoConfirm(self);
+            autoConfirm.duration = duration;
+            autoConfirm.index = index;
+            autoConfirm.text = self.__internal.buttons[index].element.innerHTML;
+            autoConfirm.timer = setInterval(delegate(self, autoConfirm.task), 1e3);
+            autoConfirm.task(null, self);
+        }
         return {
-            main: function(a, b, c, d) {
-                var e, f, g, h;
+            main: function(_title, _message, _onok, _oncancel) {
+                var title, message, onok, oncancel;
                 switch (arguments.length) {
                   case 1:
-                    f = a;
+                    message = _title;
                     break;
 
                   case 2:
-                    f = a, g = b;
+                    message = _title;
+                    onok = _message;
                     break;
 
                   case 3:
-                    f = a, g = b, h = c;
+                    message = _title;
+                    onok = _message;
+                    oncancel = _onok;
                     break;
 
                   case 4:
-                    e = a, f = b, g = c, h = d;
+                    title = _title;
+                    message = _message;
+                    onok = _onok;
+                    oncancel = _oncancel;
+                    break;
                 }
-                return this.set("title", e), this.set("message", f), this.set("onok", g), this.set("oncancel", h), 
-                this;
+                this.set("title", title);
+                this.set("message", message);
+                this.set("onok", onok);
+                this.set("oncancel", oncancel);
+                return this;
             },
             setup: function() {
                 return {
                     buttons: [ {
-                        text: s.defaults.glossary.ok,
-                        key: k.ENTER,
-                        className: s.defaults.theme.ok
+                        text: alertify.defaults.glossary.ok,
+                        key: keys.ENTER,
+                        className: alertify.defaults.theme.ok
                     }, {
-                        text: s.defaults.glossary.cancel,
-                        key: k.ESC,
-                        invokeOnClose: !0,
-                        className: s.defaults.theme.cancel
+                        text: alertify.defaults.glossary.cancel,
+                        key: keys.ESC,
+                        invokeOnClose: true,
+                        className: alertify.defaults.theme.cancel
                     } ],
                     focus: {
                         element: 0,
-                        select: !1
+                        select: false
                     },
                     options: {
-                        maximizable: !1,
-                        resizable: !1
+                        maximizable: false,
+                        resizable: false
                     }
                 };
             },
             build: function() {},
             prepare: function() {},
-            setMessage: function(a) {
-                this.setContent(a);
+            setMessage: function(message) {
+                this.setContent(message);
             },
             settings: {
                 message: null,
@@ -1144,126 +2069,173 @@
                 defaultFocus: null,
                 reverseButtons: null
             },
-            settingUpdated: function(a, b, c) {
-                switch (a) {
+            settingUpdated: function(key, oldValue, newValue) {
+                switch (key) {
                   case "message":
-                    this.setMessage(c);
+                    this.setMessage(newValue);
                     break;
 
                   case "labels":
-                    "ok" in c && this.__internal.buttons[0].element && (this.__internal.buttons[0].text = c.ok, 
-                    this.__internal.buttons[0].element.innerHTML = c.ok), "cancel" in c && this.__internal.buttons[1].element && (this.__internal.buttons[1].text = c.cancel, 
-                    this.__internal.buttons[1].element.innerHTML = c.cancel);
+                    if ("ok" in newValue && this.__internal.buttons[0].element) {
+                        this.__internal.buttons[0].text = newValue.ok;
+                        this.__internal.buttons[0].element.innerHTML = newValue.ok;
+                    }
+                    if ("cancel" in newValue && this.__internal.buttons[1].element) {
+                        this.__internal.buttons[1].text = newValue.cancel;
+                        this.__internal.buttons[1].element.innerHTML = newValue.cancel;
+                    }
                     break;
 
                   case "reverseButtons":
-                    this.elements.buttons.primary.appendChild(c === !0 ? this.__internal.buttons[0].element : this.__internal.buttons[1].element);
+                    if (newValue === true) {
+                        this.elements.buttons.primary.appendChild(this.__internal.buttons[0].element);
+                    } else {
+                        this.elements.buttons.primary.appendChild(this.__internal.buttons[1].element);
+                    }
                     break;
 
                   case "defaultFocus":
-                    this.__internal.focus.element = "ok" === c ? 0 : 1;
+                    this.__internal.focus.element = newValue === "ok" ? 0 : 1;
+                    break;
                 }
             },
-            callback: function(b) {
-                a(this);
-                var c;
-                switch (b.index) {
+            callback: function(closeEvent) {
+                clearAutoConfirm(this);
+                var returnValue;
+                switch (closeEvent.index) {
                   case 0:
-                    "function" == typeof this.get("onok") && (c = this.get("onok").call(this, b), "undefined" != typeof c && (b.cancel = !c));
+                    if (typeof this.get("onok") === "function") {
+                        returnValue = this.get("onok").call(this, closeEvent);
+                        if (typeof returnValue !== "undefined") {
+                            closeEvent.cancel = !returnValue;
+                        }
+                    }
                     break;
 
                   case 1:
-                    "function" == typeof this.get("oncancel") && (c = this.get("oncancel").call(this, b), 
-                    "undefined" != typeof c && (b.cancel = !c));
+                    if (typeof this.get("oncancel") === "function") {
+                        returnValue = this.get("oncancel").call(this, closeEvent);
+                        if (typeof returnValue !== "undefined") {
+                            closeEvent.cancel = !returnValue;
+                        }
+                    }
+                    break;
                 }
             },
-            autoOk: function(a) {
-                return b(this, 0, a), this;
+            autoOk: function(duration) {
+                startAutoConfirm(this, 0, duration);
+                return this;
             },
-            autoCancel: function(a) {
-                return b(this, 1, a), this;
+            autoCancel: function(duration) {
+                startAutoConfirm(this, 1, duration);
+                return this;
             }
         };
-    }), s.dialog("prompt", function() {
-        var b = document.createElement("INPUT"), c = document.createElement("P");
+    });
+    alertify.dialog("prompt", function() {
+        var input = document.createElement("INPUT");
+        var p = document.createElement("P");
         return {
-            main: function(a, b, c, d, e) {
-                var f, g, h, i, j;
+            main: function(_title, _message, _value, _onok, _oncancel) {
+                var title, message, value, onok, oncancel;
                 switch (arguments.length) {
                   case 1:
-                    g = a;
+                    message = _title;
                     break;
 
                   case 2:
-                    g = a, h = b;
+                    message = _title;
+                    value = _message;
                     break;
 
                   case 3:
-                    g = a, h = b, i = c;
+                    message = _title;
+                    value = _message;
+                    onok = _value;
                     break;
 
                   case 4:
-                    g = a, h = b, i = c, j = d;
+                    message = _title;
+                    value = _message;
+                    onok = _value;
+                    oncancel = _onok;
                     break;
 
                   case 5:
-                    f = a, g = b, h = c, i = d, j = e;
+                    title = _title;
+                    message = _message;
+                    value = _value;
+                    onok = _onok;
+                    oncancel = _oncancel;
+                    break;
                 }
-                return this.set("title", f), this.set("message", g), this.set("value", h), this.set("onok", i), 
-                this.set("oncancel", j), this;
+                this.set("title", title);
+                this.set("message", message);
+                this.set("value", value);
+                this.set("onok", onok);
+                this.set("oncancel", oncancel);
+                return this;
             },
             setup: function() {
                 return {
                     buttons: [ {
-                        text: s.defaults.glossary.ok,
-                        key: k.ENTER,
-                        className: s.defaults.theme.ok
+                        text: alertify.defaults.glossary.ok,
+                        key: keys.ENTER,
+                        className: alertify.defaults.theme.ok
                     }, {
-                        text: s.defaults.glossary.cancel,
-                        key: k.ESC,
-                        invokeOnClose: !0,
-                        className: s.defaults.theme.cancel
+                        text: alertify.defaults.glossary.cancel,
+                        key: keys.ESC,
+                        invokeOnClose: true,
+                        className: alertify.defaults.theme.cancel
                     } ],
                     focus: {
-                        element: b,
-                        select: !0
+                        element: input,
+                        select: true
                     },
                     options: {
-                        maximizable: !1,
-                        resizable: !1
+                        maximizable: false,
+                        resizable: false
                     }
                 };
             },
             build: function() {
-                b.className = s.defaults.theme.input, b.setAttribute("type", "text"), b.value = this.get("value"), 
-                this.elements.content.appendChild(c), this.elements.content.appendChild(b);
+                input.className = alertify.defaults.theme.input;
+                input.setAttribute("type", "text");
+                input.value = this.get("value");
+                this.elements.content.appendChild(p);
+                this.elements.content.appendChild(input);
             },
             prepare: function() {},
-            setMessage: function(b) {
-                "string" == typeof b ? (g(c), c.innerHTML = b) : b instanceof a.HTMLElement && c.firstChild !== b && (g(c), 
-                c.appendChild(b));
+            setMessage: function(message) {
+                if (typeof message === "string") {
+                    clearContents(p);
+                    p.innerHTML = message;
+                } else if (message instanceof window.HTMLElement && p.firstChild !== message) {
+                    clearContents(p);
+                    p.appendChild(message);
+                }
             },
             settings: {
-                message: void 0,
-                labels: void 0,
-                onok: void 0,
-                oncancel: void 0,
+                message: undefined,
+                labels: undefined,
+                onok: undefined,
+                oncancel: undefined,
                 value: "",
                 type: "text",
-                reverseButtons: void 0
+                reverseButtons: undefined
             },
-            settingUpdated: function(a, c, d) {
-                switch (a) {
+            settingUpdated: function(key, oldValue, newValue) {
+                switch (key) {
                   case "message":
-                    this.setMessage(d);
+                    this.setMessage(newValue);
                     break;
 
                   case "value":
-                    b.value = d;
+                    input.value = newValue;
                     break;
 
                   case "type":
-                    switch (d) {
+                    switch (newValue) {
                       case "text":
                       case "color":
                       case "date":
@@ -1276,41 +2248,71 @@
                       case "tel":
                       case "time":
                       case "week":
-                        b.type = d;
+                        input.type = newValue;
                         break;
 
                       default:
-                        b.type = "text";
+                        input.type = "text";
+                        break;
                     }
                     break;
 
                   case "labels":
-                    d.ok && this.__internal.buttons[0].element && (this.__internal.buttons[0].element.innerHTML = d.ok), 
-                    d.cancel && this.__internal.buttons[1].element && (this.__internal.buttons[1].element.innerHTML = d.cancel);
+                    if (newValue.ok && this.__internal.buttons[0].element) {
+                        this.__internal.buttons[0].element.innerHTML = newValue.ok;
+                    }
+                    if (newValue.cancel && this.__internal.buttons[1].element) {
+                        this.__internal.buttons[1].element.innerHTML = newValue.cancel;
+                    }
                     break;
 
                   case "reverseButtons":
-                    this.elements.buttons.primary.appendChild(d === !0 ? this.__internal.buttons[0].element : this.__internal.buttons[1].element);
+                    if (newValue === true) {
+                        this.elements.buttons.primary.appendChild(this.__internal.buttons[0].element);
+                    } else {
+                        this.elements.buttons.primary.appendChild(this.__internal.buttons[1].element);
+                    }
+                    break;
                 }
             },
-            callback: function(a) {
-                var c;
-                switch (a.index) {
+            callback: function(closeEvent) {
+                var returnValue;
+                switch (closeEvent.index) {
                   case 0:
-                    this.settings.value = b.value, "function" == typeof this.get("onok") && (c = this.get("onok").call(this, a, this.settings.value), 
-                    "undefined" != typeof c && (a.cancel = !c));
+                    this.settings.value = input.value;
+                    if (typeof this.get("onok") === "function") {
+                        returnValue = this.get("onok").call(this, closeEvent, this.settings.value);
+                        if (typeof returnValue !== "undefined") {
+                            closeEvent.cancel = !returnValue;
+                        }
+                    }
                     break;
 
                   case 1:
-                    "function" == typeof this.get("oncancel") && (c = this.get("oncancel").call(this, a), 
-                    "undefined" != typeof c && (a.cancel = !c));
+                    if (typeof this.get("oncancel") === "function") {
+                        returnValue = this.get("oncancel").call(this, closeEvent);
+                        if (typeof returnValue !== "undefined") {
+                            closeEvent.cancel = !returnValue;
+                        }
+                    }
+                    if (!closeEvent.cancel) {
+                        input.value = this.settings.value;
+                    }
+                    break;
                 }
             }
         };
-    }), "object" == typeof module && "object" == typeof module.exports ? module.exports = s : "function" == typeof define && define.amd ? define([], function() {
-        return s;
-    }) : a.alertify || (a.alertify = s);
-}("undefined" != typeof window ? window : this);
+    });
+    if (typeof module === "object" && typeof module.exports === "object") {
+        module.exports = alertify;
+    } else if (typeof define === "function" && define.amd) {
+        define([], function() {
+            return alertify;
+        });
+    } else if (!window.alertify) {
+        window.alertify = alertify;
+    }
+})(typeof window !== "undefined" ? window : this);
 
 (function(global, factory) {
     typeof exports === "object" && typeof module !== "undefined" ? module.exports = factory() : typeof define === "function" && define.amd ? define(factory) : global.CodeMirror = factory();
@@ -14219,128 +15221,268 @@
 })(jQuery);
 
 (function() {
-    var t, e, i, s, l = function(t, e) {
+    var ImagePicker, ImagePickerOption, both_array_are_equal, sanitized_options, __bind = function(fn, me) {
         return function() {
-            return t.apply(e, arguments);
+            return fn.apply(me, arguments);
         };
-    }, n = [].indexOf || function(t) {
-        for (var e = 0, i = this.length; i > e; e++) if (e in this && this[e] === t) return e;
+    }, __indexOf = [].indexOf || function(item) {
+        for (var i = 0, l = this.length; i < l; i++) {
+            if (i in this && this[i] === item) return i;
+        }
         return -1;
     };
     jQuery.fn.extend({
-        imagepicker: function(e) {
-            return null == e && (e = {}), this.each(function() {
-                var i;
-                return i = jQuery(this), i.data("picker") && i.data("picker").destroy(), i.data("picker", new t(this, s(e))), 
-                null != e.initialized ? e.initialized.call(i.data("picker")) : void 0;
+        imagepicker: function(opts) {
+            if (opts == null) {
+                opts = {};
+            }
+            return this.each(function() {
+                var select;
+                select = jQuery(this);
+                if (select.data("picker")) {
+                    select.data("picker").destroy();
+                }
+                select.data("picker", new ImagePicker(this, sanitized_options(opts)));
+                if (opts.initialized != null) {
+                    return opts.initialized.call(select.data("picker"));
+                }
             });
         }
-    }), s = function(t) {
-        var e;
-        return e = {
-            hide_select: !0,
-            show_label: !1,
+    });
+    sanitized_options = function(opts) {
+        var default_options;
+        default_options = {
+            hide_select: true,
+            show_label: false,
             initialized: void 0,
             changed: void 0,
             clicked: void 0,
             selected: void 0,
             limit: void 0,
             limit_reached: void 0
-        }, jQuery.extend(e, t);
-    }, i = function(t, e) {
-        return 0 === jQuery(t).not(e).length && 0 === jQuery(e).not(t).length;
-    }, t = function() {
-        function t(t, e) {
-            this.opts = null != e ? e : {}, this.sync_picker_with_select = l(this.sync_picker_with_select, this), 
-            this.select = jQuery(t), this.multiple = "multiple" === this.select.attr("multiple"), 
-            null != this.select.data("limit") && (this.opts.limit = parseInt(this.select.data("limit"))), 
+        };
+        return jQuery.extend(default_options, opts);
+    };
+    both_array_are_equal = function(a, b) {
+        return jQuery(a).not(b).length === 0 && jQuery(b).not(a).length === 0;
+    };
+    ImagePicker = function() {
+        function ImagePicker(select_element, opts) {
+            this.opts = opts != null ? opts : {};
+            this.sync_picker_with_select = __bind(this.sync_picker_with_select, this);
+            this.select = jQuery(select_element);
+            this.multiple = this.select.attr("multiple") === "multiple";
+            if (this.select.data("limit") != null) {
+                this.opts.limit = parseInt(this.select.data("limit"));
+            }
             this.build_and_append_picker();
         }
-        return t.prototype.destroy = function() {
-            var t, e, i, s;
-            for (s = this.picker_options, e = 0, i = s.length; i > e; e++) t = s[e], t.destroy();
-            return this.picker.remove(), this.select.unbind("change"), this.select.removeData("picker"), 
-            this.select.show();
-        }, t.prototype.build_and_append_picker = function() {
-            var t = this;
-            return this.opts.hide_select && this.select.hide(), this.select.change(function() {
-                return t.sync_picker_with_select();
-            }), null != this.picker && this.picker.remove(), this.create_picker(), this.select.after(this.picker), 
-            this.sync_picker_with_select();
-        }, t.prototype.sync_picker_with_select = function() {
-            var t, e, i, s, l;
-            for (s = this.picker_options, l = [], e = 0, i = s.length; i > e; e++) t = s[e], 
-            t.is_selected() ? l.push(t.mark_as_selected()) : l.push(t.unmark_as_selected());
-            return l;
-        }, t.prototype.create_picker = function() {
-            return this.picker = jQuery("<ul class='thumbnails image_picker_selector'></ul>"), 
-            this.picker_options = [], this.recursively_parse_option_groups(this.select, this.picker), 
-            this.picker;
-        }, t.prototype.recursively_parse_option_groups = function(t, i) {
-            var s, l, n, r, c, o, h, a, p, u;
-            for (a = t.children("optgroup"), r = 0, o = a.length; o > r; r++) n = a[r], n = jQuery(n), 
-            s = jQuery("<ul></ul>"), s.append(jQuery("<li class='group_title'>" + n.attr("label") + "</li>")), 
-            i.append(jQuery("<li>").append(s)), this.recursively_parse_option_groups(n, s);
-            for (p = function() {
-                var i, s, n, r;
-                for (n = t.children("option"), r = [], i = 0, s = n.length; s > i; i++) l = n[i], 
-                r.push(new e(l, this, this.opts));
-                return r;
-            }.call(this), u = [], c = 0, h = p.length; h > c; c++) l = p[c], this.picker_options.push(l), 
-            l.has_image() && u.push(i.append(l.node));
-            return u;
-        }, t.prototype.has_implicit_blanks = function() {
-            var t;
+        ImagePicker.prototype.destroy = function() {
+            var option, _i, _len, _ref;
+            _ref = this.picker_options;
+            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                option = _ref[_i];
+                option.destroy();
+            }
+            this.picker.remove();
+            this.select.unbind("change");
+            this.select.removeData("picker");
+            return this.select.show();
+        };
+        ImagePicker.prototype.build_and_append_picker = function() {
+            var _this = this;
+            if (this.opts.hide_select) {
+                this.select.hide();
+            }
+            this.select.change(function() {
+                return _this.sync_picker_with_select();
+            });
+            if (this.picker != null) {
+                this.picker.remove();
+            }
+            this.create_picker();
+            this.select.after(this.picker);
+            return this.sync_picker_with_select();
+        };
+        ImagePicker.prototype.sync_picker_with_select = function() {
+            var option, _i, _len, _ref, _results;
+            _ref = this.picker_options;
+            _results = [];
+            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                option = _ref[_i];
+                if (option.is_selected()) {
+                    _results.push(option.mark_as_selected());
+                } else {
+                    _results.push(option.unmark_as_selected());
+                }
+            }
+            return _results;
+        };
+        ImagePicker.prototype.create_picker = function() {
+            this.picker = jQuery("<ul class='thumbnails image_picker_selector'></ul>");
+            this.picker_options = [];
+            this.recursively_parse_option_groups(this.select, this.picker);
+            return this.picker;
+        };
+        ImagePicker.prototype.recursively_parse_option_groups = function(scoped_dom, target_container) {
+            var container, option, option_group, _i, _j, _len, _len1, _ref, _ref1, _results;
+            _ref = scoped_dom.children("optgroup");
+            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                option_group = _ref[_i];
+                option_group = jQuery(option_group);
+                container = jQuery("<ul></ul>");
+                container.append(jQuery("<li class='group_title'>" + option_group.attr("label") + "</li>"));
+                target_container.append(jQuery("<li>").append(container));
+                this.recursively_parse_option_groups(option_group, container);
+            }
+            _ref1 = function() {
+                var _k, _len1, _ref1, _results1;
+                _ref1 = scoped_dom.children("option");
+                _results1 = [];
+                for (_k = 0, _len1 = _ref1.length; _k < _len1; _k++) {
+                    option = _ref1[_k];
+                    _results1.push(new ImagePickerOption(option, this, this.opts));
+                }
+                return _results1;
+            }.call(this);
+            _results = [];
+            for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+                option = _ref1[_j];
+                this.picker_options.push(option);
+                if (!option.has_image()) {
+                    continue;
+                }
+                _results.push(target_container.append(option.node));
+            }
+            return _results;
+        };
+        ImagePicker.prototype.has_implicit_blanks = function() {
+            var option;
             return function() {
-                var e, i, s, l;
-                for (s = this.picker_options, l = [], e = 0, i = s.length; i > e; e++) t = s[e], 
-                t.is_blank() && !t.has_image() && l.push(t);
-                return l;
+                var _i, _len, _ref, _results;
+                _ref = this.picker_options;
+                _results = [];
+                for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                    option = _ref[_i];
+                    if (option.is_blank() && !option.has_image()) {
+                        _results.push(option);
+                    }
+                }
+                return _results;
             }.call(this).length > 0;
-        }, t.prototype.selected_values = function() {
-            return this.multiple ? this.select.val() || [] : [ this.select.val() ];
-        }, t.prototype.toggle = function(t) {
-            var e, s, l;
-            return s = this.selected_values(), l = "" + t.value(), this.multiple ? n.call(this.selected_values(), l) >= 0 ? (e = this.selected_values(), 
-            e.splice(jQuery.inArray(l, s), 1), this.select.val([]), this.select.val(e)) : null != this.opts.limit && this.selected_values().length >= this.opts.limit ? null != this.opts.limit_reached && this.opts.limit_reached.call(this.select) : this.select.val(this.selected_values().concat(l)) : this.has_implicit_blanks() && t.is_selected() ? this.select.val("") : this.select.val(l), 
-            i(s, this.selected_values()) || (this.select.change(), null == this.opts.changed) ? void 0 : this.opts.changed.call(this.select, s, this.selected_values());
-        }, t;
-    }(), e = function() {
-        function t(t, e, i) {
-            this.picker = e, this.opts = null != i ? i : {}, this.clicked = l(this.clicked, this), 
-            this.option = jQuery(t), this.create_node();
+        };
+        ImagePicker.prototype.selected_values = function() {
+            if (this.multiple) {
+                return this.select.val() || [];
+            } else {
+                return [ this.select.val() ];
+            }
+        };
+        ImagePicker.prototype.toggle = function(imagepicker_option) {
+            var new_values, old_values, selected_value;
+            old_values = this.selected_values();
+            selected_value = imagepicker_option.value().toString();
+            if (this.multiple) {
+                if (__indexOf.call(this.selected_values(), selected_value) >= 0) {
+                    new_values = this.selected_values();
+                    new_values.splice(jQuery.inArray(selected_value, old_values), 1);
+                    this.select.val([]);
+                    this.select.val(new_values);
+                } else {
+                    if (this.opts.limit != null && this.selected_values().length >= this.opts.limit) {
+                        if (this.opts.limit_reached != null) {
+                            this.opts.limit_reached.call(this.select);
+                        }
+                    } else {
+                        this.select.val(this.selected_values().concat(selected_value));
+                    }
+                }
+            } else {
+                if (this.has_implicit_blanks() && imagepicker_option.is_selected()) {
+                    this.select.val("");
+                } else {
+                    this.select.val(selected_value);
+                }
+            }
+            if (!both_array_are_equal(old_values, this.selected_values())) {
+                this.select.change();
+                if (this.opts.changed != null) {
+                    return this.opts.changed.call(this.select, old_values, this.selected_values());
+                }
+            }
+        };
+        return ImagePicker;
+    }();
+    ImagePickerOption = function() {
+        function ImagePickerOption(option_element, picker, opts) {
+            this.picker = picker;
+            this.opts = opts != null ? opts : {};
+            this.clicked = __bind(this.clicked, this);
+            this.option = jQuery(option_element);
+            this.create_node();
         }
-        return t.prototype.destroy = function() {
+        ImagePickerOption.prototype.destroy = function() {
             return this.node.find(".thumbnail").unbind();
-        }, t.prototype.has_image = function() {
-            return null != this.option.data("img-src");
-        }, t.prototype.is_blank = function() {
-            return !(null != this.value() && "" !== this.value());
-        }, t.prototype.is_selected = function() {
-            var t;
-            return t = this.picker.select.val(), this.picker.multiple ? jQuery.inArray(this.value(), t) >= 0 : this.value() === t;
-        }, t.prototype.mark_as_selected = function() {
+        };
+        ImagePickerOption.prototype.has_image = function() {
+            return this.option.data("img-src") != null;
+        };
+        ImagePickerOption.prototype.is_blank = function() {
+            return !(this.value() != null && this.value() !== "");
+        };
+        ImagePickerOption.prototype.is_selected = function() {
+            var select_value;
+            select_value = this.picker.select.val();
+            if (this.picker.multiple) {
+                return jQuery.inArray(this.value(), select_value) >= 0;
+            } else {
+                return this.value() === select_value;
+            }
+        };
+        ImagePickerOption.prototype.mark_as_selected = function() {
             return this.node.find(".thumbnail").addClass("selected");
-        }, t.prototype.unmark_as_selected = function() {
+        };
+        ImagePickerOption.prototype.unmark_as_selected = function() {
             return this.node.find(".thumbnail").removeClass("selected");
-        }, t.prototype.value = function() {
+        };
+        ImagePickerOption.prototype.value = function() {
             return this.option.val();
-        }, t.prototype.label = function() {
-            return this.option.data("img-label") ? this.option.data("img-label") : this.option.text();
-        }, t.prototype.clicked = function() {
-            return this.picker.toggle(this), null != this.opts.clicked && this.opts.clicked.call(this.picker.select, this), 
-            null != this.opts.selected && this.is_selected() ? this.opts.selected.call(this.picker.select, this) : void 0;
-        }, t.prototype.create_node = function() {
-            var t, e;
-            return this.node = jQuery("<li/>"), t = jQuery("<img class='image_picker_image'/>"), 
-            t.attr("src", this.option.data("img-src")), e = jQuery("<div class='thumbnail'>"), 
-            e.click({
+        };
+        ImagePickerOption.prototype.label = function() {
+            if (this.option.data("img-label")) {
+                return this.option.data("img-label");
+            } else {
+                return this.option.text();
+            }
+        };
+        ImagePickerOption.prototype.clicked = function() {
+            this.picker.toggle(this);
+            if (this.opts.clicked != null) {
+                this.opts.clicked.call(this.picker.select, this);
+            }
+            if (this.opts.selected != null && this.is_selected()) {
+                return this.opts.selected.call(this.picker.select, this);
+            }
+        };
+        ImagePickerOption.prototype.create_node = function() {
+            var image, thumbnail;
+            this.node = jQuery("<li/>");
+            image = jQuery("<img class='image_picker_image'/>");
+            image.attr("src", this.option.data("img-src"));
+            thumbnail = jQuery("<div class='thumbnail'>");
+            thumbnail.click({
                 option: this
-            }, function(t) {
-                return t.data.option.clicked();
-            }), e.append(t), this.opts.show_label && e.append(jQuery("<p/>").html(this.label())), 
-            this.node.append(e), this.node;
-        }, t;
+            }, function(event) {
+                return event.data.option.clicked();
+            });
+            thumbnail.append(image);
+            if (this.opts.show_label) {
+                thumbnail.append(jQuery("<p/>").html(this.label()));
+            }
+            this.node.append(thumbnail);
+            return this.node;
+        };
+        return ImagePickerOption;
     }();
 }).call(this);
 
@@ -22808,172 +23950,419 @@ if (!("classList" in document.createElement("_"))) {
     };
 })(jQuery);
 
-!function(a, b, c) {
+(function($, window, document) {
     "use strict";
-    var d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x;
-    w = {
+    var BROWSER_IS_IE7, BROWSER_SCROLLBAR_WIDTH, DOMSCROLL, DOWN, DRAG, KEYDOWN, KEYUP, MOUSEDOWN, MOUSEMOVE, MOUSEUP, MOUSEWHEEL, NanoScroll, PANEDOWN, RESIZE, SCROLL, SCROLLBAR, TOUCHMOVE, UP, WHEEL, defaults, getBrowserScrollbarWidth;
+    defaults = {
         paneClass: "pane",
         sliderClass: "slider",
         contentClass: "content",
-        iOSNativeScrolling: !1,
-        preventPageScrolling: !1,
-        disableResize: !1,
-        alwaysVisible: !1,
+        iOSNativeScrolling: false,
+        preventPageScrolling: false,
+        disableResize: false,
+        alwaysVisible: false,
         flashDelay: 1500,
         sliderMinHeight: 20,
         sliderMaxHeight: null,
         documentContext: null,
         windowContext: null
-    }, s = "scrollbar", r = "scroll", k = "mousedown", l = "mousemove", n = "mousewheel", 
-    m = "mouseup", q = "resize", h = "drag", u = "up", p = "panedown", f = "DOMMouseScroll", 
-    g = "down", v = "wheel", i = "keydown", j = "keyup", t = "touchmove", d = "Microsoft Internet Explorer" === b.navigator.appName && /msie 7./i.test(b.navigator.appVersion) && b.ActiveXObject, 
-    e = null, x = function() {
-        var a, b, d;
-        return a = c.createElement("div"), b = a.style, b.position = "absolute", b.width = "100px", 
-        b.height = "100px", b.overflow = r, b.top = "-9999px", c.body.appendChild(a), d = a.offsetWidth - a.clientWidth, 
-        c.body.removeChild(a), d;
-    }, o = function() {
-        function i(d, f) {
-            this.el = d, this.options = f, e || (e = x()), this.$el = a(this.el), this.doc = a(this.options.documentContext || c), 
-            this.win = a(this.options.windowContext || b), this.$content = this.$el.children("." + f.contentClass), 
-            this.$content.attr("tabindex", this.options.tabIndex || 0), this.content = this.$content[0], 
-            this.options.iOSNativeScrolling && null != this.el.style.WebkitOverflowScrolling ? this.nativeScrolling() : this.generate(), 
-            this.createEvents(), this.addEvents(), this.reset();
-        }
-        return i.prototype.preventScrolling = function(a, b) {
-            if (this.isActive) if (a.type === f) (b === g && a.originalEvent.detail > 0 || b === u && a.originalEvent.detail < 0) && a.preventDefault(); else if (a.type === n) {
-                if (!a.originalEvent || !a.originalEvent.wheelDelta) return;
-                (b === g && a.originalEvent.wheelDelta < 0 || b === u && a.originalEvent.wheelDelta > 0) && a.preventDefault();
+    };
+    SCROLLBAR = "scrollbar";
+    SCROLL = "scroll";
+    MOUSEDOWN = "mousedown";
+    MOUSEMOVE = "mousemove";
+    MOUSEWHEEL = "mousewheel";
+    MOUSEUP = "mouseup";
+    RESIZE = "resize";
+    DRAG = "drag";
+    UP = "up";
+    PANEDOWN = "panedown";
+    DOMSCROLL = "DOMMouseScroll";
+    DOWN = "down";
+    WHEEL = "wheel";
+    KEYDOWN = "keydown";
+    KEYUP = "keyup";
+    TOUCHMOVE = "touchmove";
+    BROWSER_IS_IE7 = window.navigator.appName === "Microsoft Internet Explorer" && /msie 7./i.test(window.navigator.appVersion) && window.ActiveXObject;
+    BROWSER_SCROLLBAR_WIDTH = null;
+    getBrowserScrollbarWidth = function() {
+        var outer, outerStyle, scrollbarWidth;
+        outer = document.createElement("div");
+        outerStyle = outer.style;
+        outerStyle.position = "absolute";
+        outerStyle.width = "100px";
+        outerStyle.height = "100px";
+        outerStyle.overflow = SCROLL;
+        outerStyle.top = "-9999px";
+        document.body.appendChild(outer);
+        scrollbarWidth = outer.offsetWidth - outer.clientWidth;
+        document.body.removeChild(outer);
+        return scrollbarWidth;
+    };
+    NanoScroll = function() {
+        function NanoScroll(el, options) {
+            this.el = el;
+            this.options = options;
+            BROWSER_SCROLLBAR_WIDTH || (BROWSER_SCROLLBAR_WIDTH = getBrowserScrollbarWidth());
+            this.$el = $(this.el);
+            this.doc = $(this.options.documentContext || document);
+            this.win = $(this.options.windowContext || window);
+            this.$content = this.$el.children("." + options.contentClass);
+            this.$content.attr("tabindex", this.options.tabIndex || 0);
+            this.content = this.$content[0];
+            if (this.options.iOSNativeScrolling && this.el.style.WebkitOverflowScrolling != null) {
+                this.nativeScrolling();
+            } else {
+                this.generate();
             }
-        }, i.prototype.nativeScrolling = function() {
+            this.createEvents();
+            this.addEvents();
+            this.reset();
+        }
+        NanoScroll.prototype.preventScrolling = function(e, direction) {
+            if (!this.isActive) {
+                return;
+            }
+            if (e.type === DOMSCROLL) {
+                if (direction === DOWN && e.originalEvent.detail > 0 || direction === UP && e.originalEvent.detail < 0) {
+                    e.preventDefault();
+                }
+            } else if (e.type === MOUSEWHEEL) {
+                if (!e.originalEvent || !e.originalEvent.wheelDelta) {
+                    return;
+                }
+                if (direction === DOWN && e.originalEvent.wheelDelta < 0 || direction === UP && e.originalEvent.wheelDelta > 0) {
+                    e.preventDefault();
+                }
+            }
+        };
+        NanoScroll.prototype.nativeScrolling = function() {
             this.$content.css({
                 WebkitOverflowScrolling: "touch"
-            }), this.iOSNativeScrolling = !0, this.isActive = !0;
-        }, i.prototype.updateScrollValues = function() {
-            var a;
-            a = this.content, this.maxScrollTop = a.scrollHeight - a.clientHeight, this.prevScrollTop = this.contentScrollTop || 0, 
-            this.contentScrollTop = a.scrollTop, this.iOSNativeScrolling || (this.maxSliderTop = this.paneHeight - this.sliderHeight, 
-            this.sliderTop = 0 === this.maxScrollTop ? 0 : this.contentScrollTop * this.maxSliderTop / this.maxScrollTop);
-        }, i.prototype.createEvents = function() {
-            var a = this;
+            });
+            this.iOSNativeScrolling = true;
+            this.isActive = true;
+        };
+        NanoScroll.prototype.updateScrollValues = function() {
+            var content;
+            content = this.content;
+            this.maxScrollTop = content.scrollHeight - content.clientHeight;
+            this.prevScrollTop = this.contentScrollTop || 0;
+            this.contentScrollTop = content.scrollTop;
+            if (!this.iOSNativeScrolling) {
+                this.maxSliderTop = this.paneHeight - this.sliderHeight;
+                this.sliderTop = this.maxScrollTop === 0 ? 0 : this.contentScrollTop * this.maxSliderTop / this.maxScrollTop;
+            }
+        };
+        NanoScroll.prototype.createEvents = function() {
+            var _this = this;
             this.events = {
-                down: function(b) {
-                    return a.isBeingDragged = !0, a.offsetY = b.pageY - a.slider.offset().top, a.pane.addClass("active"), 
-                    a.doc.bind(l, a.events[h]).bind(m, a.events[u]), !1;
+                down: function(e) {
+                    _this.isBeingDragged = true;
+                    _this.offsetY = e.pageY - _this.slider.offset().top;
+                    _this.pane.addClass("active");
+                    _this.doc.bind(MOUSEMOVE, _this.events[DRAG]).bind(MOUSEUP, _this.events[UP]);
+                    return false;
                 },
-                drag: function(b) {
-                    return a.sliderY = b.pageY - a.$el.offset().top - a.offsetY, a.scroll(), a.updateScrollValues(), 
-                    a.contentScrollTop >= a.maxScrollTop && a.prevScrollTop !== a.maxScrollTop ? a.$el.trigger("scrollend") : 0 === a.contentScrollTop && 0 !== a.prevScrollTop && a.$el.trigger("scrolltop"), 
-                    !1;
+                drag: function(e) {
+                    _this.sliderY = e.pageY - _this.$el.offset().top - _this.offsetY;
+                    _this.scroll();
+                    _this.updateScrollValues();
+                    if (_this.contentScrollTop >= _this.maxScrollTop && _this.prevScrollTop !== _this.maxScrollTop) {
+                        _this.$el.trigger("scrollend");
+                    } else if (_this.contentScrollTop === 0 && _this.prevScrollTop !== 0) {
+                        _this.$el.trigger("scrolltop");
+                    }
+                    return false;
                 },
-                up: function() {
-                    return a.isBeingDragged = !1, a.pane.removeClass("active"), a.doc.unbind(l, a.events[h]).unbind(m, a.events[u]), 
-                    !1;
+                up: function(e) {
+                    _this.isBeingDragged = false;
+                    _this.pane.removeClass("active");
+                    _this.doc.unbind(MOUSEMOVE, _this.events[DRAG]).unbind(MOUSEUP, _this.events[UP]);
+                    return false;
                 },
-                resize: function() {
-                    a.reset();
+                resize: function(e) {
+                    _this.reset();
                 },
-                panedown: function(b) {
-                    return a.sliderY = (b.offsetY || b.originalEvent.layerY) - .5 * a.sliderHeight, 
-                    a.scroll(), a.events.down(b), !1;
+                panedown: function(e) {
+                    _this.sliderY = (e.offsetY || e.originalEvent.layerY) - _this.sliderHeight * .5;
+                    _this.scroll();
+                    _this.events.down(e);
+                    return false;
                 },
-                scroll: function(b) {
-                    a.isBeingDragged || (a.updateScrollValues(), a.iOSNativeScrolling || (a.sliderY = a.sliderTop, 
-                    a.slider.css({
-                        top: a.sliderTop
-                    })), null != b && (a.contentScrollTop >= a.maxScrollTop ? (a.options.preventPageScrolling && a.preventScrolling(b, g), 
-                    a.prevScrollTop !== a.maxScrollTop && a.$el.trigger("scrollend")) : 0 === a.contentScrollTop && (a.options.preventPageScrolling && a.preventScrolling(b, u), 
-                    0 !== a.prevScrollTop && a.$el.trigger("scrolltop"))));
+                scroll: function(e) {
+                    if (_this.isBeingDragged) {
+                        return;
+                    }
+                    _this.updateScrollValues();
+                    if (!_this.iOSNativeScrolling) {
+                        _this.sliderY = _this.sliderTop;
+                        _this.slider.css({
+                            top: _this.sliderTop
+                        });
+                    }
+                    if (e == null) {
+                        return;
+                    }
+                    if (_this.contentScrollTop >= _this.maxScrollTop) {
+                        if (_this.options.preventPageScrolling) {
+                            _this.preventScrolling(e, DOWN);
+                        }
+                        if (_this.prevScrollTop !== _this.maxScrollTop) {
+                            _this.$el.trigger("scrollend");
+                        }
+                    } else if (_this.contentScrollTop === 0) {
+                        if (_this.options.preventPageScrolling) {
+                            _this.preventScrolling(e, UP);
+                        }
+                        if (_this.prevScrollTop !== 0) {
+                            _this.$el.trigger("scrolltop");
+                        }
+                    }
                 },
-                wheel: function(b) {
-                    var c;
-                    if (null != b) return c = b.delta || b.wheelDelta || b.originalEvent && b.originalEvent.wheelDelta || -b.detail || b.originalEvent && -b.originalEvent.detail, 
-                    c && (a.sliderY += -c / 3), a.scroll(), !1;
+                wheel: function(e) {
+                    var delta;
+                    if (e == null) {
+                        return;
+                    }
+                    delta = e.delta || e.wheelDelta || e.originalEvent && e.originalEvent.wheelDelta || -e.detail || e.originalEvent && -e.originalEvent.detail;
+                    if (delta) {
+                        _this.sliderY += -delta / 3;
+                    }
+                    _this.scroll();
+                    return false;
                 }
             };
-        }, i.prototype.addEvents = function() {
-            var a;
-            this.removeEvents(), a = this.events, this.options.disableResize || this.win.bind(q, a[q]), 
-            this.iOSNativeScrolling || (this.slider.bind(k, a[g]), this.pane.bind(k, a[p]).bind("" + n + " " + f, a[v])), 
-            this.$content.bind("" + r + " " + n + " " + f + " " + t, a[r]);
-        }, i.prototype.removeEvents = function() {
-            var a;
-            a = this.events, this.win.unbind(q, a[q]), this.iOSNativeScrolling || (this.slider.unbind(), 
-            this.pane.unbind()), this.$content.unbind("" + r + " " + n + " " + f + " " + t, a[r]);
-        }, i.prototype.generate = function() {
-            var a, b, c, d, f;
-            return c = this.options, d = c.paneClass, f = c.sliderClass, a = c.contentClass, 
-            this.$el.find("" + d).length || this.$el.find("" + f).length || this.$el.append('<div class="' + d + '"><div class="' + f + '" /></div>'), 
-            this.pane = this.$el.children("." + d), this.slider = this.pane.find("." + f), e && (b = {
-                right: -e
-            }, this.$el.addClass("has-scrollbar")), null != b && this.$content.css(b), this;
-        }, i.prototype.restore = function() {
-            this.stopped = !1, this.pane.show(), this.addEvents();
-        }, i.prototype.reset = function() {
-            var a, b, c, f, g, h, i, j, k, l;
-            return this.iOSNativeScrolling ? (this.contentHeight = this.content.scrollHeight, 
-            void 0) : (this.$el.find("." + this.options.paneClass).length || this.generate().stop(), 
-            this.stopped && this.restore(), a = this.content, c = a.style, f = c.overflowY, 
-            d && this.$content.css({
-                height: this.$content.height()
-            }), b = a.scrollHeight + e, k = parseInt(this.$el.css("max-height"), 10), k > 0 && (this.$el.height(""), 
-            this.$el.height(a.scrollHeight > k ? k : a.scrollHeight)), h = this.pane.outerHeight(!1), 
-            j = parseInt(this.pane.css("top"), 10), g = parseInt(this.pane.css("bottom"), 10), 
-            i = h + j + g, l = Math.round(i / b * i), l < this.options.sliderMinHeight ? l = this.options.sliderMinHeight : null != this.options.sliderMaxHeight && l > this.options.sliderMaxHeight && (l = this.options.sliderMaxHeight), 
-            f === r && c.overflowX !== r && (l += e), this.maxSliderTop = i - l, this.contentHeight = b, 
-            this.paneHeight = h, this.paneOuterHeight = i, this.sliderHeight = l, this.slider.height(l), 
-            this.events.scroll(), this.pane.show(), this.isActive = !0, a.scrollHeight === a.clientHeight || this.pane.outerHeight(!0) >= a.scrollHeight && f !== r ? (this.pane.hide(), 
-            this.isActive = !1) : this.el.clientHeight === a.scrollHeight && f === r ? this.slider.hide() : this.slider.show(), 
+        };
+        NanoScroll.prototype.addEvents = function() {
+            var events;
+            this.removeEvents();
+            events = this.events;
+            if (!this.options.disableResize) {
+                this.win.bind(RESIZE, events[RESIZE]);
+            }
+            if (!this.iOSNativeScrolling) {
+                this.slider.bind(MOUSEDOWN, events[DOWN]);
+                this.pane.bind(MOUSEDOWN, events[PANEDOWN]).bind("" + MOUSEWHEEL + " " + DOMSCROLL, events[WHEEL]);
+            }
+            this.$content.bind("" + SCROLL + " " + MOUSEWHEEL + " " + DOMSCROLL + " " + TOUCHMOVE, events[SCROLL]);
+        };
+        NanoScroll.prototype.removeEvents = function() {
+            var events;
+            events = this.events;
+            this.win.unbind(RESIZE, events[RESIZE]);
+            if (!this.iOSNativeScrolling) {
+                this.slider.unbind();
+                this.pane.unbind();
+            }
+            this.$content.unbind("" + SCROLL + " " + MOUSEWHEEL + " " + DOMSCROLL + " " + TOUCHMOVE, events[SCROLL]);
+        };
+        NanoScroll.prototype.generate = function() {
+            var contentClass, cssRule, options, paneClass, sliderClass;
+            options = this.options;
+            paneClass = options.paneClass, sliderClass = options.sliderClass, contentClass = options.contentClass;
+            if (!this.$el.find("" + paneClass).length && !this.$el.find("" + sliderClass).length) {
+                this.$el.append('<div class="' + paneClass + '"><div class="' + sliderClass + '" /></div>');
+            }
+            this.pane = this.$el.children("." + paneClass);
+            this.slider = this.pane.find("." + sliderClass);
+            if (BROWSER_SCROLLBAR_WIDTH) {
+                cssRule = {
+                    right: -BROWSER_SCROLLBAR_WIDTH
+                };
+                this.$el.addClass("has-scrollbar");
+            }
+            if (cssRule != null) {
+                this.$content.css(cssRule);
+            }
+            return this;
+        };
+        NanoScroll.prototype.restore = function() {
+            this.stopped = false;
+            this.pane.show();
+            this.addEvents();
+        };
+        NanoScroll.prototype.reset = function() {
+            var content, contentHeight, contentStyle, contentStyleOverflowY, paneBottom, paneHeight, paneOuterHeight, paneTop, parentMaxHeight, sliderHeight;
+            if (this.iOSNativeScrolling) {
+                this.contentHeight = this.content.scrollHeight;
+                return;
+            }
+            if (!this.$el.find("." + this.options.paneClass).length) {
+                this.generate().stop();
+            }
+            if (this.stopped) {
+                this.restore();
+            }
+            content = this.content;
+            contentStyle = content.style;
+            contentStyleOverflowY = contentStyle.overflowY;
+            if (BROWSER_IS_IE7) {
+                this.$content.css({
+                    height: this.$content.height()
+                });
+            }
+            contentHeight = content.scrollHeight + BROWSER_SCROLLBAR_WIDTH;
+            parentMaxHeight = parseInt(this.$el.css("max-height"), 10);
+            if (parentMaxHeight > 0) {
+                this.$el.height("");
+                this.$el.height(content.scrollHeight > parentMaxHeight ? parentMaxHeight : content.scrollHeight);
+            }
+            paneHeight = this.pane.outerHeight(false);
+            paneTop = parseInt(this.pane.css("top"), 10);
+            paneBottom = parseInt(this.pane.css("bottom"), 10);
+            paneOuterHeight = paneHeight + paneTop + paneBottom;
+            sliderHeight = Math.round(paneOuterHeight / contentHeight * paneOuterHeight);
+            if (sliderHeight < this.options.sliderMinHeight) {
+                sliderHeight = this.options.sliderMinHeight;
+            } else if (this.options.sliderMaxHeight != null && sliderHeight > this.options.sliderMaxHeight) {
+                sliderHeight = this.options.sliderMaxHeight;
+            }
+            if (contentStyleOverflowY === SCROLL && contentStyle.overflowX !== SCROLL) {
+                sliderHeight += BROWSER_SCROLLBAR_WIDTH;
+            }
+            this.maxSliderTop = paneOuterHeight - sliderHeight;
+            this.contentHeight = contentHeight;
+            this.paneHeight = paneHeight;
+            this.paneOuterHeight = paneOuterHeight;
+            this.sliderHeight = sliderHeight;
+            this.slider.height(sliderHeight);
+            this.events.scroll();
+            this.pane.show();
+            this.isActive = true;
+            if (content.scrollHeight === content.clientHeight || this.pane.outerHeight(true) >= content.scrollHeight && contentStyleOverflowY !== SCROLL) {
+                this.pane.hide();
+                this.isActive = false;
+            } else if (this.el.clientHeight === content.scrollHeight && contentStyleOverflowY === SCROLL) {
+                this.slider.hide();
+            } else {
+                this.slider.show();
+            }
             this.pane.css({
                 opacity: this.options.alwaysVisible ? 1 : "",
                 visibility: this.options.alwaysVisible ? "visible" : ""
-            }), this);
-        }, i.prototype.scroll = function() {
-            return this.isActive ? (this.sliderY = Math.max(0, this.sliderY), this.sliderY = Math.min(this.maxSliderTop, this.sliderY), 
-            this.$content.scrollTop(-1 * ((this.paneHeight - this.contentHeight + e) * this.sliderY / this.maxSliderTop)), 
-            this.iOSNativeScrolling || this.slider.css({
-                top: this.sliderY
-            }), this) : void 0;
-        }, i.prototype.scrollBottom = function(a) {
-            return this.isActive ? (this.reset(), this.$content.scrollTop(this.contentHeight - this.$content.height() - a).trigger(n), 
-            this) : void 0;
-        }, i.prototype.scrollTop = function(a) {
-            return this.isActive ? (this.reset(), this.$content.scrollTop(+a).trigger(n), this) : void 0;
-        }, i.prototype.scrollTo = function(b) {
-            return this.isActive ? (this.reset(), this.scrollTop(a(b).get(0).offsetTop), this) : void 0;
-        }, i.prototype.stop = function() {
-            return this.stopped = !0, this.removeEvents(), this.pane.hide(), this;
-        }, i.prototype.destroy = function() {
-            return this.stopped || this.stop(), this.pane.length && this.pane.remove(), d && this.$content.height(""), 
-            this.$content.removeAttr("tabindex"), this.$el.hasClass("has-scrollbar") && (this.$el.removeClass("has-scrollbar"), 
-            this.$content.css({
-                right: ""
-            })), this;
-        }, i.prototype.flash = function() {
-            var a = this;
-            if (this.isActive) return this.reset(), this.pane.addClass("flashed"), setTimeout(function() {
-                a.pane.removeClass("flashed");
-            }, this.options.flashDelay), this;
-        }, i;
-    }(), a.fn.nanoScroller = function(b) {
-        return this.each(function() {
-            var c, d;
-            if ((d = this.nanoscroller) || (c = a.extend({}, w, b), this.nanoscroller = d = new o(this, c)), 
-            b && "object" == typeof b) {
-                if (a.extend(d.options, b), b.scrollBottom) return d.scrollBottom(b.scrollBottom);
-                if (b.scrollTop) return d.scrollTop(b.scrollTop);
-                if (b.scrollTo) return d.scrollTo(b.scrollTo);
-                if ("bottom" === b.scroll) return d.scrollBottom(0);
-                if ("top" === b.scroll) return d.scrollTop(0);
-                if (b.scroll && b.scroll instanceof a) return d.scrollTo(b.scroll);
-                if (b.stop) return d.stop();
-                if (b.destroy) return d.destroy();
-                if (b.flash) return d.flash();
+            });
+            return this;
+        };
+        NanoScroll.prototype.scroll = function() {
+            if (!this.isActive) {
+                return;
             }
-            return d.reset();
+            this.sliderY = Math.max(0, this.sliderY);
+            this.sliderY = Math.min(this.maxSliderTop, this.sliderY);
+            this.$content.scrollTop((this.paneHeight - this.contentHeight + BROWSER_SCROLLBAR_WIDTH) * this.sliderY / this.maxSliderTop * -1);
+            if (!this.iOSNativeScrolling) {
+                this.slider.css({
+                    top: this.sliderY
+                });
+            }
+            return this;
+        };
+        NanoScroll.prototype.scrollBottom = function(offsetY) {
+            if (!this.isActive) {
+                return;
+            }
+            this.reset();
+            this.$content.scrollTop(this.contentHeight - this.$content.height() - offsetY).trigger(MOUSEWHEEL);
+            return this;
+        };
+        NanoScroll.prototype.scrollTop = function(offsetY) {
+            if (!this.isActive) {
+                return;
+            }
+            this.reset();
+            this.$content.scrollTop(+offsetY).trigger(MOUSEWHEEL);
+            return this;
+        };
+        NanoScroll.prototype.scrollTo = function(node) {
+            if (!this.isActive) {
+                return;
+            }
+            this.reset();
+            this.scrollTop($(node).get(0).offsetTop);
+            return this;
+        };
+        NanoScroll.prototype.stop = function() {
+            this.stopped = true;
+            this.removeEvents();
+            this.pane.hide();
+            return this;
+        };
+        NanoScroll.prototype.destroy = function() {
+            if (!this.stopped) {
+                this.stop();
+            }
+            if (this.pane.length) {
+                this.pane.remove();
+            }
+            if (BROWSER_IS_IE7) {
+                this.$content.height("");
+            }
+            this.$content.removeAttr("tabindex");
+            if (this.$el.hasClass("has-scrollbar")) {
+                this.$el.removeClass("has-scrollbar");
+                this.$content.css({
+                    right: ""
+                });
+            }
+            return this;
+        };
+        NanoScroll.prototype.flash = function() {
+            var _this = this;
+            if (!this.isActive) {
+                return;
+            }
+            this.reset();
+            this.pane.addClass("flashed");
+            setTimeout(function() {
+                _this.pane.removeClass("flashed");
+            }, this.options.flashDelay);
+            return this;
+        };
+        return NanoScroll;
+    }();
+    $.fn.nanoScroller = function(settings) {
+        return this.each(function() {
+            var options, scrollbar;
+            if (!(scrollbar = this.nanoscroller)) {
+                options = $.extend({}, defaults, settings);
+                this.nanoscroller = scrollbar = new NanoScroll(this, options);
+            }
+            if (settings && typeof settings === "object") {
+                $.extend(scrollbar.options, settings);
+                if (settings.scrollBottom) {
+                    return scrollbar.scrollBottom(settings.scrollBottom);
+                }
+                if (settings.scrollTop) {
+                    return scrollbar.scrollTop(settings.scrollTop);
+                }
+                if (settings.scrollTo) {
+                    return scrollbar.scrollTo(settings.scrollTo);
+                }
+                if (settings.scroll === "bottom") {
+                    return scrollbar.scrollBottom(0);
+                }
+                if (settings.scroll === "top") {
+                    return scrollbar.scrollTop(0);
+                }
+                if (settings.scroll && settings.scroll instanceof $) {
+                    return scrollbar.scrollTo(settings.scroll);
+                }
+                if (settings.stop) {
+                    return scrollbar.stop();
+                }
+                if (settings.destroy) {
+                    return scrollbar.destroy();
+                }
+                if (settings.flash) {
+                    return scrollbar.flash();
+                }
+            }
+            return scrollbar.reset();
         });
-    }, a.fn.nanoScroller.Constructor = o;
-}(jQuery, window, document);
+    };
+    $.fn.nanoScroller.Constructor = NanoScroll;
+})(jQuery, window, document);
 
 (function(factory) {
     if (typeof define === "function" && define.amd) {

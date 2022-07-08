@@ -183,7 +183,7 @@ module.exports = {
     this.getStrings();
     var res = '';
     _.each(this.strings, function (string) {
-      if (string !== ''){
+      if (string !== '') {
         res = res + string + '\n';
       }
     });
