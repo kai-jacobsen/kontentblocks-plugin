@@ -9,6 +9,7 @@ use Kontentblocks\Fields\Definitions\ReturnObjects\StandardFieldReturn;
 use Kontentblocks\Kontentblocks;
 use Kontentblocks\Language\I18n;
 use Kontentblocks\Customizer\CustomizerIntegration;
+use Kontentblocks\Panels\AbstractPanel;
 use Kontentblocks\Templating\FieldView;
 use Kontentblocks\Fields\Returnobjects;
 
@@ -123,8 +124,8 @@ abstract class Field implements ExportableFieldInterface
     /**
      * Field parameters array
      * @param array $args
-     * @since 0.1.0
      * @return bool
+     * @since 0.1.0
      */
     public function setArgs($args)
     {
@@ -153,7 +154,11 @@ abstract class Field implements ExportableFieldInterface
     {
         $this->controller = $controller;
         $this->context = new FieldContext([], $controller->getEntity());
-        $this->relId =  $controller->getEntity()->getId() . '_' . $this->context->parentObjectId;
+        if (is_a($controller->getEntity(), AbstractPanel::class)) {
+            $this->relId = $controller->getEntity()->getId() . '_' . $this->context->parentObjectId;
+        } else {
+            $this->relId = $controller->getEntity()->getId();
+        }
     }
 
     /**
@@ -246,9 +251,9 @@ abstract class Field implements ExportableFieldInterface
      * The actual output method for the field markup
      * Any markup should be returned
      * Can be overridden by the individual field class
-     * @since 0.1.0
      * @param FieldFormRenderer $formController
      * @return bool
+     * @since 0.1.0
      */
     public function form(FieldFormRenderer $formController)
     {
@@ -310,8 +315,8 @@ abstract class Field implements ExportableFieldInterface
      *
      * @param mixed $data
      *
-     * @since 0.1.0
      * @return mixed
+     * @since 0.1.0
      */
     public function setValue($data)
     {
@@ -570,10 +575,10 @@ abstract class Field implements ExportableFieldInterface
      * to modify, sanitize, etc.. the data which is expected from the field
      *
      * prepareFrontend runs when data is setup for the frontend output of a module
-     * @since 0.1.0
      * @param null $salt
      * @return object
      * @throws \Exception
+     * @since 0.1.0
      */
     public function getFrontendValue($salt = null)
     {
