@@ -108,8 +108,6 @@ Class FlexibleFields extends Field
             }
         }
 
-        ddd($new);
-
         return $new;
     }
 
